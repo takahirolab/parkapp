@@ -51,7 +51,7 @@ export class FindActivity extends Component {
           {/* //体験 */}
 
         <div className ="container contents-margin">
-        <h1 className="header-title white-h1">公園で体験する</h1>
+        <h1 className="header-title white-h1">公園で体験するよ</h1>
          <div className="header-inner-1">
           <div className="header-items">
           {ActivityHome_list}
