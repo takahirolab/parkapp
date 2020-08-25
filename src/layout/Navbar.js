@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Profile from '../images/profile.svg'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import '../style.css'
 
@@ -23,8 +24,8 @@ export class Navbar extends Component {
                 </ul>
                 {authenticated ? (
                     <ul className="nav-items_center">
-                        <Link to="/" className="nav-item">プロフィール
-                        </Link>
+                         <li><AccountCircleIcon style={{ fontSize: 40 }}/></li>
+
                     </ul>
                 ):(
                     <ul className="nav-items_center">

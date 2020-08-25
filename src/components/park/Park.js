@@ -28,7 +28,6 @@ class Park extends Component {
   render() {
     dayjs.extend(relativeTime);
     const {
-      classes,
       park: {
         parkName,
         createdDate,
@@ -68,7 +67,6 @@ Park.propTypes = {
   user: PropTypes.object.isRequired,
   park: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
-  openDialog: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({

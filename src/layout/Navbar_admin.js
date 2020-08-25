@@ -21,7 +21,7 @@ export class Nabar_admin extends Component {
 
     render() {
         return (
-            <div>
+
                 <div className="nav nav_admin">
                     <div className="nav_inner_ad">
                         <div className="nav-title">
@@ -33,7 +33,6 @@ export class Nabar_admin extends Component {
                         </ul>
                     </div>
                 </div>
-             </div>
 
 
         )

@@ -6,12 +6,14 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
 
 // MUI Stuff
+import Deletepark from '../components/park/DeleteScream';
 
 
 // Icons
 import ChatIcon from '@material-ui/icons/Chat';
 // Redux
 import { connect } from 'react-redux';
+import Pic1 from '../images/pic1.png';
 
 
 
@@ -30,7 +32,14 @@ class ParkListView extends Component {
         likeCount,
         commentCount,
         parkImage,
-        parkAbout
+        parkAbout,
+        parkFeature,
+        parkPrice,
+        parkTag1,
+        parkTag2,
+        parkTag4,
+        parkUrl,
+        parkLocation,
       },
 
       user: {
@@ -40,12 +49,26 @@ class ParkListView extends Component {
 
     } = this.props;
 
-
-
     return (
-<div>
-        <td>{parkId}</td><td>{parkName}</td>
-        </div>
+
+        <tr>
+        <td>{parkId}</td>
+        <td><img src={Pic1} alt="ewqe" className="header-item-img"/></td>
+        <td>{parkName}</td>
+        <td>{parkAbout}</td>
+        <td>{parkFeature}</td>
+        <td>{createdDate}</td>
+        <td>{parkLocation}</td>
+        <td>{parkPrice}</td>
+        <td>{parkUrl}</td>
+        <td>{commentCount}</td>
+        <td>{likeCount}</td>
+         <td>{parkTag1}{parkTag2}{parkTag4}</td>
+        <td><Deletepark parkId={parkId}/></td>
+        </tr>
+
+
+
 
 
 

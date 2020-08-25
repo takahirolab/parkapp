@@ -35,12 +35,17 @@ const styles = (theme) => ({
   }
 });
 
+
+
+
 class PostScream extends Component {
   state = {
     open: false,
     parkName: '',
+    parkAbout:'',
     errors: {}
   };
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.UI.errors) {
       this.setState({
@@ -48,23 +53,38 @@ class PostScream extends Component {
       });
     }
     if (!nextProps.UI.errors && !nextProps.UI.loading) {
-      this.setState({ parkName: '', open: false, errors: {} });
+      this.setState({
+        parkName: '',
+        parkAbout: '',
+        open: false, errors: {},
+
+      });
+
     }
   }
   handleOpen = () => {
     this.setState({ open: true });
   };
+
   handleClose = () => {
     this.props.clearErrors();
     this.setState({ open: false, errors: {} });
   };
 
   handleChange = (event) => {
-    this.setState({ parkName: event.target.value });
+    this.setState({
+      parkName: event.target.value,
+      parkAbout: event.target.value
+    });
   };
+
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.postScream({ parkName: this.state.parkName });
+    this.props.postScream({
+      parkName: this.state.parkName,
+      parkAbout: this.state.parkAbout
+     });
+
   };
   render() {
     const { errors } = this.state;
@@ -76,7 +96,9 @@ class PostScream extends Component {
 
       <Fragment>
         <MyButton onClick={this.handleOpen} tip="Post a Scream!">
-          <AddIcon />
+        　<div className=" admin_btn admin_color">
+        <AddIcon/>　新規登録
+          </div>
         </MyButton>
         <Dialog
           open={this.state.open}
@@ -91,22 +113,39 @@ class PostScream extends Component {
           >
             <CloseIcon />
           </MyButton>
-          <DialogTitle>Post a new scream</DialogTitle>
+          <DialogTitle>公園登録</DialogTitle>
           <DialogContent>
             <form onSubmit={this.handleSubmit}>
               <TextField
                 name="parkName"
                 type="text"
-                label="SCREAM!!"
+                label="公園名"
                 multiline
                 rows="3"
-                placeholder="Scream at your fellow apes"
+                placeholder="〇〇公園"
                 // error={errors.body ? true : false}
                 // helperText={errors.body}
                 className={classes.textField}
                 onChange={this.handleChange}
                 fullWidth
               />
+
+
+              <TextField
+                name="parkAbout"
+                type="text"
+                label="公園について"
+                multiline
+                rows="3"
+                placeholder="〇〇公園"
+                // error={errors.body ? true : false}
+                // helperText={errors.body}
+                className={classes.textField}
+                onChange={this.handleChange}
+                fullWidth
+              />
+
+
               <Button
                 type="submit"
                 variant="contained"
@@ -114,12 +153,14 @@ class PostScream extends Component {
                 className={classes.submitButton}
                 disabled={loading}
               >
-                Submit
+                登録する
                 {loading && (
                   <CircularProgress
                     size={30}
                     className={classes.progressSpinner}
                   />
+
+
                 )}
               </Button>
             </form>

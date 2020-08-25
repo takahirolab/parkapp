@@ -31,51 +31,8 @@ import Navbar_admin from '../layout/Navbar_admin'
 import parkList from './parkList'
 
 
-
-
-
 export class home extends Component {
-  componentDidMount(){
-    this.props.getParks();
-    this.props.getParkActivity();
-    this.props.getArticles();
-  }
-
-
-
-
     render() {
-
-
-      const {parks,parksAc,articles,loading} =this.props.data;
-      // (条件)?真の処理:偽の処理;を応用して、
-      // 　(条件)?真の処理:（次の条件）?真の処理:偽の処理;
-
-
-
-      let parksHome_list = !loading?(
-          parks.slice(0, 3).map((park) =>
-           <Park key={park.parkId} park={park} />)
-        ) : (
-          <ScreamSkeleton/>
-        );
-
-
-        let ActivityHome_list = !loading?(
-          parksAc.slice(0, 3).map((parksActivity) =>
-           <ParksActivity key={parksActivity.parksAcId} parksActivity={parksActivity} />)
-        ) : (
-          <ScreamSkeleton/>
-        );
-
-        let articleHome_list = !loading?(
-          articles.slice(0, 3).map((article) =>
-           <Articles key={article.articlesId} article={article} />)
-        ) : (
-          <ScreamSkeleton/>
-        );
-
-
         return (
             <div>
            <Navbar_admin/>
@@ -87,23 +44,9 @@ export class home extends Component {
                     </div>
                 </div>
              </div>
-
-
         )
     }
 }
 
-
-home.propTypes ={
-  getParks:PropTypes.func.isRequired,
-  getParkActivity:PropTypes.func.isRequired,
-  getArticles:PropTypes.func.isRequired,
-  data:PropTypes.object.isRequired
-}
-
-const mapStateToProps = (state) =>({
-  data:state.data
-})
-
-export default connect(mapStateToProps,{getParks,getParkActivity,getArticles})(home);
+export default (home);
 

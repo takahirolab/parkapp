@@ -13,14 +13,6 @@ import DeleteOutline from '@material-ui/icons/DeleteOutlined';
 import { connect } from 'react-redux';
 import { deleteScream } from '../../redux/actions/dataActions';
 
-const styles = {
-    deleteButton: {
-        position: 'absolute',
-        left: '80%',
-        top: '10%'
-    }
-
-};
 
 class DeleteScream extends Component {
   state = {
@@ -35,7 +27,7 @@ class DeleteScream extends Component {
   };
 
   deleteScream = () => {
-    this.props.deleteScream(this.props.screamId);
+    this.props.deleteScream(this.props.parkId);
     this.setState({ open: false });
   };
 
@@ -47,7 +39,6 @@ class DeleteScream extends Component {
         <MyButton
           tip="Delete Scream"
           onClick={this.handleOpen}
-          btnClassName={classes.deleteButton}
         >
           <DeleteOutline color="secondary"/>
         </MyButton>
@@ -60,15 +51,15 @@ class DeleteScream extends Component {
         >
 
           <DialogTitle>
-            Are you sure you want to delete this scream ?
+            公園を削除しますか？？
           </DialogTitle>
 
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Cancel
+              やめる
             </Button>
             <Button onClick={this.deleteScream} color="secondary">
-              Delete
+            　削除する
             </Button>
           </DialogActions>
         </Dialog>
@@ -79,11 +70,10 @@ class DeleteScream extends Component {
 
 DeleteScream.propTypes = {
   deleteScream: PropTypes.func.isRequired,
-  classes: PropTypes.object.isRequired,
-  screamId: PropTypes.string.isRequired
+  parkId: PropTypes.string.isRequired
 };
 
 export default connect(
   null,
   { deleteScream }
-)(withStyles(styles)(DeleteScream));
+)(DeleteScream);
