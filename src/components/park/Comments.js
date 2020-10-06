@@ -1,6 +1,4 @@
-
-
- import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
  import PropTypes from 'prop-types';
  import withStyles from '@material-ui/core/styles/withStyles';
  import Typography  from '@material-ui/core/Typography';
@@ -27,20 +25,22 @@ import {Link} from 'react-router-dom';
  class Comments extends Component {
      render(){
          const {comments,classes} =this.props;
+
          return (
              <Grid container>
                  {comments.map((comment,index)=>{
                     const {body,createdAt,userImage,userHandle} = comment;
+
                     return (
-                        <Fragment key={createdAt}>
+                        <Fragment>
                             <Grid item sm={12}>
                                 <Grid container>
-                                    <Grid item sm={2}>
+                                    {/* <Grid item sm={2}>
                                         <img src={userImage} alt="comment" className={classes.commentImage} />
-                                    </Grid>
+                                    </Grid> */}
                                     <Grid item sm={9}>
                                         <div className={classes.commentDate}>
-                                            <Typography
+                                            {/* <Typography
                                                 variant="h5"
                                                 component={Link}
                                                 to={`/users/${userHandle}`}
@@ -50,7 +50,7 @@ import {Link} from 'react-router-dom';
                                             <Typography variant="body2" color="textPrimary">
                                                 {dayjs(createdAt).format('h:mm a, MMMM DD YYYY')}
                                             </Typography>
-                                            <hr className={classes.invisibleSeparator}/>
+                                            <hr className={classes.invisibleSeparator}/> */}
                                                 <Typography variant="body1">{body}</Typography>
                                         </div>
                                     </Grid>

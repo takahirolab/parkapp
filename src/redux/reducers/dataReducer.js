@@ -7,7 +7,7 @@ import {
   POST_SCREAM,
   SET_SCREAM,
   SUBMIT_COMMENT,
-
+  POST_ACTIVITY,
   SET_PARKACTIVITY,
   SET_ARTICLES
 } from '../types';
@@ -84,6 +84,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         parks:[action.payload, ...state.parks]
+      };
+
+    case POST_ACTIVITY:
+      return {
+        ...state,
+        parksAc:[action.payload, ...state.parksAc]
       };
 
 

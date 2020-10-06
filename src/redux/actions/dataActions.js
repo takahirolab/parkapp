@@ -14,10 +14,12 @@ import {
   SUBMIT_COMMENT,
 
   SET_ARTICLES,
-
+  POST_ACTIVITY,
   SET_PARKACTIVITY
 } from '../types';
 import axios from 'axios';
+
+
 
 // Get all screams
 export const getParks = () => (dispatch) => {
@@ -37,6 +39,7 @@ export const getParks = () => (dispatch) => {
       });
     });
 };
+
 
 export const getParkActivity = () => (dispatch) => {
   dispatch({ type: LOADING_DATA });
@@ -93,6 +96,26 @@ export const getScream = (parkId) => (dispatch) => {
 };
 
 
+
+// Post a scream
+export const postActivity = (newAc) => (dispatch) => {
+  dispatch({ type: LOADING_UI });
+  axios
+    .post('/parkAc',newAc)
+    .then((res) => {
+      dispatch({
+        type: POST_ACTIVITY,
+        payload: res.data
+      });
+      dispatch(clearErrors());
+    })
+    .catch((err) => {
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
 
 // Post a scream
 export const postScream = (newPark) => (dispatch) => {

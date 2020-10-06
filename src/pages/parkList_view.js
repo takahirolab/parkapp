@@ -14,9 +14,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 // Redux
 import { connect } from 'react-redux';
 import Pic1 from '../images/pic1.png';
-
-
-
+import EditPark from '../components/park/EditPark';
 
 
 class ParkListView extends Component {
@@ -65,12 +63,8 @@ class ParkListView extends Component {
         <td>{likeCount}</td>
          <td>{parkTag1}{parkTag2}{parkTag4}</td>
         <td><Deletepark parkId={parkId}/></td>
+        <td><EditPark parkId={parkId}/></td>
         </tr>
-
-
-
-
-
 
     )
   }

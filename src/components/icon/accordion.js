@@ -35,7 +35,7 @@ export default function SimpleAccordion() {
                 </Link></li>
 
               <li className="admin_item">
-                <Link to="/admin/parklist" className="side_nav">
+                <Link to="/admin/activitylist" className="side_nav">
                   <DirectionsRunIcon style={{ fontSize:25,marginRight:15}}/>体験リスト
              　 </Link></li>
               <li className="admin_item" ><Link to="/admin/parklist" className="side_nav">

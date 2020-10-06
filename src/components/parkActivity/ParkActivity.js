@@ -21,6 +21,8 @@ import ChatIcon from '@material-ui/icons/Chat';
 import { connect } from 'react-redux';
 import Pic1 from '../../images/pic1.png';
 
+import javascript from '../../script';
+
 
 
 
@@ -56,7 +58,7 @@ class ParksActivity extends Component {
 
     return (
 
-      <div className="header-item">
+    <div className="header-item_activ">
       <Link to="" className="" >
         <img src={Pic1}  alt="" className="header-item-img"/>
         <div className="header-inner">

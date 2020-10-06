@@ -11,7 +11,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 //mui stuff
 
 import {connect} from 'react-redux';
-import {signupUser} from '../redux/actions/userActions';
+import { signupUser } from '../redux/actions/userActions';
+import Navbar from '../layout/Navbar'
+import { ReactComponent as Logo } from '../images/logo.svg';
 
 
 import Grid from '@material-ui/core/Grid';
@@ -85,62 +87,83 @@ handleChange= (event) => {
         const {classes,UI:{loading}} = this.props;
         const {errors}=this.state;
 
-        return (
-            <Grid container className={classes.form}>
-                <Grid item sm/>
-                <Grid item sm>
-                    <Typography variant="h1" className={classes.pageTitle}>
-                        Signup
-                    </Typography>
-                    <form noValidate onSubmit={this.handleSubmit}>
-            <TextField
-              id="email"
-              name="email"
-              type="email"
-              label="Email"
-              className={classes.textField}
-            //   helperText={this.state.error.email}
-            //   error={this.state.errors ? true : false}
-              value={this.state.email}
-              onChange={this.handleChange}
-              fullWidth
-            />
-            <TextField
+      return (
+       <>
+
+          <div className=" ">
+            <div className="logo_inner">
+              <Logo className="logo__Sign" />
+            </div>
+            <h2 className="h2 align-center margin-top">アカウントを作成する</h2>
+
+
+            <form noValidate onSubmit={this.handleSubmit} className="container_main container_paddinng RegForm">
+
+              <div className="Text-Input">
+                  <h3 className="h3 text-field-label">メールアドレス（必須)</h3>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  label="Email"
+                  className="Reg-InputForm"
+                //   helperText={this.state.error.email}
+                //   error={this.state.errors ? true : false}r
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                  fullWidth
+                    />
+              </div>
+              <div className="Text-Input">
+              <h3 className="h3 text-field-label">パスワード</h3>
+            <input
               id="password"
               name="password"
               type="password"
               label="Password"
-              className={classes.textField}
+              className="Reg-InputForm"
             //   helperText={this.state.errors.password}
             //   error={this.state.errors.password ? true : false}
               value={this.state.password}
               onChange={this.handleChange}
               fullWidth
-            />
-            <TextField
+                />
+                <p className="h3 text-field-label">半角整数・記号８文字以上で入力してください</p>
+                 </div>
+
+              <div className="Text-Input">
+              <h3 className="h3 text-field-label">パスワード確認用</h3>
+            <input
               id="confirmPassword"
               name="confirmPassword"
               type="password"
               label="confirm Password"
-              className={classes.textField}
+              className="Reg-InputForm"
             //   helperText={this.state.errors.confirmPassword}
             //   error={this.state.errors.confirmPassword ? true : false}
               value={this.state.confirmPassword}
               onChange={this.handleChange}
               fullWidth
-            />
-            <TextField
+                />
+                 </div>
+
+              <div className="Text-Input">
+              <h3 className="h3 text-field-label">ユーザー名</h3>
+            <input
               id="userName"
               name="userName"
               type="text"
               label="userName"
-              className={classes.textField}
+              className="Reg-InputForm"
             //   helperText={this.state.errors.handle}
             //   error={this.state.errors.handle ? true : false}
               value={this.state.userName}
               onChange={this.handleChange}
               fullWidth
-            />
+                />
+              </div>
+
+              <p className="UserPolicy">この登録をもって利用規約とプライバシーポリシーに同意したことになります。</p>
 
               {this.state.errors && (
               <Typography variant="body2" className={classes.customError}>
@@ -148,26 +171,26 @@ handleChange= (event) => {
               </Typography>
               )}
 
-            <Button
+            <button
               type="submit"
               variant="contained"
               color="primary"
-              className={classes.button}
+              className="btn"
               disabled={loading}
             >
-              Signup
+              登録する！
               {loading && (
                 <CircularProgress size={30} className={classes.progress} />
               )}
-            </Button>
+            </button>
             <br />
-            <small>
-              Already have an account ? sign up <Link to="/login">here</Link>
+            <small className="ChangToLogin">
+              すでに登録済みの方はこちら <Link to="/login">ログイン</Link>
             </small>
           </form>
-                </Grid>
-                <Grid item sm/>
-            </Grid>
+
+          </div>
+          </>
         )
     }
 }

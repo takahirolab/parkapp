@@ -57,12 +57,12 @@ class Articles extends Component {
 
     return (
 
-      <div className="header-item">
+      <div className="header-item header-item__article">
       <Link to="" className="" >
         <img src={Pic1}  alt="" className="header-item-img"/>
         <div className="header-inner">
-        <h2 className="header-item-title">{articleTitle}</h2>
-          <p className="header-item-desc">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+        <h2 className="header-item-title header-item-title__article">{articleTitle}</h2>
+          <p className="header-item-date">{createdDate}</p>
         </div>
         </Link>
     </div>

@@ -8,150 +8,233 @@ import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 // Redux stuff
 import { connect } from 'react-redux';
-import { loginUser } from '../redux/actions/userActions';
+import {signupUser} from '../redux/actions/userActions';
 
 import  Navbar  from '../layout/Navbar'
 
 
-const styles ={
-    form :{
-    textAlign:'center'
+import Logoimg from '../images/logoimg.svg';
+import Googleicon from '../images/google.svg';
+import Modal from 'react-modal';
+
+
+const customStyles = {
+  overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      border: 0,
+      animationName: 'login-modal',
+      animationDuration: '0.5s',
+      animationName: 'fadeIn'
     },
-    image:{
-        margin:'20px auto 20px auto'
-    },
-    pageTitle:{
-        margin:'10px auto 10px auto'
-    },
-    textField:{
-       margin: '10px auto 10px auto'
-    },
-    button :{
-        marginTop:20,
-        position:'relative'
-    },
-    customError:{
-        color:'red',
-        fontSize:'0.08rem',
-        marginTop:10
-    },
-    progress:{
-        position:'absolute'
-    }
 
-}
-
-
-export class Login extends Component {
-constructor(){
-    super();
-    this.state={
-        email:'',
-        password:'',
-        error:{}
-    }
-}
-
-componentDidUpdate(nextProps) {
-  if (nextProps.UI.errors) {
-    this.setState({ errors: nextProps.UI.errors });
-  }
-}
-
-handleSubmit =(event) =>{
-    // preventDefault()は、実行したイベントがキャンセル可能である場合、
-    // イベントをキャンセルするためのメソッドです。
-   event.preventDefault();
-   const userData = {
-       email:this.state.email,
-       password:this.state.password
-   };
-   this.props.loginUser(userData,this.props.history);
-    };
-
-
-
-handleChange= (event) => {
- this.setState({
-[event.target.name]:event.target.value
-});
+  content : {
+      zIndex:'100',
+      position:'fixed',
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)',
+      background: 'none',
+      border: 'none',
+      animationName: 'login-form',
+      animationDelay : '2s'
+ }
 };
 
 
+export class Login extends Component {
+  constructor() {
+    super();
+    this.state={
+      email:'',
+      password:'',
+      confirmPassword:'',
+      loading:false,
+      error:{}
+    }
+    this.openModal = this.openModal.bind(this);
+  //   this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+openModal() {
+  this.setState({modalIsOpen: true});
+  document.body.setAttribute('style', 'overflow: hidden;')
+}
+// afterOpenModal() {
+//   this.subtitle.style.color = '#484848';
+// }
+closeModal() {
+  this.setState({modalIsOpen: false});
+  document.body.removeAttribute('style', 'overflow: hidden;')
+}
+
+//   componentDidUpdate(nextProps) {
+//     if (nextProps.UI.errors) {
+//       this.setState({ errors: nextProps.UI.errors });
+//     }
+//   }
+
+handleSubmit =(event) =>{
+  // preventDefault()は、実行したイベントがキャンセル可能である場合、
+  // イベントをキャンセルするためのメソッドです。
+ event.preventDefault();
+ this.setState({
+     loading:true
+ });
+
+ const newUserData = {
+     email:this.state.email,
+     password:this.state.password,
+     confirmPassword:this.state.confirmPassword,
+     userName:this.state.userName
+ }
+
+this.props.signupUser(newUserData,this.props.history);
+  };
+
+
+  handleChange= (event) => {
+   this.setState({
+  [event.target.name]:event.target.value
+  });
+  };
+
+
+
+
+
+
     render() {
-        // console.log(this.state.data)
-        const {classes,
-               UI: { loading }} = this.props;
-        const {errors}=this.state;
-
         return (
-          <div>
-                <Navbar/>
-            <Grid container className={classes.form}>
-                <Grid item sm/>
-                <Grid item sm>
 
-                    <Typography variant="h1" className={classes.pageTitle}>
-                        Login
-                    </Typography>
-                    <form noValidate onSubmit={this.handleSubmit}>
-            <TextField
-              id="email"
-              name="email"
-              type="email"
-              label="Email"
-              className={classes.textField}
-              helperText={this.state.error.email}
-              error={this.state.errors ? true : false}
-              value={this.state.email}
-              onChange={this.handleChange}
-              fullWidth
-            />
-            <TextField
-              id="password"
-              name="password"
-              type="password"
-              label="Password"
-              className={classes.textField}
-            //   helperText={this.state.errors.password}
-            //   error={this.state.errors.password ? true : false}
-              value={this.state.password}
-              onChange={this.handleChange}
-              fullWidth
-            />
 
-              {this.state.errors && (
-              <Typography variant="body2" className={classes.customError}>
-                {errors.general}
-              </Typography>
-              )}
+<div className="nav-item">
+<h2 className="nav-item nav-item-btn" onClick={this.openModal} >新規登録</h2>
+                    <Modal
+                        isOpen={this.state.modalIsOpen}
+                        onAfterOpen={this.afterOpenModal}
+                        onRequestClose={this.closeModal}
+                        style={customStyles}
+                        contentLabel="Example Modal"
+                        >
 
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              disabled={loading}
-            >
-              Login
-              {loading && (
-                <CircularProgress size={30} className={classes.progress} />
-              )}
-            </Button>
-            <br />
-            <small>
-              dont have an account ? sign up <Link to="/signup">here</Link>
-            </small>
-          </form>
-                </Grid>
-                <Grid item sm/>
-            </Grid>
-            </div>
+                        {/* <h2 ref={subtitle => this.subtitle = subtitle}>ログイン</h2> */}
+                        <div className ="login-modal sign-up">
+                            <div className="login-modal-inner">
+                                <div className="login-title-head">
+                                    <img src={Logoimg} className="gl-logo__"/>
+                                    <h2 className="login-title-size ">Parkrにログインする</h2>
+                                </div>
+                                <div className="sns-login-items">
+                                    <div className="sns-login">
+                                        <img src={Googleicon} className="gl-logo"/>
+                                        <p>Googleでログインする</p>
+                                    </div>
+                                    <div className="sns-login tw-color">
+                                        <div className="gl-logo"/>
+                                        <p>twitterでログインする</p>
+                                    </div>
+                                </div>
+                                <div className="mail-login">
+                                    <h2>メールアドレスでログインする</h2>
+
+
+
+
+                                    <form noValidate onSubmit={this.handleSubmit} className="login-form">
+                                        <div className="login-mail-input">
+                                            <input
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            label="Email"
+                                            className="mail-input"
+                                            placeholder="メールアドレス"
+                                            //   helperText={this.state.error.email}
+                                            //   error={this.state.errors ? true : false}
+                                            value={this.state.email}
+                                            onChange={this.handleChange}
+                                            fullWidth
+                                        />
+                                            </div>
+
+                                        <div className="login-mail-input">
+                                            <input
+                                            id="password"
+                                            name="password"
+                                            type="password"
+                                            label="Password"
+                                            className="mail-input"
+                                            placeholder="パスワード"
+                                            value={this.state.password}
+                                            onChange={this.handleChange}
+                                            fullWidth
+                                            />
+                                        </div>
+                                        <div className="login-mail-input">
+                                            <input
+                                             id="confirmPassword"
+                                             name="confirmPassword"
+                                             type="password"
+                                             label="confirm Password"
+                                            className="mail-input"
+                                            placeholder="確認用パスワード"
+                                            value={this.state.confirmPassword}
+                                            onChange={this.handleChange}
+                                            fullWidth
+                                            />
+                                        </div>
+                                        <div className="login-mail-input">
+                                            <input
+                                           id="userName"
+                                           name="userName"
+                                           type="text"
+                                           label="userName"
+                                            className="mail-input"
+                                            placeholder="ユーザー名"
+                                            value={this.state.userName}
+                                            onChange={this.handleChange}
+                                            fullWidth
+                                            />
+                                        </div>
+                                        <p className="guidline">登録することで、利用規約とプライバシーポリシーに同意したものとみなされます。</p>
+
+                                        <div className="login-mail-input btn-color">
+                                            <button
+                                                type="submit"
+                                                variant="contained"
+                                                color="primary"
+                                                className="mail-registar"
+                                            >
+                                            ログインする
+                                            </button >
+                                        </div>
+                                        <br />
+                                            <small>
+                                            dont have an account ? sign up <Link to="/signup">here</Link>
+                                            </small>
+                                        </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        </Modal>
+                        </div>
+
+
         )
     }
 }
@@ -177,9 +260,7 @@ const mapStateToProps = (state)=>({
   UI:state.UI
 });
 
-const mapActionsToProps ={
-  loginUser
-}
 
 
-export default connect(mapStateToProps,mapActionsToProps)(withStyles(styles)(Login));
+
+export default  connect(mapStateToProps,{signupUser})(Login);

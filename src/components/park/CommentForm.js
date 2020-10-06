@@ -50,9 +50,9 @@ componentWillReceiveProps(nextProps){
         const errors = this.state.errors;
 
         const CommentForMarkup =authenticated ?(
-            <Grid item sm={12} style={{textAlign:'center'}}>
-                <form onSubmit={this.handleSubmit}>
-                    <TextField
+
+                <form onSubmit={this.handleSubmit} className="ParkInf-flex">
+                    <input
                     name="body"
                     type="text"
                     label="Comment on park"
@@ -61,17 +61,17 @@ componentWillReceiveProps(nextProps){
                     value={this.state.body}
                     onChange={this.handleChange}
                     fullWidth
-                    className={classes.TextField}
+                    className="Comment-input"
                     />
-                    <Button type="submit"
+                    <button type="submit"
                     variant="contained"
                     color="primary"
-                    className={classes.button}>
+                    className="comment-btn">
                     Submit
-                    </Button>
+                    </button>
                 </form>
-                <hr className={classes.visibleSeparator}></hr>
-            </Grid>
+
+
         ):null
         return CommentForMarkup;
     }
