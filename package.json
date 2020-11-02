@@ -50,8 +50,13 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://asia-northeast1-parkr-23aa4.cloudfunctions.net/api",
+  "proxy": "https://asia-northeast1-parkapp-9cd06.cloudfunctions.net/api",
   "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^4.14.1",
     "react-tabs": "^3.1.1",
     "svg-react-loader": "^0.4.6"
   }

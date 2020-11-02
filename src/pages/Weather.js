@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import { getParks } from '../redux/actions/dataActions';
+import PropTypes from 'prop-types';
 
 const city = ["tokyo", "osaka", "fukuoka","hokkaido","miyagi","hiroshima","okinawa","nagoya"];
 
@@ -49,6 +53,7 @@ export class Weather extends Component {
     componentDidMount() {
         this.handleGetLatAndLng_day();
         this.handleGetLatAndLng();
+        this.props.getParks();
     }
 
 
@@ -114,6 +119,17 @@ export class Weather extends Component {
                 </>
             )
 
+            const parks = this.props.data.parks;
+            const parkSuggest_items =
+            parks.slice(0, 5).map((parkSuggest_item) =>
+            <>
+            <Link to={`/park/${parkSuggest_item.parkId}`}  className="park-city-item active_category" value="東京都">
+              <img src={parkSuggest_item.parkImage} className="pakr-city-img" />
+              <p className="park-city-name weather-recom-park__h2">{parkSuggest_item.parkName}</p>
+            </Link>
+              </>
+            )
+
 
 
 
@@ -130,7 +146,24 @@ export class Weather extends Component {
                     <div className="weatherDayliy">
                        {weatheritem_day}
                     </div>
-             </div>
+                    <div className="weather-recom-park">
+
+
+                        <div className="park-city-item__title">
+                        <h2 className="park-city-item__h2 weather-recom-park__h2">今日のおすすめの公園</h2>
+                        <Link to="/search/city" className="park-city-item__p weather-recom-park__h2">すべてみる</Link>
+                        </div>
+
+                        <div className="park-city-items">
+                        <ul className="park-city-items--">
+
+                        {parkSuggest_items}
+                                        {/* <Link to="/park/family" className="Search-category-item" value="家族">家族</Link> */}
+                        </ul>
+                    </div>
+                    </div>
+                    </div>
+
             </>
         )
     }
@@ -138,7 +171,20 @@ export class Weather extends Component {
 
 
 
-export default (Weather)
+
+
+Weather.propTypes ={
+    getParks:PropTypes.func.isRequired,
+    data:PropTypes.object.isRequired
+  }
+
+  const mapStateToProps = (state) =>({
+    data:state.data
+  })
+
+  export default connect(mapStateToProps,{getParks})(Weather);
+
+
 // const weatheritem = this.props.weatheritems
 // console.log(weatheritem)
 

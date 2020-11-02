@@ -13,6 +13,8 @@ import { Park } from './Park';
 import { SET_ERRORS } from '../../redux/types';
 
 
+
+
  const styles = theme => ({
      ...theme.spreadThis,
  })
@@ -20,54 +22,47 @@ import { SET_ERRORS } from '../../redux/types';
 
  class CommentForm extends Component {
    state = {
-       body:'',
+    comment:'',
        errors:{}
    }
 
-componentWillReceiveProps(nextProps){
-    if(nextProps.UI.errors){
-        this.setState({errors:nextProps.UI.errors});
+   componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
+      this.setState({ errors: nextProps.UI.errors });
     }
-    if(!nextProps.UI.errors && nextProps.UI.loading){
-        this.setState({body:''})
-    }
-
-}
+  }
 
 
    handleChange= (event) => {
        this.setState({[event.target.name]:event.target.value});
-
    }
 
    handleSubmit = (event) => {
        event.preventDefault();
-       this.props.submitComment(this.props.parkId,{body:this.state.body});
+       this.props.submitComment(this.props.parkId,{comment:this.state.comment});
    }
 
     render() {
         const {classes, authenticated} =this.props;
         const errors = this.state.errors;
-
+        console.log(this.state.comment)
+        console.log(this.props.parkId)
         const CommentForMarkup =authenticated ?(
 
                 <form onSubmit={this.handleSubmit} className="ParkInf-flex">
                     <input
-                    name="body"
-                    type="text"
+                    name="comment"s
+                    type="textarea"
                     label="Comment on park"
-                    error={errors.comment ? true :false}
-                    helperText={errors.comment}
-                    value={this.state.body}
+                    // error={errors.comment ? true :false}
+                    // helperText={errors.comment}
+                    value={this.state.comment}
                     onChange={this.handleChange}
-                    fullWidth
                     className="Comment-input"
                     />
                     <button type="submit"
-                    variant="contained"
-                    color="primary"
                     className="comment-btn">
-                    Submit
+                    コメントする
                     </button>
                 </form>
 
@@ -89,7 +84,6 @@ CommentForm.propTypes ={
 const mapStateToProps = state => ({
     UI:state.UI,
     authenticated:state.user.authenticated
-
 })
 
 

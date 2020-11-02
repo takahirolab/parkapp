@@ -2,19 +2,7 @@ import React, { Component } from 'react'
 
 import '../App.css';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-// import ScreamSkeleton from '../util/ScreamSkeleton';
-// import ProfileSkeleton from '../util/ProfileSkeleton'
-
-
-
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import Accordion from '../components/icon/accordion';
-
-
-
-
-
 
 export class Nabar_admin extends Component {
 

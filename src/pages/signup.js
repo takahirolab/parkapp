@@ -45,7 +45,7 @@ const styles ={
 
 }
 
-export class signup extends Component {
+export class Signup extends Component {
 constructor(){
     super();
     this.state={
@@ -84,19 +84,14 @@ handleChange= (event) => {
 
     render() {
         console.log(this.state.data)
-        const {classes,UI:{loading}} = this.props;
+        const {classes,UI:loading} = this.props;
         const {errors}=this.state;
 
       return (
        <>
 
-          <div className=" ">
-            <div className="logo_inner">
-              <Logo className="logo__Sign" />
-            </div>
+          <div className="signup-data">
             <h2 className="h2 align-center margin-top">アカウントを作成する</h2>
-
-
             <form noValidate onSubmit={this.handleSubmit} className="container_main container_paddinng RegForm">
 
               <div className="Text-Input">
@@ -195,14 +190,7 @@ handleChange= (event) => {
     }
 }
 
-// イベントの呼び出し元のオブジェクトを取得するには、event.targetを使用します。
-
-// propsはコンポーネント作成時に値を指定することでコンポーネントで表示させたいデータを指定できます。
-// React.jsでコンポーネントを定義する時に、PropTypesを指定することでpropsにおける引数の入力チェックを行えます。
-// 数値や文字列、配列などのバリデーションを行いたい時に便利です。
-
-
- signup.propTypes ={
+ Signup.propTypes ={
    classes:PropTypes.object.isRequired,
    user:PropTypes.object.isRequired,
    UI:PropTypes.object.isRequired,
@@ -219,4 +207,4 @@ const mapStateToProps =(state) =>({
 export default connect(
   mapStateToProps,
   {signupUser})
-  (withStyles(styles)(signup));
+  (withStyles(styles)(Signup));

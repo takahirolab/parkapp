@@ -1,5 +1,5 @@
-<svg id="天気" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
-  <g id="cloud-24px" transform="translate(11 11)">
+<svg id="天気" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="cloud-24px" transform="translate(5 7)">
     <path id="パス_2308" data-name="パス 2308" d="M0,0H24V24H0Z" fill="none"/>
     <path id="パス_2309" data-name="パス 2309" d="M19.35,10.04a7.492,7.492,0,0,0-14-2A6,6,0,0,0,6,20H19a4.986,4.986,0,0,0,.35-9.96Z" fill="#93918f"/>
   </g>

@@ -4,7 +4,7 @@ import './App.css';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import jwtDecode from 'jwt-decode';
-
+import ScrollToTop from './util/ScrollToTop'
 
 
 // Redux
@@ -23,40 +23,42 @@ import Navbar_admin from './layout/Navbar_admin'
 
 import Login from './pages/login_mobile'
 import Signup from './pages/signup'
-import Home from './pages/home';
+import Home from './pages/home/home';
 import Footer from './layout/Footer';
-import ParkSearch from './pages/parkSearch';
-import FindActivity from './pages/findActivity'
-import ReadArticle from './pages/readArticle'
+import ParkSearch from './pages/Search/parkSearch';
+
 import PostScream from './pages/PostScream'
-import Admin from './pages/admin'
+import Admin from './pages/admin/admin'
 import ParkDetail from './components/park/ParkDetail';
-import About from './pages/About';
+import About from './pages/home/About';
 import Mypage from './pages/sidebar/Mypage';
+import { MypageDashbord } from './pages/sidebar/MypageDashbord';
+import { MypageComment } from './pages/sidebar/MypageComment';
+import MypagePost from './pages/sidebar/MypagePostPark';
+import history from './util/history'
 
 
 //
 import axios from 'axios';
-import parkList from './pages/parkList'
-import ActivityList from './pages/ActivityList';
+import parkList from './pages/admin/admin'
 
 import Like from './pages/sidebar/like'
 import PostedPark from './pages/sidebar/postedPark'
-import PostedActivity from './pages/sidebar/postedActivity'
+
 import Guid from './pages/sidebar/guid'
 import JoinActivity from './pages/sidebar/joinActivity'
 import Ask from './pages/sidebar/ask'
 
 import Weather from './pages/Weather'
 import { Navbar } from './layout/Navbar';
-import parkSearch from './pages/parkSearch';
-import Users from './pages/parkSearch';
-
+import parkSearch from './pages/Search/parkSearch';
+import Users from './pages/Search/parkSearch';
+import { Dashboard } from '@material-ui/icons';
 
 const theme = createMuiTheme(themeObject);
 
 axios.defaults.baseURL =
-  'https://asia-northeast1-parkr-23aa4.cloudfunctions.net/api';
+  'https://asia-northeast1-parkapp-9cd06.cloudfunctions.net/api';
 
 const token = localStorage.FBIdToken;
 if (token) {
@@ -71,32 +73,27 @@ if (token) {
   }
 }
 
-
-
-class App extends Component {
-
-  render() {
+function App()  {
 
     return (
-      <MuiThemeProvider theme={theme}>
+      <MuiThemeProvider>
         <Provider store ={store}>
-          <Router>
-            <Navbar/>
+          <Router history={history}>
+          <ScrollToTop>
+
             <Switch>
               <Route exact path="/" component={Home} />
               <AuthRoute exact path="/login" component={Login} />
               <AuthRoute exact path="/signup" component={Signup} />
-              <Route exact path="/park/:parkId" component={ParkDetail} />
-              <Route exact path="/serch/:parkTag1" component={parkSearch} />
+              <Route exact path="/park/search" component={parkSearch} />
+              <Route　name="park" exact path="/park/:parkId" component={ParkDetail} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/activity" component={FindActivity} />
-              <Route exact path="/article" component={ReadArticle} />
               <Route exact path="/post" component={PostScream} />
-
 
             {/* ////////////////
             サイドバー
             /////////////// */}
+
               <Route exact path="/search" component={Users} />
               {/* <Route exact path="/search/city" render={() => <ParkSearch city={'東京都'} />}/> */}
               <Route exact path="/weather" component={Weather} />
@@ -105,13 +102,15 @@ class App extends Component {
 
             {/* ////////////////
             サイドバー
-            /////////////// */}s
+            /////////////// */}
               <Route exact path="/mypage" component={Mypage} />
+              <Route exact path="/dashbord" component={MypageDashbord} />
+              <Route exact path="/comment" component={MypageComment} />
+              <Route exact path="/mypage/post" component={MypagePost} />
               <Route exact path="/like" component={Like} />
               <Route exact path="/postedPark" component={PostedPark} />
-              <Route exact path="/postedActivity" component={PostedActivity} />
+
               <Route exact path="/guid" component={Guid} />
-              <Route exact path="/joinActivity" component={JoinActivity} />
               <Route exact path="/ask" component={Ask} />
 
 
@@ -120,14 +119,15 @@ class App extends Component {
             /////////////// */}
               <Route exact path="/admin" component={Admin} />
               <Route exact path="/admin/parklist" component={parkList} />
-              <Route exact path="/admin/activitylist" component={ActivityList} />
+
             </Switch>
-          {/* <Footer/> */}
+              <Footer/>
+              </ScrollToTop>
          </Router>
       </Provider>
       </MuiThemeProvider>
     );
-  }
+
 }
 
 export default App;

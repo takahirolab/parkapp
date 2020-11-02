@@ -3,9 +3,6 @@ import MyButton from '../../util/MyButton';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder'
-import Bookmark from '@material-ui/icons/Bookmark';
 import {loginUser } from '../../redux/actions/userActions';
 
 //redux
@@ -13,10 +10,12 @@ import {loginUser } from '../../redux/actions/userActions';
 import  {connect} from 'react-redux';
 import {likeScream, unlikeScream} from '../../redux/actions/dataActions';
 
-import Logoimg from '../../images/logoimg.svg';
+
 import Googleicon from '../../images/google.svg';
 import Modal from 'react-modal';
-import Login from '../../pages/login';
+
+import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
+import TwLogo from '../../images/Twitter_Logo.svg'
 
 const customStyles = {
     overlay: {
@@ -49,190 +48,208 @@ const customStyles = {
   };
 
 export class likeButton extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-          modalIsOpen: false,
-          email:'',
-          password:'',
-          error:{}
+            modalIsOpenLogin: false,
+            modalIsOpenSignup: false,
+            email:'',
+            password:'',
+              error: {},
+              EmailInput: '',
+              PassInput: '',
+              confirmPassword: '',
+              userName: '',
+              MypageOpen: '',
+            likeColor: '#00000080',
+            likeAnimation:''
         };
-        this.openModal = this.openModal.bind(this);
-      //   this.afterOpenModal = this.afterOpenModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
-      }
-      openModal() {
-        this.setState({modalIsOpen: true});
-        document.body.setAttribute('style', 'overflow: hidden;')
-      }
-      // afterOpenModal() {
-      //   this.subtitle.style.color = '#484848';
-      // }
-      closeModal() {
-        this.setState({modalIsOpen: false});
-        document.body.removeAttribute('style', 'overflow: hidden;')
-      }
-
-      handleLogout = () => {
-          this.props.logoutUser();
-        }
-
-      //   componentDidUpdate(nextProps) {
-      //     if (nextProps.UI.errors) {
-      //       this.setState({ errors: nextProps.UI.errors });
-      //     }
-      //   }
-
-        handleSubmit =(event) =>{
-            // preventDefault()は、実行したイベントがキャンセル可能である場合、
-            // イベントをキャンセルするためのメソッドです。
-            this.closeModal();
-           event.preventDefault();
-           const userData = {
-               email:this.state.email,
-               password:this.state.password
-           };
-
-           this.props.loginUser(userData,this.props.history);
-            };
-
-
-
-        handleChange= (event) => {
-         this.setState({
-        [event.target.name]:event.target.value
-        });
-        };
-
+        this.openModalLogin = this.openModalLogin.bind(this);
+        this.closeModalLogin = this.closeModalLogin.bind(this);
+        this.handleChangeEmail = this.handleChangeEmail.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
+    }
+    componentDidMount() {
+        this.likedScream();
+    }
 
     likedScream = () =>{
         if(this.props.user.likes &&
             this.props.user.likes.find(
-                (like) => like.parkId === this.props.parkId))
-        return true;
-        else return false;
-    };
+                (like) => like.parkId === this.props.parkId)) {
+            this.setState({
+                likeColor: '#DC4C65'
+            })
+        }else {
+                this.setState({
+                    likeColor:'#00000080'
+                })
+            }
+        }
 
-    likeScream = () =>{
-        this.props.likeScream(this.props.parkId);
+
+    likeScream = () => {
+        if (this.state.likeColor === '#00000080') {
+            this.props.likeScream(this.props.parkId)
+            this.setState({
+                likeColor: '#DC4C65',
+                likeAnimation:'LikeAnimation 0.3s ease 0s 1 alternate none running'
+            })
+        } else {
+            this.props.unlikeScream(this.props.parkId)
+            this.setState({
+                likeColor: '#00000080',
+                likeAnimation:''
+            })
+        }
     }
 
-    unlikeScream =() =>{
-        this.props.unlikeScream(this.props.parkId);
+
+    // unlikeScream =() =>{
+    //     this.props.unlikeScream(this.props.parkId);
+    // }
+
+    openModalLogin() {
+        this.setState({modalIsOpenSignup: false});
+        this.setState({modalIsOpenLogin: true});
+        document.body.setAttribute('style', 'overflow: hidden;')
+      }
+
+  closeModalLogin() {
+      this.setState({modalIsOpenSignup: false});
+          this.setState({ modalIsOpenLogin: false });
+          document.body.removeAttribute('style', 'overflow: hidden;')
+  }
+  handleChangeEmail= (event) => {
+    this.setState({
+   EmailInput:event.target.value
+   });
+   };
+
+   handleChangePassword= (event) => {
+    this.setState({
+   PassInput:event.target.value
+   });
+   };
+
+      handleSubmit =(event) =>{
+        event.preventDefault();
+        const userData = {
+           email:this.state.EmailInput,
+           password:this.state.PassInput
+       };
+        this.props.loginUser(userData, this.props.history);
+        console.log(userData)
+      };
+
+    test() {
+
     }
-
-
 
     render() {
-        const {authenticated} =this.props.user;
-            const likeButton = !authenticated ? (
+        // console.log(this.props.parkId)
+        // console.log(this.props.LikeType)
+        const { authenticated } = this.props.user;
+        const likeButton = !authenticated ? (
 
-                <div className="park-bookmark">
-
-                    <Bookmark className="bookmark" onClick={this.openModal} style={{ fontSize:40 }}/>
-                    <Modal
-                    isOpen={this.state.modalIsOpen}
+            <div className="park-bookmark">
+                <FavoriteRoundedIcon className="bookmark" onClick={this.openModalLogin} style={{ fontSize: 26, color: '#00000080' }} />
+                <Modal
+                    isOpen={this.state.modalIsOpenLogin}
                     onAfterOpen={this.afterOpenModal}
-                    onRequestClose={this.closeModal}
+                    onRequestClose={this.closeModalLogin}
                     style={customStyles}
                     contentLabel="Example Modal"
-                    >
-
-                    {/* <h2 ref={subtitle => this.subtitle = subtitle}>ログイン</h2> */}
-                    <div className ="login-modal">
+                >
+                    <div className="login-modal">
                         <div className="login-modal-inner">
                             <div className="login-title-head">
-                                <img src={Logoimg} className="gl-logo__"/>
-                                <h2 className="login-title-size ">Parkrへようこそ</h2>
+                                {/* <img src={Logoimg} className="gl-logo__"/> */}
+                                <h2 className="login-title-size ">ログインする</h2>
                             </div>
                             <div className="sns-login-items">
                                 <div className="sns-login">
-                                    <img src={Googleicon} className="gl-logo"/>
+                                    <img src={Googleicon} className="gl-logo" />
                                     <p>Googleではじめる</p>
                                 </div>
                                 <div className="sns-login tw-color">
-                                    <div className="gl-logo"/>
+                                    <img src={TwLogo} className="tw-logo" />
                                     <p>twitterではじめる</p>
                                 </div>
                             </div>
-                            <div className="mail-login">
+                            <div className="mail-login mail-login-pc ">
                                 <h2>メールアドレスではじめる</h2>
-
+                                <p className="valid">{this.state.errors}</p>
 
 
 
                                 <form noValidate onSubmit={this.handleSubmit} className="login-form">
-                                    <div className="login-mail-input">
-                                        <input
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        label="Email"
-                                        className="mail-input"
-                                        placeholder="メールアドレス"
-                                        //   helperText={this.state.error.email}
-                                        //   error={this.state.errors ? true : false}
-                                        value={this.state.email}
-                                        onChange={this.handleChange}
-                                        fullWidth
-                                    />
-                                        </div>
+
 
                                     <div className="login-mail-input">
                                         <input
-                                        id="password"
-                                        name="password"
-                                        type="password"
-                                        label="Password"
-                                        className="mail-input"
-                                        placeholder="パスワード"
-                                        value={this.state.password}
-                                        onChange={this.handleChange}
-                                        fullWidth
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            label="Email"
+                                            className="mail-input"
+                                            placeholder="メールアドレス"
+                                            helperText={this.state.error.email}
+                                            error={this.state.errors ? true : false}
+                                            value={this.state.EmailInput}
+                                            onChange={this.handleChangeEmail}
+                                            fullWidth
+                                        />
+                                    </div>
+
+
+                                    <div className="login-mail-input">
+                                        <input
+                                            id="password"
+                                            name="password"
+                                            type="password"
+                                            label="Password"
+                                            className="mail-input"
+                                            placeholder="パスワード"
+                                            value={this.state.PassInput}
+                                            onChange={this.handleChangePassword
+                                            }
+                                            fullWidth
                                         />
                                     </div>
                                     <p className="guidline">登録することで、利用規約とプライバシーポリシーに同意したものとみなされます。</p>
+
 
                                     <div className="login-mail-input btn-color">
                                         <button
                                             type="submit"
                                             variant="contained"
-                                            color="primary"
                                             className="mail-registar"
-                                        >
-                                        はじめる
+                                            disabled={this.state.PassInput.length < 8 ? false : true
+                                            }
+                                        >ログインする
                                         </button >
                                     </div>
                                     <br />
-                                        <small>
-                                        dont have an account ? sign up <Link to="/signup">here</Link>
-                                        </small>
-                                    </form>
+                                    <small onClick={this.openModalSignup} >
+                                        アカウントをお持ちでない方はこちら
+                                            </small>
+                                </form>
                             </div>
 
                         </div>
                     </div>
-                    </Modal>
-                  </div>
+                </Modal>
+            </div>
 
-
-
-
-            ): this.likedScream() ? (
-                <div className="park-bookmark">
-                    <button  onClick={this.unlikeScream}>
-                        <Bookmark className="bookmark " style={{ fontSize:40 }}/>
-                    </button>
-                    </div>
-                ):(
-                <div className="park-bookmark">
-                    <button  onClick={this.likeScream} >
-                       <Bookmark className="bookmark bookmark-color" style={{ fontSize:40 }}/>
-                    </button>
-                </div>
-                );
-
-
+        ) :
+            this.props.LikeType === 'select' ? <button className="like-modal-btn like-modal-btn_bk" onClick={this.likeScream}>はい</button>:
+            <div className="park-bookmark">
+                <button onClick={this.likeScream}>
+                    <FavoriteRoundedIcon className="bookmark " style={{ fontSize: 26, color: this.state.likeColor,animation:this.state.likeAnimation}} />
+                </button>
+            </div>
+            ;
         return likeButton;
     }
 }

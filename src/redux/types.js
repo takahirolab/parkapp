@@ -24,3 +24,5 @@ export const SUBMIT_COMMENT = 'SUBMIT_COMMENT';
 
 export const SET_PARKACTIVITY = 'SET_PARKACTIVITY';
 export const SET_ARTICLES = 'SET_ARTICLES';
+// search reducer types
+export const SEARCH_PARKS = 'SEARCH_PARKS';

@@ -15,8 +15,7 @@ import TurnedInNotRoundedIcon from '@material-ui/icons/TurnedInNotRounded';
 import QueryBuilderRoundedIcon from '@material-ui/icons/QueryBuilderRounded';
 import CreditCardRoundedIcon from '@material-ui/icons/CreditCardRounded';
 
-import ParkPost from '../ParkPost';
-import ActivityPost from '../ActivityPost';
+
 import Contact from '../Contact';
 
 
@@ -151,7 +150,7 @@ export class Mypage extends Component {
                         <TabPanel>
                             <div className="Mypage-item-padding">
                                 <h2 className="Mypage-item-h2">アクティビティを投稿する</h2>
-                                <ActivityPost/>
+
                             </div>
                         </TabPanel>
                     </div>

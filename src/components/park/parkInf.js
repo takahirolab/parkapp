@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import ParkLikeButton from '../park/LikeButton'
+
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import ScheduleRoundedIcon from '@material-ui/icons/ScheduleRounded';
 import PaymentRoundedIcon from '@material-ui/icons/PaymentRounded';
@@ -10,10 +12,12 @@ import CommentForm from '../park/CommentForm'
 import Comments from '../park/Comments'
 import Pic1 from '../../images/pic1.png';
 import Googlemap from '../../images/Googlemap.png';
+import {connect} from 'react-redux';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Modal from 'react-modal';
-import Imageupload from '../../pages/image'
+import Navbar from '../../layout/Navbar'
+
 
 import WifiIcon from '@material-ui/icons/Wifi';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
@@ -26,13 +30,13 @@ import WcIcon from '@material-ui/icons/Wc';
 import AccessibleIcon from '@material-ui/icons/Accessible';
 import SportsBaseballRoundedIcon from '@material-ui/icons/SportsBaseballRounded';
 import WorkRoundedIcon from '@material-ui/icons/WorkRounded';
-import ParkSearch from '../../pages/parkSearch'
+import ParkSearch from '../../pages/Search/parkSearch'
 import ParkSearch_detail from '../../pages/parkSearch_detail'
 import AddPhotoAlternateRoundedIcon from '@material-ui/icons/AddPhotoAlternateRounded';
-
+import {logoutUser,uploadImage,loginUser} from '../../redux/actions/userActions';
 
 import ScreamSkeleton from '../../util/ScreamSkeleton';
-import ImageUpload from '../../pages/image'
+
 const customStyles = {
   overlay: {
       position: 'fixed',
@@ -64,9 +68,9 @@ const customStyles = {
 };
 
 
-class ParkInf extends Component {
-  constructor(){
-    super();
+export class ParkInf extends Component {
+  constructor(props){
+    super(props);
     this.changeColor = this.changeColor.bind(this);
     this.state = {
       modalIsOpen: false,
@@ -94,12 +98,20 @@ class ParkInf extends Component {
 
   render() {
     const ActivColor = { color: this.state.color }
+    const {UI: {loading }} = this.props;
+    const { errors } = this.state;
+    const { authenticated } = this.props;
+    console.log(this.props)
+    console.log(loading)
 
     return (
-    <>
+      <>
+
     <div className="container_paddinng_park container ">
 
-              <div className="ParkInf">
+
+          <div className="ParkInf">
+
         <div className="PrkInf-inner">
 
                     <div className="parkInf-right">
@@ -142,19 +154,19 @@ class ParkInf extends Component {
                           <div className="parkDet-inf__item">
                               <PaymentRoundedIcon style={{ fontSize: 16 }} />
                              <p className="ParkInf-icon" > {this.props.park.parkPrice}円</p>
-                          </  div>
+                          </ div>
                       </div>
                       <div className="ParkInf-Tagcontent">
                           <div className="ParkInf-Tag">#{this.props.park.parkTag1}</div>
                           <div className="ParkInf-Tag">#{this.props.park.parkTag2}</div>
                           <div className="ParkInf-Tag">#{this.props.park.parkTag3}</div>
                           <div className="ParkInf-Tag">#{this.props.park.parkTag4}</div>
-                       </div>
+                </div>
+
+
 
                           <div className="ParkInf-tabs">
-
                            <div className="Mypage-inner">
-
                             <h2 className="h2">公園について</h2>
                             <p className="p">{this.props.park.parkAbout}</p>
                             <div className="ParkInf-other">
@@ -263,10 +275,16 @@ ParkInf.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    data: state.user
+  data: state.user,
+  user:state.user,
+  authenticated: state.user.authenticated,
+  user:state.user,
+  UI: state.UI,
+  search: state,
+  data:state.data
   });
 
-export default (ParkInf);
+export default connect(mapStateToProps,{loginUser,logoutUser})(ParkInf);
 
 
 

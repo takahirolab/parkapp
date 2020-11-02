@@ -4,9 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import '../App.css';
 import Pic1 from '../images/pic1.png'
-import Pic2 from '../images/pic2.png'
-import Pic3 from '../images/pic3.png'
-import Pic4 from '../images/pic4.png'
+
 import {  Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';.active
 
@@ -18,24 +16,17 @@ import Park from '../components/park/Park';
 
 import {connect} from 'react-redux';
 import {getParks} from '../redux/actions/dataActions';
-import parkList_view from './parkList_view';
 
 
-import  Navbar  from '../layout/Navbar'
+
+
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
-import EcoRoundedIcon from '@material-ui/icons/EcoRounded';
-import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
+
 import FilterListRoundedIcon from '@material-ui/icons/FilterListRounded';
-import QueryBuilderRoundedIcon from '@material-ui/icons/QueryBuilderRounded';
-import ParkFindItems from '../components/park/ParkFindItems';
-import LikeButton from '../components/park/LikeButton'
-import Bookmark from '@material-ui/icons/BookmarkRounded';
-import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
-import AutorenewRoundedIcon from '@material-ui/icons/AutorenewRounded';
+
 
 import ScreamSkeleton from '../util/ScreamSkeleton';
-import { NaturePeopleOutlined } from '@material-ui/icons';
-import LazyLoad from 'react-lazyload'
+
 
 
 
@@ -263,10 +254,6 @@ class ProductRow extends React.Component {
 
   render() {
 
-
-
-
-
     return (
       <>
         <Link to={`/park/${this.props.park.parkId}`} className="FindParksResult-item" onClick={this.CountList}>
@@ -274,7 +261,7 @@ class ProductRow extends React.Component {
         <img className="FindParksResult-item-img" src={this.props.park.parkImage}/>
 
         <div className="FindParksResult-item-detil">
-        <h2 className="parksResult-item-name">{this.props.park.parkName}</h2>
+          <h2 className="parksResult-item-name">{this.props.park.parkName}</h2>
         </div>
 
         </Link>

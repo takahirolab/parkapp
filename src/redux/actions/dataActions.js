@@ -81,7 +81,7 @@ export const getArticles = () => (dispatch) => {
 
 
 
-export const getScream = (parkId) => (dispatch) => {
+export const getPark = (parkId) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
     .get(`/park/${parkId}`)
@@ -97,8 +97,8 @@ export const getScream = (parkId) => (dispatch) => {
 
 
 
-// Post a scream
 export const postActivity = (newAc) => (dispatch) => {
+
   dispatch({ type: LOADING_UI });
   axios
     .post('/parkAc',newAc)
@@ -117,8 +117,9 @@ export const postActivity = (newAc) => (dispatch) => {
     });
 };
 
-// Post a scream
+
 export const postScream = (newPark) => (dispatch) => {
+  console.log(newPark)
   dispatch({ type: LOADING_UI });
   axios
     .post('/park',newPark)
@@ -127,6 +128,7 @@ export const postScream = (newPark) => (dispatch) => {
         type: POST_SCREAM,
         payload: res.data
       });
+      console.log(res)
       dispatch(clearErrors());
     })
     .catch((err) => {
@@ -148,6 +150,7 @@ export const likeScream = (parkId) => (dispatch) => {
         type: LIKE_SCREAM,
         payload: res.data
       });
+      console.log(res)
     })
     .catch((err) => console.log(err));
 };
@@ -173,6 +176,7 @@ export const submitComment = (parkId, commentData) => (dispatch) => {
   axios
     .post(`/park/${parkId}/comment`, commentData)
     .then((res) => {
+      console.log(res)
       dispatch({
         type: SUBMIT_COMMENT,
         payload: res.data

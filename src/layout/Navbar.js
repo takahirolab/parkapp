@@ -2,29 +2,28 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Profile from '../images/profile.svg'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import '../style.css'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect
+  } from 'react-router-dom'
 
 import { ReactComponent as Logo } from '../images/logo.svg';
-import { logoutUser, uploadImage,loginUser } from '../redux/actions/userActions';
+import {logoutUser,uploadImage,loginUser} from '../redux/actions/userActions';
+
+import { signupUser } from '../redux/actions/userActions';
 
 import Logoimg from '../images/logoimg.svg';
 import Googleicon from '../images/google.svg';
 import Modal from 'react-modal';
-import zIndex from '@material-ui/core/styles/zIndex';
-
-
-
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Login from '../pages/login_mobile';
+import MovileNav from './MobileNav'
 import TwLogo from '../images/Twitter_Logo.svg'
-import TemporayDrawer from './TemporayDrawer'
-import { ReactComponent as Cloud } from '../images/cloud.svg'
-import { ReactComponent as CloudSunny } from '../images/cloudSunny.svg'
-import { ReactComponent as Rain } from '../images/Rain.svg'
-
-import axios from 'axios'
+import { DisappearedLoading } from 'react-loadingg';
+import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
+import ShareIcon from '@material-ui/icons/Share';
 
 const customStyles = {
     overlay: {
@@ -51,111 +50,256 @@ const customStyles = {
         transform             : 'translate(-50%, -50%)',
         background: 'none',
         border: 'none',
-        animationName: 'login-form',
+        animationName: 'login-modal',
         animationDelay : '2s'
    }
   };
+const customStylesMypage = {
+    overlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        border: 0,
+        animationName: 'login-modal',
+        animationDuration: '0.5s',
+        animationName: 'sample01'
+      },
 
-  Modal.setAppElement('#root') //任意のアプリを設定する　create-react-appなら#root
+    content : {
+        zIndex:'100',
+        position:'fixed',
+        top                   : '2rem',
+        left:'none',
+        right                 : '13rem',
+        bottom                : 'auto',
+        overflow:'none',
+        transform             : 'translate(-50%, -50%)',
+        background: 'none',
+        border: 'none',
+        animationName: 'sample01',
+        animationDelay: '2s',
+
+   }
+  };
+
+
 export class Navbar extends Component {
-        constructor() {
-          super();
+        constructor(props) {
+          super(props);
           this.state = {
-            modalIsOpen: false,
+            modalIsOpenLogin: false,
+            modalIsOpenSignup: false,
             email:'',
             password:'',
               error: {},
-              weather_icon: '',
+              EmailInput: '',
+              PassInput: '',
+              confirmPassword: '',
+              userName: '',
+              MypageOpen:''
           };
-          this.openModal = this.openModal.bind(this);
-        //   this.afterOpenModal = this.afterOpenModal.bind(this);
-          this.clsoseModal = this.closeModal.bind(this);
+          this.openModalLogin = this.openModalLogin.bind(this);
+          this.closeModalLogin = this.closeModalLogin.bind(this);
+          this.openModalSignup = this.openModalSignup.bind(this);
+          this.closeModalSignup = this.closeModalSignup.bind(this);
+          this.handleChangeEmail = this.handleChangeEmail.bind(this);
+          this.handleChangePassword = this.handleChangePassword.bind(this);
+          this.MypageOpen=this.MypageOpen.bind(this);
         }
 
-        handleGetLatAndLng_day = async () => {
-            const response_day = await axios.get('http://api.openweathermap.org/data/2.5/onecall?lat=35.681236&lon=139.767125&exclude=current&lang=ja&appid=53c3cb0dbb1e4379c04eecc993b22af1');
-            const weatheritems_hourly = response_day.data.hourly[0].weather[0].description
-            const test = weatheritems_hourly.includes('曇')
-            console.log(test)
-            console.log(weatheritems_hourly)
 
-            if (weatheritems_hourly.indexOf('曇') != -1) {
-                this.setState({ weather_icon: 'Cloud', })
+          componentWillReceiveProps(nextProps) {
+            if (nextProps.UI.errors) {
+              this.setState({ errors: nextProps.UI.errors.general });
             }
-            if (weatheritems_hourly.indexOf('雲') != -1) {
-                this.setState({ weather_icon: 'Cloud', })
-            }
-            if (weatheritems_hourly.indexOf('晴') != -1) {
-                this.setState({ weather_icon: 'CloudSunny', })
-            }
-            if (weatheritems_hourly.indexOf('雨') != -1) {
-                this.setState({ weather_icon: 'Rain', })
-            }
+              console.log(nextProps.UI.errors)
 
-        }
+          }
 
-s
-        openModal() {
-          this.setState({modalIsOpen: true});
+          //ログイン
+          openModalLogin() {
+          this.setState({modalIsOpenSignup: false});
+          this.setState({modalIsOpenLogin: true});
           document.body.setAttribute('style', 'overflow: hidden;')
         }
-        // afterOpenModal() {
-        //   this.subtitle.style.color = '#484848';
-        // }
-        closeModal() {
-          this.setState({modalIsOpen: false});
-          document.body.removeAttribute('style', 'overflow: hidden;')
+
+    closeModalLogin() {
+        this.setState({modalIsOpenSignup: false});
+            this.setState({ modalIsOpenLogin: false });
+            document.body.removeAttribute('style', 'overflow: hidden;')
+        }
+
+    ///新規登録
+         openModalSignup() {
+        this.setState({modalIsOpenLogin:  false});
+          this.setState({modalIsOpenSignup: true});
+          document.body.setAttribute('style', 'overflow: hidden;')
+        }
+
+    closeModalSignup() {
+        this.setState({modalIsOpenLogin:  false});
+            this.setState({ modalIsOpenSignup: false });
+            document.body.removeAttribute('style', 'overflow: hidden;')
         }
 
         handleLogout = () => {
             this.props.logoutUser();
-          }
 
-        //   componentDidUpdate(nextProps) {
-        //     if (nextProps.UI.errors) {
-        //       this.setState({ errors: nextProps.UI.errors });
-        //     }
-        //   }
+        }
 
           handleSubmit =(event) =>{
-              // preventDefault()は、実行したイベントがキャンセル可能である場合、
-              // イベントをキャンセルするためのメソッドです。
-            this.closeModal();
-             event.preventDefault();
-             const userData = {
-                 email:this.state.email,
-                 password:this.state.password
+              event.preventDefault();
+              const userData = {
+                 email:this.state.EmailInput,
+                 password:this.state.PassInput
              };
-
-             this.props.loginUser(userData,this.props.history);
-              };
-
-
-
-          handleChange= (event) => {
-           this.setState({
-          [event.target.name]:event.target.value
-          });
+              this.props.loginUser(userData, this.props.history);
+              console.log(userData)
           };
 
 
-          componentDidMount() {
-            this.handleGetLatAndLng_day();
+            handleSubmitSignup =(event) =>{
+                event.preventDefault();
+                this.setState({
+                    loading:true
+                });
+                const newUserData = {
+                    email:this.state.EmailInput,
+                    password:this.state.PassInput,
+                    confirmPassword:this.state.confirmPassword,
+                    userName:this.state.userName
+                }
+                this.props.signupUser(newUserData, this.props.history);
+                console.log(newUserData)
+            };
+
+
+          handleChangeEmail= (event) => {
+           this.setState({
+          EmailInput:event.target.value
+          });
+          };
+
+          handleChangePassword= (event) => {
+           this.setState({
+          PassInput:event.target.value
+          });
+          };
+
+          handleChangeConPassword= (event) => {
+           this.setState({
+            confirmPassword:event.target.value
+          });
+          };
+
+          handleChangeUser= (event) => {
+           this.setState({
+            userName:event.target.value
+          });
+          };
+
+    MypageOpen() {
+        if (this.state.MypageOpen) {
+            this.setState({
+                MypageOpen: ''
+            })
         }
-
-
-
+        if (!this.state.MypageOpen) {
+            this.setState({
+                MypageOpen: 'ture'
+            })
+        }
+    }
 
 
 
     render() {
-
-        const {classes,authenticated} = this.props;
-     const {errors}=this.state;
-
+        const {UI: {loading }} = this.props;
+        const { errors } = this.state;
+        const { authenticated } = this.props;
+        console.log(this.props)
+        console.log(loading)
 
         return (
-            <div className="nav nav_color">
+
+<>
+                {authenticated ? (
+                      <div className="nav nav_color" >
+                      <div className="nav-inner">
+                          <div className="nav-title">
+                              <Link to="/" className="nav-titile-logo ">
+                                  <Logo className="logo__size"/>
+                              </Link>
+                          </div>
+
+                          <MovileNav/>
+                          {/* ///////////////////////
+                          PC時のメニュー画面
+                          /////////////////////// */}
+                              <ul className="nav-items_center">
+                              <Link to="/" className="nav-item nav-item__black">ホーム</Link>
+                              <Link to="/about" className="nav-item nav-item__black">サービスについて</Link>
+                              <Link to="/park/search" className="nav-item nav-item__black">公園をさがす</Link>
+                              </ul>
+                            <ul className="nav-items_center-">
+                            <Link to='/like' className="nav-item-out">
+                                    <FavoriteRoundedIcon style={{ fontSize: '26', color: '#93918f' }} />
+                                    <p className="nav-item-font">行きたい</p>
+                                </Link>
+                         <Link to='/mypage'　className="nav-items_accout" >
+                                    <img src={this.props.user.credentials.imageUrl} className="Nav-profileImage" />
+                                </Link>
+
+
+
+
+                                <Modal
+                         isOpen={this.state.MypageOpen}
+                         onAfterOpen={this.afterOpenModal}
+                         onRequestClose={this.MypageOpen}
+                         style={customStylesMypage}
+                         contentLabel="Example Modal"
+                        >
+                                <li class="hidden_show">
+                                    <ul className="rectangle">
+                                            <li className="nav-rectangle-item__mypage">
+                                                <div className="sidemenu-item-inner">
+                                                <img src={this.props.user.credentials.imageUrl} className="Nav-profileImage"/>
+                                                    {/* <AccountCircleIcon style={{ fontSize: '48', color: '#777777' }} /> */}
+                                                    <div className="sidemenu-item-inner-profile">
+                                                        <p className="sidemenu-item-inner-profile_Name">{this.props.user.credentials.userName}</p>
+                                                    <Link to="/Mypage" className="sidemenu-item-inner-profile_mypage">マイページへ
+                                                    </Link>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li className="nav-rectangle-item">
+                                                <Link to="/like" className="sidemenu-item-inner">
+                                                    <FavoriteRoundedIcon style={{fontSize:'18',color:'#424242'}}/>
+                                                <p className="sidemenu-item-inner_p">いいねした公園</p>
+                                            </Link>
+                                            </li>
+                                            <li className="nav-rectangle-item">
+                                                <Link to="/Mypage" className="sidemenu-item-inner">
+                                                    <ShareIcon style={{fontSize:'18',color:'#242424'}}/>
+                                                <p className="sidemenu-item-inner_p">アプリをシェアする</p>
+                                            </Link>
+
+                                            </li>
+
+
+                                        <li className="nav-rectangle-item" onClick={this.handleLogout}>サインアウト</li>
+                                    </ul>
+                                    </li>
+                                    </Modal>
+                            </ul>
+                        </div>
+                    </div>
+                ):(
+                    <div className="nav nav_color" >
             <div className="nav-inner">
                 <div className="nav-title">
                     <Link to="/" className="nav-titile-logo ">
@@ -163,81 +307,33 @@ s
                     </Link>
                 </div>
 
-                    <div className="nav-mobile">
-
-                        <Link to="/weather">
-                            {
-                                this.state.weather_icon = "Cloud" ?
-                                    <Cloud className="nav-mobile__padding" /> :
-                                    this.state.weather_icon = "CloudSunny" ? <CloudSunny className="nav-mobile__padding" /> :
-                                    <Rain className="nav-mobile__padding" />
-
-
-                            }
-                        </Link>
-
-
-                        {authenticated ? (
-                            <TemporayDrawer />
-                        ) : (
-                            <div className="Nav-LoginReg">
-                                <Link to="/signup" className="Nav-Registar">
-                                    新規登録
-                                </Link>
-                                <Link to="/login" className="Nav-Login">
-                                    ログイン
-                                </Link>
-                            </div>
-                        )}
-                    </div>
-
-
+                <MovileNav/>
                 {/* ///////////////////////
                 PC時のメニュー画面
                 /////////////////////// */}
-                <ul className="nav-items_center">
-                    <Link to="/about" className="nav-item nav-item__white">サービスについて</Link>
-                    <Link to="/" className="nav-item nav-item__white">公園をさがす</Link>
-                    <Link to="/activity" className="nav-item nav-item__white">体験をさがす</Link>
-                    {/* <Link to="/article" className="nav-item nav-item__white">コラムをよむ</Link> */}
-
-                </ul>
-
-
-                {authenticated ? (
-                    <ul className="nav-items_center-">
-                        <input type="checkbox" id="label1"/>
-                         <li　className="nav-items_accout">
-                             <label for="label1"><AccountCircleIcon style={{ fontSize: 40 }}/></label></li>
-                         <li class="hidden_show">
-                            <ul className="rectangle">
-                                <li className="nav-rectangle-item"><Link to="/Mypage">プロフィールをみる</Link></li>
-                                <li className="nav-rectangle-item">公園を登録する</li>
-                                <li className="nav-rectangle-item">アプリをシェアする</li>
-                                <li className="nav-rectangle-item" onClick={this.handleLogout}>ログアウト</li>
-                            </ul>
-                        </li>
+                    <ul className="nav-items_center">
+                    <Link to="/" className="nav-item nav-item__black">ホーム</Link>
+                    <Link to="/about" className="nav-item nav-item__black">サービスについて</Link>
+                    <Link to="/park/search" className="nav-item nav-item__black">公園をさがす</Link>
                     </ul>
-                ):(
                     <ul className="nav-items_center">
                     <div className="nav-item nav-item_login login_color">
 
+                    <p onClick={this.openModalSignup} className="SingupBtn" >新規登録</p>
+                                    <p onClick={this.openModalLogin} className="nav-item_login">ログイン</p>
 
-                    <h2 onClick={this.openModal}　className="nav-item_login">ログイン</h2>
                         <Modal
-                        isOpen={this.state.modalIsOpen}
-                        onAfterOpen={this.afterOpenModal}
-                        onRequestClose={this.closeModal}
-                        style={customStyles}
-                        contentLabel="Example Modal"
+                         isOpen={this.state.modalIsOpenLogin}
+                         onAfterOpen={this.afterOpenModal}
+                         onRequestClose={this.closeModalLogin}
+                         style={customStyles}
+                         contentLabel="Example Modal"
                         >
-
-                        {/* <h2 ref={subtitle => this.subtitle = subtitle}>ログイン</h2> */}
                         <div className ="login-modal">
                             <div className="login-modal-inner">
                                 <div className="login-title-head">
-                                    <img src={Logoimg} className="gl-logo__"/>
-                                    <h2 className="login-title-size ">Parkrへようこそ</h2>
+                                    {/* <img src={Logoimg} className="gl-logo__"/> */}
+                                    <h2 className="login-title-size ">ログインする</h2>
                                 </div>
                                 <div className="sns-login-items">
                                     <div className="sns-login">
@@ -249,13 +345,15 @@ s
                                         <p>twitterではじめる</p>
                                     </div>
                                 </div>
-                                <div className="mail-login">
+                                <div className="mail-login mail-login-pc ">
                                     <h2>メールアドレスではじめる</h2>
+                                    <p className="valid">{this.state.errors}</p>
 
 
 
+                                                    <form noValidate onSubmit={this.handleSubmit} className="login-form">
 
-                                    <form noValidate onSubmit={this.handleSubmit} className="login-form">
+
                                         <div className="login-mail-input">
                                             <input
                                             id="email"
@@ -264,13 +362,14 @@ s
                                             label="Email"
                                             className="mail-input"
                                             placeholder="メールアドレス"
-                                            //   helperText={this.state.error.email}
-                                            //   error={this.state.errors ? true : false}
-                                            value={this.state.email}
-                                            onChange={this.handleChange}
+                                            helperText={this.state.error.email}
+                                            error={this.state.errors ? true : false}
+                                            value={this.state.EmailInput}
+                                            onChange={this.handleChangeEmail}
                                             fullWidth
                                         />
-                                            </div>
+                                                        </div>
+
 
                                         <div className="login-mail-input">
                                             <input
@@ -280,26 +379,30 @@ s
                                             label="Password"
                                             className="mail-input"
                                             placeholder="パスワード"
-                                            value={this.state.password}
-                                            onChange={this.handleChange}
+                                            value={this.state.PassInput}
+                                            onChange={this.handleChangePassword
+                                                                }
                                             fullWidth
                                             />
                                         </div>
                                         <p className="guidline">登録することで、利用規約とプライバシーポリシーに同意したものとみなされます。</p>
 
+
                                         <div className="login-mail-input btn-color">
-                                            <button
+                                                <button
                                                 type="submit"
                                                 variant="contained"
-                                                color="primary"
                                                 className="mail-registar"
-                                            >
-                                            はじめる
-                                            </button >
+                                                // disabled={this.state.PassInput.length > 8 ? false : true
+                                                                >
+                                                {loading? <DisappearedLoading color='#ffffff' className="c-cJSrbW fZjnHv"/>:'ログインする'}
+
+
+                                        </button >
                                         </div>
                                         <br />
-                                            <small>
-                                            dont have an account ? sign up <Link to="/signup">here</Link>
+                                            <small onClick={this.openModalSignup} >
+                                            アカウントをお持ちでない方はこちら
                                             </small>
                                         </form>
                                 </div>
@@ -307,32 +410,140 @@ s
                             </div>
                         </div>
                         </Modal>
-                        {/* <Login/> */}
+
+
+                        <Modal
+                         isOpen={this.state.modalIsOpenSignup}
+                         onAfterOpen={this.afterOpenModal}
+                         onRequestClose={this.closeModalSignup}
+                         style={customStyles}
+                         contentLabel="Example Modal"
+                        >
+                        <div className ="login-modal">
+                            <div className="login-modal-inner">
+                                <div className="login-title-head">
+                                    {/* <img src={Logoimg} className="gl-logo__"/> */}
+                                    <h2 className="login-title-size ">新規登録する</h2>
+                                </div>
+                                <div className="sns-login-items">
+                                    <div className="sns-login">
+                                        <img src={Googleicon} className="gl-logo"/>
+                                        <p>Googleではじめる</p>
+                                    </div>
+                                    <div className="sns-login tw-color">
+                                    <img src={TwLogo} className="tw-logo"/>
+                                        <p>twitterではじめる</p>
+                                    </div>
+                                </div>
+                                <div className="mail-login mail-login-pc ">
+                                    <h2>メールアドレスではじめる</h2>
+                                    <p className="valid">{this.state.errors}</p>
+                                    <form noValidate onSubmit={this.handleSubmitSignup} className="login-form">
+
+
+                                        <div className="login-mail-input">
+                                            <input
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            label="Email"
+                                            className="mail-input"
+                                            placeholder="メールアドレス"
+                                            value={this.state.EmailInput}
+                                            onChange={this.handleChangeEmail}
+                                            fullWidth
+                                        />
+                                        </div>
+
+
+                                        <div className="login-mail-input">
+                                            <input
+                                            id="password"
+                                            name="password"
+                                            type="password"
+                                            label="Password"
+                                            className="mail-input"
+                                            placeholder="パスワード"
+                                            value={this.state.PassInput}
+                                            onChange={this.handleChangePassword
+                                                                }
+                                            fullWidth
+                                            />
+                                            </div>
+
+                                            <div className="login-mail-input">
+                                            <input
+                                            id="confirmPassword"
+                                            name="confirmPassword"
+                                            type="password"
+                                            label="confirm Password"
+                                            className="Reg-InputForm"
+                                            //   helperText={this.state.errors.confirmPassword}
+                                            //   error={this.state.errors.confirmPassword ? true : false}
+                                            value={this.state.confirmPassword}
+                                            onChange={this.handleChangeConPassword}
+                                            fullWidth
+                                            />
+                                            </div>
+
+                                         <div className="login-mail-input">
+                                         <input
+                                        id="userName"
+                                        name="userName"
+                                        type="text"
+                                        label="userName"
+                                        className="Reg-InputForm"
+                                        //   helperText={this.state.errors.handle}
+                                        //   error={this.state.errors.handle ? true : false}
+                                        value={this.state.userName}
+                                        onChange={this.handleChangeUser}
+                                        fullWidth
+                                        />
+                                        </div>
+
+
+                                        <p className="guidline">登録することで、利用規約とプライバシーポリシーに同意したものとみなされます。</p>
+                                        <div className="login-mail-input btn-color">
+                                                <button
+                                                type="submit"
+                                                variant="contained"
+                                                className="mail-registar"
+                                                disabled={this.state.PassInput.length < 8 ? false : true
+                                                }
+                                                                >
+                                                                      {loading? <DisappearedLoading color='#ffffff' className="c-cJSrbW fZjnHv"/>:'はじめる'}
+                                        </button >
+                                        </div>
+                                        <br />
+                                            <small onClick={this.openModalLogin}  >
+                                            アカウントをお持ちでない方はこちら
+                                            </small>
+                                        </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        </Modal>
+
                     </div>
 
 
-                    </ul>
+
+                                </ul>
+                            </div>
+                            </div>
 
                 )}
 
-                </div>
 
 
-
-
-
-
-            </div>
-
+</>
 
         )
     }
 }
 
-//propsを通して値を受け取る子コンポーネント側で、propsのバリデート（型チェック）を行うことができます。
-//コンポーネントに付属しているpropTypesプロパティを使って、受け取るpropsの値を一つ一つの型のチェック
-//や必須チェックなどを行います。なお、制約に違反していた場合でも、エラーとはならず、
-//コンソール上に警告として表示されるだけとなります。
+
 Navbar.propTypes = {
     authenticated: PropTypes.bool.isRequired,
     classes:PropTypes.object.isRequired, //objectが必須にしたい項目。
@@ -345,13 +556,14 @@ Navbar.propTypes = {
 
 //Reduxはstate管理
   const mapStateToProps = (state) => ({
+    user:state.user,
     authenticated: state.user.authenticated,
     user:state.user,
-    UI:state.UI
+    UI: state.UI,
+    search: state,
+    data:state.data
   });
 
 
 
-  const mapActionsToProps = { logoutUser, uploadImage,loginUser };
-
-  export default connect(mapStateToProps,mapActionsToProps)(Navbar);
+  export default connect(mapStateToProps,{loginUser,logoutUser,signupUser})(Navbar);

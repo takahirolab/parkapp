@@ -1,76 +1,51 @@
 import React, { Component, Fragment } from 'react'
- import PropTypes from 'prop-types';
- import withStyles from '@material-ui/core/styles/withStyles';
- import Typography  from '@material-ui/core/Typography';
- import dayjs from 'dayjs';
-import {Link} from 'react-router-dom';
-
- //mui
- import Grid from '@material-ui/core/Grid';
+import { getPark } from '../../redux/actions/dataActions';
+import { connect } from 'react-redux';
 
 
- const styles = theme => ({
-     ...theme.spreadThis,
-     commentImage:{
-         maxWidth:'100%',
-        height:100,
-        objectFit:'cover',
-        borderRadius:'50%'
-     },
-     commnetData:{
-         marginLeft:20
-     }
- });
+export class Comments extends Component {
+    constructor(props) {
+        super(props);
+        };
 
- class Comments extends Component {
+    componentDidMount() {
+        this.props.getPark();
+    }
+
      render(){
-         const {comments,classes} =this.props;
+         const { park } = this.props.data;
+        const parkcomments =park.comments
 
          return (
-             <Grid container>
-                 {comments.map((comment,index)=>{
-                    const {body,createdAt,userImage,userHandle} = comment;
-
+            <>
+                 {parkcomments.map((parkcomment,index)=>{
                     return (
-                        <Fragment>
-                            <Grid item sm={12}>
-                                <Grid container>
-                                    {/* <Grid item sm={2}>
-                                        <img src={userImage} alt="comment" className={classes.commentImage} />
-                                    </Grid> */}
-                                    <Grid item sm={9}>
-                                        <div className={classes.commentDate}>
-                                            {/* <Typography
-                                                variant="h5"
-                                                component={Link}
-                                                to={`/users/${userHandle}`}
-                                                color="primary">
-                                                {userHandle}
-                                            </Typography>
-                                            <Typography variant="body2" color="textPrimary">
-                                                {dayjs(createdAt).format('h:mm a, MMMM DD YYYY')}
-                                            </Typography>
-                                            <hr className={classes.invisibleSeparator}/> */}
-                                                <Typography variant="body1">{body}</Typography>
-                                        </div>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                           {index !== comments.length -1 &&(
-                               <hr className={classes.visibleSeparator}/>
-                           )}
-                        </Fragment>
+                        <div class="user-comment">
+                        <div className="user-comment_inner">
+                            <img src={parkcomment.userImage} className="userProfile_img"/>
+                        </div>
+                        <div className="userComment userComment-margin">
+                            <div className="userNaem">{parkcomment.userName} </div>
+                            <div className="userComment comment-inner"><p>{parkcomment.comment} </p></div>
+                        </div>
+                  </div>
                     )
                 })}
-             </Grid>
+             </>
          )
      }
 
  }
 
 
-Comments.propTypes = {
-    comments:PropTypes.array.isRequired
-}
 
-export default withStyles(styles)(Comments);
+
+const mapStateToProps = (state) =>({
+    data: state.data,
+    user:state.user,
+    UI: state.UI,
+    authenticated: state.user.authenticated,
+  })
+
+  export default connect(mapStateToProps,{getPark})(Comments);
+

@@ -1,0 +1,3586 @@
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
+  overflow-x : hidden;
+  overflow-y : auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+
+html::-webkit-scrollbar {
+display:none;
+}
+
+p,h2,h1{
+  color:#424242;
+}
+
+/* body { font-size:62.5%; } */
+/*
+100% = 1em = 1rem = 16px = 12pt */
+body {
+    font-family: Verdana,"Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  box-sizing: border-box;
+position: relative; }
+
+  ul, ol {
+    list-style: none;
+    padding:0px
+  }
+  table {
+    border-collapse: collapse;
+  }
+  img {
+    vertical-align: bottom;
+  }
+  a img {
+    border: none;
+    text-decoration: none;
+  }
+  strong {
+    font-weight: normal;
+  }
+  i{
+    font-style: normal;
+  }
+
+  a{
+    border: none;
+    text-decoration: none;
+  }
+  button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 200px;
+  margin: 0;
+  border: 0;
+  outline: none;
+  padding: 0;
+  background: transparent;
+}
+
+label {
+  /* width: 100%; */
+  height: none;
+  color: none;
+  padding: none;
+  display: none;
+  align-items: center;
+}
+
+
+
+option{
+  font-family: Verdana,"Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
+
+input, textarea {
+  font-family: Verdana,"Hiragino Kaku Gothic ProN";
+  font-size: 12px;
+}
+
+.p{
+  font-size: 1.5rem;
+}
+.h2{
+font-size:1.8rem;
+color: #424242;
+}
+
+input[type="text"] {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: none;
+}
+input[type="file"] {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: none;
+}
+input[type="search"] {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: none;
+}
+
+input:focus {
+  box-shadow: none;
+  outline: none;
+  background:none;
+}
+
+.nav-mobile{
+  display: none;
+}
+
+
+  .nav{
+    z-index: 1;
+      width: 100%;
+      position: fixed;
+      /* background:#fff; */
+      top:0px;
+  }
+
+  .nav_color{
+      background:#fff;
+  }
+
+  .nav-inner{
+    margin: 0 auto;
+    max-width:120rem;
+    width:120rem;
+    height:85px;
+    box-sizing: border-box;
+    padding:1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-inner .nav-items_center{
+  font-family: Hiragino Kaku Gothic ProN　W6,Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right:0;
+    align-items:center;
+
+}
+
+.nav-titile-logo{
+    /* font-size: 3rem; */
+    font-weight: 700;
+}
+
+.nav-logo__white{
+color: #52BF90;
+}
+
+
+
+.nav-item__white{
+    color: #525252;
+}
+.nav-item{
+padding-left:1.7rem;
+font-size: 1.5rem;
+letter-spacing: 0.15rem;
+font-weight: bold;
+}
+
+.nav-item:nth-of-type(1){
+  padding-left:0rem;
+}
+
+.nav-item-btn{
+  display: flex;
+  margin-left: 15px;
+  /* padding: 3px 20px 5px 20px; */
+  border-radius: 12px;
+  border: 1px solid #52BF90;
+  color: #52BF90;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 10rem;
+}
+
+.login_color{
+  color:#A9A9A9
+}
+
+.footer{
+  width:100%;
+  height: 36rem;
+  min-width: 120rem;
+  bottom:0px;
+  background-image: url(../src/images/footer.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.footer_container{
+  margin-top:7rem ;
+}
+
+/* .footer :after{
+  content: '';
+  background:#52BF90;
+  height: 20rem;
+  width: 100%;
+} */
+
+.footer_inc{
+  text-align: center;
+  min-width: 110rem;
+  color: #f2f2f2;
+}
+
+
+.footer_bk{
+  min-width: 110rem;
+}
+
+.homeContents{
+  min-height: calc(100vh - 70px);
+}
+.change-icon-title{
+  font-size: 1.4rem;
+  padding-left: 1rem;
+
+}
+
+
+.container{
+  min-width:120rem;
+  margin: 0 auto;
+  width: 120rem;
+}
+
+.container-top{
+  margin:0 auto;
+  margin-top:10rem;
+  padding: 0 1.5rem;
+  width:120rem;
+  min-width: 120rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+
+
+.Mypage-left{
+  width:25rem;
+  height: 70vh;
+  background:#ffffff;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+
+
+
+
+.container_main{
+  max-width:110rem;
+}
+
+.footer-inner{
+  /* padding:3rem 1.5rem; */
+}
+
+.contents-margin{
+  margin-top: 70px;
+  padding: 0 20px;
+}
+
+.contents-items-find{
+  margin-top: 12rem;
+  padding: 0 20px;
+}
+
+.header-items{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-bottom: 2rem;
+}
+
+.header-items_activity{
+  display: flex;
+   justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-bottom: 2rem;
+}
+
+.header-item__parks{
+  width: 32.5%;
+  height:33rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px #ccc;
+}
+.header-item{
+  width: 32%;
+  height:33rem;
+  background-color: #fff;
+  border-radius:8px;
+}
+
+.header-item__article{
+  font-size: 1.5rem;
+  width: 32%;
+  height:26rem;
+  width: 24%;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+
+.header-item-img{
+  width:100%;
+  object-fit: cover;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.item-activRight{
+
+  height: 18.3rem;
+}
+
+.header-item-img_activ{
+  height:18.3rem;
+  width:100%;
+  object-fit: cover;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.header-title{
+  font-size: 2.8rem;
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.2rem;
+  color: #626262;
+}
+
+.header-ex-desc{
+  font-size: 15px;
+  text-align: center;
+    margin-bottom: 4rem;
+  letter-spacing: 0.1rem;
+}
+
+
+
+.header-item-title{
+  color:#626262;
+  font-weight: 700;
+}
+
+.header-item-title__parks{
+  font-size: 1.8rem;
+  color:#626262;
+  font-weight: 700;
+}
+
+.header-item-title__article{
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.8rem;
+}
+
+.header-item-date{
+  color: #626262;
+  padding-top: 0.6rem;
+  font-size: 1.3rem;
+  text-align: end;
+}
+
+
+.footer-contents{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6rem;
+  padding-top: 9rem;
+  padding-left: 2rem;
+}
+
+
+.footer_item{
+  text-align: left;
+  /* padding-left: 1rem; */
+  padding-bottom:0.8rem ;
+}
+.footer_white{
+  color:#ffffff;
+  opacity:0.8
+}
+
+.footer_h2{
+  padding-bottom:1.5rem ;
+  font-size:1.6rem ;
+}
+
+
+.footer-items{
+  text-align: right;
+}
+
+.footer-items li{
+  font-size: 1.4rem;
+}
+
+.footer-content h2{
+font-weight: 700;
+color: #f2f2f2;
+}
+
+.footer-content{
+  margin-right:7rem ;
+}
+
+.footer-items ul li{
+  color: #f2f2f2;
+
+}
+
+.main-visual{
+  min-width: 120rem;
+  margin-top: 8.5rem;
+  z-index: 0;
+  width: 100%;
+  height: 60rem;
+  object-fit: cover;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.contennts{
+  position: relative;
+  margin-right: 0px;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main_visual__cotainer{
+  margin:0 auto;
+  min-width: 120rem;
+  width:120rem;
+  display: flex;
+  align-items: center;
+}
+.news{
+  width: 30rem;
+  height: 20rem;
+  background: #fff;
+  margin-left: auto;
+  margin-top: rem;
+  border-radius: 1.2rem;
+  margin-right: 1.5rem;
+ position: absolute
+ ;
+}
+
+
+.main_visual__cotainer p{
+ font-size: 2.4rem;
+ text-shadow:-0.6px -0.6px -0.6px #777;
+
+}
+
+.main_visual_location{
+  padding-left:1.5rem;
+  display: flex;
+  align-items: center;
+  color:#fff;
+  margin-top: 60rem;
+}
+
+.weather_container{
+  width: 30rem;
+  height: 20rem;
+  background: #fff;
+  margin-left: auto;
+  margin-top: 28rem;
+  border-radius: 1.2rem;
+  margin-right: 1.5rem;
+}
+
+.readmore{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-inner-1{
+  margin-bottom: 1.5rem;
+}
+
+
+
+.header-inner{
+  padding:1.2rem;
+}
+
+.readmore-desc{
+  font-size: 1.4rem;
+  color:#626262
+}
+
+.weather{
+  position: absolute;
+  width:25rem;
+  height:20rem;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  right:0;
+  bottom:2rem;
+  margin: 2rem;
+}
+
+.park-ex{
+  position: relative;
+  padding:1rem 0px;
+}
+
+.header-item-desc{
+  font-size: 1.4rem;
+  color:#777;
+  height: 45px;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* .park-ex:before{
+position: absolute;
+display: block;
+content: "";
+width: 100%;
+height: 100%;
+
+right: calc(50% - 160px);
+background: #56A662;
+z-index: -2;
+}
+ */
+
+
+.white-h1{
+  color:#fff;
+}
+
+
+.btn{
+  margin: 0 auto;
+  width:300px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.8rem;
+}
+
+
+
+
+.bk{
+position: relative;
+}
+
+
+ /* .header_svg{
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  bottom:-2px;
+  }
+ */
+
+
+ /* admin */
+
+ .nav_admin{
+   background-color:#3D485D;
+ }
+ .nav-title{
+  margin-top: 0.9rem;
+
+ }
+
+ .logo__size{
+   width: 85%;
+ }
+
+ .nav_inner_ad{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 8.5rem;
+   padding:1.5rem;
+ }
+
+ .contents_admin{
+   display: flex;
+   width:100%;
+   margin-top: 8.5rem;
+ }
+
+ .contents_admin_left{
+display: inline-block;
+width:300px;
+
+box-shadow: 0 0 15px -6px #00000073;
+ }
+
+
+
+
+.nav_ad_left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color:#F2F2F2 ;
+}
+
+.nav_ad_left_dec{
+  color:#F2F2F2 ;
+  font-size:1.4rem;
+  margin-right:1rem ;
+}
+
+.admin_items{
+ display: flex;
+ flex-direction: column;
+ align-items: middle;
+
+}
+
+
+.admin_item{
+  width:30rem;
+  padding-left:20px;
+  line-height: 5rem;
+  height: 5rem;
+  border-bottom: #3D485D solid 0.05rem ;
+  background: #fff;
+}
+.white{
+  color:white;
+}
+.contets_admin{
+  width: 100%;
+  display:inline-block;
+}
+
+.parklist_view{
+  color:#fff;
+}
+
+
+
+table {
+  border-collapse: collapse;
+  margin-left: 0 auto;
+  padding: 0;
+  width: 1200px;
+  margin-right: auto;
+  margin-left: 20px;
+  box-shadow: 0 0 15px -6px #00000073;
+}
+
+table tr {
+  background-color: #fff;
+}
+
+table th,
+table td {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+table  th {
+  /* width: 20%; */
+  padding: 10px 0;
+  font-size: 14px;
+  padding: 15px;
+  background-color: #FFC107;
+  color:#fff;
+}
+
+table tr{
+  text-align: center;
+  /* width: 20%; */
+  padding: 20px 0;
+  background-color: #fff;
+  color:#3a3a3a;
+}
+
+table tr:hover{
+  background-color: #d4faff;
+}
+
+.admin_color{
+  color:#3D485D;
+}
+
+.admin_btn{
+  padding:0.8rem 3rem;
+  border:0.1rem solid #3D485D;
+  border-radius: 3rem;
+}
+
+.admin_font{
+  font-size: 1.6rem;
+}
+
+.admin_flex{
+  display: flex;
+  align-items: center;
+}
+
+.side_nav{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  color:#3D485D;
+}
+.contets_admin{
+  background:#f2f2f2;
+}
+
+.innner{
+  margin-top: 10rem;
+  position: relative;
+}
+
+.parkInf_pos{
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+}
+
+.container_paddinng{
+  padding:1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.container_paddinng_park{
+  padding: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  background: #fff;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0%);
+}
+.article-container{
+  margin-top:3rem;
+}
+
+.parkDet-container{
+  max-width:78rem;
+  width:78rem;
+}
+
+.FindParkDet-containe{
+  max-width:110rem;
+  width:110rem;
+}
+
+
+.parkDet_inf{
+  margin:1rem 0;
+  margin-top:2rem;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.parkDet-pic__size{
+width:58rem;
+border-radius: 1.2rem;
+}
+
+.parkName{
+  font-size:3rem;
+}
+
+.parkDet-pic{
+  display: flex;
+}
+
+.parkDet-pic-right{
+  margin-left:1.6rem ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.parkDet-pic-right__size{
+  width:18.5rem;
+  border-radius: 1.2rem;
+}
+
+.parkDet-tags{
+  margin-top:1rem;
+  display: flex;
+  align-items:center;
+  color:#777777;
+}
+
+.parkDet-tag1{
+  background-color: #f0f0f0;
+  font-size:1.4rem;
+  text-align: center;
+  padding: 0.8rem 4rem;
+  border-radius: 1.2rem;
+  margin-right:1.2rem ;
+}
+
+.parkDet-pic{
+  margin-top:2rem;
+}
+
+.parkDet-h2{
+  font-size:2.2rem;
+}
+
+.parkDet-p{
+  font-size:1.6rem;
+}
+
+.parkDet-topMargin{
+  margin-top:3rem;
+}
+
+.parkActiv__inner{
+  margin-top:1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  flex-wrap: wrap;
+}
+
+.parkActiv__item{
+  width:24.8rem;
+  position: relative;
+}
+
+.parkActiv_img{
+  width:24.8rem;
+  height: 29rem;
+  object-fit: cover;
+  border-radius: 1.2rem;
+}
+
+.parkActiv_book{
+  position:absolute;
+  top:1.5rem;
+  right:1.5rem;
+  color:white;
+}
+
+.parkActiv_det{
+  position:absolute;
+  bottom:1.5rem;
+  left:1.5rem;
+  color:white;
+}
+
+.parkActiv-name{
+  font-size:1.6rem;
+}
+.parkActiv-Loc-price{
+  display: flex;
+  align-items:center;
+}
+
+.parkActiv-item-Loaction{
+  display: flex;
+  align-items: center;
+  font-size:1.6rem;
+  margin-right: 1rem;
+}
+
+.parkActiv-item-praice{
+  font-size:1.6rem;
+}
+
+.parkActiv__item:nth-child(4){
+margin-top: 2rem;
+}
+
+.parkActiv__item:nth-child(5){
+margin-top: 2rem;
+}
+
+.parkActiv__item:nth-child(6){
+margin-top: 2rem;
+}
+
+.userProfile_img{
+  border-radius: 50%;
+  width:6.3rem;
+  height: 6.3rem;
+  object-fit: cover;
+}
+
+
+
+.parkDet-h2__comment{
+  margin-bottom:3rem;
+}
+
+
+.userComment-margin{
+ margin-left:1rem;
+}
+
+.userNaem{
+  font-size: 1.8rem;
+  color:#262626 ;
+  font-weight: 700;
+}
+.userComment{
+  font-size: 1.4rem;
+}
+
+.user-comment_inner{
+  margin-top:1rem;
+}
+
+.comment-btn{
+  height: 4.5rem;
+  width:30rem;
+  border:0.1rem solid #52BF90;
+  border-radius: 1.2rem;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 4.5rem;
+  color:#52BF90;
+  font-size:1.4rem;
+  margin-top: 2rem;
+  transition: background-color 0.5s;
+}
+
+.comment-btn:hover{
+  background:#52BF90;
+  color:#fff;
+
+}
+
+.parkDet-container-right{
+  max-width:32rem;
+  width:32rem;
+  margin-left:2rem;
+}
+
+.parkDet-container-right__inner{
+  width:32rem;
+}
+
+.recommend-item_img{
+  width:16rem;
+  height: 10rem;
+  border-radius: 1.2rem;
+}
+
+.recommend-p{
+  font-size: 1.4rem;
+}
+
+
+.recommend-item{
+  display: flex;
+  margin-top:0.8rem
+}
+
+
+.recommend-location{
+  display: flex;
+}
+
+.recommend-inf{
+margin-left:0.6rem;
+}
+
+.recommend-items{
+  margin-top:1.5rem;
+}
+
+
+.header-item_activ{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-bottom: 2rem;
+  width:52.2rem;
+  box-shadow: 0 2px 5px #ccc;
+  border-radius: 8px;
+}
+
+.header-item_activ_right{
+  height: 26rem;
+  width:52.2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 5px #ccc;
+  word-wrap: break-all;
+  border-radius: 8px;
+}
+
+.header-itemsRight{
+  display: flex;
+
+}
+
+.header-item_activ_right_inner{
+  display: flex;
+  width: 52.2rem;
+  flex-direction: column;
+}
+.header-item_activ_right_item{
+  width: 253px;
+  border-radius: 8px;
+}
+
+.ParkInf-flex{
+  display: flex;
+  flex-direction: column;
+  margin-top:2.5rem;
+}
+
+.Comment-input{
+  height: 10rem;
+  border-radius: 8px;
+  border:1px solid #b9b9b9;
+}
+
+
+
+
+
+/* //serchbar */
+
+.serch-bar{
+  width:80rem;
+  height: 7rem;
+  border-radius: 50px;
+  box-shadow: 0 2px 5px #ccc;
+  margin: 0 auto;
+  display: flex;
+}
+
+.serch-bar-location{
+  display: flex;
+  align-items: center;
+  width:100%;
+}
+.Search-category{
+
+  font-size:1.5rem;
+  display: flex;
+  align-items: center;
+  padding: 1.4rem 0rem;
+}
+
+.Search-category-item{
+  font-size: 1.4rem;
+  border-radius: 8px;
+  margin-left: 0.8rem;
+  padding: 0.5rem 1rem;
+  border:solid 1px 0.0;
+  border-radius: 8px;
+}
+
+.Search-category-item:hover{
+/* border:0.1rem solid #777777; */
+border-radius: 5rem;
+}
+
+.serch-bar-category{
+  display: flex;
+  align-items: center;
+}
+
+.serch-bar-serch{
+  width: 7rem;
+  background: #52BF90;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  color: #f2f2f2;
+
+}
+
+.serch-bar-serch__text{
+  margin: 0 auto;
+  margin-top: 0.8rem;
+}
+/*
+公園を探す */
+
+
+.park-result-filter{
+  font-size:1.6rem;
+  display: flex;
+  align-items: center;
+
+}
+.ContentFind{
+  padding-top:4rem;
+  position: relative;
+}
+
+.change-view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ line-height: 7rem;
+  color: #fff;
+  z-index: 30000;
+  bottom:4rem;
+  right: 4rem;
+  position: fixed;
+  border-radius: 50%;
+  width:7rem;
+  height: 7rem;
+  background:#52BF90;
+}
+.change-icon{
+  margin: 0 auto;
+}
+
+.park-result-hit__text{
+  font-size: 2.8rem;
+  letter-spacing: 0.2rem;
+  color: #525252;
+  display: flex;
+}
+
+.park-result-hit__text p{
+  padding-left:2rem;
+  letter-spacing:-0rem;
+}
+
+.park-result{
+  height: 6rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.parkTag_items{
+  display: flex;
+  align-items: center;
+  margin-top: 1.4rem;
+}
+.parkTag_item{
+  margin-right: 1.6rem;
+  background:#F0F0F0;
+  padding:1rem 2.5rem;
+  font-size: 1.4rem;
+}
+
+.parksResult-item{
+  display: flex;
+  width:78rem;
+  height: 25.4rem;
+  box-shadow: 0 2px 5px #ccc;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.parksResult-item-detil{
+  padding:2rem 2.5rem 2.5rem 2.5rem;
+  color:#777777
+ }
+
+
+
+
+.Time{
+  margin-left:1rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+.AcPrice{
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.AcSerch_desc{
+  font-size: 1.4rem;
+  margin-right: 0.8rem;
+}
+
+.Search_item{
+  display: flex;
+  margin-right: 0.8rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.4rem;
+  border-radius: 30px;
+  border: 0.1rem solid #777777;
+  align-items: center;
+}
+
+.parkResult-desc{
+  margin-top:0.7rem;
+  font-size: 1.3rem;
+}
+
+.parksResult-items{
+  margin-top: 4rem;
+}
+
+
+
+
+.parkDet-container-right__inner{
+width: 100%;
+height:100vh;
+}
+
+.container-right_h2{
+  margin: 2rem 0;
+}
+
+.serch-items{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-search{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: row;
+}
+
+.category-search-item{
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  background: #F0F0F0;
+  border-radius: 0.8rem;
+  margin-left: 1rem;
+}
+.search_select{
+  border:none;
+
+}
+
+.likeButton{
+  position: absolute;
+  top:0;
+}
+
+.search_select {
+  color: #777777;
+  margin-left: 0.4rem;
+  text-align: center;
+  /* font-weight: 600; */
+  font-family: Verdana,"Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  font-size: 1.5rem;
+  border: none
+}
+
+ /* //////////////// */
+/* 公園検索画面 */
+/* //////////////// */
+
+.FindParksResult-items{
+  margin-top: 0rem;
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* -webkit-column-count: 4;
+	-webkit-column-gap: 10px; */
+	-webkit-column-fill: auto;
+	-moz-column-count: 4;
+	-moz-column-gap: 10px;
+	-moz-column-fill: auto;
+	column-count: 4;
+
+  column-fill: auto;
+  z-index: 0;
+
+}
+
+.FindParksResult-item-detil{
+  padding:0.6rem 0.6rem;
+  color:#777777
+ }
+
+.FindParksResult-item{
+  width:48.5%;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-right: 4px;
+}
+
+.parksResult-item-name{
+color:#525252;
+letter-spacing: 0.08rem;
+}
+
+
+
+.Search-bar-select{
+  color:#777777;
+}
+
+.parksResult-item-img{
+  width:38.1rem;
+  border-radius: 8px  0 0 8px;
+  object-fit: cover;
+}
+.FindParksResult-item-img{
+  width: 100%;
+  border-radius: 8px;
+  height: 11rem;
+  object-fit: cover;
+}
+
+.park-bookmark{
+  position: absolute;
+  top:0rem;
+  right: 0rem;
+}
+
+ .parksResult-locAtime{
+   margin-left:-0.2rem;
+   display: flex;
+ }
+
+.parksResult-locAtime-name{
+  padding-left:0.2rem;
+  color:#fff
+}
+
+.location{
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+
+.Park-location{
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  /* background: #fff; */
+  border-radius: 8px 8px 8px 8px;
+  padding: 0 1.5rem 0 0.5rem;
+  background: #52BF90;
+  color: #fff;
+}
+
+.parksResult-locAtime-name{
+  padding-left:0.2rem
+}
+
+
+
+
+.bookmark{
+  color:#fff;
+  width: 4rem;
+  height: auto;
+}
+
+
+.bookmark-color{
+  color:#52BF90;
+}
+
+/* .park-bookmark:hover{
+  width: 2.5rem;
+  height: auto;
+} */
+
+
+
+.FindParksResult-item {
+	display: inline-block;
+	background: #FEFEFE;
+	/* border: 2px solid #FAFAFA; */
+	/* box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4); */
+	margin: 0 2px 11px;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+	/* padding: 15px; */
+	padding-bottom: 5px;
+	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+	opacity: 1;
+
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+
+.FindParksResult-item:nth-child(2n){
+  padding-right: 0px;
+  padding-left: 4px;
+}
+/* //////////////// */
+/* ナビゲーションバー */
+/* //////////////// */
+
+.nav-items_accout:hover{
+  opacity:0.8;
+}
+
+
+
+.nav-items_center- input{
+display: none;
+}
+
+.hidden_show{
+  /* z-index: 30; */
+  opacity: 0;
+  background: #fff;
+  transform: translate(-83%,0);
+  position: absolute;
+}
+
+.nav-items_center- input:checked ~ .hidden_show {
+  top: 6rem;
+  position: absolute;
+  padding: 1.5rem 0;
+
+  opacity: 1;
+  width: 20rem;
+  height: 20rem;
+  background: #fff;
+  transform: translate(-83%,0);
+  border-radius: 0.8rem;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+
+.nav-rectangle-item{
+  color:#404040;
+  font-size:1.6rem;
+  padding:0.8rem 1.5rem;
+  width: 100%;
+
+  height: 33.3%;
+}
+.nav-rectangle-item:hover{
+  background:#EDEDED;
+}
+
+
+/* .nav-item_login input:checked ~ .overlay_black {
+width: 100%;
+height: 100vh;
+background:#000;
+opacity: 0.7;
+} */
+.overlay_black {
+  z-index: 2000;
+width: 100%;
+height: 100vh;
+background:#000;
+opacity: 0.7;
+}
+.nav-item_login{
+  font-size: 1.5rem;
+  color:#777777;
+  cursor: pointer;
+  display: flex;
+    align-items: center;
+}
+.ReactModal__Body--open{
+  z-index: 10;
+}
+
+.ReactModal__Overlay{
+  z-index: 100;
+}
+
+.login-modal{
+  border-radius: 8px;
+  width:45rem;
+  height: 65rem;
+  background: #fff;
+  animation-name: login-form;
+  animation-delay : 2s;
+}
+
+.sign-up{
+  height: 80rem;
+}
+
+.login-modal-inner{
+  padding:2rem 0;
+  width:33rem;
+  margin:0 auto;
+}
+
+.login-title{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-title-head{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-title-size{
+  font-size:3.4rem;
+  color:#52BF90;
+  padding-left: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+.sns-login-items{
+  margin-top: 3.5rem;
+  border-bottom: 0.05px solid #707070;
+  padding-bottom: 3.5rem;
+}
+
+
+.sns-login{
+width:33rem;
+height:4.8rem;
+border-radius:15px;
+border:0.1rem solid #777777;
+display: flex;
+justify-content: center;
+line-height: 4.8rem;
+position: relative;
+margin-bottom:1.6rem ;
+}
+
+.mail-login h2{
+  text-align: center;
+  margin-top:3.5rem ;
+  font-size: 1.6rem;
+}
+
+.sns-login p {
+  font-size:1.4rem;
+  margin:0 auto ;
+  position: absolute;
+
+}
+
+.tw-color{
+  background: #fff;
+  color:#1DA1F2;
+  border:1px solid #1DA1F2;
+
+}
+
+.gl-logo{
+  position: absolute;
+  width:2.5rem;
+  left: 2rem;
+  top: 1.1rem;
+}
+
+.tw-logo{
+  position: absolute;
+  width:4rem;
+  left: 1.2rem;
+  top: 0.5rem;
+}
+
+.login-mail-input{
+  height: 4.8rem;
+  width: 33rem;
+  border-radius: 1.5rem;
+  border:none;
+  background: #E8E8E8;
+  text-align: center;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom:1.6rem;
+}
+
+.mail-input{
+  height: 100%;
+  width: 100%;
+  background: none;
+  border:none;
+  padding-left:2rem
+}
+
+.login-form{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.mail-login h2{
+ margin-bottom:1.5rem ;
+}
+
+.mail-registar{
+  height: 4.8rem;
+  width: 33rem;
+  border-radius: 1.5rem;
+  color:#52BF90;
+  background:#fff;
+  border:0.1rem solid #52BF90;
+}
+
+.mail-registar:hover{
+  color:#fff;
+  background:#52BF90;
+  transition: 0.8s;
+}
+
+.guidline{
+  padding-bottom:1rem ;
+}
+
+
+input[type="email"]  {
+  /* border-radius: 15px; */
+
+}
+input[type="email"]:focus  {
+  border-radius: 15px;
+  border:1px solid #777;
+}
+
+input[type="password"]:focus  {
+  border-radius: 15px;
+  border:1px solid #777;
+}
+
+button[type="submit"]:focus  {
+  border-radius: 15px;
+color:#fff;
+  background:#52BF90;
+}
+
+/* //////////////// */
+/* マイページ */
+/* //////////////// */
+
+.Mypage-right{
+  width:90rem;
+  height: 90vh;
+  background:#ffffff;
+  box-shadow: 0 2px 5px #ccc;
+}
+.Mypage-item{
+  font-size: 1.8rem;
+  color: #777777;
+
+  line-height: 4.8rem;
+  margin-left: 1.6rem;
+  font-weight: 600;
+}
+.Mypage-item-tab{
+  font-size: 1.8rem;
+  color: #777777;
+
+  line-height: 4.8rem;
+  margin-left: 1.6rem;
+  font-weight: 600;
+}
+.Mypage-item-tab:nth-of-type(1){
+ margin-left:0;
+ padding-bottom:-3rem;
+}
+
+.Mypage-item:focus{
+color:#52BF90;
+}
+
+
+.Mypage-item-padding{
+  padding:1.6rem
+}
+
+.Mypage-item-h2{
+margin: 0 auto;
+text-align: center;
+font-size: 2.4rem;
+margin-bottom:2rem ;
+}
+
+.Mypage-items{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Mypage-item-right{
+margin-bottom: 5rem;
+ width:50%;
+ display: flex;
+ align-items: center;
+}
+
+.mypage-profile{
+  margin:0 auto;
+  border-radius: 50%;
+  width: 16rem;
+  height: 16rem;
+  background:#888888;
+}
+
+.Mypage-item-inf{
+
+  font-size:1.5rem;
+  margin-bottom:2rem
+}
+
+.Mypage-item-name{
+  font-size:1.8rem;
+  padding-left: 2rem;
+  color:#888888;
+}
+.Mypage-item-nameh2{
+  color:#525252;
+  font-size: 1.5rem;
+  margin-bottom: -0.5rem;
+
+}
+
+.Mypage-good{
+  display: flex;
+}
+
+.Mypage-good-item{
+  margin-left: 2rem;
+  font-size: 1.4rem;
+  color:#525252;
+  line-height:4.8rem ;
+  font-weight: 600;
+}
+
+.Mypage-Park-Post{
+  margin:0 auto;
+  margin-top:1rem;
+ display: flex;
+ justify-content: center;
+ line-height: 4rem;
+ width:90%;
+ background:#52BF90;
+ border-radius: 8px;
+ color:#fff;
+}
+
+.Mypage-color{
+  background:#118AEB;
+}
+
+
+.ParkPost-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.parkName-input{
+  width:50rem;
+  border:1px solid #9f9f9f !important;
+  line-height: 4rem;
+  border-radius: 8px!important ;
+  margin-bottom:2rem;
+}
+.parkName-input::placeholder{
+  padding:1.5rem;
+}
+.btn-submit{
+  margin:0 auto;
+  margin-top:1rem;
+ display: flex;
+ justify-content: center;
+ line-height: 4rem;
+ width:90%;
+ background:#52BF90;
+ border-radius: 8px;
+ color:#fff;
+}
+
+/* //////////////// */
+/* 公園詳細画面 */
+/* //////////////// */
+
+.ParkInf{
+  width:100%;
+  /* height:58rem; */
+  box-shadow: 0 2px 5px #ccc;
+  border-radius: 8px;
+}
+
+
+.PrkInf-inner{
+  padding:3rem;
+  border-radius: 8px;
+  display: flex;
+}
+
+.ParkInf-left{
+  padding-left:3.5rem;
+}
+
+.ParkInf-img{
+  width:55rem;
+  border-radius: 8px;
+}
+
+.ParkInf-parkName{
+  font-size:2.9rem;
+  color:#424242;
+  letter-spacing: 0.1rem;
+}
+
+.ParkInf-parkIcon{
+  display: flex;
+}
+
+.parkDet-inf__item{
+  padding-right:1.5rem;
+  display: flex;
+  font-size: 1.6rem;
+}
+.ParkInf-icon{
+  padding-left: 0.4rem;
+  font-size: 1.4rem;
+}
+
+.ParkInf-Tagcontent{
+  display: flex;
+}
+
+.ParkInf-Tag{
+  font-size: 1.6rem;
+  background:#F0F0F0;
+  padding:0.6rem 1.3rem ;
+  border-radius:8px;
+  color:#777777;
+  margin-right: 1.5rem;
+}
+
+
+.ParkInf-tabs{
+
+ margin-top:1rem;
+}
+
+.container-top{
+  margin: 0 auto;
+   margin-top: 10rem;
+  padding: 0 1.5rem;
+   width: 120rem;
+  min-width: 12rem;
+  display: flex;
+}
+
+.Mypage-inner{
+  margin-top: 4.8rem;
+}
+
+.ParkInf-other{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top:1rem;
+}
+
+
+.ParkInf-iconBox{
+  display: flex;
+  align-items: center;
+padding-right: 2rem;
+font-size: 1.5rem;
+line-height: 2.7rem;
+}
+
+.margin-parkinf{
+  margin-top:4.8rem
+}
+
+.parkLocation{
+font-size:1.6rem ;
+}
+
+.parkInf-img{
+   display: block;
+  width: 100%;
+  border-radius: 8px;
+ margin-top: 0.5rem;
+}
+
+.user-comment{
+  margin-top: 1.5rem;
+  display: flex;
+  /* align-items: center; */
+}
+
+.ParkInf-addPic{
+  margin-top:1rem;
+ display: flex;
+ justify-content: center;
+ line-height: 4rem;
+ height: 4rem;
+ width:20rem;
+ background:#dedede;
+ border-radius: 8px;
+ color:#777777;
+ font-size:1.4rem;
+ align-items: center;
+}
+
+.ParkInf-addPic p {
+  padding-left: 1rem;
+}
+.ParkInf-addPic__aj{
+  margin-bottom: 0.4rem;
+}
+
+.ParkInf-addPic-modal{
+  width:60rem;
+  height: 40rem;
+  background: #fff;
+  border-radius: 8px;
+}
+
+
+.parkInf-addPic__inner{
+  padding:1.5rem;
+}
+
+.ParkInf-addPic-desc{
+  margin:0 auto;
+  font-size: 2.4rem;
+}
+
+.file-upload{
+  display: none;
+}
+
+label {
+  /* width:100%; */
+  height: 100%;
+  color:black;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+}
+
+
+.ParkInf-form{
+  width:100%;
+  height: 32.5rem;
+  /* border:2px solid #7777 */
+}
+
+.fileupload-inner{
+  text-align: center;
+  padding:10px;
+}
+
+.file_up:before{
+background:#777777;
+border-radius: 50%;
+}
+
+.skelton{
+  width:400px;
+  height: 200px;
+
+}
+
+.skelton_padding{
+  border-radius: 8px;
+}
+
+
+.Nav-LoginReg{
+  display:none;
+}
+
+button.ReadMore {
+  width: 100%;
+  /* background: #52BF90; */
+  color: #52BF90;
+  border: 0.1rem solid #52BF90;
+  line-height: 4.5rem;
+  border-radius: 8px;
+}
+.parkInf-icon__size{
+  margin-right: 0.5rem;
+}
+
+
+/* サービストップ */
+.service-top-inner {
+  height: 100vh;
+  background-color: #52BF90;
+  position: relative;
+}
+
+
+.container_about{
+  margin-top: 8.5rem;
+}
+
+.OurService{
+  margin-top:5rem;
+  font-size: 6.5rem;
+}
+.OurService_p{
+  letter-spacing: 0.1rem;
+  font-size: 1.8rem;
+  padding-bottom:1.4rem;
+}
+.OurService-inner{
+  height: 80vh;
+}
+
+
+.OurServicefunc{
+  position: absolute;
+  top:-28rem;
+}
+
+.OurServicefunc-h2{
+  color: #fff;
+  font-size: 6.5rem;
+
+  padding-top: 4rem;
+  /* padding-bottom: 0.8rem; */
+  padding-left: 0.8rem;
+  font-size: 6.5rem;
+  line-height: 6.3rem;
+  letter-spacing: 0.1rem;
+  padding-top: 5rem;
+}
+
+.parkrfunc {
+  height: 370px;
+  width: 370px;
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 8rem;
+}
+
+
+.Ourfunc{
+  position: relative;
+  margin-top: -80rem;
+}
+
+.Ourfunc-inner{
+  width: 120rem;
+  min-width: 120rem;
+  margin: 0 auto;
+}
+
+.about-bk{
+  width: 100vw;
+  background-image: url(./images/func-bk.svg);
+  background-size   : 100% ;
+  background-repeat: no-repeat;
+  height: 126rem;
+  margin-top: 3rem;
+}
+.OurServicefunc-p{
+  padding-top: 3rem;
+  font-size: 1.8rem;
+  color:#fff;
+}
+.parkfunc-innner{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+@media screen and (max-width:480px) {
+  p{
+    font-size: 1.2rem;
+  }
+
+  // .container-sp{
+  //   width: ;
+  // }
+
+
+  /* 横幅が320px以下の場合に適用するスタイル */
+
+  .nav-inner .nav-items_center,
+  .main-visual,
+  .park-result-filter,
+  .nav-items_center-
+   {display: none;}
+
+   .container_paddinng{
+     padding: 1.5rem 0.8rem;
+   }
+
+   .nav{
+   /* box-shadow: 0 2px 5px #ccc; */
+   /* border-bottom: 0.1rem solid #efefef; */
+   }
+   .nav-title{
+    margin-top: 0.6rem;
+   }
+  .nav-inner{
+    width:100%;
+    height: 100%;
+    background:#fff;
+    padding: 1.3rem 0.6rem 0rem;
+  }
+
+  .nav-titile-logo .nav-logo__white a{
+    height: 0rem;
+  }
+  .container {
+    margin-top: 6.5rem;
+  }
+
+  .container_about{
+    margin-top: 6.5rem;
+  }
+
+  .nav-mobile,
+  .searchresult-posi{
+    display: flex;
+    align-items: center;
+  }
+  .nav-mobile__padding{
+    margin-right: 1.5rem;
+  }
+
+  .Search-category{
+width: 100%;
+text-align: center;
+flex-basis: auto;
+  }
+
+  .Search-category-item {
+    width: max-content;
+    margin-left: 0rem;
+    padding: 0rem 1.5rem;
+}
+.Search-category-item:nth-of-type(1){
+  padding-left: 0rem;
+}
+.searchFrom{
+  width:50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex:1;
+}
+.search-select_font {
+  padding-left: 0.4rem;
+  font-weight: 600;
+  color:#93918F;
+}
+
+
+
+
+.serch-bar-location {
+  padding: 0rem 1rem;
+  background: #efefef;
+  border-radius: 8px;
+  height: 3.5rem;
+}
+
+.serch-bar-location__long{
+  width:50%;
+}
+
+
+
+.logo__size {
+    height: 2.6rem;
+    width: 72%;
+}
+
+
+
+.main_visual__cotainer{
+  min-width: 100vw;
+  width: 100%;
+}
+
+.main-visual{
+  min-width: 100vw;
+  width: 100%;
+}
+
+.contennts {
+  max-width: none;
+
+}
+
+.min-width{
+width:100%;
+margin: 0 auto;
+}
+
+.container {
+  min-width: 100VW;
+
+  width: 100%;
+}
+
+.Post_park{
+  position: fixed;
+
+  width:6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background:#52BF90;
+  box-shadow: 0 2px 5px #888888;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+
+    bottom: 10vw;
+    right: 10vw;
+
+}
+
+.search_select {
+  font-weight: 600;
+  color: #777777;
+    margin-left: -2.4rem;
+    text-align: center;
+    /* font-weight: 600; */
+    font-family: Verdana,"Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+    font-size: 1.6rem;
+    border: none;
+    width: 100%;
+    background: #efefef;
+    transform: scale(0.8);
+
+}
+
+.serch-items {
+    overflow: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    /* height:5.1rem; */
+}
+
+.serch-items::-webkit-scrollbar {
+  display:none;
+}
+
+.homeContents{
+  position: relative;
+}
+
+.footer{
+  width: 100vw;
+  min-width: 100VW;
+  height:100%;
+}
+
+.park-result{
+  height: auto;
+  display: inline-block;
+}
+
+.footer_inc {
+  text-align: center;
+  min-width: 100VW;
+  color: #f2f2f2;
+}
+
+.footer-contents{
+  padding: 12rem 0.8rem 0rem 0.8rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.footer-content {
+  margin-right: 0rem;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+
+.footer_item{
+  padding-bottom: 0.4rem;
+}
+
+.footer_h2 {
+  padding-bottom: 0.5rem;
+}
+
+
+/* .active_category{
+  border-radius: 5rem;
+  background: #52BF90;
+  color:#fff;
+  margin-right: 0.8rem;
+} */
+
+.FindParksResult-items {
+  width: 100%;
+  margin: none;
+  -webkit-column-count: none;
+  -webkit-column-gap: none;
+  -webkit-column-fill: none;
+  -moz-column-count: none;
+  -moz-column-gap: none;
+  -moz-column-fill:none;
+  column-count: none;
+  grid-column-gap: none;
+  column-gap: none;
+  column-fill: none;
+  z-index: 0;
+
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+
+}
+
+.FindParksResult-item {
+
+  width: 50%;
+	display: inline-block;
+	background: #FEFEFE;
+	/* border: 2px solid #FAFAFA; */
+	/* box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4); */
+	margin: 0px;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+	/* padding: 15px; */
+	padding-bottom: 5px;
+	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+	opacity: 1;
+
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+.FindParksResult-item {
+  margin: 0 px 1px;
+}
+
+.parksResult-item-name {
+ font-size: 1.2rem;
+ line-height: 1.5rem;
+}
+
+/* /////////////// */
+/* 公園詳細 */
+/* /////////////// */
+.PrkInf-inner {
+  display: inline-block;
+}
+.ParkInf-img {
+  width: 100%;
+}
+
+.PrkInf-inner {
+  padding: 0rem;
+}
+
+.container_paddinng_park {
+
+  padding: 0.8rem;
+  padding-top: 4rem;
+  margin-top:3rem;
+}
+
+.FindParksResult-items__width {
+  width: 90vw;
+}
+.innner {
+  margin-top: 0rem;
+}
+
+.FindParksResult__margin-top{
+  margin-top:2rem;
+}
+.p{
+  font-size: 1.3rem;
+}
+
+.ParkInf {
+  box-shadow: none;
+}
+.ParkInf-left {
+  padding-left: 0rem;
+}
+
+.ParkInf-parkName{
+  font-size: 2.2rem;
+  line-height: 3rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.ParkInf-icon{
+  padding-left: 0.4rem;
+  font-size: 1.2rem;
+  color: #6e6e6e;
+}
+
+.ParkInf-Tag{
+  line-height: 1.5rem;
+  font-size: 1.2rem;
+  padding: 0rem 0.5rem;
+background:none;
+margin: 0;
+}
+
+.ParkInf-parkIcon{
+  margin-bottom:1rem;
+
+}
+
+.ParkInf-parkIcon{
+  margin-bottom: 0;
+}
+
+.ParkInf-iconBox {
+  font-size: 1.2rem;
+  padding-right: 1.3rem;
+}
+.parkLocation{
+  font-size: 1.2rem;
+
+}
+.user-comment{
+  margin-top: 0.4em;
+}
+
+.userProfile_img{
+
+  width: 4.5rem;
+  height: 4.5rem;
+}
+.userComment{
+  font-size: 1.2rem;
+}
+.userNaem{
+  font-size: 1.4rem;
+}
+.ParkInf-activity-img{
+  width: 100%;
+  border-radius: 8px;
+  height: 10rem;
+  object-fit: cover;
+}
+.ParkInf-activity-items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.ParkInf-activity-item{
+  width: 49%;
+  margin-top: 0.7rem;
+}
+.ParkInf-activity-title {
+  font-weight: 400;
+  padding-top: 0.4rem;
+  line-height: 1.6rem;
+  color: #424242;
+}
+.Nav-LoginReg{
+  display: flex;
+  align-items: center;
+}
+.Nav-Registar{
+  background: #52BF90;
+  border-radius: 8px;
+  padding:0.38rem 1.3rem;
+  font-size: 1.2rem;
+  color:#fff;
+}
+.Nav-Login{
+  margin-left:0.8rem;
+  background: #fff;
+  border-radius: 8px;
+  padding:0.35rem 1.3rem;
+  font-size: 1.2rem;
+  color:#52BF90;
+  border:1px solid #52BF90
+}
+
+/* /////////////// */
+/* 公園詳細 */
+/* /////////////// */
+.logo__Sign{
+  margin-top: 4rem;
+}
+.logo_inner{
+  display: flex;
+  justify-content: center;
+}
+.align-center{
+text-align: center;
+}
+.margin-top{
+  margin-top:1.5rem
+}
+.RegForm{
+  display: flex;
+  flex-direction: column;
+}
+.Reg-InputForm{
+  width: 100%;
+  height:4.5rem;
+  border-radius: 8px;
+  border: 1px solid #93918f;
+}
+.Text-Input{
+  margin-top:1.2rem
+}
+
+
+
+.text-field-label{
+  margin-bottom:0.3rem;
+  font-size:1.2rem;
+}
+
+.UserPolicy{
+  margin-top:3rem;
+  font-size:1.2rem;
+}
+
+.btn{
+  height: 4.5rem;
+  width:30rem;
+  background: #52BF90;
+  border-radius: 1.2rem;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 4.5rem;
+  color:#fff;
+  font-size:1.4rem;
+  margin-top: 2rem;
+  transition: background-color 0.5s;
+}
+.ChangToLogin{
+  text-align: center;
+  font-size: 1rem;
+}
+
+.btnGo-inner{
+  display: flex;
+  align-items: center;
+  height: 6.5rem;
+  padding:0.8rem;
+  background:#fff;
+  position: fixed;
+  bottom:0rem;
+  width:100%;
+}
+
+.btnGo{
+  margin-top:0rem;
+  background:#fff;
+  color:#52BF90;
+  border:1px solid #52BF90
+}
+
+
+
+.login-modal{
+  width: 100%;
+}
+
+/* /////////////// */
+/* マイページ */
+/* /////////////// */
+.Mypage-right{
+  width: 100%;
+  height: 50vh;
+}
+.parksResult-item{
+  width: 100%;
+}
+
+.Mypage-item-right {
+  width: 100%;
+}
+.Mypage-item-inf{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.Mypage-item-name {
+  font-size: 1.4rem;
+}
+.Mypage-item-right {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+.Mypage-item-nameh2{
+  color: #424242;
+}
+.Mypage-right{
+  box-shadow: none;
+}
+
+/* /////////////// */
+/* いいねした公園 */
+/* /////////////// */
+
+.parksResult-item{
+height: 12.4rem;
+}
+.parksResult-item-img {
+  width: 17.1rem;
+}
+
+
+.nav-rectangle-item a{
+  color:#404040;
+}
+
+.btn-danger a.active{
+  color: chocolate;
+}
+.mainVI-img{
+  width: 100%;
+  height: 21rem;
+  object-fit: cover;
+}
+
+.park-result-padding{
+  padding-bottom: 0rem;
+}
+
+.category-tab{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.category-tab-item{
+  width: 49%;
+  font-size: 1.4rem;
+
+  color:#52BF90;
+  border-radius: 8px 8px 0px 0px;
+  text-align: center;
+  padding: 0.6rem 2rem;
+
+}
+
+.category-tab-item__active{
+  border:none;
+  color:#fff;
+  background:#52BF90;
+}
+.container_paddinng{
+  width: 100%;
+}
+.category-show{
+  margin-top: 1rem;
+  /* margin-top: 1rem; */
+    /* margin: 0.8rem; */
+    /* border: solid 1px #52BF90; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.category-show__item{
+  /* width: 33%; */
+  text-align: center;
+  /* padding: 0.8rem; */
+}
+
+.category-show__item p{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.pakr-city-img{
+ width: 40%;
+ border-radius: 8px;
+}
+
+.park-city-items{
+  margin-top:1rem;
+  display: flex;
+}
+.category-show__item{
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  width: 31.5%;
+  height: 0;
+  padding-bottom: 31.5%;
+  text-align: center;
+  /* margin: 0.8rem; */
+  margin-bottom: 1rem;
+  position: relative;
+}
+.category-show__img1{
+  background-image: url({morning});
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.category-show__img2{
+  background-image: url(/static/media/pic1.0b7b480c.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.category-show__img3{
+  background-image: url(/static/media/pic1.0b7b480c.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.category-show__img4{
+  background-image: url(/static/media/pic1.0b7b480c.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.category-show__img5{
+  background-image: url(/static/media/pic1.0b7b480c.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.category-show__img6{
+  background-image: url(/static/media/pic1.0b7b480c.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+.pakr-city-img{
+width:200px;
+height: 133px;
+object-fit: cover center;
+ border-radius: 8px;
+}
+
+.park-city-items{
+  margin-top:1rem;
+  display: flex;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.park-city-items-- {
+  display: flex;
+  margin-left: 0rem;
+
+}
+
+
+
+.park-city-item{
+  font-size: 1.4rem;
+  border-radius: 8px;
+  color:#424242;
+  padding-right: 1rem;
+  border:solid 1px 0.0;
+  border-radius: 8px;
+}
+.park-city-item__h2{
+  font-size: 1.8rem;
+  color:#424242;
+  letter-spacing: 0.08rem;
+}
+.park-city-item__p{
+  font-size: 1.2rem;
+  color:#52BF90;
+}
+.park-city-item__title{
+  margin-top: 1rem;
+  align-items: center;
+  display: flex;
+  justify-content:space-between;
+  width: 100%;
+
+}
+
+
+
+.LP{
+  position: relative;
+  margin-top: 3rem;
+  width: 100%;
+  background:#52BF90;
+  height: 50rem;
+}
+
+.LP-btn{
+  transform: translate(-50%, 0%);
+  left:50%;
+  bottom:3rem;
+  position: absolute;
+  margin: 0 auto;
+  display: flex;
+  /* padding: 3px 20px 5px 20px; */
+  border-radius: 8px;
+  border: 1px solid #52BF90;
+  color: #52BF90;
+  align-items: center;
+  justify-content: center;
+  height: 4.5rem;
+  width: 90%;
+  background: #fff;
+  font-size: 1.4rem;
+}
+
+
+.category-tags{
+  display: flex;
+  flex-wrap: wrap;
+}
+.category-tag{
+  padding:0.5rem 0.8rem;
+  color: #777777;
+  border:solid 1px #777777;
+  border-radius:8px;
+  margin-right:0.7rem;
+  margin-bottom: 0.7rem;
+}
+.__sceen{
+  margin-top: 1rem;
+}
+.sns-follow-inner{
+  margin: 3rem auto;
+  display: flex;
+  align-items: center;
+  width: 18rem;
+  justify-content: space-between;
+}
+.SNS_h2{
+  width: 100%;
+  margin: 2rem 0rem;
+}
+.faLogo{
+  width:3rem;
+}
+.TwLogo{
+  width:4rem
+}
+.SNS p {
+  font-size: 1.4rem;
+}
+.white{
+  color:#fff;
+}
+
+
+.footer_container{
+margin-top: -2rem;
+}
+.searchcity_tag{
+  margin-top: 2rem;
+width: 100%;
+}
+.searchpopular_tag{
+  margin-top: 0.4rem;
+width: 100%;
+}
+.searchpage_tag{
+  margin: 1rem 0rem 2rem;
+}
+.park-city-name{
+  padding-top: 0.5rem;
+  font-size: 1.4rem;
+  color:#424242;
+  letter-spacing: 0.06rem;
+  line-height: 2rem;
+}
+.park-city-name {
+  color: #525252;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    letter-spacing: 0.04rem;
+}
+
+
+.FindParksResult-item{
+  margin-bottom:0.4rem
+}
+
+/* ///////////////////
+天気
+/////////////////// */
+
+.weatherNow{
+ width: 100%;
+ height: 86vw;
+
+ text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.weather-temp{
+  font-size: 10rem;
+  font-weight: 400;
+  line-height: 9.4rem;
+  margin-right: 1rem;
+}
+.weather-city{
+  font-size: 2.8rem;
+  line-height: 4rem;
+  letter-spacing:0.1rem ;
+  font-weight: 400;
+}
+.weather-temp-inner{
+display: flex;
+position: relative;
+
+}
+.weather-temp-degree{
+
+  font-size: 6rem;
+  position: absolute;
+  right: -2rem;
+  top: -1.5rem;
+}
+.weatherHour-temp{
+  /* padding: 0rem 1rem; */
+  font-size: 1.8rem;
+}
+.weatherHour-temp-inner{
+  margin: 0 0.8rem;
+  text-align: center;
+  display: flex;
+  overflow: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  height: 8.5rem;
+  border-bottom: 0.6px solid rgba(255,255,255,0.3);
+  border-top: 0.6px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+}
+
+
+.weatherHour-temp-inner:nth-of-type(1){
+  padding: 0rem 1rem 0rem 0rem;
+}
+
+.forcast_hourly_time{
+  display: flex;
+  padding-bottom: 0.6rem;
+
+}
+
+.forcast_hourly_time p {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.forcast_hourly_time h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.forcast_hourly_time_inner{
+  padding: 0rem 0.9rem;
+}
+
+.forcast_hourly_time_inner:nth-of-type(1){
+padding-left:0rem;
+
+
+
+}
+.weatherHour-temp-time{
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.weather_time{
+margin-bottom: 3rem;
+}
+/* ////////////
+週間天気
+//////////// */
+
+.weatherDayliy{
+  padding: 1.3rem 0rem;
+  margin: 0rem 0.8rem;
+   border-bottom: 0.6px solid rgba(255,255,255,0.3);
+}
+.weatherDayliy-item{
+  display: flex;
+  height: 3.5rem;
+
+}
+.__Daily{
+  font-size: 1.8rem;
+  font-weight: 400;
+  flex: auto;
+}
+.__DailyPos{
+  padding-left: 1rem;
+  opacity: 0.6;
+}
+.MaxMin-temp{
+  display: flex;
+}
+
+.weather-temp--{
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+.weather-recom-park{
+  margin:1.3rem 0.8rem;
+  padding-bottom: 3rem;
+}
+.weather-recom-park__h2 {
+  color:#fff;
+}
+
+/* //////////////////
+ホーム画面
+///////////////
+ */
+ .drawer-hidden {
+  display: none;
+}
+
+/* ハンバーガーアイコンの設置スペース */
+.drawer-open {
+  display: flex;
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;/* 重なり順を一番上に */
+  cursor: pointer;
+}
+/* メニューのデザイン*/
+
+.drawer-content__forwhat,
+.drawer-content__withwho,
+.drawer-content__where,
+.drawer-content
+{
+  transform: translate(-100%, );
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;/* メニューを画面の外に飛ばす */
+  z-index: 99;
+  background:#fff;
+
+}
+
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer-check:checked ~ .drawer-content,
+#drawerforwhat:checked ~ .drawer-content__forwhat,
+#drawerwithwho:checked ~ .drawer-content__withwho,
+#drawerwhere:checked ~ .drawer-content__where {
+  right:-100%;/* メニューを画面に入れる */
+}
+
+.drawer-city-kanto,
+.drawer-city-tohoku,
+.drawer-city-tyuubu,
+.drawer-city-kansai,
+.drawer-city-tyuShikoku,
+.drawer-city-KyuOki
+{transition: .3s;
+  display: none;
+  opacity: 0;
+}
+
+
+#drawer-kanto:checked ~ .drawer-city-kanto,
+#drawer-tohoku:checked ~ .drawer-city-tohoku,
+#drawer-tyuubu:checked ~ .drawer-city-tyuubu,
+#drawer-tyuShikoku:checked ~ .drawer-city-tyuShikoku,
+#drawer-kansai:checked ~ .drawer-city-kansai,
+#drawer-KyuOki:checked ~ .drawer-city-KyuOki
+{
+  display: inline;
+  opacity: 1;
+}
+
+
+#drawer-kanto:checked ~ .drawer-city-kanto__color,
+#drawer-tohoku:checked ~ .drawer-city-tohoku__color,
+#drawer-tyuubu:checked ~ .drawer-city-tyuubu__color,
+#drawer-tyuShikoku:checked ~ .drawer-city-tyuShikoku__color,
+#drawer-kansai:checked ~ .drawer-city-kansai__color,
+#drawer-KyuOki:checked ~ .drawer-city-KyuOki__color
+{
+  color:#52BF90 !important;
+  transition: .1s;
+
+}
+
+.drawerhome-city{
+  position: relative;
+}
+
+.drawer-padding{
+  padding:0rem 0.8rem
+}
+.drawer-padding label{
+  padding: 0.8rem 0rem;
+
+  border-bottom: solid 0.08rem #dedede;
+}
+.drawer-city-li  a {
+  display: block;
+  color:#777;
+  border-bottom: solid 0.08rem #dedede;
+  text-align: initial;
+  padding: 0.8rem 0rem 0.8rem 1.6rem;
+}
+
+
+
+
+
+#accordion{
+  margin-top: -50px;
+}
+#accordion dt{
+    background-color: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+#accordion dd{
+    padding: 20px;
+    padding-top: 0px;
+    display: none;
+}
+
+.sceneTag-drawer-header{
+  position: relative;
+  height: 6.5rem;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  /* box-shadow: 0 2px 5px #ccc; */
+  align-items: center;
+  justify-content: center;
+}
+
+.sceneTag-drawer-header-title{
+  color:#52BF90;
+}
+
+.sceneTag-drawer-header-back{
+  position: absolute;
+  right:0;
+  margin-right:1.5rem;
+  font-size: 1.2rem;
+  display: flex;
+    align-items: center;
+}
+
+.sceneTag-drawer-header--item{
+  width: 100%;
+  height: 4.2rem;
+  border-bottom:1px solid #f3f3f3;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  justify-content: space-between;
+}
+.sceneTag-drawer-header--items{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.sceneTag-drawer-header--item p {
+  font-size: 1.4rem;
+}
+.item-rotate{
+  transform:  rotateX(180deg);
+}
+/*
+//////////////////
+検索バー
+////////////////// */
+.serch-bar__color{
+  color:#93918F;
+  padding-left: 0.4rem;
+}
+.serchDrawerContent{
+  position: fixed;
+  top: 0;
+  left:0;
+  z-index: 99;
+  background:#fff;
+  width: 100%;
+  height: 100vh;
+}
+.drawer-margin{
+  margin:0rem 7rem 0rem 0.8rem;
+}
+.search-bar-position{
+    width: 100%;
+    height: 100%;
+ padding:0.4rem !important;
+}
+
+.Search-tabs-items{
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.Search-tabs-item{
+  font-size: 1.4rem;
+  width: 50%;
+  height: 4.5rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.Search-tabs{
+  width: 100%;
+  padding:0.8rem;
+}
+.SearchInput-items-city{
+  padding:0rem 0.8rem;
+}
+
+.service-img{
+  width: 100%;
+}
+.scrolldown{
+  position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: rotate(-90deg);
+    color:#fff;
+}
+.SearchInput-items-city{
+  width: 100%;
+
+}
+.SearchInput-items-cit-items{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1rem;
+  position: relative;
+}
+.SearchInput-items-cit-item{
+  width:48.5%;
+  height:10rem;
+  background:#000;
+  border-radius: 8px;
+  margin-bottom:1rem;
+  line-height: 10rem;
+text-align: center;
+color:#fff;
+}
+.sceneTag-vdrawer-header{
+  margin-bottom: 0.8rem;
+}
+
+
+
+
+
+/* ///////////////////// */
+/* その他 */
+/* ///////////////////// */
+.homeTop{
+margin-top: 4.8rem;
+}
+.service-top-inner{
+  height: 100vh;
+  background-color: #52BF90;
+  position: relative;
+}
+.OurService{
+  margin-top: 4rem;
+  /* margin-bottom: 0.8rem; */
+  font-size: 3.8rem;
+  line-height: 6.3rem;
+  letter-spacing: 0.1rem;
+}
+
+.OurServicefunc{
+  color: #fff;
+  padding-top: 4rem;
+  /* padding-bottom: 0.8rem; */
+  padding-left: 0.8rem;
+  font-size: 3.8rem;
+  line-height: 6.3rem;
+  letter-spacing: 0.1rem;
+  padding-top: 5rem;
+
+}
+.OurService_p{
+  line-height: 3rem;
+  font-size: 1.3rem;
+  padding-left: 0.8rem;
+}
+.OurService-inner{
+  padding:  0rem 0.8rem;
+}
+.Ourfunc{
+  display: none;
+}
+.about-bk{
+  display: none;
+}
+
+.about-bk-sp{
+  background-image: url(./images/func-bk.svg);
+  height: 16rem;
+  margin-top: 9rem;
+  width: 100vw;
+  background-size   : 100% ;
+  background-repeat: no-repeat;
+  height: 40rem;
+  margin-top: 3rem;
+
+}
+.Ourfunc-h2-sp__font{
+  font-size: 3.8rem;
+  color:#fff;
+}
+.OurServicefunc-p-sp{
+  font-size: 1.4rem;
+  color:#fff;
+}
+
+.OurService-inner{
+height: 60vh;
+}
+
+.Ourfunc-h2-sp{
+  font-size: 3.8rem;
+  color:#fff;
+  position: absolute;
+  top: -13rem;
+}
+
+.about-bk-sp-inner{
+padding:0rem 0.8rem;
+position: relative;
+background: #52bf90;
+
+}
+.parkrfunc-sp{
+  display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+.parkrfunc-sp{
+  width: 100%;
+  height: 100vw;
+  background:#fff;
+}
+.parkfunc-innner-sp{
+
+  margin-top: -16rem;
+  padding-top: 1rem;
+
+}
+.parkfunc-innner-sp:after{
+content: '';
+background:  #52BF90;;
+width: 100%;
+height: 20rem;
+}
+.searchinputResult-p{
+  padding-left:0.8rem;
+}
+.SearchTag-input_padding{
+  margin-top: 0.4rem;
+  padding: 0rem 0.8rem;
+}
+.searchResult-location{
+  width:4rem;
+  height:4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #efefef;
+  border-radius: 8px;
+}
+.searchresult-posi h2{
+  margin-left:1rem;
+}
+.searchresult-posi{
+  margin-bottom:0.8rem;
+}
+.parkSearchinpt-logo{
+  width: 2.4rem;
+}
+.SearchInput-items-city_all{
+  display: block;
+  text-align: end;
+  color: #52BF90;
+  margin-left: auto;
+}
+
+.SearchInput-items-cit-items .SearchInput-items-city_all{
+  position: absolute;
+  bottom: -2rem;
+  right: 0rem;
+}
+.searchBar-selectItems{
+  margin-top:0.8rem;
+  width: 100%;
+  height: 7rem;
+  border-radius: 8px;
+  border: 0.1rem #52BF90 solid;
+}
+.searchBar-selectItem-what{
+  margin:0rem 0.8rem;
+  height: 3.5rem;
+  border-bottom: 0.1rem #52BF90 solid;
+  display: flex;
+  align-items: center;
+}
+.search-select_font{
+  padding-left: 0.4rem;
+  font-weight: 400;
+  color:#93918F;
+}
+.searchBar-selectItem-Whowhere{
+  width: 100%;
+  display: flex;
+}
+
+.searchBar-selectItem{
+  width: 42%;
+  flex:1;
+  margin:0rem 0.8rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+.searchBar-selectItem:nth-of-type(2){
+  margin-left:0.8rem;
+}
+
+/* 検索結果表示画面 */
+.searchResult-sorry{
+  text-align: center;
+width:100%;
+height: 100vw;
+}
+.searchResult-sorry h2{
+  margin:0 auto;
+}
+.signup-data{
+  margin-top:10rem
+}
+.Reg-InputForm{
+  width: 100% ;
+    height: 4.5rem;
+    border-radius: 8px;
+    border: 1px solid #93918f !important;
+    border-radius: 8px !important;
+}
+/* ログイン画面の作成 */
+.gl-logo__,.login-title-siz,.login-title-size {
+  display: none;
+}
+.login-title-head {
+  margin-top: 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// ホームドロワー
+.sceneTag-drawer-header-popular{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0rem 0.8rem;
+}
+.drawer-header-popular-item{
+  width: 31.5%;
+  height: 0rem;
+  padding-bottom: 31.5%;
+  margin-bottom: 1rem;
+  background: #777;
+  border-radius: 8px;
+}
+.sceneTag-drawer-header-h2{
+  color: #424242;
+    font-size: 1.4rem;
+    text-align: left;
+    padding-left: 0.8rem;
+    margin: 1rem 0rem;
+}
+.sceneTag-drawer__bottom{
+  margin-bottom: 0rem;
+}
+
+}
+
+
+
+@keyframes login-modal{
+0% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+}
+
+
+@keyframes login-form{
+  0% {
+    bottom:-20rem;
+    transform: translate(0px, 100%);
+  }
+  100% {
+    bottom: 'auto';
+    transform: none;
+  }
+  }
+
+

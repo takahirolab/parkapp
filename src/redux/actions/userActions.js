@@ -7,24 +7,17 @@ import {
   LOADING_USER,
   MARK_NOTIFICATIONS_READ
 } from '../types';
-
-
 import axios from 'axios';
 
-export const loginUser = (userData, history) => (dispatch) => {
-  dispatch({ type: LOADING_UI });
 
-  console.log(userData)
+export const loginUser = (userData,history) => (dispatch) => {
+  dispatch({ type: LOADING_UI });
   axios
     .post('/login', userData)
     .then((res) => {
-
-     console.log(res)
       setAuthorizationHeader(res.data.token);
       dispatch(getUserData());
       dispatch({ type: CLEAR_ERRORS });
-      console.log(res.data)
-      // history.push('/');
     })
     .catch((err) => {
       dispatch({
@@ -47,12 +40,12 @@ export const signupUser = (newUserData, history) => (dispatch) => {
       dispatch({ type: CLEAR_ERRORS });
       // history.push('/');
     })
-    // .catch((err) => {
-    //   dispatch({
-    //     type: SET_ERRORS,
-    //     payload: err.response.data
-    //   });
-    // });
+    .catch((err) => {
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data
+      });
+    });
 };
 
 
@@ -76,10 +69,7 @@ export const getUserData = () => (dispatch) => {
       });
     })
     .catch((err) => console.log(err));
-    console.log('de-taaruyo')
 };
-
-
 
 
 export const uploadImage = (formData) => (dispatch) => {
@@ -94,6 +84,7 @@ export const uploadImage = (formData) => (dispatch) => {
 
 export const editUserDetails = (userDetails) => (dispatch) => {
   dispatch({ type: LOADING_USER });
+  console.log(userDetails)
   axios
     .post('/user', userDetails)
     .then(() => {

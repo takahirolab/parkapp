@@ -135,8 +135,7 @@ this.props.signupUser(newUserData,this.props.history);
                         <div className ="login-modal sign-up">
                             <div className="login-modal-inner">
                                 <div className="login-title-head">
-                                    <img src={Logoimg} className="gl-logo__"/>
-                                    <h2 className="login-title-size ">Parkrにログインする</h2>
+                                    <h2 className="login-title-size ">ログインする</h2>
                                 </div>
                                 <div className="sns-login-items">
                                     <div className="sns-login">
