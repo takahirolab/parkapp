@@ -1,27 +1,13 @@
 import React, { Component } from 'react'
-
-
-
-
-import '../App.css';
-
-
 import { Link,NavLink } from 'react-router-dom';
-
-
 import {connect} from 'react-redux';
 import {getParks} from '../../redux/actions/dataActions';
-
-
-
 import  Navbar  from '../../layout/Navbar'
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 
 
 
 import ScreamSkeleton from '../../util/ScreamSkeleton';
-import { Category, NaturePeopleOutlined, TextureSharp, TransferWithinAStationSharp } from '@material-ui/icons';
-
 
 
 

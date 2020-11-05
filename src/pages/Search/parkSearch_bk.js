@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-
-
 import {useLocation} from 'react-router-dom';
-
 import '../../App.css';
 
 import { Link,NavLink } from 'react-router-dom';
@@ -18,9 +15,6 @@ import LikeButton from '../../components/park/LikeButton'
 
 
 import ScreamSkeleton from '../../util/ScreamSkeleton';
-import { Category, NaturePeopleOutlined, TextureSharp, ThreeSixty, TransferWithinAStationSharp } from '@material-ui/icons';
-import LazyLoad from 'react-lazyload'
-import SearchIcon from '@material-ui/icons/Search';
 import EmojiPeopleRoundedIcon from '@material-ui/icons/EmojiPeopleRounded';
 import SearchbarDrawer from '../SearchbarDrawer'
 import CancelIcon from '@material-ui/icons/Cancel';
@@ -28,7 +22,7 @@ import SearchbarDrawer_pc from '../SearchbarDrawer_pc'
 import Footer from '../../layout/Footer';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import MapIcon from '@material-ui/icons/Map';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+
 
 const JapanArea = [
   {kangi:'北海道',Hiragana:'ほっかいどう',en:'hokkaido',kata:'ホッカイドウ'},

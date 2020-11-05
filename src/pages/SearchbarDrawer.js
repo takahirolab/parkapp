@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import EmojiPeopleRoundedIcon from '@material-ui/icons/EmojiPeopleRounded';
-import PeopleRoundedIcon from '@material-ui/icons/PeopleRounded';
 import SearchIcon from '@material-ui/icons/Search';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import { getParks } from '../redux/actions/dataActions';

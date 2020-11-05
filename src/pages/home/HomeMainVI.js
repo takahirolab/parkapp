@@ -9,10 +9,6 @@ const HomeMainVI = () => {
         return (
             <div className="main-visual" style={{ backgroundImage: `linear-gradient(to right bottom, #3d5d4b45, #52bf901a),url(${Pic1})` ,backgroundPosition:'50% 67%'}}>
                 <div className="main_visual__cotainer">
-                    <div className="main_visual_location">
-                        <LocationOnRoundedIcon style={{ fontSize: 30 }} />
-                        <p>東京都 昭和記念公園</p>
-                    </div>
                     <HomeWeather />
                     <HomeSearch />
 

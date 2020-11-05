@@ -51,10 +51,9 @@ import JoinActivity from './pages/sidebar/joinActivity'
 import Ask from './pages/sidebar/ask'
 
 import Weather from './pages/Weather'
-import { Navbar } from './layout/Navbar';
+
 import parkSearch from './pages/Search/parkSearch';
 import Users from './pages/Search/parkSearch';
-import { Dashboard } from '@material-ui/icons';
 
 const theme = createMuiTheme(themeObject);
 
@@ -66,7 +65,7 @@ if (token) {
   const decodedToken = jwtDecode(token);
   if (decodedToken.exp * 1000 < Date.now()) {
     store.dispatch(logoutUser());
-    window.location.href = '/login';
+    window.location.href = '/';
   } else {
     store.dispatch({ type: SET_AUTHENTICATED });
     axios.defaults.headers.common['Authorization'] = token;
@@ -96,7 +95,6 @@ function App()  {
             /////////////// */}
 
               <Route exact path="/search" component={Users} />
-              {/* <Route exact path="/search/city" render={() => <ParkSearch city={'東京都'} />}/> */}
               <Route exact path="/weather" component={Weather} />
 
 

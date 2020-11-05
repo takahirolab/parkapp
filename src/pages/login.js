@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
-import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-// MUI Stuff
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-
-import CircularProgress from '@material-ui/core/CircularProgress';
-
 // Redux stuff
 import { connect } from 'react-redux';
 import {signupUser} from '../redux/actions/userActions';
-
-import  Navbar  from '../layout/Navbar'
-
-
-import Logoimg from '../images/logoimg.svg';
 import Googleicon from '../images/google.svg';
 import Modal from 'react-modal';
 

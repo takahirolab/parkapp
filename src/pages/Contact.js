@@ -37,8 +37,6 @@ const styles = (theme) => ({
 });
 
 
-
-
 class Contact extends Component {
   state = {
     open: false,

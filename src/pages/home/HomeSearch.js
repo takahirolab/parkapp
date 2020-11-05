@@ -462,6 +462,7 @@ export class HomeWeather extends Component {
                       <li className="HomeSearchWhatSelect-item"onClick={() => this.setState({ HomeparkSearchSelectWhat:'山がみれる'})}>山がみれる</li>
                       <li className="HomeSearchWhatSelect-item"onClick={() => this.setState({ HomeparkSearchSelectWhat:'自然豊か'})}>自然豊か</li>
                       <li className="HomeSearchWhatSelect-item"onClick={() => this.setState({ HomeparkSearchSelectWhat:'動植物がいっぱい'})}>動植物がいっぱい</li>
+                      <li className="HomeSearchWhatSelect-item"onClick={() => this.setState({ HomeparkSearchSelectWhat:'夕日が見える'})}>夕日が見える</li>
                       </ul>
                     </div>
                     </>:''}

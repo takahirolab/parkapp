@@ -12,6 +12,9 @@ import HomeVISp from './HomeVISp'
 import HomeCategorySp from './HomeCategorySp'
 import HomeSuggestSp from './HomeSuggestSp'
 import HomeLocatiomSp from './HomeLocationSp'
+import HomePopularSp from './HomePopularSp'
+import HomePrefectureSP from './HomePrefectureSP'
+import HomeKindSp from './HomeKindSp'
 import NavbarHome from '../../layout/NavbarHome'
 
 
@@ -28,20 +31,24 @@ const home = () => {
           <Sidebar />
           <HomeMainContents />
         </div>
+
         {/* スマホ版 ヘッダー */}
-        <HomeHeaderSp />
+        {/* <HomeHeaderSp /> */}
         {/* メインビジュアル */}
         <HomeVISp />
         {/* {カテゴリー検索} */}
-        <HomeCategorySp />
+        {/* <HomeCategorySp /> */}
         {/* おすすめ検索 */}
-        <HomeSuggestSp/>
+        {/* <HomeSuggestSp/> */}
         {/* 東京検索 */}
-        <HomeLocatiomSp />
+          <HomeLocatiomSp />
+          <HomePopularSp />
+          <HomeKindSp />
+          <HomePrefectureSP/>
         {/* サービス紹介 */}
-        <HomeLp />
+        {/* <HomeLp /> */}
         {/* SNSフォロー */}
-        <HomeSns />
+        {/* <HomeSns /> */}
     </div>
         {/* 公園をポスト */}
         <PostPark />

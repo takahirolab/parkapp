@@ -43,7 +43,9 @@ export default function(state = initialState, action) {
           ...state.likes,
           {
             userName: state.credentials.userName,
-            parkId: action.payload.parkId
+            parkId: action.payload.parkId,
+            parkName: action.payload.parkName,
+            parkImage: action.payload.parkImage
           }
         ]
       };

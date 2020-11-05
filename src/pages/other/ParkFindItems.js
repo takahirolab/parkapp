@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
-import QueryBuilderRoundedIcon from '@material-ui/icons/QueryBuilderRounded';
+
 
 
 // Redux
 import { connect } from 'react-redux';
 import Pic1 from '../../images/pic1.png';
-import Pic_1 from '../../images/pic1_.png';
-import StackGrid from "react-stack-grid";
+
 
 
 
