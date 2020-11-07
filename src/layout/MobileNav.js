@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import Weather from './weather'
+
 import TemporayDrawer from './TemporayDrawer'
 import { Link } from 'react-router-dom';
 import { loginUser } from '../redux/actions/userActions';
@@ -16,7 +16,7 @@ export class MobileNav extends Component {
         const { authenticated } = this.props;
     return (
         <div className="nav-mobile">
-            <Weather />
+
             {authenticated ? (
                 <TemporayDrawer />
             ) : (

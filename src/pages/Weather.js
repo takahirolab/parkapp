@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { getParks } from '../redux/actions/dataActions';
 import PropTypes from 'prop-types';
+import NavbarHome from '../layout/NavbarHome'
 
 const city = ["tokyo", "osaka", "fukuoka","hokkaido","miyagi","hiroshima","okinawa","nagoya"];
 
@@ -54,6 +55,7 @@ export class Weather extends Component {
         this.handleGetLatAndLng_day();
         this.handleGetLatAndLng();
         this.props.getParks();
+        // document.getElementsByClassName(footer).setAttribute('style', 'display: none;')
     }
 
 
@@ -65,7 +67,8 @@ export class Weather extends Component {
         const weather_day = this.state.weather_day
         const weather_hourly = this.state.weather_hourly
         const weather_bg = this.state.background
-        console.log(weather_bg)
+
+
 
         const weatheritem123 =
             weather.map((weatheritem) =>
@@ -136,7 +139,8 @@ export class Weather extends Component {
 
         return (
             <>
-                <div className="container" style={{background:this.state.background}}>
+                 <NavbarHome />
+                <div className="" style={{background:this.state.background,paddingTop:20}}>
                     <div className="weatherNow">
                         <div className="weather_time">{weatheritem_Now}</div>
                     </div>

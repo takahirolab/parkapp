@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import ScreamSkeleton from '../../util/ScreamSkeleton';
 import Park from '../../components/park/Park';
 
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import  Pic1 from  '../../images/pic1.png'
 
@@ -55,6 +56,7 @@ export class ParkDetail extends Component {
           bkImg: "",
           btnGo:""
       };
+      this.testcase1 = this.testcase1.bind(this)
 
     }
 
@@ -75,7 +77,11 @@ export class ParkDetail extends Component {
       })
     }, 1000);
 
-  }
+    }
+
+  testcase1() {
+      this.props.history.push('/park/vjSp1sr4iKcWChcK1ccG')
+    }
 
 
 
@@ -185,7 +191,7 @@ export class ParkDetail extends Component {
               <img class="name" src={Googlemap}/>
       </div>
       <div className="parkInf-inner">
-              <h2 className="parkInf-h2">公園で楽しく遊ぶために</h2>
+              <h2 className="parkInf-h2" onClick={this.testcase1}>公園で楽しく遊ぶために</h2>
               <p></p>
       </div>
       </div>
@@ -249,6 +255,6 @@ ParkDetail.propTypes = {
   data:state.data
   })
 
-  export default connect(mapStateToProps,{getPark})(ParkDetail);
+  export default connect(mapStateToProps,{getPark})(withRouter(ParkDetail));
 
 

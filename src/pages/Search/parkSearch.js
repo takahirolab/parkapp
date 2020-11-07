@@ -669,8 +669,29 @@ export class ParkSearch extends Component {
 
 
             {/* sp版 */}
-            <SearchbarDrawer/>
+            {/* <SearchbarDrawer /> */}
+            <div className="parkSearchSP-rsulut-inner">
+              {!this.state.parklocation?<h2 className="parkSearchResultSP__h2">すべての公園</h2>:
+              <h2 className="parkSearchResultSP__h2">{this.state.parklocation}の公園</h2>}
             <div className="searchBar-selectItems">
+
+            <div className="searchBar-selectItem">
+                {!this.state.parklocation ?
+                   <LocationOnRoundedIcon style={{ fontSize: 20, color: '#93918F' }} />:
+                  <LocationOnRoundedIcon style={{ fontSize: 20, color: '#52BF90' }} />
+            }
+                  {/* <p className="p search-select_font">どこにいく</p> */}
+                  <select className="p search-select_font" value={this.state.parklocation} onChange={this.handleFilterTextChange} placeholder="ああああ">
+                    <option value="" style={{display:'none'}}>すべてのエリア</option>
+                    <option value="">すべてのエリア</option>
+                    <option value="東京都">東京</option>
+                    <option value="大阪">大阪</option>
+                    <option value="神奈川">神奈川</option>
+              　　</select>
+
+                </div>
+
+
               <div className="searchBar-selectItem-what">
                 {!this.state.parkTag ?
                   <EmojiPeopleRoundedIcon style={{ fontSize: 20, color: '#93918F' }} /> :
@@ -678,14 +699,16 @@ export class ParkSearch extends Component {
             }
                 {/* <p className="p search-select_font">なにをする</p> */}
                 <select className="p search-select_font" value={this.state.parkTag} onChange={this.handleFilterTextChangeTag}>
-                  <option value="" style={{display:'none'}}>なにをする</option>
-                  <option value="">すべて</option>
+                  <option value="" style={{display:'none'}}>すべての目的</option>
+                  <option value="">すべての目的</option>
                   <option value="朝">朝</option>
                   <option value="夕方">夕方</option>
                   <option value="夜景">夜景</option>
             </select>
               </div>
-              <div className="searchBar-selectItem-Whowhere">
+
+
+
 
                 <div className="searchBar-selectItem">
                 {!this.state.parkTag2 ?
@@ -694,8 +717,8 @@ export class ParkSearch extends Component {
             }
 
               <select className="p search-select_font"  value={this.state.parkTag2} onChange={this.handleFilterTextChangeTag2}>
-                  <option value="" style={{display:'none'}}>だれといく</option>
-                  <option value="">すべて</option>
+                  <option value="" style={{display:'none'}}>その他・詳細</option>
+                  <option value="">その他・詳細</option>
                   <option value="家族">家族</option>
                   <option value="カップル">カップル</option>
                   <option value="友人">友人</option>
@@ -706,27 +729,20 @@ export class ParkSearch extends Component {
             </select>
                 </div>
 
-                <div className="searchBar-selectItem">
-                {!this.state.parklocation ?
-                   <LocationOnRoundedIcon style={{ fontSize: 20, color: '#93918F' }} />:
-                  <LocationOnRoundedIcon style={{ fontSize: 20, color: '#52BF90' }} />
-            }
-                  {/* <p className="p search-select_font">どこにいく</p> */}
-                  <select className="p search-select_font" value={this.state.parklocation} onChange={this.handleFilterTextChange} placeholder="ああああ">
-                    <option value="" style={{display:'none'}}>どこへいく</option>
-                    <option value="">すべて</option>
-                    <option value="東京都">東京</option>
-                    <option value="大阪">大阪</option>
-                    <option value="神奈川">神奈川</option>
-              　　</select>
 
-                </div>
+
+
+
+
+
+
+
               </div>
-
+              </div>
             </div>
       </div>
 
-        </div>
+
 
       </>
 

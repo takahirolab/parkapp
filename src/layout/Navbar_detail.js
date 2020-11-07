@@ -13,7 +13,7 @@ import {
 
 import { ReactComponent as Logo } from '../images/logo.svg';
 import {logoutUser,uploadImage,loginUser} from '../redux/actions/userActions';
-
+import { ReactComponent as LogoWhite } from '../images/LogoWhite.svg';
 import { signupUser } from '../redux/actions/userActions';
 
 import Logoimg from '../images/logoimg.svg';
@@ -232,7 +232,8 @@ export class Navbar extends Component {
                       <div className="nav-inner">
                           <div className="nav-title">
                               <Link to="/" className="nav-titile-logo ">
-                                  <Logo className="logo__size"/>
+                              <Logo  className="logo__size-pc"/>
+                                  <Logo  className="logo__size-sp"/>
                               </Link>
                           </div>
 

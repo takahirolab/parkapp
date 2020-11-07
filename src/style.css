@@ -31,7 +31,10 @@ li {
   color:#424242;
   list-style: none;}
 
-
+  label{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-size: 1.2rem;
+  }
 a{
   font-size: 1.4rem;}
 
@@ -123,7 +126,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 200px;
+  width: auto;
   margin: 0;
   border: 0;
   outline: none;
@@ -300,7 +303,7 @@ background:  #52BF90 !important;
 .sociallogo-footer{
   display: flex;
   align-items: center;
-  height: 6rem;
+  height: 0rem;
 }
 .footer-sns{
   display: flex;
@@ -347,6 +350,7 @@ background:  #52BF90 !important;
 }
 .HomeParkprefecture{
   padding-right: 1.4rem;
+  font-size: 1.2rem;
 }
 
 
@@ -361,6 +365,7 @@ margin:4rem auto 2rem auto;
   }
 .parkDetail-contents{
   margin-top:12rem;
+  min-height: calc(100vh - 446px);
 }
   .home-maincontent_inner{
     margin-bottom: 5rem;
@@ -1189,7 +1194,7 @@ width: 50rem;
 }
 .HomeParkSearch-Location p {
   color: #b4b4b4;
-  font-size: 1.4rem !important;
+  font-size: 1.2rem !important;
 }
 .HomeParkprefecture:hover{
   color: #52bf90;
@@ -1212,7 +1217,7 @@ width: 50rem;
   font-size: 1.4rem;
 }
 input.homeSearchLocation-input {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-left: 1rem;
   height: 7rem;
   width: 100%;
@@ -3232,7 +3237,7 @@ button.ReadMore {
 .FindParksResult-item,
 .btnGo-inner,
 .container_paddinng_park,
-.innner  {
+.innner,.logo__size-sp  {
   display: none ;
 }
 .weather-inner{
@@ -3248,7 +3253,9 @@ button.ReadMore {
   p,a{
     font-size:1.2rem;
     letter-spacing: 0.04rem;}
-
+li{
+font-size: 1.2rem;
+}
 
   .parkResult__pc{
     margin: 0;
@@ -3260,9 +3267,11 @@ button.ReadMore {
 .searchBar-selectItems,
 .sceneTag-drawer-header--items,
 .container_paddinng_park,
-.innner,
 .logo__size-sp {
   display: inline-block ;
+}
+.innner{
+  display:block
 }
 
 .sceneTag-drawer-header--items,
@@ -3272,7 +3281,9 @@ button.ReadMore {
   display: flex;
 }
 
-
+.searchpark-sp{
+  min-height: calc(100vh - 486px);
+}
 
 
 .container_about_pc{
@@ -3298,14 +3309,14 @@ button.ReadMore {
   .searchpark-pc,
   .FindParksResult-item-pc,
   .parkSuggest-items,
-  .SeRe,
-  .logo__size {
+  .SeRe,.parkSearchFil_inner {
     display: none; }
   .container_paddinng {
-    margin-top: 1.6rem;
+    margin-top: 0rem;
     padding: 0rem 0.8rem; }
   .nav {
-     position: absolute;
+     position: fixed;
+     z-index: 1;
     /* box-shadow: 0 2px 5px #ccc; */
     /* border-bottom: 0.1rem solid #efefef; */ }
   .nav-title {
@@ -3314,7 +3325,7 @@ button.ReadMore {
     width: 100%;
     height: 100%;
     background:none;
-    padding: 1.3rem 0.6rem 0rem; }
+    padding: 0.6rem 0.6rem 0.6rem; }
   .nav-titile-logo .nav-logo__white a {
     height: 0rem; }
   .container {
@@ -3372,17 +3383,8 @@ button.ReadMore {
     min-width: 100VW;
     width: 100%; }
   .Post_park {
-    position: fixed;
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-    background: #52BF90;
-    box-shadow: 0 2px 5px #888888;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 10vw;
-    right: 10vw; }
+
+  }
   .search_select {
     font-weight: 600;
     color: #777777;
@@ -3425,14 +3427,14 @@ button.ReadMore {
     justify-content: space-between;
   }
   .footer_inc {
-    text-align: right;
+    text-align: center;
     min-width: 100VW;
     color: #f2f2f2;
     padding-right: 1rem;
   }
   .footer_Log{
-    width: 27%;
-    margin-bottom: 0rem;
+    width: 33%;
+    margin-bottom: 1.6rem;
   }
   .footer-rule{
     margin-top:0rem;
@@ -3445,21 +3447,27 @@ button.ReadMore {
   .footer-rule-p{
     margin:0.8rem 0rem;
   }
+  .footerLogo-inner{
+    width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+  }
 
   .footer-itemsRtght{
     width: 100%;
   }
   .footer-contents {
     /* border-bottom: #fff solid 1px; */
-    margin: 9rem 0.8rem 0rem 0.8rem;
+    margin: 0rem 0.8rem 0rem 0.8rem;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding-top: 7rem;
+    padding-top: 12rem;
     padding-left:0rem }
   .footer-content {
     margin-right: 0rem;
     width: 50%;
-    margin-bottom: 2rem; }
+    margin-bottom: 0rem; }
   .footer_item {
     padding-bottom: 0.4rem; }
   .footer_h2 {
@@ -3473,6 +3481,10 @@ button.ReadMore {
   }
   .footer-items{
     margin-right: 2rem;
+  }
+  .sociallogo-footer{
+    justify-content: center;
+    height: 8rem;
   }
   /* .active_category{
   border-radius: 5rem;
@@ -3535,8 +3547,14 @@ button.ReadMore {
     padding: 0rem; }
   .container_paddinng_park {
     padding: 0.8rem;
-    padding-top: 4rem;
-    margin-top: 3rem; }
+    padding-top: 0rem;
+    margin-top: 6.5rem;
+    position: unset;
+      transform: translate(0%, 0%);
+
+
+
+  }
   .FindParksResult-items__width {
     width: 90vw; }
   .innner {
@@ -3615,7 +3633,7 @@ button.ReadMore {
     padding: 0.35rem 1.3rem;
     font-size: 1.2rem;
     color: #52BF90;
-    border: 1px solid #52BF90; }
+    }
   /* /////////////// */
   /* 公園詳細 */
   /* /////////////// */
@@ -3709,16 +3727,17 @@ button.ReadMore {
   .btn-danger a.active {
     color: chocolate; }
   .mainVI-img {
-    background-color: linear-gradient(to right bottom, rgba(61, 93, 75, 0.27), rgba(82, 191, 144, 0.1)),;
     width: 100%;
     height: 50rem;
     object-fit: cover; }
 
     .mainVI{
       position: relative;
+      width: 100%;
+      height: 50rem;
     }
 .popularImag{
-  margin-right: 0.8rem;
+  margin-right: 1rem;
   display: flex;
   align-items: center;
   justify-content:center;
@@ -3727,7 +3746,7 @@ button.ReadMore {
   height: 13.3rem;
 }
 .parkKindimg{
-  margin-right: 0.8rem;
+  margin-right: 1rem;
   display: flex;
   align-items: center;
   justify-content:center;
@@ -3744,8 +3763,32 @@ button.ReadMore {
   display: flex;
 
 }
+.logo__size-pc{
+  display: none;
+}
 
 
+.HomeParkSearch-Location-reset{
+  position: absolute;
+  bottom: 18rem;
+  right: 3rem;
+  color: #dedede;
+  font-size: 1.8rem;
+}
+.HomeParkSearch-What-reset{
+  position: absolute;
+  bottom: 13rem;
+  right: 3rem;
+  color: #dedede;
+  font-size: 1.8rem;
+}
+.HomeParkSearch-Other-reset{
+  position: absolute;
+  bottom: 8rem;
+  right: 3rem;
+  color: #dedede;
+  font-size: 1.8rem;
+}
 
     .home-maincontent-items{
       overflow: scroll;
@@ -3761,6 +3804,7 @@ button.ReadMore {
       border-radius: 8px;
     }
     .HomeParkSearch-Location{
+      position: relative;
       margin: 0rem;
       height: 5rem;
     }
@@ -3781,7 +3825,7 @@ button.ReadMore {
     height: 5rem;
 }
 .HomeParkSearch-what-sp-font{
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-left:1rem;
   color: #b4b4b4;
 }
@@ -3807,16 +3851,17 @@ border-radius: 8px;
   margin-top:3rem
 }
 .HomeSearchLocation-Select__margin{
-  margin:0rem;
+
   width: 100%;
 }
 table tr{
-  padding-bottom: 1.6rem;
+  padding-bottom: 1.2rem;
   display: flex;
   flex-direction: column;
 }
 .HomeSearchLocation-td{
   padding-bottom: 0.4rem;
+  width: 100%;
 }
 .HomeSearchLocation-Select-items{
 padding:0rem;
@@ -4105,7 +4150,7 @@ padding:0rem;
   .drawer-content__withwho,
   .drawer-content__where,
   .drawer-content {
-    transform: translate(-100%);
+    /* transform: translate(-100%); */
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -4113,52 +4158,64 @@ padding:0rem;
     right: 0;
     /* メニューを画面の外に飛ばす */
     z-index: 99;
-    background: #fff; }
+    /* background: #fff;  */
+  }
   /* アイコンがクリックされたらメニューを表示 */
-  #drawer-check:checked ~ .drawer-content,
+  /* #drawer-check:checked ~ .drawer-content,
   #drawerforwhat:checked ~ .drawer-content__forwhat,
   #drawerwithwho:checked ~ .drawer-content__withwho,
   #drawerwhere:checked ~ .drawer-content__where {
     right: -100%;
-    /* メニューを画面に入れる */ }
-  .drawer-city-kanto,
-  .drawer-city-tohoku,
-  .drawer-city-tyuubu,
-  .drawer-city-kansai,
-  .drawer-city-tyuShikoku,
-  .drawer-city-KyuOki {
-    transition: .3s;
-    display: none;
-    opacity: 0; }
-  #drawer-kanto:checked ~ .drawer-city-kanto,
-  #drawer-tohoku:checked ~ .drawer-city-tohoku,
-  #drawer-tyuubu:checked ~ .drawer-city-tyuubu,
-  #drawer-tyuShikoku:checked ~ .drawer-city-tyuShikoku,
-  #drawer-kansai:checked ~ .drawer-city-kansai,
-  #drawer-KyuOki:checked ~ .drawer-city-KyuOki {
-    display: inline;
-    opacity: 1; }
-  #drawer-kanto:checked ~ .drawer-city-kanto__color,
-  #drawer-tohoku:checked ~ .drawer-city-tohoku__color,
-  #drawer-tyuubu:checked ~ .drawer-city-tyuubu__color,
-  #drawer-tyuShikoku:checked ~ .drawer-city-tyuShikoku__color,
-  #drawer-kansai:checked ~ .drawer-city-kansai__color,
-  #drawer-KyuOki:checked ~ .drawer-city-KyuOki__color {
-    color: #52BF90 !important;
-    transition: .1s; }
+    /* メニューを画面に入れる */
+
+
+.parkSearchSP-rsulut-inner{
+  margin-top:6.5rem;
+}
+.parkSearchResultSP__h2{
+  padding:1.2rem 0rem 0rem;
+}
+
   .drawerhome-city {
     position: relative; }
   .drawer-padding {
     padding: 0rem 0.8rem; }
-  .drawer-padding label {
-    padding: 0.8rem 0rem;
+  .drawer-padding {
+    padding: 1.2rem 0rem;
     border-bottom: solid 0.08rem #dedede; }
+    label{
+      font-size: 1.2rem;
+    }
+    label.drawer-city{
+      color:#424242;
+
+    }
   .drawer-city-li a {
     display: block;
     color: #777;
     border-bottom: solid 0.08rem #dedede;
     text-align: initial;
-    padding: 0.8rem 0rem 0.8rem 1.6rem; }
+    padding: 1.2rem 0rem 0.8rem 1.6rem; }
+
+    .drawer-city-li li {
+      margin-left:1rem;
+      display: block;
+      color: #777;
+      border-bottom: solid 0.08rem #dedede;
+      text-align: initial;
+      padding: 1.2rem 0rem 0.8rem 1.6rem; }
+
+
+      .HomeSelectSp-area__p{
+        margin-left: 1rem;
+        color: #b4b4b4;
+      }
+    .HomeSearchInputWhat-modal-h2{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
   #accordion {
     margin-top: -50px; }
   #accordion dt {
@@ -4175,7 +4232,7 @@ padding:0rem;
     position: relative;
     height: 6.5rem;
     width: 100%;
-    background: #fff;
+    /* background: #fff; */
     display: flex;
     /* box-shadow: 0 2px 5px #ccc; */
     align-items: center;
@@ -4259,22 +4316,41 @@ padding:0rem;
     justify-content: space-between;
     margin-top: 1rem;
     position: relative; }
-  .SearchInput-items-cit-item {
-    width: 48.5%;
-    height: 10rem;
-    background: #000;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    line-height: 10rem;
-    text-align: center;
-    color: #fff; }
+    .HomeSearchSPLocation-modal-prefecture{
+      margin-top: 1.3rem;
+    }
+
+
+
+
+
+  .HomeSearchSPLocation-modal-items {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    margin-top: 1rem;
+    position: relative }
+
+.drawer-city,.drawer-city-height{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+  border-bottom:#dedede solid 1px;
+}
+
+
+
+
+
   .sceneTag-vdrawer-header {
     margin-bottom: 0.8rem; }
   /* ///////////////////// */
   /* その他 */
   /* ///////////////////// */
   .homeTop {
-    margin-top: 4.8rem; }
+    margin-top: 0rem; }
   .service-top-inner {
     height: 100vh;
     background-color: #52BF90;
@@ -4385,18 +4461,35 @@ padding:0rem;
     position: absolute;
     bottom: -2rem;
     right: 0rem; }
+
+
+
   .searchBar-selectItems {
-    margin-top: 0.8rem;
-    width: 100%;
-    height: 7rem;
-    border-radius: 8px;
-    border: 0.1rem #52BF90 solid; }
-  .searchBar-selectItem-what {
-    margin: 0rem 0.8rem;
-    height: 3.5rem;
-    border-bottom: 0.1rem #52BF90 solid;
+    white-space: nowrap;
+    overflow-x: scroll;
     display: flex;
-    align-items: center; }
+    margin: 1.2rem 0rem;
+    width: 100%;
+    border-radius: 8px;
+   }
+   .searchBar-selectItem:nth-of-type(1){
+     margin-left: 0rem;
+   }
+
+   .FindParksResult-item-detil{
+     width: 100%;
+  }
+
+
+  .searchBar-selectItem-what {
+    padding: 0rem 0.8rem;
+    width: auto;
+    margin: 0rem 0rem　!important;
+    height: 3.5rem;
+    border: 0.1rem #52BF90 solid;
+    border-radius: 29px;
+    display: flex;
+    align-items: center;}
   .search-select_font {
     padding-left: 0.4rem;
     font-weight: 400;
@@ -4404,13 +4497,18 @@ padding:0rem;
   .searchBar-selectItem-Whowhere {
     width: 100%;
     display: flex; }
+
+
   .searchBar-selectItem {
-    width: 42%;
-    flex: 1;
+      padding: 0rem 0.8rem;
+    width: auto;
     margin: 0rem 0.8rem;
     height: 3.5rem;
+    border: 0.1rem #52BF90 solid;
+    border-radius: 29px;
     display: flex;
-    align-items: center; }
+    align-items: center;}
+
   .searchBar-selectItem:nth-of-type(2) {
     margin-left: 0.8rem; }
   /* 検索結果表示画面 */
@@ -4456,7 +4554,48 @@ padding:0rem;
     padding-left: 0.8rem;
     margin: 1rem 0rem; }
   .sceneTag-drawer__bottom {
-    margin-bottom: 0rem; } }
+    margin-bottom: 0rem; }
+
+  /* ホーム画面回収 */
+
+  .HomeSearchSP-modal{
+    left: 0;
+    top:0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 2;
+  }
+
+  .mainVI{
+    position: relative;
+  }
+  .HomeSearchInputWhat-modal-inner p{
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  .HomeSearchInputWhat-modal{
+    margin-top:0.6rem;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
 
 @keyframes login-modal {
   0% {

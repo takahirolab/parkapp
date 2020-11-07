@@ -119,7 +119,7 @@ export class Navbar extends Component {
           openModalLogin() {
           this.setState({modalIsOpenSignup: false});
           this.setState({modalIsOpenLogin: true});
-          document.body.setAttribute('style', 'overflow: hidden;')
+          document.body.setAttribute('style', 'position: fixed;')
         }
 
     closeModalLogin() {
@@ -132,7 +132,7 @@ export class Navbar extends Component {
          openModalSignup() {
         this.setState({modalIsOpenLogin:  false});
           this.setState({modalIsOpenSignup: true});
-          document.body.setAttribute('style', 'overflow: hidden;')
+          document.body.setAttribute('style', 'position: fixed;')
         }
 
     closeModalSignup() {
@@ -257,10 +257,9 @@ export class Navbar extends Component {
                     }>
                       <div className="nav-inner">
                           <div className="nav-title">
-                              <Link to="/" className="nav-titile-logo ">
-                                    <Logo className="logo__size-sp" />
-                        {this.state.currentPosition < 170? <LogoWhite className="logo__size"/>: <Logo className="logo__size"/>}
+                              <Link to="/" className="nav-titile-logo">
 
+                        {this.state.currentPosition < 170? <LogoWhite className="logo__size"/>: <Logo className="logo__size"/>}
                               </Link>
                           </div>
 
@@ -340,7 +339,7 @@ export class Navbar extends Component {
                 <div className="nav-inner">
                 <div className="nav-title">
                     <Link to="/" className="nav-titile-logo ">
-                    <Logo className="logo__size-sp"/>
+                    {/* <LogoWhite className="logo__size-sp"/> */}
                     {this.state.currentPosition < 170? <LogoWhite className="logo__size"/>: <Logo className="logo__size"/>}
                     </Link>
                 </div>

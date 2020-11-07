@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route,Switch,Redirect} from 'react-router-dom';
-import { NavLink } from "react-router-dom";
 
+import { NavLink } from "react-router-dom";
+import { withRouter } from 'react-router';
 import '../App.css';
 import Pic1 from '../images/pic1.png'
 
@@ -17,7 +17,7 @@ import Park from '../components/park/Park';
 import {connect} from 'react-redux';
 import {getParks} from '../redux/actions/dataActions';
 
-
+import ProductRow from './ProductRow'
 
 
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
@@ -72,7 +72,7 @@ const mapStateToProps = (state) =>({
 })
 
 
-export default connect(mapStateToProps,{getParks})(ParkSearch);
+export default connect(mapStateToProps,{getParks})(withRouter(ParkSearch));
 
 
 
@@ -247,30 +247,35 @@ class ProductTable extends React.Component {
 
 
 
-class ProductRow extends React.Component {
-  // CountList () {
-  //   this.props.history.push(`/park/${this.props.park.parkId}`)
-  // };
+// class ProductRow extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       OtherParks:''
+//     }
+// }
 
-  render() {
+//   OtherParks(e) {
+//     this.setState({
+//       OtherParks:e
+//     })
+//     this.props.history.push(`/park/${this.OtherPaks}`)
+//   }
 
-    return (
-      <>
-        <Link to={`/park/${this.props.park.parkId}`} className="FindParksResult-item" onClick={this.CountList}>
+//   render() {
+//     return (
+//       <>
+//         <div onClick={this.OtherParks.bind(this,this.props.park.parkId)} className="FindParksResult-item">
 
-        <img className="FindParksResult-item-img" src={this.props.park.parkImage}/>
+//         <img className="FindParksResult-item-img" src={this.props.park.parkImage}/>
 
-        <div className="FindParksResult-item-detil">
-          <h2 className="parksResult-item-name">{this.props.park.parkName}</h2>
-        </div>
+//         <div className="FindParksResult-item-detil">
+//           <h2 className="parksResult-item-name">{this.props.park.parkName}</h2>
+//         </div>
 
-        </Link>
+//         </div >
+//         </>
+//     );
+//   }
 
-
-
-
-        </>
-    );
-  }
-
-}
+// }

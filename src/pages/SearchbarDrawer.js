@@ -330,10 +330,7 @@ export class SearchbarDrawer extends Component {
                </div>
 
 
-             {/* {
-               this.state.earchInputResultPark === false && this.state.earchInputResultPark === false ?
-               <><h2>該当する公園またわ都市がありません。</h2></>:''
-             } */}
+
 
 
              {this.state.value.length === 0 ?

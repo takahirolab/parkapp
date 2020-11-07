@@ -33,7 +33,7 @@ export class HomeLocatiomSp extends Component{
       </>
         )
         return (
-            <div className="container-paddding-sp container_paddinng">
+            <div className="container-paddding-sp container_paddinng homeCategorySP__margin">
                 <div className="park-city-item__title">
                     <h2 className="park-city-item__h2">東京都の公園</h2>
                     <Link to={tokyo}><p className="park-city-item__p">すべてみる</p></Link>

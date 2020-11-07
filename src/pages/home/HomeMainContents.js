@@ -186,16 +186,16 @@ export class HomeMainContents extends Component {
             </div>
 
             {/* スマホ版　人気カテゴリ */}
-            <div className="home-maincontent_inner">
+            {/* <div className="home-maincontent_inner">
                 <div className="home-showinner">
                   <h2 className="h2-home">人気のカテゴリ</h2>
                     <Link to={all}><p>すべてみる</p></Link>
                 </div>
                   <ul className="home-maincontent-items">
-                    {/* //sugest */}
+
                     {!loading?parkTokyoitem_pc :<ScreamSkeleton_home/>}
                   </ul>
-            </div>
+            </div> */}
 
 
 
