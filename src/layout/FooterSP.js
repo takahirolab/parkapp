@@ -10,10 +10,10 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 
 
-export class Footer extends Component {
+export class FooterSP extends Component {
     render() {
         return (
-            <footer className="footer">
+            <div className="footer footerSP">
                 {/* < Footer_bk className="footer_bk"/> */}
                 <div className="footer_container">
 
@@ -75,10 +75,10 @@ export class Footer extends Component {
                     </div>
 
                 </div>
-            </footer>
+            </div>
     )
 }
 }
 
-export default Footer
+export default FooterSP
 

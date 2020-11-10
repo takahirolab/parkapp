@@ -80,7 +80,6 @@ function App()  {
         <Provider store ={store}>
           <Router history={history}>
           <ScrollToTop>
-
             <Switch>
               <Route exact path="/" component={Home} />
               <AuthRoute exact path="/login" component={Login} />
@@ -95,7 +94,7 @@ function App()  {
             /////////////// */}
 
               <Route exact path="/search" component={Users} />
-              <Route exact path="/weather" component={Weather} />
+
 
 
 
@@ -118,10 +117,10 @@ function App()  {
             /////////////// */}
               <Route exact path="/admin" component={Admin} />
               <Route exact path="/admin/parklist" component={parkList} />
-
+              <Route exact path="/weather" component={Weather} />
             </Switch>
-              <Footer/>
-              </ScrollToTop>
+
+          </ScrollToTop>
          </Router>
       </Provider>
       </MuiThemeProvider>

@@ -5,8 +5,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
-
+  a,area,button,[role="button"],input:not([type=range]),
+  label,select,summary,textarea {
+    -ms-touch-action: manipulation;
+        touch-action: manipulation;
+  }
 html {
+  touch-action: manipulation;
   font-size: 62.5%;
   overflow-x: hidden;
   overflow-y: auto;
@@ -16,9 +21,14 @@ html {
 html::-webkit-scrollbar {
   display: none; }
 
+
+
 p, h2, h1 {
   color: #424242; }
-
+#root{
+  position: relative;
+  background: #fff;
+}
 h2{
   font-size: 1.6rem;}
 
@@ -79,6 +89,7 @@ input::placeholder {
 /*
 100% = 1em = 1rem = 16px = 12pt */
 body {
+
   /* font-family:  Helvetica,"Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif; */
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   font-weight: 400;
@@ -466,11 +477,12 @@ margin-bottom: 2.8rem;
     margin-bottom:1.6rem;
   }
   .sidebar-item{
+
     margin-right: 0.8rem;
     margin-bottom: 0.8rem;
     /* height: 3.2rem; */
     background: #efefef;
-    border: solid 1px #efefef;
+    border: solid 1px #d0cfcf;
     display: flex;
     align-items: center;
     padding: 0.4rem 0.8rem;
@@ -568,7 +580,7 @@ margin-bottom: 2.8rem;
       height: 3.5rem;
       display: flex;
       align-items: center;
-      flex:1;
+
 
      }
     .search-select_font_pc{
@@ -1122,6 +1134,7 @@ width: 125%;
 .skelton_border{
   border-radius: 8px;
 }
+
 .home-maincontent-img-sk{
   margin-top:3.3rem;
   position: absolute;
@@ -1130,6 +1143,11 @@ width: 125%;
 .skelton_inf-parkname{
   margin-top:2rem ;
 
+}
+
+.skeltonSP_inf-parkname{
+  margin-top: 0.6rem;
+  border-radius: 8px;
 }
 .parkSearchFil_inner{
   width: 100%;
@@ -1638,7 +1656,6 @@ z-index: -2;
 /* admin */
 .nav_admin {
   background-color: #3D485D; }
-
 .nav-title {
   margin-top: 0.9rem; }
 
@@ -1646,7 +1663,7 @@ z-index: -2;
   width: 80%; }
 .logo__size-sp {
   display: none;
-  width: 80%; }
+  width: 72%; }
 
 .nav_inner_ad {
   display: flex;
@@ -2605,12 +2622,10 @@ input[type="email"] {
   /* border-radius: 15px; */ }
 
 input[type="email"]:focus {
-  border-radius: 15px;
-  border: 1px solid #777; }
+  border-radius: 15px;}
 
 input[type="password"]:focus {
-  border-radius: 15px;
-  border: 1px solid #777; }
+  border-radius: 15px; }
 
 button[type="submit"]:focus {
   border-radius: 15px;
@@ -2627,7 +2642,7 @@ button[type="submit"]:focus {
 .MypageMain {
   margin: 0 auto;
     width: 100%;
-    min-height: 63vh;
+    min-height: calc(100vh - 444px);
     background: #ffffff;
     /* box-shadow: 0 2px 5px #ccc; */
     margin-top: 8.5rem;
@@ -3131,6 +3146,7 @@ label {
   display: none; }
 
 button.ReadMore {
+  height: 4.5rem;
   width: 100%;
   /* background: #52BF90; */
   color: #52BF90;
@@ -3227,6 +3243,10 @@ button.ReadMore {
   display: flex;
   justify-content: space-between; }
 
+  .logo__size-pc{
+   width: 80%;
+  }
+
 .container-paddding-sp,
 .main_visual_location,
 .LP-btn,
@@ -3237,7 +3257,8 @@ button.ReadMore {
 .FindParksResult-item,
 .btnGo-inner,
 .container_paddinng_park,
-.innner,.logo__size-sp  {
+.innner,.logo__size-sp,
+.parkSearchResultSP__h2  {
   display: none ;
 }
 .weather-inner{
@@ -3250,11 +3271,110 @@ button.ReadMore {
 
 @media screen and (max-width: 480px) {
 
+  .park-maincontents__parkName{
+    margin-top:1.2rem
+  }
+  .login-moda{
+    position: relative;
+  }
+  .MoveToHome{
+    position: absolute;
+    top:2rem;
+    right: 2rem;
+  }
+  .MoveToSignup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    background: #f2f2f2;
+    height: 5rem;
+  }
+
+  .parkInf-icon__size{
+    font-size: 1.8rem !important;
+  }
+
+  .ParkInf-iconBox-pc{
+    width: auto;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+  }
+  .FindParksResult-item-img {
+    position: relative;
+    height: calc((100vw - 24px) / 2);
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover; }s
+
+  .FindParksResult-item::after{
+    position: absolute;
+    content: " ";
+    background: linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%);
+    height: calc((100vw - 24px) / 2);
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index:0;
+  }
+  .park-maincontents__inner h2{
+    font-size: 1.8rem;
+  }
+  .ParkInf-icon-pc{
+    color: #6e6e6e;
+    padding-left: 0;
+    font-size: 1.2rem;
+  }
+  .parkLocation-items{
+    margin-top:0.2rem;
+  }.parkLocation-det{
+    margin-right: 1.2rem;
+  }
+  .sidebar-item__detail{
+    color: #6e6e6e;
+    font-size: 1.2rem;
+    padding: 0.2rem 1.2rem !important;
+    margin-right:1.2rem !important;
+    border-radius: 8px !important;
+    margin-bottom: 0rem !important;
+  }
+  .parkTag-items-pc{
+    margin: 0.4rem 0rem;
+  }
+  .parkInf-inner{
+    padding: 0.8rem 0rem;
+  }
+  .parkInf-inner p{
+    color: #6e6e6e;
+        width: 100%;
+  }
+  .Parkinf-iconSize{
+    color:#949494;
+    font-size: 1.7rem !important;
+  }
+
+  .nav-title{
+    position: relative;
+  }
+
+  .LogopositionOut{
+ position: absolute;
+ top:-4.5rem
+  }
+
+  input#searchfocus{
+    font-size: 1.6rem;
+  }
+  h2{
+    font-size: 1.8rem;
+  }
   p,a{
-    font-size:1.2rem;
+    font-size:1.4rem;
     letter-spacing: 0.04rem;}
 li{
-font-size: 1.2rem;
+font-size: 1.4rem;
 }
 
   .parkResult__pc{
@@ -3309,7 +3429,11 @@ font-size: 1.2rem;
   .searchpark-pc,
   .FindParksResult-item-pc,
   .parkSuggest-items,
-  .SeRe,.parkSearchFil_inner {
+  .SeRe,.parkSearchFil_inner,
+  .parkSearchResultSP__h2,
+  .footer-detail,
+  .sns-login-items,
+  small {
     display: none; }
   .container_paddinng {
     margin-top: 0rem;
@@ -3323,9 +3447,16 @@ font-size: 1.2rem;
     margin-top: 0.6rem; }
   .nav-inner {
     width: 100%;
-    height: 100%;
+    height: 5rem;
     background:none;
-    padding: 0.6rem 0.6rem 0.6rem; }
+    padding: 0.6rem 0.6rem 0.6rem;
+  }
+  .login-mail-input{
+    width: 100%;
+  }
+  input#userName {
+    padding-left: 2rem;
+}
   .nav-titile-logo .nav-logo__white a {
     height: 0rem; }
   .container {
@@ -3382,9 +3513,13 @@ font-size: 1.2rem;
   .container {
     min-width: 100VW;
     width: 100%; }
-  .Post_park {
+    .mail-login h2{
+      margin: 2rem 0rem 1rem;
+    }
+    .mail-signup{
+      margin: 2rem 0rem 1rem;
+    }
 
-  }
   .search_select {
     font-weight: 600;
     color: #777777;
@@ -3492,6 +3627,37 @@ justify-content: space-between;
   color:#fff;
   margin-right: 0.8rem;
 } */
+.home-maincontent-img__size {
+  margin: 0rem calc(50% - 50vw)0px;
+  height: 100vw;
+  border-radius: 0px;
+  object-fit: cover;
+  width: 100vw;
+}
+.searchpark-pk {
+  display: none;
+  align-items: center;
+  padding: 1.6em 0rem;
+  margin-bottom: 0rem;
+}
+.innner{
+  padding:0rem 0.8rem;
+  margin-top:5rem;
+}
+
+.sidebar-item{
+  font-size: 1.2rem !important;
+  margin-right: 0.4rem;
+    margin-bottom: 0.8rem;
+    /* height: 3.2rem; */
+    background: #fff;
+    border: solid 1px #efefef;
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 1.2rem;
+    border-radius: 28px;
+    justify-content: space-between;
+}
   .FindParksResult-items {
     width: 100%;
     margin: none;
@@ -3512,7 +3678,7 @@ justify-content: space-between;
 
 
   .FindParksResult-item {
-    width: 50%;
+    width: calc(50% - 4px);
     display: inline-block;
     background: #FEFEFE;
     /* border: 2px solid #FAFAFA; */
@@ -3530,11 +3696,24 @@ justify-content: space-between;
     -o-transition: all .2s ease;
     transition: all .2s ease; }
 
+    .FindParksResult-item:nth-child(2n){
+      padding-left: 0px;
+    }
+
+    button.ReadMore{
+    width: 60%;
+    /* background: #52BF90; */
+    color: #52BF90;
+    border: 0.1rem solid #52BF90;
+    line-height: 4.5rem;
+    border-radius: 8px;
+    margin: 0 auto;
+    }
 
   .FindParksResult-item {
     margin: 0 px 1px; }
   .parksResult-item-name {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1.5rem; }
   /* /////////////// */
   /* 公園詳細 */
@@ -3542,27 +3721,43 @@ justify-content: space-between;
   .PrkInf-inner {
     display: inline-block; }
   .ParkInf-img {
-    width: 100%; }
+    height: calc(100vw - 16px);
+    width: 100%;
+    object-fit: cover;
+  }
+
+.skeltonSP_border_parkInf_Img{
+  width: calc(100vw -16px);
+  height: calc(100vw -16px);;
+}
+.skeltonSP_border_parkInf_Name{
+  width: calc(100vw -16px);
+  height: 20px;
+}
+.skeltonSP_border_parkInf_desc{
+  width: calc(50vw -16px);
+  height: 20px;
+}
+
   .PrkInf-inner {
     padding: 0rem; }
   .container_paddinng_park {
+    min-height: calc(100vh - 480px);
     padding: 0.8rem;
     padding-top: 0rem;
-    margin-top: 6.5rem;
+    margin-top: 5rem;
     position: unset;
-      transform: translate(0%, 0%);
-
-
-
+    transform: translate(0%, 0%);
+    padding-top: 0.8rem;
   }
   .FindParksResult-items__width {
     width: 90vw; }
   .innner {
-    margin-top: 0rem; }
+    margin-top: 5rem; }
   .FindParksResult__margin-top {
     margin-top: 2rem; }
   .p {
-    font-size: 1.3rem; }
+    font-size: 1.4rem; }
   .ParkInf {
     box-shadow: none; }
   .ParkInf-left {
@@ -3574,11 +3769,11 @@ justify-content: space-between;
     margin-bottom: 0.8rem; }
   .ParkInf-icon {
     padding-left: 0.4rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #6e6e6e; }
   .ParkInf-Tag {
     line-height: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     padding: 0rem 0.5rem;
     background: none;
     margin: 0; }
@@ -3587,17 +3782,17 @@ justify-content: space-between;
   .ParkInf-parkIcon {
     margin-bottom: 0; }
   .ParkInf-iconBox {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     padding-right: 1.3rem; }
   .parkLocation {
-    font-size: 1.2rem; }
+    font-size: 1.4rem; }
   .user-comment {
-    margin-top: 0.4em; }
+    margin-top: 1rem; }
   .userProfile_img {
     width: 4.5rem;
     height: 4.5rem; }
   .userComment {
-    font-size: 1.2rem; }
+    font-size: 1.4rem; }
   .userNaem {
     font-size: 1.4rem; }
   .ParkInf-activity-img {
@@ -3624,16 +3819,24 @@ justify-content: space-between;
     background: #52BF90;
     border-radius: 8px;
     padding: 0.38rem 1.3rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #fff; }
   .Nav-Login {
     margin-left: 0.8rem;
     background: #fff;
     border-radius: 8px;
     padding: 0.35rem 1.3rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #52BF90;
     }
+
+    .signup-data {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+  }
   /* /////////////// */
   /* 公園詳細 */
   /* /////////////// */
@@ -3658,10 +3861,10 @@ justify-content: space-between;
     margin-top: 1.2rem; }
   .text-field-label {
     margin-bottom: 0.3rem;
-    font-size: 1.2rem; }
+    font-size: 1.4rem; }
   .UserPolicy {
     margin-top: 3rem;
-    font-size: 1.2rem; }
+    font-size: 1.1rem; }
   .btn {
     height: 4.5rem;
     width: 30rem;
@@ -3825,7 +4028,7 @@ justify-content: space-between;
     height: 5rem;
 }
 .HomeParkSearch-what-sp-font{
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-left:1rem;
   color: #b4b4b4;
 }
@@ -3867,7 +4070,15 @@ table tr{
 padding:0rem;
 
 }
+.footer{
+  margin-top:3rem;
+}
 
+.parkdetailloading{
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+}
 
 
 
@@ -3927,7 +4138,7 @@ padding:0rem;
     position: relative; }
 
   .pakr-city-img {
-    width: 200px;
+    width: 133px;
     height: 133px;
     object-fit: cover center;
     border-radius: 8px; }
@@ -3951,7 +4162,7 @@ padding:0rem;
     color: #424242;
     letter-spacing: 0.08rem; }
   .park-city-item__p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #52BF90; }
   .park-city-item__title {
     align-items: center;
@@ -4033,7 +4244,7 @@ padding:0rem;
   .park-city-name {
     color: #525252;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 2rem;
     letter-spacing: 0.04rem; }
   .FindParksResult-item {
@@ -4128,6 +4339,22 @@ padding:0rem;
     padding-bottom: 3rem; }
   .weather-recom-park__h2 {
     color: #fff; }
+
+
+
+input[type="text"],
+input[type="textarea"],
+input[type="number"],
+input[type="email"],
+input[type="password"]{
+font-size: 1.6rem !important}
+
+input[type="search"] {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: none; }
   /* //////////////////
 ホーム画面
 ///////////////
@@ -4168,12 +4395,18 @@ padding:0rem;
     right: -100%;
     /* メニューを画面に入れる */
 
+    .skeltonSP_border{
+      border-radius: 8px;
+      margin-bottom:1.6rem  !important;
+    }
 
 .parkSearchSP-rsulut-inner{
-  margin-top:6.5rem;
+  margin-top:5rem;
 }
 .parkSearchResultSP__h2{
-  padding:1.2rem 0rem 0rem;
+  display: inline-block;
+  line-height: 1.6rem;
+  padding:1.6rem 0rem 0rem;
 }
 
   .drawerhome-city {
@@ -4184,7 +4417,7 @@ padding:0rem;
     padding: 1.2rem 0rem;
     border-bottom: solid 0.08rem #dedede; }
     label{
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
     label.drawer-city{
       color:#424242;
@@ -4243,7 +4476,7 @@ padding:0rem;
     position: absolute;
     right: 0;
     margin-right: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     display: flex;
     align-items: center; }
   .sceneTag-drawer-header--item {
@@ -4325,12 +4558,15 @@ padding:0rem;
 
 
   .HomeSearchSPLocation-modal-items {
+    white-space: nowrap;
+    overflow-x: scroll;
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: end;
     margin-top: 1rem;
-    position: relative }
+    position: relative;
+  }
 
 .drawer-city,.drawer-city-height{
   display: flex;
@@ -4468,7 +4704,7 @@ padding:0rem;
     white-space: nowrap;
     overflow-x: scroll;
     display: flex;
-    margin: 1.2rem 0rem;
+    margin: 1.6rem 0rem;
     width: 100%;
     border-radius: 8px;
    }
@@ -4479,14 +4715,16 @@ padding:0rem;
    .FindParksResult-item-detil{
      width: 100%;
   }
+  .searchResult-sorry p{
+    margin-bottom: 15rem;
+  }
 
 
   .searchBar-selectItem-what {
-    padding: 0rem 0.8rem;
+    padding: 0rem 1.2rem;
     width: auto;
     margin: 0rem 0rem　!important;
-    height: 3.5rem;
-    border: 0.1rem #52BF90 solid;
+    height: 3.2rem;
     border-radius: 29px;
     display: flex;
     align-items: center;}
@@ -4498,28 +4736,57 @@ padding:0rem;
     width: 100%;
     display: flex; }
 
-
+    .searchBar-selectItem-what{
+      margin:0rem;
+    }
   .searchBar-selectItem {
-      padding: 0rem 0.8rem;
+      padding: 0rem 1.2rem;
     width: auto;
     margin: 0rem 0.8rem;
-    height: 3.5rem;
-    border: 0.1rem #52BF90 solid;
+    height: 3.2rem;
     border-radius: 29px;
     display: flex;
     align-items: center;}
+    .searchBar-selectItems::-webkit-scrollbar,
+    .park-city-items::-webkit-scrollbar {
+      display:none;
+  }
+
+  .FindParksResult-item:nth-of-type(2n) {
+    padding-left: 0px;
+    margin-left: 0.8rem;
+}
+
+  .Park-location{
+    font-size: 1.3rem;
+    align-items: center;
+    position: absolute;
+    top: 14.8rem;
+    left: 0.4rem;
+    /* background: #fff; */
+    border-radius: 6px 6px 6px 6px;
+    padding: 0 1.5srem 0 0.5rem;
+    background:none !important;
+    color: #fff;
+    z-index: 1;
+  }
 
   .searchBar-selectItem:nth-of-type(2) {
     margin-left: 0.8rem; }
   /* 検索結果表示画面 */
   .searchResult-sorry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     width: 100%;
-    height: 100vw; }
+    height: 100vw;
+
+  }
   .searchResult-sorry h2 {
     margin: 0 auto; }
-  .signup-data {
-    margin-top: 10rem; }
+  /* .signup-data {
+    margin-top: 10rem; } */
   .Reg-InputForm {
     width: 100%;
     height: 4.5rem;
@@ -4527,10 +4794,26 @@ padding:0rem;
     border: 1px solid #93918f !important;
     border-radius: 8px !important; }
   /* ログイン画面の作成 */
-  .gl-logo__, .login-title-siz, .login-title-size {
-    display: none; }
+
+  .login-modal-inner {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+.login-modal {
+  border-radius: 8px;
+  height: 100vh;
+  background: #fff;
+  animation-name: login-form;
+  animation-delay: 2s;
+}
+
   .login-title-head {
-    margin-top: 14rem;
+    /* margin-top: 14rem; */
     display: flex;
     justify-content: center;
     align-items: center; }

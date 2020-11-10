@@ -119,7 +119,7 @@ export class Navbar extends Component {
           openModalLogin() {
           this.setState({modalIsOpenSignup: false});
           this.setState({modalIsOpenLogin: true});
-          document.body.setAttribute('style', 'position: fixed;')
+        //   document.body.setAttribute('style', 'position: fixed;')
         }
 
     closeModalLogin() {
@@ -132,7 +132,7 @@ export class Navbar extends Component {
          openModalSignup() {
         this.setState({modalIsOpenLogin:  false});
           this.setState({modalIsOpenSignup: true});
-          document.body.setAttribute('style', 'position: fixed;')
+        //   document.body.setAttribute('style', 'position: fixed;')
         }
 
     closeModalSignup() {
@@ -253,13 +253,12 @@ export class Navbar extends Component {
 
                 {authenticated ?
                     <div className="nav nav_color-homeSP"style={
-                        this.state.currentPosition >170 ? { background: '#fff',transition:'0.1s'} :  { background: '' ,transition:'0.1s'}
+                        this.state.currentPosition >170 ? { background: '#fff'} :  { background: ''}
                     }>
                       <div className="nav-inner">
                           <div className="nav-title">
                               <Link to="/" className="nav-titile-logo">
-
-                        {this.state.currentPosition < 170? <LogoWhite className="logo__size"/>: <Logo className="logo__size"/>}
+                              {this.state.currentPosition < 170? <LogoWhite className="logo__size"/>: <Logo className="logo__size"/>}
                               </Link>
                           </div>
 
@@ -334,11 +333,12 @@ export class Navbar extends Component {
                     </div>
                 :
                         <div className="nav nav_color-homeSP"style={
-                            this.state.currentPosition >170 ? { background: '#fff',transition:'0.1s'} :  { background: '' ,transition:'0.1s'}
+                            this.state.currentPosition >170 ? { background: '#fff'} :  { background: ''}
                         }>
                 <div className="nav-inner">
                 <div className="nav-title">
-                    <Link to="/" className="nav-titile-logo ">
+                                <Link to="/" className="nav-titile-logo ">
+
                     {/* <LogoWhite className="logo__size-sp"/> */}
                     {this.state.currentPosition < 170? <LogoWhite className="logo__size"/>: <Logo className="logo__size"/>}
                     </Link>

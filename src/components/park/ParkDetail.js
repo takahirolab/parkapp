@@ -11,7 +11,7 @@ import  Pic1 from  '../../images/pic1.png'
 
 import {getPark} from '../../redux/actions/dataActions';
 import ParkInf from './parkInf';
-import Navbar_detail  from '../../layout/Navbar_detail';
+import Navbar  from '../../layout/Navbar';
 
 import ParkLikeButton from '../park/LikeButton'
 import Sidebar from '../../pages/Sidebar'
@@ -33,12 +33,13 @@ import Googlemap from '../../images/Googlemap.png'
 import { Link } from 'react-router-dom';
 import CommentForm from '../park/CommentForm'
 import ScreamSkeleton_inf from '../../util/ScreamSkeleton_inf'
+import ScreamSkeletonSP from '../../util/ScreamSkeletonSP'
 
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {logoutUser,uploadImage,loginUser} from '../../redux/actions/userActions';
 import LikeButton from '../../components/park/LikeButton'
 import Comments from './Comments';
-
+import Footer from '../../layout/Footer'
 const LazyComponent = lazy(() => import('../../util/ScreamSkeleton'));
 
 
@@ -56,7 +57,7 @@ export class ParkDetail extends Component {
           bkImg: "",
           btnGo:""
       };
-      this.testcase1 = this.testcase1.bind(this)
+      // this.testcase1 = this.testcase1.bind(this)
 
     }
 
@@ -66,7 +67,7 @@ export class ParkDetail extends Component {
     const parkId = this.props.match.params.parkId;
       this.props.getPark(parkId);
 
-    setTimeout(() => {
+    // setTimeout(() => {
       axios
         .get(`/park/${parkId}`)
         .then((res)=> {
@@ -75,35 +76,24 @@ export class ParkDetail extends Component {
               )
           })
       })
-    }, 1000);
+    // }, 1000);
 
     }
 
-  testcase1() {
-      this.props.history.push('/park/vjSp1sr4iKcWChcK1ccG')
-    }
+  // testcase1() {
+  //   setTimeout(() => {
+  //     <ScreamSkeletonSP />
+  //   }, 1000);
+
+  //   }
 
 
 
 
   render() {
     const { errors } = this.state;
-      const park_detail = this.state.park_detail;
-    // const {
-    //   park: {
-    //     parkId,
-    //     Onecomment,
-    //     createdDate,
-    //     likeCount,
-    //     commentCount,
-    //     userImage,
-    //     userName,
-    //     comments
-    //   }
-    // } = this.props;
+    const park_detail = this.state.park_detail;
 
-
-    console.log(this.state.park_detail)
 
       const parkLocationLink = {
         pathname: '/search',search: '?tokyo',state: { parklocation: '東京都' }
@@ -127,24 +117,24 @@ export class ParkDetail extends Component {
 
     <div className="parkLocation-items">
         <div className="parkLocation-det">
-                <LocationOnRoundedIcon style={{ fontSize: 18 }} />
+                <LocationOnRoundedIcon style={{ fontSize: 18 }} className="Parkinf-iconSize"/>
                 <Link to={{ pathname: '/search', search: `?${park.parkLocation}`, state: { parklocation: park.parkLocation } }} className="ParkInf-icon-pc">{park.parkLocation}</Link>
 
         </div>
         <div className="parkLocation-det">
-              <ScheduleRoundedIcon style={{ fontSize: 18 }} />
+              <ScheduleRoundedIcon style={{ fontSize: 18 }} className="Parkinf-iconSize"/>
               <p className="ParkInf-icon-pc" >10:00~19:00</p>
         </div>
         <div className="parkLocation-det">
-              <PaymentRoundedIcon style={{ fontSize: 18 }} />
+              <PaymentRoundedIcon style={{ fontSize: 18 }} className="Parkinf-iconSize"/>
               <p className="ParkInf-icon-pc" > {park.parkPrice}円</p>
               </ div>
             </div>
     <div className="parkTag-items-pc">
-              {!park.parkTag1 ? '' : <Link to={{ pathname: '/search', search: `?${park.parkTag1}`, state: { scene: park.parkTag1 } }} className="parkTag-item-pc">{park.parkTag1}</Link>}
-              {!park.parkTag2 ? '' : <Link to={{ pathname: '/search', search: `?${park.parkTag2}`, state: { scene: park.parkTag2 } }}className="parkTag-item-pc">{park.parkTag2}</Link>}
-              {!park.parkTag3 ? '' :<Link to={{ pathname: '/search', search: `?${park.parkTag3}`, state: { scene: park.parkTag3 } }} className="parkTag-item-pc">{park.parkTag3}</Link>}
-              {!park.parkTag4 ? '' :<Link to={{ pathname: '/search', search: `?${park.parkTag4}`, state: { scene: park.parkTag4 } }} className="parkTag-item-pc">{park.parkTag4}</Link>}
+              {!park.parkTag1 ? '' : <Link to={{ pathname: '/search', search: `?${park.parkTag1}`, state: { scene: park.parkTag1 } }} className="sidebar-item sidebar-item__detail">{park.parkTag1}</Link>}
+              {!park.parkTag2 ? '' : <Link to={{ pathname: '/search', search: `?${park.parkTag2}`, state: { scene: park.parkTag2 } }}className="sidebar-item sidebar-item__detail">{park.parkTag2}</Link>}
+              {!park.parkTag3 ? '' :<Link to={{ pathname: '/search', search: `?${park.parkTag3}`, state: { scene: park.parkTag3 } }} className="sidebar-item sidebar-item__detail">{park.parkTag3}</Link>}
+              {!park.parkTag4 ? '' :<Link to={{ pathname: '/search', search: `?${park.parkTag4}`, state: { scene: park.parkTag4 } }} className="sidebar-item sidebar-item__detail">{park.parkTag4}</Link>}
       </div>{console.log(park.parkTag)}
 
 
@@ -157,16 +147,16 @@ export class ParkDetail extends Component {
               <h2 className="parkInf-h2">施設・設備一覧</h2>
               <div className="ParkInf-other-pc">
                               <div className="ParkInf-iconBox-pc" ><WifiIcon style={{ fontSize: 19 }} className="parkInf-icon__size"/>Wifi</div>
-                              <div className="ParkInf-iconBox-pc" ><DirectionsRunIcon style={{ fontSize: 20 }}/>ランニングコース</div>
-                              <div className="ParkInf-iconBox-pc" ><LocalParkingIcon style={{ fontSize: 19 }} />パーキンング</div>
+                              <div className="ParkInf-iconBox-pc" ><DirectionsRunIcon style={{ fontSize: 20 }}className="parkInf-icon__size"/>ランニングコース</div>
+                              <div className="ParkInf-iconBox-pc" ><LocalParkingIcon style={{ fontSize: 19 }} className="parkInf-icon__size"/>パーキンング</div>
                               <div className="ParkInf-iconBox-pc" ><DirectionsBikeIcon style={{ fontSize: 20 }} className="parkInf-icon__size"/>サイクリング</div>
-                              <div className="ParkInf-iconBox-pc" ><CallIcon style={{ fontSize: 20 ,marginRight:3}}/>公衆電話</div>
-                              <div className="ParkInf-iconBox-pc" > <StorefrontIcon style={{ fontSize: 20,marginRight:2}} />お店</div>
-                              <div className="ParkInf-iconBox-pc" >  <RestaurantIcon style={{ fontSize:19 ,marginRight:2}} />レストラン</div>
-                              <div className="ParkInf-iconBox-pc" >  < WcIcon style={{ fontSize: 19 ,marginRight:1.2}} />トイレ</div>
-                              <div className="ParkInf-iconBox-pc" > <AccessibleIcon style={{ fontSize: 20 ,marginRight:1.2}}/>車椅子</div>
-                              <div className="ParkInf-iconBox-pc" > <SportsBaseballRoundedIcon style={{ fontSize: 18.5 ,marginRight:1.2}} />スポーツ</div>
-                              <div className="ParkInf-iconBox-pc" >  <WorkRoundedIcon style={{ fontSize: 19 ,marginRight:3}} />ロッカー</div>
+                              <div className="ParkInf-iconBox-pc" ><CallIcon style={{ fontSize: 20 ,marginRight:3}}className="parkInf-icon__size"/>公衆電話</div>
+                              <div className="ParkInf-iconBox-pc" > <StorefrontIcon style={{ fontSize: 20,marginRight:2}}className="parkInf-icon__size" />お店</div>
+                              <div className="ParkInf-iconBox-pc" >  <RestaurantIcon style={{ fontSize:19 ,marginRight:2}}className="parkInf-icon__size" />レストラン</div>
+                              <div className="ParkInf-iconBox-pc" >  < WcIcon style={{ fontSize: 19 ,marginRight:1.2}} className="parkInf-icon__size"/>トイレ</div>
+                              <div className="ParkInf-iconBox-pc" > <AccessibleIcon style={{ fontSize: 20 ,marginRight:1.2}}className="parkInf-icon__size"/>車椅子</div>
+                              <div className="ParkInf-iconBox-pc" > <SportsBaseballRoundedIcon style={{ fontSize: 18.5 ,marginRight:1.2}}className="parkInf-icon__size" />スポーツ</div>
+                              <div className="ParkInf-iconBox-pc" >  <WorkRoundedIcon style={{ fontSize: 19 ,marginRight:3}} className="parkInf-icon__size"/>ロッカー</div>
                 </div>
       </div>
       <div className="parkInf-inner">
@@ -204,15 +194,18 @@ export class ParkDetail extends Component {
 
         let park_Inf =
         park_detail.map((park) =>
-          <ParkInf key={park.parkId} park={park} className="parkInf_pos"/>)
+          <ParkInf key={park.parkId} park={park} className="parkInf_pos" />)
 
+
+          const loadingUI = this.props.UI;
+          const loadingData = this.props.data.loading;
         return (
           <>
-            <Navbar_detail />
+            <Navbar/>
             <div className="home-maincontents parkDetail-contents">
             <Sidebar/>
               <div className="home-maincontent">
-              <ScreamSkeleton_inf/>
+                {this.state.park_detail ? '' : <ScreamSkeleton_inf />}
               {parkItem}
               </div>
             </div>
@@ -221,14 +214,28 @@ export class ParkDetail extends Component {
 
             {/* スマホ用 */}
             <div className="innner">
-              <ScreamSkeleton/>
-              {park_Inf}
+              {loadingData ?
+                <div className="container_paddinng_park container">
+                <ScreamSkeletonSP /> </div>:  <>{parkItem} </>}
+
+              {/* {loading? '':<div className="parkdetailloading">fas</div>} */}
+
+
+              {/* {park_Inf} */}
               {/* スマホ用ボタン */}
+
               <div className="btnGo-inner">
                 <ParkLikeButton parkId={this.state.park_detail.parkId} >
                   {/* <div className="btn btnGo" style={{ backGround: '' }} on>この公園に行ってみたい</div> */}
                   </ParkLikeButton>
               </div>
+            </div>
+            {
+              //  this.testcase1()
+            }
+
+            <div className="footer-detail">
+              <Footer />
             </div>
           </>
         )

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
+import CancelIcon from '@material-ui/icons/Cancel';
 // MUI Stuff
 
 
@@ -117,7 +117,13 @@ const {errors}=this.state;
 
   return (
 
-                  <div className ="login-modal">
+    <div className="login-modal">
+      <Link to="/signup" className="MoveToSignup">
+        <p>アカウントを持っていない方はこちら</p>
+      </Link>
+      <Link to="/" className="MoveToHome">
+        <CancelIcon style={{fontSize:30,color:'#dedede'}}/>
+      </Link>
                       <div className="login-modal-inner">
                           <div className="login-title-head">
                               <img src={Logoimg} className="gl-logo__"/>

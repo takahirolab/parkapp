@@ -140,6 +140,7 @@ export class HomeVISp extends Component {
     this.HomeAreaKN = this.HomeAreaKN.bind(this);
     this.HomeAreaTS = this.HomeAreaTS.bind(this);
     this.HomeAreaKS = this.HomeAreaKS.bind(this);
+    this.fixedOpen = this.fixedOpen.bind(this);
 
   }
 
@@ -407,6 +408,10 @@ handleSubmit = (event) =>{
   console.log(searchData)
 };
 
+  fixedOpen() {
+    document.body.removeAttribute('style', 'position: fixed;')
+}
+
 
 
   render() {
@@ -506,7 +511,7 @@ parkSuggestArray.map((parkSuggestArray_item) =>
 
                    if (SearchstartHg === true && this.state.value.length > 0) {
 
-                     return<Link to={JapanAreaHgparam} className="searchresult-posi">
+                     return<Link to={JapanAreaHgparam} className="searchresult-posi" onClick={this.fixedOpen}>
                          <div className="searchResult-location">
                          <LocationOnRoundedIcon style={{ fontSize: 22, color:'#52BF90'}} />
                          </div>
@@ -514,7 +519,7 @@ parkSuggestArray.map((parkSuggestArray_item) =>
                      </Link>
                    }
                    if (SearchstartKg === true && this.state.value.length > 0) {
-                     return <Link to={JapanAreKgparam} className="searchresult-posi">
+                     return <Link to={JapanAreKgparam} className="searchresult-posi" onClick={this.fixedOpen}>
                         <div className="searchResult-location">
                         <LocationOnRoundedIcon style={{ fontSize: 22, color:'#52BF90'}} />
                        </div>
@@ -522,14 +527,14 @@ parkSuggestArray.map((parkSuggestArray_item) =>
 
                    }
                    if (SearchstartEn === true && this.state.value.length > 0) {
-                     return <Link to={JapanAreaEnparam} className="searchresult-posi">
+                     return <Link to={JapanAreaEnparam} className="searchresult-posi" onClick={this.fixedOpen}>
                         <div className="searchResult-location">
                          <LocationOnRoundedIcon style={{ fontSize: 22, color: '#52BF90' }} />
                          </div><h2>{JapanAreaHGItem.kangi}</h2></Link>
 
                    }
                    if (SearchstartKn === true && this.state.value.length > 0) {
-                     return <Link to={JapanAreaKnparam} className="searchresult-posi">
+                     return <Link to={JapanAreaKnparam} className="searchresult-posi" onClick={this.fixedOpen}>
                         <div className="searchResult-location">
                        <LocationOnRoundedIcon style={{ fontSize: 22, color: '#52BF90' }} />
                        </div>
@@ -547,7 +552,7 @@ parkSuggestArray.map((parkSuggestArray_item) =>
                  // const parkSearchTag1 = park.parkTag1.startsWith(this.state.value,0)
 
                  if (parkSearch === true && this.state.value.length > 0) {
-                   return <Link to={`/park/${park.parkId}`}　className="searchresult-posi">
+                   return <Link to={`/park/${park.parkId}`}　className="searchresult-posi" onClick={this.fixedOpen}>
                        <div className="searchResult-location">
                        <img src={LogoTree} className="parkSearchinpt-logo"/>
                      </div><h2>{park.parkName}</h2>
@@ -626,7 +631,7 @@ parkSuggestArray.map((parkSuggestArray_item) =>
       <ul> <li className="drawer-city-height" onClick={this.focusTextInput.bind(this,'北海道')}>北海道</li></ul>
 
       <ul className="drawerhome-city">
-        <div for="drawer-tohoku" className="drawer-city-tohoku__color drawer-city-height" onClick={this.HomeAreaTH}><p style={{color:this.state.HomeAreaTH === 'inline' ?'#52BF90':'' }}>東北</p><AddIcon style={{color:'#424242',fontSize:18}}/></div>
+        <div for="drawer-tohoku" className="drawer-city-tohoku__color drawer-city-height" onClick={this.HomeAreaTH}><p style={{color:this.state.HomeAreaTH === 'inline' ?'#52BF90':'' }}>東北</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className="drawer-city-li drawer-city-tohoku" style={{display:this.state.HomeAreaTH}} >
        <li onClick={this.focusTextInput.bind(this,'青森')}>青森県</li>
        <li onClick={this.focusTextInput.bind(this,'岩手')}>岩手県</li>
@@ -638,7 +643,7 @@ parkSuggestArray.map((parkSuggestArray_item) =>
       </ul>
 
       <ul className="drawerhome-city">
-        <div for="drawer-kanto" class="drawer-city-kanto__color drawer-city-height" onClick={this.HomeAreaKT}><p style={{color:this.state.HomeAreaKT === 'inline' ?'#52BF90':'' }}>関東</p><AddIcon style={{color:'#424242',fontSize:18}}/></div>
+        <div for="drawer-kanto" class="drawer-city-kanto__color drawer-city-height" onClick={this.HomeAreaKT}><p style={{color:this.state.HomeAreaKT === 'inline' ?'#52BF90':'' }}>関東</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className="drawer-city-li drawer-city-kanto" style={{display:this.state.HomeAreaKT}}>
        <li onClick={this.focusTextInput.bind(this,'東京')}>東京都</li>
        <li onClick={this.focusTextInput.bind(this,'埼玉')}>埼玉県</li>
@@ -652,7 +657,7 @@ parkSuggestArray.map((parkSuggestArray_item) =>
 
       <ul className="drawerhome-city">
       <input type="checkbox" id="drawer-tyuubu" class="drawer-hidden" />
-        <div for="drawer-tyuubu" class="drawer-city-tyuubu__color drawer-city-height"onClick={this.HomeAreaCH}><p style={{color:this.state.HomeAreaCH === 'inline' ?'#52BF90':'' }}>中部・北陸</p><AddIcon style={{color:'#424242',fontSize:18}}/></div>
+        <div for="drawer-tyuubu" class="drawer-city-tyuubu__color drawer-city-height"onClick={this.HomeAreaCH}><p style={{color:this.state.HomeAreaCH === 'inline' ?'#52BF90':'' }}>中部・北陸</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className="drawer-city-li  drawer-city-tyuubu" style={{display:this.state.HomeAreaCH}}>
        <li onClick={this.focusTextInput.bind(this,'長野')}>長野県</li>
        <li onClick={this.focusTextInput.bind(this,'新潟')}>新潟県</li>
@@ -667,7 +672,7 @@ parkSuggestArray.map((parkSuggestArray_item) =>
 
       <ul className="drawerhome-city">
       <input type="checkbox" id="drawer-kansai" class="drawer-hidden" />
-        <div for="drawer-kansai" class="drawer-city-kansai__color drawer-city-height" onClick={this.HomeAreaKN}><p style={{color:this.state.HomeAreaKN === 'inline' ?'#52BF90':'' }}>関西</p><AddIcon style={{color:'#424242',fontSize:18}}/></div>
+        <div for="drawer-kansai" class="drawer-city-kansai__color drawer-city-height" onClick={this.HomeAreaKN}><p style={{color:this.state.HomeAreaKN === 'inline' ?'#52BF90':'' }}>関西</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className=" drawer-city-li drawer-city-kansai" style={{display:this.state.HomeAreaKN}}>
        <li onClick={this.focusTextInput.bind(this,'滋賀')}>滋賀県</li>
        <li onClick={this.focusTextInput.bind(this,'大阪')}>大阪府</li>
@@ -681,7 +686,7 @@ parkSuggestArray.map((parkSuggestArray_item) =>
 
       <ul className="drawerhome-city">
       <input type="checkbox" id="drawer-tyuShikoku" class="drawer-hidden" />
-        <div for="drawer-tyuShikoku" class="drawer-scity-tyuShikoku__color drawer-city-height"onClick={this.HomeAreaTS}><p style={{color:this.state.HomeAreaTS === 'inline' ?'#52BF90':'' }}>中国・四国</p><AddIcon style={{color:'#424242',fontSize:18}}/></div>
+        <div for="drawer-tyuShikoku" class="drawer-scity-tyuShikoku__color drawer-city-height"onClick={this.HomeAreaTS}><p style={{color:this.state.HomeAreaTS === 'inline' ?'#52BF90':'' }}>中国・四国</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className="drawer-city-li drawer-city-tyuShikoku" style={{display:this.state.HomeAreaTS}}>
 
        <li onClick={this.focusTextInput.bind(this,'岡山')}>岡山県</li>
@@ -696,7 +701,7 @@ parkSuggestArray.map((parkSuggestArray_item) =>
 
       <ul className="drawerhome-city">
       <input type="checkbox" id="drawer-KyuOki" class="drawer-hidden" />
-        <div for="drawer-KyuOki" class="drawer-city-KyuOki__color drawer-city-height" onClick={this.HomeAreaKS}><p style={{color:this.state.HomeAreaKS === 'inline' ?'#52BF90':'' }}>九州・沖縄</p><AddIcon style={{color:'#424242',fontSize:18}}/></div>
+        <div for="drawer-KyuOki" class="drawer-city-KyuOki__color drawer-city-height" onClick={this.HomeAreaKS}><p style={{color:this.state.HomeAreaKS === 'inline' ?'#52BF90':'' }}>九州・沖縄</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className="drawer-city-li drawer-city-KyuOki" style={{display:this.state.HomeAreaKS}}>
        <li onClick={this.focusTextInput.bind(this,'福岡')}>福岡県</li>
        <li onClick={this.focusTextInput.bind(this,'佐賀')}>佐賀県</li>

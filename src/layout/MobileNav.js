@@ -20,6 +20,7 @@ export class MobileNav extends Component {
             {authenticated ? (
                 <TemporayDrawer />
             ) : (
+
                     <div className="Nav-LoginReg">
                         <Link to="/signup" className="Nav-Registar">
                             新規登録

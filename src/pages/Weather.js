@@ -55,7 +55,7 @@ export class Weather extends Component {
         this.handleGetLatAndLng_day();
         this.handleGetLatAndLng();
         this.props.getParks();
-        // document.getElementsByClassName(footer).setAttribute('style', 'display: none;')
+
     }
 
 
@@ -140,7 +140,7 @@ export class Weather extends Component {
         return (
             <>
                  <NavbarHome />
-                <div className="" style={{background:this.state.background,paddingTop:20}}>
+                <div className="" style={{background:this.state.background,paddingTop:20,height:'100vh'}}>
                     <div className="weatherNow">
                         <div className="weather_time">{weatheritem_Now}</div>
                     </div>
@@ -150,7 +150,7 @@ export class Weather extends Component {
                     <div className="weatherDayliy">
                        {weatheritem_day}
                     </div>
-                    <div className="weather-recom-park">
+                    {/* <div className="weather-recom-park">
 
 
                         <div className="park-city-item__title">
@@ -162,10 +162,10 @@ export class Weather extends Component {
                         <ul className="park-city-items--">
 
                         {parkSuggest_items}
-                                        {/* <Link to="/park/family" className="Search-category-item" value="家族">家族</Link> */}
+
                         </ul>
                     </div>
-                    </div>
+                    </div> */}
                     </div>
 
             </>

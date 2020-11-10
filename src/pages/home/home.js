@@ -16,8 +16,7 @@ import HomePopularSp from './HomePopularSp'
 import HomePrefectureSP from './HomePrefectureSP'
 import HomeKindSp from './HomeKindSp'
 import NavbarHome from '../../layout/NavbarHome'
-
-
+import Footer from '../../layout/Footer'
 
 const home = () => {
   return (
@@ -48,12 +47,13 @@ const home = () => {
         {/* サービス紹介 */}
         {/* <HomeLp /> */}
         {/* SNSフォロー */}
-        {/* <HomeSns /> */}
+          {/* <HomeSns /> */}
+
     </div>
         {/* 公園をポスト */}
         <PostPark />
-    </div>
-
+      </div>
+      <Footer />
     </>
 
   )

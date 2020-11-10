@@ -20,6 +20,7 @@ import {logoutUser,uploadImage,loginUser} from '../../redux/actions/userActions'
 import { signupUser } from '../../redux/actions/userActions';
 import MainRight from './MypageRight'
 import MainLeft from './MypageLeft'
+import Footer from '../../layout/Footer'
 
 import Contact from '../Contact';
 import { DriveEtaTwoTone, PortraitSharp } from '@material-ui/icons';
@@ -37,6 +38,7 @@ function MypageMain (props){
                          </div>
                     </div>
                 </div>
+                <Footer/>
             </>
 
         )

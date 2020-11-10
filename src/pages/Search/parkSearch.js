@@ -9,7 +9,6 @@ import { Link,NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getParks} from '../../redux/actions/dataActions';
 
-
 import  Navbar  from '../../layout/Navbar'
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import PeopleRoundedIcon from '@material-ui/icons/PeopleRounded';
@@ -18,6 +17,7 @@ import LikeButton from '../../components/park/LikeButton'
 
 
 import ScreamSkeleton from '../../util/ScreamSkeleton';
+import ScreamSkeletonSP from '../../util/ScreamSkeletonSP_search';
 import { Category, NaturePeopleOutlined, TextureSharp, ThreeSixty, TransferWithinAStationSharp } from '@material-ui/icons';
 import LazyLoad from 'react-lazyload'
 import SearchIcon from '@material-ui/icons/Search';
@@ -29,6 +29,13 @@ import Footer from '../../layout/Footer';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import MapIcon from '@material-ui/icons/Map';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import AddIcon from '@material-ui/icons/Add';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import　LogoTree  from '../../images/LogoTree.svg';
+
+const SearchTags = [
+  { kanji: '朝', Hiragana: 'あさ', en: 'osa', kata: 'アサ' }
+]
 
 const JapanArea = [
   {kangi:'北海道',Hiragana:'ほっかいどう',en:'hokkaido',kata:'ホッカイドウ'},
@@ -104,6 +111,24 @@ export class ParkSearch extends Component {
       HomeparkSelectWhatOther: '',
       HomeparkSearchSelectWhat: '',
 
+      value:'',
+      whatValue: '',
+      HomeSearchWhatSP: 'none',
+      HomeSearchLocationSP:'none',
+      HomeSearchOtherSP:'none',
+      Searchdisplay: 'inline',
+      SearchResult: 'none',
+      SearchDrawer: 'false',
+      HomeAreaKT:'none',
+      HomeAreaTH:'none',
+      HomeAreaCH:'none',
+      HomeAreaKN:'none',
+      HomeAreaTS:'none',
+      HomeAreaKS: 'none',
+      HomeSelectArea:'',
+      HomeSelectWhat:'',
+      HomeSelectOther:'',
+
     };
 
     this.modalRef = React.createRef()
@@ -130,6 +155,20 @@ export class ParkSearch extends Component {
     this.loadList = this.loadList.bind(this)
     this.test1 = this.test1.bind(this)
     this.valueDelete = this.valueDelete.bind(this)
+
+    this.HomeSearchOther = this.HomeSearchOther.bind(this);
+    this.HomeSearchWhat = this.HomeSearchWhat.bind(this);
+    this.HomeSearchLocation = this.HomeSearchLocation.bind(this);
+    this.filterListWhat = this.filterListWhat.bind(this);
+    this.focusTextInput = this.focusTextInput.bind(this);
+    this.filterList = this.filterList.bind(this);
+    this.HomeAreaKT = this.HomeAreaKT.bind(this);
+    this.HomeAreaTH = this.HomeAreaTH.bind(this);
+    this.HomeAreaCH = this.HomeAreaCH.bind(this);
+    this.HomeAreaKN = this.HomeAreaKN.bind(this);
+    this.HomeAreaTS = this.HomeAreaTS.bind(this);
+    this.HomeAreaKS = this.HomeAreaKS.bind(this);
+    this.fixedOpen = this.fixedOpen.bind(this);
   }
 
   valueDelete() {
@@ -321,6 +360,233 @@ export class ParkSearch extends Component {
         parkTag3: '',
       })
   }
+
+
+
+// SP版
+  HomeAreaKT() {
+    this.setState({
+      HomeAreaTH:'none',
+      HomeAreaKT:'none',
+      HomeAreaCH:'none',
+      HomeAreaKN:'none',
+      HomeAreaTS:'none',
+      HomeAreaKS:'none'
+    })
+    if (this.state.HomeAreaKT === 'none'){
+      this.setState({
+        HomeAreaKT: 'inline'
+      })
+  }else{
+      this.setState({
+        HomeAreaKT:'none'
+      })
+    }
+  }
+
+  HomeAreaTH() {
+    this.setState({
+      HomeAreaKT:'none',
+      HomeAreaCH:'none',
+      HomeAreaKN:'none',
+      HomeAreaTS:'none',
+      HomeAreaKS:'none'
+    })
+    if (this.state.HomeAreaTH === 'none'){
+      this.setState({
+        HomeAreaTH: 'inline'
+      })
+  }else{
+      this.setState({
+        HomeAreaTH:'none'
+      })
+    }
+  }
+  HomeAreaCH() {
+    this.setState({
+      HomeAreaTH:'none',
+      HomeAreaKT:'none',
+      HomeAreaKN:'none',
+      HomeAreaTS:'none',
+      HomeAreaKS:'none'
+    })
+    if (this.state.HomeAreaCH === 'none'){
+      this.setState({
+        HomeAreaCH: 'inline'
+      })
+  }else{
+      this.setState({
+        HomeAreaCH:'none'
+      })
+    }
+  }
+  HomeAreaKN() {
+    this.setState({
+      HomeAreaTH:'none',
+      HomeAreaKT:'none',
+      HomeAreaCH:'none',
+      HomeAreaTS:'none',
+      HomeAreaKS:'none'
+    })
+    if (this.state.HomeAreaKN === 'none'){
+      this.setState({
+        HomeAreaKN: 'inline'
+      })
+  }else{
+      this.setState({
+        HomeAreaKN:'none'
+      })
+    }
+  }
+  HomeAreaTS() {
+    this.setState({
+      HomeAreaTH:'none',
+      HomeAreaKT:'none',
+      HomeAreaCH:'none',
+      HomeAreaKN:'none',
+      HomeAreaKS:'none'
+    })
+    if (this.state.HomeAreaTS === 'none'){
+      this.setState({
+        HomeAreaTS: 'inline'
+      })
+  }else{
+      this.setState({
+        HomeAreaTS:'none'
+      })
+    }
+  }
+  HomeAreaKS() {
+    this.setState({
+      HomeAreaTH:'none',
+      HomeAreaKT:'none',
+      HomeAreaCH:'none',
+      HomeAreaKN:'none',
+      HomeAreaTS:'none',
+
+    })
+    if (this.state.HomeAreaKS === 'none'){
+      this.setState({
+        HomeAreaKS: 'inline'
+      })
+  }else{
+      this.setState({
+        HomeAreaKS:'none'
+      })
+    }
+  }
+
+
+  HomeSearchWhat() {
+    if (this.state.HomeSearchWhatSP === 'none') {
+      document.body.setAttribute('style', 'position: fixed;')
+      this.setState({
+        HomeSearchWhatSP: 'inline'
+      })
+    } else {
+      document.body.removeAttribute('style', 'position: fixed;')
+      this.setState({
+        HomeSearchWhatSP: 'none'
+      })
+    }
+  }
+
+  HomeSearchLocation() {
+    if (this.state.HomeSearchLocationSP === 'none') {
+      document.body.setAttribute('style', 'position: fixed;')
+      this.setState({
+        HomeSearchLocationSP: 'inline'
+      })
+    } else {
+      document.body.removeAttribute('style', 'position: fixed;')
+      this.setState({
+        HomeSearchLocationSP: 'none'
+      })
+    }
+  }
+
+
+
+  HomeSearchOther() {
+    if (this.state.HomeSearchOtherSP === 'none') {
+      document.body.setAttribute('style', 'position: fixed;')
+      this.setState({
+        HomeSearchOtherSP: 'inline'
+      })
+    } else {
+      document.body.removeAttribute('style', 'position: fixed;')
+      this.setState({
+        HomeSearchOtherSP: 'none'
+      })
+    }
+  }
+
+filterList(event) {
+  if (this.state.value === "") {
+    this.setState({
+      Searchdisplay: 'inline',
+      SearchResult: 'none',
+    })
+  }
+    this.setState({
+      Searchdisplay: 'none',
+      SearchResult: 'inline',
+      value: event.target.value
+    })
+  console.log(this.state.value.length)
+  console.log(this.state.value)
+}
+
+filterListWhat(event) {
+  if (this.state.whatValue === "") {
+    this.setState({
+      Searchdisplay: 'inline',
+      SearchResult: 'none',
+    })
+  }
+    this.setState({
+      Searchdisplay: 'none',
+      SearchResult: 'inline',
+      whatValue: event.target.whatValue
+    })
+  console.log(this.state.whatValue)
+}
+
+focusTextInput(e) {
+this.setState({
+  parklocation: e,
+  HomeSearchLocationSP: 'none',
+  HomeAreaTH:'none',
+  HomeAreaKT:'none',
+  HomeAreaCH:'none',
+  HomeAreaKN:'none',
+  HomeAreaTS:'none',
+  HomeAreaKS:'none',
+  value:'',
+})
+document.body.removeAttribute('style', 'position: fixed;')
+}
+
+focusTextInputWhat(e) {
+this.setState({
+  parkTag: e,
+  HomeSearchWhatSP:'none'
+})
+document.body.removeAttribute('style', 'position: fixed;')
+}
+
+focusTextInputOther(e) {
+this.setState({
+  parkTag2:e,
+  HomeSearchOtherSP:'none'
+})
+document.body.removeAttribute('style', 'position: fixed;')
+}
+
+fixedOpen() {
+  document.body.removeAttribute('style', 'position: fixed;')
+}
+
 
 
 
@@ -675,59 +941,413 @@ export class ParkSearch extends Component {
               <h2 className="parkSearchResultSP__h2">{this.state.parklocation}の公園</h2>}
             <div className="searchBar-selectItems">
 
-            <div className="searchBar-selectItem">
+                <div className="searchBar-selectItem" style={this.state.parklocation ?{ background: '#52BF90' } : { background:'#fff', border: '0.1rem #d0cfcf solid'}} onClick={this.HomeSearchLocation}>
                 {!this.state.parklocation ?
                    <LocationOnRoundedIcon style={{ fontSize: 20, color: '#93918F' }} />:
-                  <LocationOnRoundedIcon style={{ fontSize: 20, color: '#52BF90' }} />
+                  <LocationOnRoundedIcon style={{ fontSize: 20, color: '#fff' }} />
             }
                   {/* <p className="p search-select_font">どこにいく</p> */}
-                  <select className="p search-select_font" value={this.state.parklocation} onChange={this.handleFilterTextChange} placeholder="ああああ">
+                  {/* <select className="p search-select_font" value={this.state.parklocation} onChange={this.handleFilterTextChange} placeholder="ああああ" style={this.state.parklocation ? { color: ' #52BF90' } : {color:'#777'} }>
                     <option value="" style={{display:'none'}}>すべてのエリア</option>
                     <option value="">すべてのエリア</option>
                     <option value="東京都">東京</option>
                     <option value="大阪">大阪</option>
                     <option value="神奈川">神奈川</option>
-              　　</select>
+              　　</select> */}
+                  {this.state.parklocation ?
+                    <p style={this.state.parklocation ? { color: ' #fff' } : { color: '#777' }}>{this.state.parklocation}</p> :
+                    <p  style={{ color: '#777' }}>すべてのエリア</p>}
 
                 </div>
 
+                <div className="HomeSearchSP-modal" style={{display:this.state.HomeSearchLocationSP}}>
 
-              <div className="searchBar-selectItem-what">
+
+
+<div class="serchDrawerContent">
+ <div className="sceneTag-drawer-header">
+   <div className="serch-bar-location drawer-margin" >
+
+     <SearchIcon style={{ fontSize: 21, opacity: 0.7 }} />
+     <input type="text" id="searchfocus"
+       className="serch-bar__color search-bar-position"
+       placeholder="公園や都市名からさがす"
+       value={this.state.value}
+       onChange={this.filterList}
+       autocomplete="on"
+       inputmode="kana"
+     />
+    </div>
+
+
+
+   <div className="sceneTag-drawer-header-back" onClick={this.HomeSearchLocation}><ArrowBackIosIcon />戻る</div>
+
+ </div>
+ {this.state.value.length > 0 ?
+     <><p className="searchinputResult-p">下記からご選択ください。</p></>:''}
+
+
+ <div className="SearchTag-input_padding">
+
+ {
+   JapanArea.map((JapanAreaHGItem) => {
+     const SearchstartHg = JapanAreaHGItem.Hiragana.startsWith(this.state.value, 0)
+     const SearchstartKg = JapanAreaHGItem.kangi.startsWith(this.state.value, 0)
+     const SearchstartEn = JapanAreaHGItem.en.startsWith(this.state.value, 0)
+     const SearchstartKn = JapanAreaHGItem.kata.startsWith(this.state.value, 0)
+
+     const juge = true;
+
+     const JapanAreaHgparam =
+     { pathname: '/search', search: `/city${JapanAreaHGItem.Hiragana}`,state: { parklocation: JapanAreaHGItem.kangi}
+     };
+     const JapanAreKgparam =
+     { pathname: '/search', search: `/city${JapanAreaHGItem.kangi}`,state: { parklocation: JapanAreaHGItem.kangi}
+     };
+     const JapanAreaEnparam =
+     { pathname: '/search', search: `/city${JapanAreaHGItem.en}`,state: { parklocation: JapanAreaHGItem.kangi}
+     };
+     const JapanAreaKnparam =
+     { pathname: '/search', search: `/city${JapanAreaHGItem.kata}`,state: { parklocation: JapanAreaHGItem.kangi}
+     };
+
+
+
+
+       if (SearchstartHg === true && this.state.value.length > 0) {
+
+         return<div className="searchresult-posi" onClick={this.focusTextInput.bind(this,JapanAreaHGItem.kangi)}>
+             <div className="searchResult-location">
+             <LocationOnRoundedIcon style={{ fontSize: 22, color:'#52BF90'}} />
+             </div>
+           <h2>{JapanAreaHGItem.kangi}</h2>
+         </div>
+       }
+       if (SearchstartKg === true && this.state.value.length > 0) {
+         return <div className="searchresult-posi" onClick={this.focusTextInput.bind(this,JapanAreaHGItem.kangi)}>
+            <div className="searchResult-location">
+            <LocationOnRoundedIcon style={{ fontSize: 22, color:'#52BF90'}} />
+           </div>
+           <h2>{JapanAreaHGItem.kangi}</h2></div>
+
+       }
+       if (SearchstartEn === true && this.state.value.length > 0) {
+         return <div className="searchresult-posi" onClick={this.focusTextInput.bind(this,JapanAreaHGItem.kangi)}>
+            <div className="searchResult-location">
+             <LocationOnRoundedIcon style={{ fontSize: 22, color: '#52BF90' }} />
+             </div><h2>{JapanAreaHGItem.kangi}</h2></div>
+
+       }
+       if (SearchstartKn === true && this.state.value.length > 0) {
+         return <div className="searchresult-posi" onClick={this.focusTextInput.bind(this,JapanAreaHGItem.kangi)}>
+            <div className="searchResult-location">
+           <LocationOnRoundedIcon style={{ fontSize: 22, color: '#52BF90' }} />
+           </div>
+           <h2>{JapanAreaHGItem.kangi}</h2></div>
+       }
+
+
+   })
+ }
+
+
+ {
+   parks.map((park) => {
+     const parkSearch = park.parkName.startsWith(this.state.value,0)
+     // const parkSearchTag1 = park.parkTag1.startsWith(this.state.value,0)
+
+     if (parkSearch === true && this.state.value.length > 0) {
+       return <Link to={`/park/${park.parkId}`}　className="searchresult-posi" onClick={this.fixedOpen}>
+           <div className="searchResult-location">
+           <img src={LogoTree} className="parkSearchinpt-logo"/>
+         </div><h2 onClick={this.fixedOpen}>{park.parkName}</h2>
+       </Link>
+     }
+     // else {
+     //   this.setState({
+     //     SearchInputResultPark: false
+     //   })
+     // }
+   })
+ }
+
+
+  {
+   SearchTags.map((tag) => {
+     const SearchTagHg = tag.Hiragana.startsWith(this.state.value,0)
+     const SearchTagKn = tag.kanji.startsWith(this.state.value,0)
+     const SearchTagEn = tag.en.startsWith(this.state.value,0)
+     const SearchTagKt = tag.kata.startsWith(this.state.value, 0)
+
+     const SearchTagHgParam = {
+       pathname: '/search', search: `/tag${tag.kanji}`,state: { scene: tag.kanji }
+     };
+     const SearchTagKnParam = {
+       pathname: '/search', search: `/tag${tag.kanji}`,state: { scene: tag.kanji }
+     };
+     const SearchTagEnParam = {
+       pathname: '/search', search: `/tag${tag.kanji}`,state: { scene: tag.kanji }
+     };
+     const SearchTagktParam= {
+       pathname: '/search', search: `/tag${tag.kanji}`,state: { scene: tag.kanji }
+     };
+
+     if (SearchTagHg === true && this.state.value.length > 0) {
+       return <Link to={SearchTagHgParam}>
+         <h2>{tag.kanji}</h2></Link>
+     }
+
+     if (SearchTagKn === true && this.state.value.length > 0) {
+       return <Link to={SearchTagKnParam}><h2>{tag.kanji}</h2></Link>
+     }
+     if (SearchTagEn === true && this.state.value.length > 0) {
+       return <Link to={SearchTagEnParam}><h2>{tag.kanji}</h2></Link>
+     }
+     if (SearchTagKt === true && this.state.value.length > 0) {
+       return <Link to={SearchTagktParam}><h2>{tag.kanji}</h2></Link>
+     }
+   })
+
+   }
+   </div>
+
+
+
+
+
+ {this.state.value.length === 0 ?
+
+   <ul className="sceneTag-drawer-header--items">
+     <div class="SearchInput-items-city">
+       <h2>よく検索される都市名</h2>
+       <ul className="HomeSearchSPLocation-modal-items">
+         <li onClick={this.focusTextInput.bind(this,'東京都')} className="sidebar-item">東京</li>
+         <li onClick={this.focusTextInput.bind(this,'大阪')}className="sidebar-item">大阪</li>
+         <li onClick={this.focusTextInput.bind(this,'福岡')}className="sidebar-item">福岡</li>
+         <li onClick={this.focusTextInput.bind(this,'神奈川')}className="sidebar-item">神奈川</li>
+         <li onClick={this.focusTextInput.bind(this,'千葉')}className="sidebar-item">千葉</li>
+         <li onClick={this.focusTextInput.bind(this,'埼玉')}className="sidebar-item">埼玉</li>
+        </ul>
+
+
+
+<ul className="HomeSearchSPLocation-modal-prefecture">
+<h2>エリアからさがす</h2>
+<ul> <li className="drawer-city-height" onClick={this.focusTextInput.bind(this,'北海道')}>北海道</li></ul>
+
+<ul className="drawerhome-city">
+<div for="drawer-tohoku" className="drawer-city-tohoku__color drawer-city-height" onClick={this.HomeAreaTH}><p style={{color:this.state.HomeAreaTH === 'inline' ?'#52BF90':'' }}>東北</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
+<div className="drawer-city-li drawer-city-tohoku" style={{display:this.state.HomeAreaTH}} >
+<li onClick={this.focusTextInput.bind(this,'青森')}>青森県</li>
+<li onClick={this.focusTextInput.bind(this,'岩手')}>岩手県</li>
+<li onClick={this.focusTextInput.bind(this,'宮城')}>宮城県</li>
+<li onClick={this.focusTextInput.bind(this,'秋田')}>秋田県</li>
+<li onClick={this.focusTextInput.bind(this,'山形')}>山形県</li>
+<li onClick={this.focusTextInput.bind(this,'福島')}>福島県</li>
+</div>
+</ul>
+
+<ul className="drawerhome-city">
+<div for="drawer-kanto" class="drawer-city-kanto__color drawer-city-height" onClick={this.HomeAreaKT}><p style={{color:this.state.HomeAreaKT === 'inline' ?'#52BF90':'' }}>関東</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
+<div className="drawer-city-li drawer-city-kanto" style={{display:this.state.HomeAreaKT}}>
+<li onClick={this.focusTextInput.bind(this,'東京')}>東京都</li>
+<li onClick={this.focusTextInput.bind(this,'埼玉')}>埼玉県</li>
+<li onClick={this.focusTextInput.bind(this,'神奈川')}>神奈川県</li>
+<li onClick={this.focusTextInput.bind(this,'千葉')}>千葉県</li>
+<li onClick={this.focusTextInput.bind(this,'群馬')}>群馬県</li>
+<li onClick={this.focusTextInput.bind(this,'栃木')}>栃木県</li>
+<li onClick={this.focusTextInput.bind(this,'茨城')}>茨城県</li>
+</div>
+</ul>
+
+<ul className="drawerhome-city">
+<input type="checkbox" id="drawer-tyuubu" class="drawer-hidden" />
+<div for="drawer-tyuubu" class="drawer-city-tyuubu__color drawer-city-height"onClick={this.HomeAreaCH}><p style={{color:this.state.HomeAreaCH === 'inline' ?'#52BF90':'' }}>中部・北陸</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
+<div className="drawer-city-li  drawer-city-tyuubu" style={{display:this.state.HomeAreaCH}}>
+<li onClick={this.focusTextInput.bind(this,'長野')}>長野県</li>
+<li onClick={this.focusTextInput.bind(this,'新潟')}>新潟県</li>
+<li onClick={this.focusTextInput.bind(this,'石川')}>石川県</li>
+<li onClick={this.focusTextInput.bind(this,'富山')}>富山県</li>
+<li onClick={this.focusTextInput.bind(this,'岐阜')}>岐阜県</li>
+<li onClick={this.focusTextInput.bind(this,'愛知')}>愛知県</li>
+<li onClick={this.focusTextInput.bind(this,'山梨')}>山梨県</li>
+<li onClick={this.focusTextInput.bind(this,'静岡')}>静岡県</li>
+</div>
+</ul>
+
+<ul className="drawerhome-city">
+<input type="checkbox" id="drawer-kansai" class="drawer-hidden" />
+<div for="drawer-kansai" class="drawer-city-kansai__color drawer-city-height" onClick={this.HomeAreaKN}><p style={{color:this.state.HomeAreaKN === 'inline' ?'#52BF90':'' }}>関西</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
+<div className=" drawer-city-li drawer-city-kansai" style={{display:this.state.HomeAreaKN}}>
+<li onClick={this.focusTextInput.bind(this,'滋賀')}>滋賀県</li>
+<li onClick={this.focusTextInput.bind(this,'大阪')}>大阪府</li>
+<li onClick={this.focusTextInput.bind(this,'京都')}>京都府</li>
+<li onClick={this.focusTextInput.bind(this,'三重')}>三重県</li>
+<li onClick={this.focusTextInput.bind(this,'和歌山')}>和歌山県</li>
+<li onClick={this.focusTextInput.bind(this,'奈良')}>奈良県</li>
+<li onClick={this.focusTextInput.bind(this,'兵庫')}>兵庫県</li>
+</div>
+</ul>
+
+<ul className="drawerhome-city">
+<input type="checkbox" id="drawer-tyuShikoku" class="drawer-hidden" />
+<div for="drawer-tyuShikoku" class="drawer-scity-tyuShikoku__color drawer-city-height"onClick={this.HomeAreaTS}><p style={{color:this.state.HomeAreaTS === 'inline' ?'#52BF90':'' }}>中国・四国</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
+<div className="drawer-city-li drawer-city-tyuShikoku" style={{display:this.state.HomeAreaTS}}>
+
+<li onClick={this.focusTextInput.bind(this,'岡山')}>岡山県</li>
+<li onClick={this.focusTextInput.bind(this,'広島')}>広島県</li>
+<li onClick={this.focusTextInput.bind(this,'山口')}>山口県</li>
+<li onClick={this.focusTextInput.bind(this,'香川')}>香川県</li>
+<li onClick={this.focusTextInput.bind(this,'愛媛')}>愛媛県</li>
+<li onClick={this.focusTextInput.bind(this,'高知')}>高知県</li>
+<li onClick={this.focusTextInput.bind(this,'徳島')}>徳島県</li>
+</div>
+</ul>
+
+<ul className="drawerhome-city">
+<input type="checkbox" id="drawer-KyuOki" class="drawer-hidden" />
+<div for="drawer-KyuOki" class="drawer-city-KyuOki__color drawer-city-height" onClick={this.HomeAreaKS}><p style={{color:this.state.HomeAreaKS === 'inline' ?'#52BF90':'' }}>九州・沖縄</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
+<div className="drawer-city-li drawer-city-KyuOki" style={{display:this.state.HomeAreaKS}}>
+<li onClick={this.focusTextInput.bind(this,'福岡')}>福岡県</li>
+<li onClick={this.focusTextInput.bind(this,'佐賀')}>佐賀県</li>
+<li onClick={this.focusTextInput.bind(this,'大分')}>大分県</li>
+<li onClick={this.focusTextInput.bind(this,'熊本')}>熊本県</li>
+<li onClick={this.focusTextInput.bind(this,'鹿児島')}>鹿児島県</li>
+<li onClick={this.focusTextInput.bind(this,'宮城')}>宮崎県</li>
+<li onClick={this.focusTextInput.bind(this,'沖縄')}>沖縄県</li>
+</div>
+</ul>
+</ul>
+</div>
+
+
+
+
+
+
+
+   </ul> : ''}
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div className="searchBar-selectItem-what" style={this.state.parkTag ?{ background: '#52BF90' } : { background:'#fff',border: '0.1rem #d0cfcf solid'}} onClick={this.HomeSearchWhat}>
                 {!this.state.parkTag ?
                   <EmojiPeopleRoundedIcon style={{ fontSize: 20, color: '#93918F' }} /> :
-                  <EmojiPeopleRoundedIcon style={{ fontSize: 20, color: '#52BF90' }} />
-            }
-                {/* <p className="p search-select_font">なにをする</p> */}
-                <select className="p search-select_font" value={this.state.parkTag} onChange={this.handleFilterTextChangeTag}>
-                  <option value="" style={{display:'none'}}>すべての目的</option>
-                  <option value="">すべての目的</option>
-                  <option value="朝">朝</option>
-                  <option value="夕方">夕方</option>
-                  <option value="夜景">夜景</option>
-            </select>
+                  <EmojiPeopleRoundedIcon style={{ fontSize: 20, color: 'fff' }} />
+                  }
+                   {this.state.parkTag ?
+                    <p style={this.state.parkTag ? { color: ' #fff' } : { color: '#777' }}>{this.state.parkTag}</p> :
+                    <p  style={{ color: '#777' }}>すべての目的</p>}
+
+                </div>
+
+
+
+
+          <div className="HomeSearchSP-modal" style={{ display: this.state.HomeSearchWhatSP }}>
+          <div class="serchDrawerContent">
+             <div className="sceneTag-drawer-header">
+               <div className="serch-bar-location drawer-margin" >
+
+                 <SearchIcon style={{ fontSize: 21, opacity: 0.7 }} />
+                 <input type="text" id="searchfocus"
+                   className="serch-bar__color search-bar-position"
+                   placeholder="目的からさがす"
+                   value={this.state.whatValue}
+                   onChange={this.filterListWhat}
+                   autocomplete="on"
+                   inputmode="kana"
+                 />
+                </div>
+                <div className="sceneTag-drawer-header-back" onClick={this.HomeSearchWhat}><ArrowBackIosIcon />戻る</div>
               </div>
 
+              <div class="SearchInput-items-city HomeSearchInputWhat-modal-inner">
+                <div className="HomeSearchInputWhat-modal-h2">
+                  <h2>人気のキーワード</h2>
+                  <p style={{ color:'#52BF90',marginTop:0,fontSize:12,fontWeight:400}} onClick={this.focusTextInputWhat.bind(this,'')}>すべてのキーワードからさがす</p>
+                  </div>
+
+                <ul className="sidebar-items HomeSearchInputWhat-modal">
+            <li onClick={this.focusTextInputWhat.bind(this,'家族連れ')} className="sidebar-item">家族連れ</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'ジョギング')} className="sidebar-item">ジョギング</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'ピクニック')} className="sidebar-item">ピクニック</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'郊外にある')} className="sidebar-item">郊外にある</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'都内にある')} className="sidebar-item">都内にある</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'海が見える')} className="sidebar-item">海が見える</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'駐車場がある')}className="sidebar-item">駐車場がある</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'自転車可')}className="sidebar-item">自転車可</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'運動場')}className="sidebar-item">運動場</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'レストラン')}className="sidebar-item">レストラン</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'乳幼児')}className="sidebar-item">乳幼児</li>
+            <li onClick={this.focusTextInputWhat.bind(this,'遊具が豊富')}className="sidebar-item">遊具が豊富</li>
+                </ul>
+
+             </div>
+             </div>
+          </div>
 
 
 
-                <div className="searchBar-selectItem">
+
+                <div className="searchBar-selectItem" style={this.state.parkTag2 ? { background: '#52BF90' } : { background:'#fff',border: '0.1rem #d0cfcf solid'} } onClick={this.HomeSearchOther}>
                 {!this.state.parkTag2 ?
                    <PeopleRoundedIcon style={{ fontSize: 20, color: '#93918F' }} />:
-                  <PeopleRoundedIcon style={{ fontSize: 20, color: '#52BF90' }} />
-            }
-
-              <select className="p search-select_font"  value={this.state.parkTag2} onChange={this.handleFilterTextChangeTag2}>
-                  <option value="" style={{display:'none'}}>その他・詳細</option>
-                  <option value="">その他・詳細</option>
-                  <option value="家族">家族</option>
-                  <option value="カップル">カップル</option>
-                  <option value="友人">友人</option>
-                  <option value="ひとり">ひとり</option>
-                  <option value="小さいこども">小さいこども</option>
-                  <option value="車椅子の方">車椅子の方</option>
-                  <option value="乳幼児">乳幼児</option>
-            </select>
+                  <PeopleRoundedIcon style={{ fontSize: 20, color: '#fff' }} />
+                  }
+                  {this.state.parkTag2 ?
+                    <p style={this.state.parkTag2 ? { color: ' #fff' } : { color: '#777' }}>{this.state.parkTag2}</p> :
+                    <p  style={{ color: '#777' }}>その他・詳細</p>}
                 </div>
+
+                <div className="HomeSearchSP-modal" style={{ display: this.state.HomeSearchOtherSP }}>
+          <div class="serchDrawerContent">
+             <div className="sceneTag-drawer-header">
+
+                <div className="sceneTag-drawer-header-back" onClick={this.HomeSearchOther}><ArrowBackIosIcon />戻る</div>
+              </div>
+
+              <div class="SearchInput-items-city HomeSearchInputWhat-modal-inner">
+                <div className="HomeSearchInputWhat-modal-h2">
+                  <h2>一緒にいくひと</h2>
+                  <p style={{ marginTop:0,fontSize:12,fontWeight:400}}onClick={this.HomeSearchOther}>すべての詳細条件からさがす</p>
+                  </div>
+
+                <ul className="sidebar-items HomeSearchInputWhat-modal">
+            <li onClick={this.focusTextInputOther.bind(this,'ひとり')} className="sidebar-item">ひとり</li>
+            <li onClick={this.focusTextInputOther.bind(this,'こども')} className="sidebar-item">子供</li>
+            <li onClick={this.focusTextInputOther.bind(this,'カップル')} className="sidebar-item">カップル</li>
+            <li onClick={this.focusTextInputOther.bind(this,'車椅子のかた')} className="sidebar-item">車椅子のかた</li>
+            <li onClick={this.focusTextInputOther.bind(this,'友人')} className="sidebar-item">友人</li>
+            <li onClick={this.focusTextInputOther.bind(this,'家族')} className="sidebar-item">家族</li>
+            <li onClick={this.focusTextInputOther.bind(this,'小さいことも')}className="sidebar-item">小さいこども</li>
+            <li onClick={this.focusTextInputOther.bind(this,'乳幼児')}className="sidebar-item">乳幼児</li>
+                </ul>
+
+             </div>
+             </div>
+          </div>
 
 
 
@@ -741,8 +1361,6 @@ export class ParkSearch extends Component {
               </div>
             </div>
       </div>
-
-
 
       </>
 
@@ -789,22 +1407,24 @@ export class ParkSearch extends Component {
         {/* //SP版 */}
         <div className="container_paddinng searchpark-sp">
           <div className="FindParksResult-items" >
-            {rows.length > 0 ?
+            {!loading ?
+              rows.length > 0 ?
             // 検索結果がある場合
-              !loading ? <>{rows.slice(0, this.state.marker)}</> : <ScreamSkeleton /> :
+               <>{rows.slice(0, this.state.marker)}</> :
              // 検索結果がある場合
               <div className="searchResult-sorry">
                 <h2>公園がみつかりません。</h2>
                 <p>別のキーワードを使ったり、入力ミスをチェックしたり、<br/>フィルターを調整してみることをおすすめします。</p>
-              </div>
+              </div>: <ScreamSkeletonSP />
             }
       </div>
           {rows.length === 0 || rows.length <= 40 ? '' :
               // 検索結果がある場合
-          parks.length > this.state.marker
+          parks.length > this.state.marker && !loading
           ? <button onClick={this.loadList} className="ReadMore">もっとみる</button> : ''
           }
         </div>
+      <Footer />
       </>
     )
   }
