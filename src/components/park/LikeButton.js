@@ -10,7 +10,7 @@ import {loginUser } from '../../redux/actions/userActions';
 import  {connect} from 'react-redux';
 import {likeScream, unlikeScream} from '../../redux/actions/dataActions';
 
-
+import CancelIcon from '@material-ui/icons/Cancel';
 import Googleicon from '../../images/google.svg';
 import Modal from 'react-modal';
 
@@ -160,8 +160,14 @@ export class likeButton extends Component {
                     onRequestClose={this.closeModalLogin}
                     style={customStyles}
                     contentLabel="Example Modal"
+                    className="like-btn-modalSP"
                 >
                     <div className="login-modal">
+                    <Link to="/signup" className="MoveToSignup">
+                        <p>新規登録する</p>
+                    </Link>
+                         <CancelIcon className="login-modalSP-close" style={{fontSize:30,color:'#dedede'}} onClick={this.closeModalLogin}/>
+
                         <div className="login-modal-inner">
                             <div className="login-title-head">
                                 {/* <img src={Logoimg} className="gl-logo__"/> */}

@@ -10,15 +10,15 @@ export class MobileNav extends Component {
         super();
         this.state = {
         };
-
       }
     render() {
+        console.log(this.props.user)
         const { authenticated } = this.props;
     return (
         <div className="nav-mobile">
 
             {authenticated ? (
-                <TemporayDrawer />
+                <TemporayDrawer user={this.props.user}/>
             ) : (
 
                     <div className="Nav-LoginReg">

@@ -1307,7 +1307,7 @@ color: #52Bf90;
   border-radius: 8px;
   display: inline;
   padding: 0.6rem 0.8rem;
-  border: 1px solid #777777;
+  border: 1px solid #bebebe;
 }
 .HomeSearchWhatSelect-item-See--{
   display: flex;
@@ -2079,10 +2079,14 @@ table tr:hover {
   align-items: center;
   color: #f2f2f2; }
 
+
 .serch-bar-serch__text {
   margin: 0 auto;
   margin-top: 0.8rem; }
 
+  .Park-location--LocationIcon{
+    font-size: 2rem;
+  }
 /*
 公園を探す */
 .park-result-filter {
@@ -2963,6 +2967,15 @@ border-radius: 8px;
   border-radius: 8px !important;
   margin-bottom: 2rem; }
 
+  .HomeParkSearchicon:active{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #52BF90;
+    width: 12rem;
+    height: 7rem;
+    border-radius: 0px 8px 8px 0px !important;
+  }
 .parkName-input::placeholder {
   padding: 1.5rem; }
 
@@ -3258,8 +3271,14 @@ button.ReadMore {
 .btnGo-inner,
 .container_paddinng_park,
 .innner,.logo__size-sp,
-.parkSearchResultSP__h2  {
+.parkSearchResultSP__h2,
+.login-modalSP-close,
+.MoveToSignup,
+.login-modalSP-close {
   display: none ;
+}
+.login-modalSP-close{
+  display: none !important ;
 }
 .weather-inner{
   display: flex;
@@ -3271,11 +3290,22 @@ button.ReadMore {
 
 @media screen and (max-width: 480px) {
 
+  .like-btn-modalSP{
+    background-color: none !important;
+    width:100vw !important;
+    padding:0rem !important;
+  }
   .park-maincontents__parkName{
     margin-top:1.2rem
   }
   .login-moda{
     position: relative;
+  }
+  .searchResult-sorry p{
+    margin: 0 auto;
+  }
+  .searchResult-sorry h2{
+    margin: 0 auto;
   }
   .MoveToHome{
     position: absolute;
@@ -3308,16 +3338,32 @@ button.ReadMore {
     width: 100%;
     border-radius: 8px;
     object-fit: cover; }s
-
+    .FindParksResult-item{
+      position: relative;
+    }
+    .Park-location--LocationIcon{
+      font-size: 1.8rem;
+    }
   .FindParksResult-item::after{
-    position: absolute;
-    content: " ";
+    position:absolute;
+    content: "";
     background: linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%);
     height: calc((100vw - 24px) / 2);
     width: 100%;
     left: 0;
     top: 0;
     z-index:0;
+    border-radius: 8px;
+  }
+  .login-modal{
+    border-radius: 0rem !important;
+  }
+
+  .login-modalSP-close{
+    display: inline-block !important;
+    position: absolute;
+    top:2rem;
+    right: 2rem;
   }
   .park-maincontents__inner h2{
     font-size: 1.8rem;
@@ -3468,8 +3514,25 @@ font-size: 1.4rem;
     display: flex;
     align-items: center; }
   .nav-mobile__padding {
-    margin-right: 1.5rem; }
+    margin: 0rem 0rem 0.7rem 0rem;
+  }
+  .HomeParkprefecture{
+    padding-right: 1em;
+    padding-bottom: 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  .SPweather-item a {
+    display: flex;
+    align-items: center;
+  }
+  .SPweather-item p{
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-left: 0.6rem;
+  }
   .Search-category {
+    margin-top: -0.8rem;
     width: 100%;
     text-align: center;
     flex-basis: auto; }
@@ -3588,9 +3651,24 @@ display: flex;
 align-items: center;
 justify-content: space-between;
   }
-
+  .Nav-profileImage{
+    margin-right: 1rem;
+  }
+  .Mypage-right{
+    margin-top: 5rem;
+  }
   .footer-itemsRtght{
     width: 100%;
+  }
+  .nav-rectangle-item{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  .Mypage-right{
+    min-height: 56vh;
+  }
+  .Mypage-item-nameh2{
+    font-size: 1.6rem;
   }
   .footer-contents {
     /* border-bottom: #fff solid 1px; */
@@ -3750,6 +3828,15 @@ justify-content: space-between;
     transform: translate(0%, 0%);
     padding-top: 0.8rem;
   }
+  .container_paddinng_park {
+    min-height: calc(100vh - 480px);
+    padding: 0rem;
+    padding-top: 0rem;
+    margin-top: 0rem;
+    position: unset;
+    transform: translate(0%, 0%);
+    padding-top: 0.8rem;
+  }
   .FindParksResult-items__width {
     width: 90vw; }
   .innner {
@@ -3881,7 +3968,7 @@ justify-content: space-between;
     text-align: center;
     font-size: 1rem; }
   .btnGo-inner {
-    display: flex;
+    display: none;
     align-items: center;
     height: 6.5rem;
     padding: 0.8rem;
@@ -3899,9 +3986,78 @@ justify-content: space-between;
   /* /////////////// */
   /* マイページ */
   /* /////////////// */
-  .Mypage-right {
+  .Mypage-item-edit{
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .Mypage-like-box{
+    margin-top: 5rem;
+  }
+  .Likeparkitem{
+    margin:0rem;
+    height: unset;
+  }
+  .Mypage-like-inner{
+    margin: 1.8rem 0rem;
+    display: flex;
+    align-items: baseline;
+    padding-left: 0.8rem;
+  }
+  .parksResultlike-item-name-pc{
+    font-size: 1.4rem
+  }
+  .like-modal-btn{
+    border:none;
+  }
+
+a.Mypage-Park-Post {
+    color: #fff !important;
+}
+  .like-modal{
+    width:calc(100vw - 16px)
+  }
+  .ParkLike-item-img-pc{
+    width: calc((100vw - 24px) / 2);
+    height: calc((100vw - 24px) / 2);
+  }
+  .parksResult-locAtime-name-pc{
+    color: #fff;
+  }
+  .Park-location-pc {
+    color: #fff;
+    top: calc((88vw - 24px) / 2);
+    left: 8px;
+    display: flex;
+    align-items: center;
+    position: absolute;}
+  .ParkLike-item-detil{
+    padding: 0.4rem 0rem;
+    width: calc((100vw - 24px) / 2);
+  }
+  .ParkLike-items-pc{
+    min-height: calc(100vh - 546px);
+    justify-content: space-between;
+    padding: 0rem 0.8rem;
+  }
+  .Mypage-news {
     width: 100%;
-    height: 50vh; }
+    height: 20rem;
+    margin-top: 1.6rem;
+}
+  .Mypage-item-padding{
+    min-height: calc(100vh - 473px);
+    margin-top: 5rem;
+  }
+  .Mypage-item-inf__h2{
+    margin-right: 0rem;
+  }
+  .Mypage-item-h2__margin{
+    margin-bottom: 0rem;
+  }
+  .Mypage-right {
+    width: 100%; }
   .parksResult-item {
     width: 100%; }
   .Mypage-item-right {
@@ -3927,6 +4083,10 @@ justify-content: space-between;
     width: 17.1rem; }
   .nav-rectangle-item a {
     color: #404040; }
+   .nav-rectangle-item{
+display: flex;
+align-items: center;
+   }
   .btn-danger a.active {
     color: chocolate; }
   .mainVI-img {
@@ -4569,6 +4729,7 @@ input[type="search"] {
   }
 
 .drawer-city,.drawer-city-height{
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -4716,7 +4877,10 @@ input[type="search"] {
      width: 100%;
   }
   .searchResult-sorry p{
-    margin-bottom: 15rem;
+    /* margin-bottom: 15rem; */
+  }
+  .Mypage-btn {
+    margin: 3rem auto 0rem;
   }
 
 
@@ -4780,11 +4944,13 @@ input[type="search"] {
     justify-content: center;
     text-align: center;
     width: 100%;
-    height: 100vw;
-
   }
   .searchResult-sorry h2 {
     margin: 0 auto; }
+    .searchResult-sorry_inner{
+      padding:0rem;
+      min-height: unset;
+    }
   /* .signup-data {
     margin-top: 10rem; } */
   .Reg-InputForm {
@@ -4794,7 +4960,16 @@ input[type="search"] {
     border: 1px solid #93918f !important;
     border-radius: 8px !important; }
   /* ログイン画面の作成 */
-
+.SPweather-item{
+  display: inline-flex;
+  align-items: center;
+  width: unset;
+  padding:0rem 0.8rem;
+  height: 3rem;
+  margin-bottom: 0.4rem;
+  border-radius: 20px;
+  background: #fff;
+}
   .login-modal-inner {
     padding: 2rem 0;
     display: flex;
@@ -4862,6 +5037,25 @@ input[type="search"] {
   .HomeSearchInputWhat-modal{
     margin-top:0.6rem;
   }
+.FindParksResult-itemSP-sk {
+  width: calc(50% - 4px);
+  display: inline-block;
+  background: #FEFEFE;
+  /* border: 2px solid #FAFAFA; */
+  /* box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4); */
+  margin: 0px;
+  column-break-inside: avoid;
+  /* padding: 15px; */
+  padding-bottom: 5px;
+  background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+  opacity: 1;
+  transition: all .2s ease;
+}
+
+.FindParksResult-itemSP-sk:nth-child(2n) {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 
 
 

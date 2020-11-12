@@ -402,6 +402,7 @@ handleSubmit = (event) =>{
   const searchData = {
      parklocation:this.state.HomeSelectArea,
      parkTag:this.state.HomeSelectWhat,
+     parkTag2:this.state.HomeSelectOther,
  };
   this.props.searchItem(searchData);
   this.props.history.push('/park/search')
@@ -416,7 +417,7 @@ handleSubmit = (event) =>{
 
   render() {
 
-
+    const { authenticated } = this.props;
     const parks = this.props.data.parks;
     const parkSuggestArray = [];
     const parkTokyoitems =
@@ -441,8 +442,9 @@ parkSuggestArray.map((parkSuggestArray_item) =>
     return (
       <div className="mainVI">
         <div className="mainVI-img" style={{ backgroundImage: `linear-gradient(to right bottom, #4263506b, #52bf901a),url(${Pic1})` ,backgroundPosition:'50% 67%',backgroundSize:'cover'}}></div>
-        <form className="HomeSearch-sp" action="/park/search" name="test1"　method="get"  onSubmit={this.handleSubmit}>
-          <Weather />
+        <form className="HomeSearch-sp" action="/park/search" name="test1" method="get" onSubmit={this.handleSubmit}>
+          {authenticated?'': <Weather />}
+
 
         <div className="HomeParkSearch-Location HomeParkSearch__width" onClick={this.HomeSearchLocation} >
             <LocationOnRoundedIcon style={{ fontSize: 24, color: '#52BF90' }} />
@@ -616,12 +618,12 @@ parkSuggestArray.map((parkSuggestArray_item) =>
                  <div class="SearchInput-items-city">
                    <h2>よく検索される都市名</h2>
                    <ul className="HomeSearchSPLocation-modal-items">
-                     <li onClick={this.focusTextInput.bind(this,'東京')} className="sidebar-item">東京</li>
-                     <li onClick={this.focusTextInput.bind(this,'大阪')}className="sidebar-item">大阪</li>
-                     <li onClick={this.focusTextInput.bind(this,'福岡')}className="sidebar-item">福岡</li>
-                     <li onClick={this.focusTextInput.bind(this,'神奈川')}className="sidebar-item">神奈川</li>
-                     <li onClick={this.focusTextInput.bind(this,'千葉')}className="sidebar-item">千葉</li>
-                     <li onClick={this.focusTextInput.bind(this,'埼玉')}className="sidebar-item">埼玉</li>
+                     <li onClick={this.focusTextInput.bind(this,'東京都')} className="sidebar-item">東京</li>
+                     <li onClick={this.focusTextInput.bind(this,'大阪府')}className="sidebar-item">大阪</li>
+                     <li onClick={this.focusTextInput.bind(this,'福岡県')}className="sidebar-item">福岡</li>
+                     <li onClick={this.focusTextInput.bind(this,'神奈川県')}className="sidebar-item">神奈川</li>
+                     <li onClick={this.focusTextInput.bind(this,'千葉県')}className="sidebar-item">千葉</li>
+                     <li onClick={this.focusTextInput.bind(this,'埼玉県')}className="sidebar-item">埼玉</li>
                     </ul>
 
 
@@ -633,25 +635,25 @@ parkSuggestArray.map((parkSuggestArray_item) =>
       <ul className="drawerhome-city">
         <div for="drawer-tohoku" className="drawer-city-tohoku__color drawer-city-height" onClick={this.HomeAreaTH}><p style={{color:this.state.HomeAreaTH === 'inline' ?'#52BF90':'' }}>東北</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className="drawer-city-li drawer-city-tohoku" style={{display:this.state.HomeAreaTH}} >
-       <li onClick={this.focusTextInput.bind(this,'青森')}>青森県</li>
-       <li onClick={this.focusTextInput.bind(this,'岩手')}>岩手県</li>
-       <li onClick={this.focusTextInput.bind(this,'宮城')}>宮城県</li>
-       <li onClick={this.focusTextInput.bind(this,'秋田')}>秋田県</li>
-       <li onClick={this.focusTextInput.bind(this,'山形')}>山形県</li>
-       <li onClick={this.focusTextInput.bind(this,'福島')}>福島県</li>
+       <li onClick={this.focusTextInput.bind(this,'青森県')}>青森県</li>
+       <li onClick={this.focusTextInput.bind(this,'岩手県')}>岩手県</li>
+       <li onClick={this.focusTextInput.bind(this,'宮城県')}>宮城県</li>
+       <li onClick={this.focusTextInput.bind(this,'秋田県')}>秋田県</li>
+       <li onClick={this.focusTextInput.bind(this,'山形県')}>山形県</li>
+       <li onClick={this.focusTextInput.bind(this,'福島県')}>福島県</li>
         </div>
       </ul>
 
       <ul className="drawerhome-city">
         <div for="drawer-kanto" class="drawer-city-kanto__color drawer-city-height" onClick={this.HomeAreaKT}><p style={{color:this.state.HomeAreaKT === 'inline' ?'#52BF90':'' }}>関東</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className="drawer-city-li drawer-city-kanto" style={{display:this.state.HomeAreaKT}}>
-       <li onClick={this.focusTextInput.bind(this,'東京')}>東京都</li>
-       <li onClick={this.focusTextInput.bind(this,'埼玉')}>埼玉県</li>
-       <li onClick={this.focusTextInput.bind(this,'神奈川')}>神奈川県</li>
-       <li onClick={this.focusTextInput.bind(this,'千葉')}>千葉県</li>
-       <li onClick={this.focusTextInput.bind(this,'群馬')}>群馬県</li>
-       <li onClick={this.focusTextInput.bind(this,'栃木')}>栃木県</li>
-       <li onClick={this.focusTextInput.bind(this,'茨城')}>茨城県</li>
+       <li onClick={this.focusTextInput.bind(this,'東京都')}>東京都</li>
+       <li onClick={this.focusTextInput.bind(this,'埼玉県')}>埼玉県</li>
+       <li onClick={this.focusTextInput.bind(this,'神奈川県')}>神奈川県</li>
+       <li onClick={this.focusTextInput.bind(this,'千葉県')}>千葉県</li>
+       <li onClick={this.focusTextInput.bind(this,'群馬県')}>群馬県</li>
+       <li onClick={this.focusTextInput.bind(this,'栃木県')}>栃木県</li>
+       <li onClick={this.focusTextInput.bind(this,'茨城県')}>茨城県</li>
         </div>
       </ul>
 
@@ -659,14 +661,14 @@ parkSuggestArray.map((parkSuggestArray_item) =>
       <input type="checkbox" id="drawer-tyuubu" class="drawer-hidden" />
         <div for="drawer-tyuubu" class="drawer-city-tyuubu__color drawer-city-height"onClick={this.HomeAreaCH}><p style={{color:this.state.HomeAreaCH === 'inline' ?'#52BF90':'' }}>中部・北陸</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className="drawer-city-li  drawer-city-tyuubu" style={{display:this.state.HomeAreaCH}}>
-       <li onClick={this.focusTextInput.bind(this,'長野')}>長野県</li>
-       <li onClick={this.focusTextInput.bind(this,'新潟')}>新潟県</li>
-       <li onClick={this.focusTextInput.bind(this,'石川')}>石川県</li>
-       <li onClick={this.focusTextInput.bind(this,'富山')}>富山県</li>
-       <li onClick={this.focusTextInput.bind(this,'岐阜')}>岐阜県</li>
-       <li onClick={this.focusTextInput.bind(this,'愛知')}>愛知県</li>
-       <li onClick={this.focusTextInput.bind(this,'山梨')}>山梨県</li>
-       <li onClick={this.focusTextInput.bind(this,'静岡')}>静岡県</li>
+       <li onClick={this.focusTextInput.bind(this,'長野県')}>長野県</li>
+       <li onClick={this.focusTextInput.bind(this,'新潟県')}>新潟県</li>
+       <li onClick={this.focusTextInput.bind(this,'石川県')}>石川県</li>
+       <li onClick={this.focusTextInput.bind(this,'富山県')}>富山県</li>
+       <li onClick={this.focusTextInput.bind(this,'岐阜県')}>岐阜県</li>
+       <li onClick={this.focusTextInput.bind(this,'愛知県')}>愛知県</li>
+       <li onClick={this.focusTextInput.bind(this,'山梨県')}>山梨県</li>
+       <li onClick={this.focusTextInput.bind(this,'静岡県')}>静岡県</li>
         </div>
       </ul>
 
@@ -674,13 +676,13 @@ parkSuggestArray.map((parkSuggestArray_item) =>
       <input type="checkbox" id="drawer-kansai" class="drawer-hidden" />
         <div for="drawer-kansai" class="drawer-city-kansai__color drawer-city-height" onClick={this.HomeAreaKN}><p style={{color:this.state.HomeAreaKN === 'inline' ?'#52BF90':'' }}>関西</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className=" drawer-city-li drawer-city-kansai" style={{display:this.state.HomeAreaKN}}>
-       <li onClick={this.focusTextInput.bind(this,'滋賀')}>滋賀県</li>
-       <li onClick={this.focusTextInput.bind(this,'大阪')}>大阪府</li>
-       <li onClick={this.focusTextInput.bind(this,'京都')}>京都府</li>
-       <li onClick={this.focusTextInput.bind(this,'三重')}>三重県</li>
-       <li onClick={this.focusTextInput.bind(this,'和歌山')}>和歌山県</li>
-       <li onClick={this.focusTextInput.bind(this,'奈良')}>奈良県</li>
-       <li onClick={this.focusTextInput.bind(this,'兵庫')}>兵庫県</li>
+       <li onClick={this.focusTextInput.bind(this,'滋賀県')}>滋賀県</li>
+       <li onClick={this.focusTextInput.bind(this,'大阪府')}>大阪府</li>
+       <li onClick={this.focusTextInput.bind(this,'京都府')}>京都府</li>
+       <li onClick={this.focusTextInput.bind(this,'三重県')}>三重県</li>
+       <li onClick={this.focusTextInput.bind(this,'和歌山県')}>和歌山県</li>
+       <li onClick={this.focusTextInput.bind(this,'奈良県')}>奈良県</li>
+       <li onClick={this.focusTextInput.bind(this,'兵庫県')}>兵庫県</li>
         </div>
       </ul>
 
@@ -689,13 +691,13 @@ parkSuggestArray.map((parkSuggestArray_item) =>
         <div for="drawer-tyuShikoku" class="drawer-scity-tyuShikoku__color drawer-city-height"onClick={this.HomeAreaTS}><p style={{color:this.state.HomeAreaTS === 'inline' ?'#52BF90':'' }}>中国・四国</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className="drawer-city-li drawer-city-tyuShikoku" style={{display:this.state.HomeAreaTS}}>
 
-       <li onClick={this.focusTextInput.bind(this,'岡山')}>岡山県</li>
-       <li onClick={this.focusTextInput.bind(this,'広島')}>広島県</li>
-       <li onClick={this.focusTextInput.bind(this,'山口')}>山口県</li>
-       <li onClick={this.focusTextInput.bind(this,'香川')}>香川県</li>
-       <li onClick={this.focusTextInput.bind(this,'愛媛')}>愛媛県</li>
-       <li onClick={this.focusTextInput.bind(this,'高知')}>高知県</li>
-       <li onClick={this.focusTextInput.bind(this,'徳島')}>徳島県</li>
+       <li onClick={this.focusTextInput.bind(this,'岡山県')}>岡山県</li>
+       <li onClick={this.focusTextInput.bind(this,'広島県')}>広島県</li>
+       <li onClick={this.focusTextInput.bind(this,'山口県')}>山口県</li>
+       <li onClick={this.focusTextInput.bind(this,'香川県')}>香川県</li>
+       <li onClick={this.focusTextInput.bind(this,'愛媛県')}>愛媛県</li>
+       <li onClick={this.focusTextInput.bind(this,'高知県')}>高知県</li>
+       <li onClick={this.focusTextInput.bind(this,'徳島県')}>徳島県</li>
         </div>
       </ul>
 
@@ -703,13 +705,13 @@ parkSuggestArray.map((parkSuggestArray_item) =>
       <input type="checkbox" id="drawer-KyuOki" class="drawer-hidden" />
         <div for="drawer-KyuOki" class="drawer-city-KyuOki__color drawer-city-height" onClick={this.HomeAreaKS}><p style={{color:this.state.HomeAreaKS === 'inline' ?'#52BF90':'' }}>九州・沖縄</p><AddIcon style={{color:'#424242a8',fontSize:18,marginRight:14}}/></div>
         <div className="drawer-city-li drawer-city-KyuOki" style={{display:this.state.HomeAreaKS}}>
-       <li onClick={this.focusTextInput.bind(this,'福岡')}>福岡県</li>
-       <li onClick={this.focusTextInput.bind(this,'佐賀')}>佐賀県</li>
-       <li onClick={this.focusTextInput.bind(this,'大分')}>大分県</li>
-       <li onClick={this.focusTextInput.bind(this,'熊本')}>熊本県</li>
-       <li onClick={this.focusTextInput.bind(this,'鹿児島')}>鹿児島県</li>
-       <li onClick={this.focusTextInput.bind(this,'宮城')}>宮崎県</li>
-       <li onClick={this.focusTextInput.bind(this,'沖縄')}>沖縄県</li>
+       <li onClick={this.focusTextInput.bind(this,'福岡県')}>福岡県</li>
+       <li onClick={this.focusTextInput.bind(this,'佐賀県')}>佐賀県</li>
+       <li onClick={this.focusTextInput.bind(this,'大分県')}>大分県</li>
+       <li onClick={this.focusTextInput.bind(this,'熊本県')}>熊本県</li>
+       <li onClick={this.focusTextInput.bind(this,'鹿児島県')}>鹿児島県</li>
+       <li onClick={this.focusTextInput.bind(this,'宮城県')}>宮崎県</li>
+       <li onClick={this.focusTextInput.bind(this,'沖縄県')}>沖縄県</li>
         </div>
       </ul>
 </ul>

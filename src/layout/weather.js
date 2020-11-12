@@ -10,7 +10,8 @@ export class Weather extends Component {
     constructor() {
         super();
         this.state = {
-            weather_icon: ''
+            weather_icon: '',
+            weatherTemp:''
         };
     }
 
@@ -21,9 +22,8 @@ export class Weather extends Component {
         handleGetLatAndLng_day = async () => {
             const response_day = await axios.get('http://api.openweathermap.org/data/2.5/onecall?lat=35.681236&lon=139.767125&exclude=current&lang=ja&appid=53c3cb0dbb1e4379c04eecc993b22af1');
             const weatheritems_hourly = response_day.data.hourly[0].weather[0].description
+            const weatheritems = response_day.data.hourly[0].temp
             const test = weatheritems_hourly.includes('曇')
-            console.log(test)
-            console.log(weatheritems_hourly)
 
             if (weatheritems_hourly.indexOf('曇') != -1) {
                 this.setState({ weather_icon: 'Cloud', })
@@ -32,28 +32,33 @@ export class Weather extends Component {
                 this.setState({ weather_icon: 'Cloud', })
             }
             if (weatheritems_hourly.indexOf('晴') != -1) {
-                this.setState({ weather_icon: 'CloudSunny', })
+                this.setState({ weather_icon: 'CloudSunny' })
             }
             if (weatheritems_hourly.indexOf('雨') != -1) {
-                this.setState({ weather_icon: 'Rain', })
+                this.setState({ weather_icon: 'Rain'})
             }
 
+            this.setState({
+                weatherTemp: (weatheritems - 273.15, 10)
+            })
         }
 
 
     render() {
+
         return (
             <>
-                          <Link to="/weather">
+                <div className="SPweather-item">
+                    <Link to="/weather">
                             {
                                 this.state.weather_icon = "Cloud" ?
                                     <Cloud className="nav-mobile__padding" /> :
                                     this.state.weather_icon = "CloudSunny" ? <CloudSunny className="nav-mobile__padding" /> :
                                     <Rain className="nav-mobile__padding" />
-
-
-                            }
-                        </Link>
+                        }
+                        <p>{this.state.weatherTemp}°</p>
+</Link>
+                        </div>
 
             </>
         )

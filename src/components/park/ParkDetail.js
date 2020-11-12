@@ -37,6 +37,7 @@ import ScreamSkeletonSP from '../../util/ScreamSkeletonSP'
 
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {logoutUser,uploadImage,loginUser} from '../../redux/actions/userActions';
+import {likeScream} from '../../redux/actions/dataActions';
 import LikeButton from '../../components/park/LikeButton'
 import Comments from './Comments';
 import Footer from '../../layout/Footer'
@@ -57,8 +58,6 @@ export class ParkDetail extends Component {
           bkImg: "",
           btnGo:""
       };
-      // this.testcase1 = this.testcase1.bind(this)
-
     }
 
 
@@ -76,18 +75,7 @@ export class ParkDetail extends Component {
               )
           })
       })
-    // }, 1000);
-
     }
-
-  // testcase1() {
-  //   setTimeout(() => {
-  //     <ScreamSkeletonSP />
-  //   }, 1000);
-
-  //   }
-
-
 
 
   render() {
@@ -180,10 +168,10 @@ export class ParkDetail extends Component {
               <h2 className="parkInf-h2">アクセス</h2>
               <img class="name" src={Googlemap}/>
       </div>
-      <div className="parkInf-inner">
+      {/* <div className="parkInf-inner">
               <h2 className="parkInf-h2" onClick={this.testcase1}>公園で楽しく遊ぶために</h2>
               <p></p>
-      </div>
+      </div> */}
       </div>
 
 
@@ -198,7 +186,7 @@ export class ParkDetail extends Component {
 
 
           const loadingUI = this.props.UI;
-          const loadingData = this.props.data.loading;
+          const { parks, loading } = this.props.data;
         return (
           <>
             <Navbar/>
@@ -214,7 +202,7 @@ export class ParkDetail extends Component {
 
             {/* スマホ用 */}
             <div className="innner">
-              {loadingData ?
+              {loading ?
                 <div className="container_paddinng_park container">
                 <ScreamSkeletonSP /> </div>:  <>{parkItem} </>}
 
@@ -262,6 +250,6 @@ ParkDetail.propTypes = {
   data:state.data
   })
 
-  export default connect(mapStateToProps,{getPark})(withRouter(ParkDetail));
+  export default connect(mapStateToProps,{getPark,likeScream})(withRouter(ParkDetail));
 
 

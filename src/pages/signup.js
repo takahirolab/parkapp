@@ -101,7 +101,10 @@ handleChange= (event) => {
                               <img src={Logoimg} className="gl-logo__"/>
                               <h2 className="login-title-size">Parkrへようこそ</h2>
                           </div>
-            <h2 className="mail-signup">アカウントを作成する</h2>
+              <h2 className="mail-signup">アカウントを作成する</h2>
+              {this.props.UI.errors ?
+            <p className="valid">{this.props.UI.errors.email}</p> :
+            '' }
             <form noValidate onSubmit={this.handleSubmit} className="container_main container_paddinng RegForm">
 
               <div className="login-mail-input">
@@ -185,7 +188,7 @@ handleChange= (event) => {
               variant="contained"
               color="primary"
               className="btn"
-              disabled={loading}
+
             >
               登録する！
               {!loading && (

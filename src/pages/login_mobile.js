@@ -141,6 +141,9 @@ const {errors}=this.state;
                           </div>
                           <div className="mail-login">
                               <h2>メールアドレスではじめる</h2>
+          {this.props.UI.errors ?
+            <p className="valid">{this.props.UI.errors.general}</p> :
+            '' }
 
 
 

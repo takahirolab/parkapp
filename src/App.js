@@ -32,10 +32,13 @@ import PostScream from './pages/PostScream'
 import Admin from './pages/admin/admin'
 import ParkDetail from './components/park/ParkDetail';
 import About from './pages/home/About';
+import MypageSP from './pages/sidebar/MypageSP';
 import Mypage from './pages/sidebar/Mypage';
 import { MypageDashbord } from './pages/sidebar/MypageDashbord';
+import { MypageDashbordSP } from './pages/sidebar/MypageDashbordSP';
 import { MypageComment } from './pages/sidebar/MypageComment';
 import MypagePost from './pages/sidebar/MypagePostPark';
+import MypagePostSP from './pages/sidebar/MypagePostParkSP';
 import history from './util/history'
 
 
@@ -43,6 +46,7 @@ import history from './util/history'
 import axios from 'axios';
 import parkList from './pages/admin/admin'
 
+import likeSP from './pages/sidebar/likeSP'
 import Like from './pages/sidebar/like'
 import PostedPark from './pages/sidebar/postedPark'
 
@@ -94,6 +98,10 @@ function App()  {
             /////////////// */}
 
               <Route exact path="/search" component={Users} />
+                <Route exact path="/sp/Mypage" component={MypageSP} />
+                <Route exact path="/sp/dashbord" component={MypageDashbordSP} />
+                <Route exact path="/sp/like" component={likeSP} />
+                <Route exact path="/sp/mypage/post" component={MypagePostSP} />
 
 
 

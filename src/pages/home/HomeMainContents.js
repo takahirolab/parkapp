@@ -156,32 +156,32 @@ export class HomeMainContents extends Component {
                     <Link to={all}><p>すべてみる</p></Link>
                     </div>
                 <ul className="home-maincontent-items">
-                  <Link to={morning} class="category-show__item white category-show__img1"　style={{ background: `url(${NightPic})`,backgroundSize:'Cover'}} onClick={this.handleGetLatAndLng}><p class="white">夜景がキレイ</p></Link>
-                  <Link to={afternoon}  class="category-show__item white category-show__img2" style={{ background: `url(${Nature})`,backgroundSize:'Cover'}}><p class="white">自然が豊か</p></Link>
-                  <Link to={picnic} class="category-show__item white category-show__img3" style={{ background: `url(${photographer})`,backgroundSize:'Cover'}}><p class="white">撮影スポット</p></Link>
-                  <Link to={night} class="category-show__item white category-show__img4" style={{ background: `url(${cupplePic})`,backgroundSize:'Cover'}}><p class="white">デートスポット</p></Link>
-                  <Link to={familly}  class="category-show__item white category-show__img5" style={{ background: `url(${famillyPic})`,backgroundSize:'Cover'}}><p class="white">一風変わった公園</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: '夜景がキレイ' } }} class="category-show__item white category-show__img1"　style={{ background: `url(${NightPic})`,backgroundSize:'Cover'}} onClick={this.handleGetLatAndLng}><p class="white">夜景がキレイ</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: '自然が豊か' } }}  class="category-show__item white category-show__img2" style={{ background: `url(${Nature})`,backgroundSize:'Cover'}}><p class="white">自然が豊か</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: '撮影スポット' } }}  class="category-show__item white category-show__img3" style={{ background: `url(${photographer})`,backgroundSize:'Cover'}}><p class="white">撮影スポット</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: 'デートスポット' } }}  class="category-show__item white category-show__img4" style={{ background: `url(${cupplePic})`,backgroundSize:'Cover'}}><p class="white">デートスポット</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: '一風変わった公園' } }}  class="category-show__item white category-show__img5" style={{ background: `url(${famillyPic})`,backgroundSize:'Cover'}}><p class="white">一風変わった公園</p></Link>
               </ul>
               <ul className="sidebar-items">
-            <Link to={morning} className="sidebar-item">家族連れ</Link>
-            <Link to={afternoon} className="sidebar-item">ジョギング</Link>
-            <Link to={picnic} className="sidebar-item">ピクニック</Link>
-            <Link to={camp} className="sidebar-item">郊外にある</Link>
-            <Link to={night} className="sidebar-item">都内にある</Link>
-            <Link to={dating} className="sidebar-item">海が見える</Link>
-            <Link to={familly} className="sidebar-item">駐車場がある</Link>
-            <Link to={fittness} className="sidebar-item">自転車可</Link>
-            <Link to={morning} className="sidebar-item"><p>運動場</p></Link>
-            <Link to={afternoon} className="sidebar-item">レストラン</Link>
-            <Link to={picnic} className="sidebar-item">乳幼児</Link>
-            <Link to={camp} className="sidebar-item">遊具が豊富</Link>
-            <Link to={night} className="sidebar-item">公園内に売店あり</Link>
-            <Link to={dating} className="sidebar-item">車椅子の方OK</Link>
-            <Link to={familly} className="sidebar-item">幼稚園OK</Link>
-            <Link to={fittness} className="sidebar-item">プールあり</Link>
-            <Link to={fittness} className="sidebar-item">夕日がキレイ</Link>
-            <Link to={fittness} className="sidebar-item">話題の公園</Link>
-            <Link to={fittness} className="sidebar-item">紅葉がきれい</Link>
+            <Link  to={{ pathname: "/park/search", state: { parkTag: '家族連れ' } }} className="sidebar-item">家族連れ</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: 'ジョギング' } }}className="sidebar-item">ジョギング</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: 'ピクニック' } }} className="sidebar-item">ピクニック</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '郊外にある' } }} className="sidebar-item">郊外にある</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '都内にある' } }} className="sidebar-item">都内にある</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '海が見える' } }} className="sidebar-item">海が見える</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '駐車場がある' } }} className="sidebar-item">駐車場がある</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '自転車可' } }} className="sidebar-item">自転車可</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '運動場<' } }}className="sidebar-item">運動場</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: 'レストラン' } }} className="sidebar-item">レストラン</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '乳幼児' } }} className="sidebar-item">乳幼児</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '遊具が豊富' } }} className="sidebar-item">遊具が豊富</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '公園内に売店あり' } }} className="sidebar-item">公園内に売店あり</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '車椅子の方OK' } }} className="sidebar-item">車椅子の方OK</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '幼稚園OK' } }} className="sidebar-item">幼稚園OK</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: 'プールあり' } }} className="sidebar-item">プールあり</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '夕日がキレイ' } }} className="sidebar-item">夕日がキレイ</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '話題の公園' } }} className="sidebar-item">話題の公園</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '紅葉がきれい' } }} className="sidebar-item">紅葉がきれい</Link>
             </ul>
             </div>
 
@@ -205,16 +205,16 @@ export class HomeMainContents extends Component {
                     <Link to={all}><p>すべてみる</p></Link>
                     </div>
                 <ul className="home-maincontent-items">
-                  <Link to={morning} class="parkcategory-show__item white category-show__img1"　style={{ background: `url(${Grass})`,backgroundSize:'Cover'}} onClick={this.handleGetLatAndLng}><p class="white">芝生がある広い公園</p></Link>
-                  <Link to={afternoon}  class="parkcategory-show__item white category-show__img2" style={{ background: `url(${nationalPark})`,backgroundSize:'Cover'}}><p class="white">国立公園</p></Link>
-                  <Link to={picnic} class="parkcategory-show__item white category-show__img3" style={{ background: `url(${Camp})`,backgroundSize:'Cover'}}><p class="white">キャンプができる公園</p></Link>
-                  <Link to={night} class="parkcategory-show__item white category-show__img4" style={{ background: `url(${boatParkr})`,backgroundSize:'Cover'}}><p class="white">海がみえる公園</p></Link>
-                  <Link to={familly}  class="parkcategory-show__item white category-show__img5" style={{ background: `url(${NightPic})`,backgroundSize:'Cover'}}><p class="white">博物館・資料館がある公園</p></Link>
-                  <Link to={familly}  class="parkcategory-show__item white category-show__img5" style={{ background: `url(${animal})`,backgroundSize:'Cover'}}><p class="white">動植物を観察できる公園</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: '芝生がある広い公園' } }}class="parkcategory-show__item white category-show__img1"　style={{ background: `url(${Grass})`,backgroundSize:'Cover'}} onClick={this.handleGetLatAndLng}><p class="white">芝生がある広い公園</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: '国立公園' } }} class="parkcategory-show__item white category-show__img2" style={{ background: `url(${nationalPark})`,backgroundSize:'Cover'}}><p class="white">国立公園</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: 'キャンプができる公園' } }}class="parkcategory-show__item white category-show__img3" style={{ background: `url(${Camp})`,backgroundSize:'Cover'}}><p class="white">キャンプができる公園</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: '海がみえる公園' } }} class="parkcategory-show__item white category-show__img4" style={{ background: `url(${boatParkr})`,backgroundSize:'Cover'}}><p class="white">海がみえる公園</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: '博物館・資料館がある公園' } }} class="parkcategory-show__item white category-show__img5" style={{ background: `url(${NightPic})`,backgroundSize:'Cover'}}><p class="white">博物館・資料館がある公園</p></Link>
+                  <Link to={{ pathname: "/park/search", state: { parkTag: '動植物を観察できる公園' } }} class="parkcategory-show__item white category-show__img5" style={{ background: `url(${animal})`,backgroundSize:'Cover'}}><p class="white">動植物を観察できる公園</p></Link>
               </ul>
               <ul className="sidebar-items">
-            <Link to={morning} className="sidebar-item"><p>植物園</p></Link>
-            <Link to={afternoon} className="sidebar-item">河川敷グラウンド</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '植物園' } }} className="sidebar-item">植物園</Link>
+            <Link to={{ pathname: "/park/search", state: { parkTag: '河川敷グラウンド' } }}className="sidebar-item">河川敷グラウンド</Link>
 
 
           </ul>

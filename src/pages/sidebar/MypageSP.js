@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import Navbar from '../../layout/Navbar'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Footer from '../../layout/Footer'
 
 import { connect } from 'react-redux';
 import { getUserData } from '../../redux/actions/dataActions';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 
 import Pic1 from '../../images/pic1.png';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
@@ -22,7 +24,7 @@ import { DriveEtaTwoTone } from '@material-ui/icons';
 import MapageMain from './MypageMain'
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 
-export class Mypage extends Component {
+export class MypageSP extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -34,15 +36,6 @@ export class Mypage extends Component {
         };
         this.editProfile = this.editProfile.bind(this);
     }
-
-    // mapUserDetailsToState () {
-    //     this.setState({
-    //       bio: this.props.credentials.bio ? this.props.credentials.bio : '',
-    //       userName: this.props.credentials.userName ? this.props.credentials.userName : '',
-    //       location: this.props.credentials.location ? this.props.credentials.location : '',
-    //       email:this.props.credentials.email ? this.props.credentials.email : ''
-    //     });
-    // };
 
     componentDidMount() {
         this.setState({
@@ -94,12 +87,18 @@ export class Mypage extends Component {
 
         return (
             <>
-            <MapageMain>
+              <Navbar/>
                     <div className="Mypage-right">
                         <div>
-                            <div className="Mypage-item-padding">
+                        <div className="Mypage-item-padding">
+                            <div className="Mypage-item-edit">
                                 <h2 className="Mypage-item-h2 Mypage-item-h2__margin ">マイページ</h2>
+                                <div className="Mypage-edit">
+                                                    <EditRoundedIcon style={{ fontSize: 18 ,color:' #52BF90'}}/>
+                                                    <p className="Mypage-item-inf__h2" onClick={this.editProfile}>編集する</p>
+                                </div>
 
+                                </div>
                                 <form className="Mypage-items">
                                     {/* <div className="Mypage-item-right"> */}
                                         {/* <img src={this.props.data.credentials.imageUrl} className="mypage-profile" /> */}
@@ -115,10 +114,7 @@ export class Mypage extends Component {
                                                     <p className="Mypage-item-nameh2 Mypage-item-nameh2__margin">プロフィール画像</p>
                                                     <img src={this.props.data.credentials.imageUrl} className="mypage-profile" />
                                                 </div>
-                                                <div className="Mypage-edit">
-                                                    <EditRoundedIcon style={{ fontSize: 18 ,color:' #52BF90',marginRight:'0.3rem'}}/>
-                                                    <p className="Mypage-item-inf__h2" onClick={this.editProfile}>編集する</p>
-                                                </div>
+
 
                                         </div>
 
@@ -197,7 +193,7 @@ export class Mypage extends Component {
                                     </div>
                                             </div>
                                         <div className="MypageBtn_inner">
-                                         <button className="btn" onClick={this.editProfile} style={{color:'#777777',width:200}}>キャンセル</button>
+                                         <button className="btn" onClick={this.editProfile} style={{color:'#777777',width:200,background:'none'}}>キャンセル</button>
                                         <button className="btn" onClick={this.handleSubmit} style={{ background: '#52BF90', color: '#fff', width: 200 }}>編集を保存する</button>
                                         </div>
                                     </>
@@ -210,7 +206,7 @@ export class Mypage extends Component {
                             </div>
                     </div>
                     </div>
-                </MapageMain>
+                    <Footer />
             </>
 
         )
@@ -219,7 +215,7 @@ export class Mypage extends Component {
 
 }
 
-Mypage.propTypes = {
+MypageSP.propTypes = {
     park: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired,
     editUserDetails: PropTypes.func.isRequired,
@@ -231,7 +227,7 @@ const mapStateToProps = (state) => ({
     user:state.user,
 });
 
-export default connect(mapStateToProps, { editUserDetails })(Mypage);
+export default connect(mapStateToProps, { editUserDetails })(MypageSP);
 
 
 class GoodList extends Component {

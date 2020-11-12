@@ -67,7 +67,31 @@ export class Login extends Component {
     this.openModal = this.openModal.bind(this);
   //   this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.updateViewport = this.updateViewport.bind(this);
   }
+
+
+  componentDidMount() {
+    window.addEventListener('resize', updateViewport)
+    updateViewport()
+}
+
+updateViewport (){
+  const vh = window.innerHeight / 100
+  const vw = window.innerWidth / 100
+
+  const root = document.documentElement
+
+  // 各カスタムプロパティに`window.innerHeight / 100`,`window.innerWidth / 100`の値をセット
+  root.style.setProperty('--vh', `${vh}px`)
+  if (vh > vw) {
+    root.style.setProperty('--vmax', `${vh}px`)
+    root.style.setProperty('--vmin', `${vw}px`)
+  } else {
+    root.style.setProperty('--vmax', `${vw}px`)
+    root.style.setProperty('--vmin', `${vh}px`)
+  }
+}
 
 openModal() {
   this.setState({modalIsOpen: true});
