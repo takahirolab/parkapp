@@ -66,47 +66,58 @@ export class ParkDetail extends Component {
     const parkId = this.props.match.params.parkId;
       this.props.getPark(parkId);
 
-    // setTimeout(() => {
-      axios
-        .get(`/park/${parkId}`)
-        .then((res)=> {
-          this.setState({
-              park_detail:this.state.park_detail.concat(res.data
-              )
-          })
-      })
+      setTimeout(() => {
+        axios
+          .get(`/park/${parkId}`)
+          .then((res)=> {
+            this.setState({
+                park_detail:this.state.park_detail.concat(res.data
+                )
+            })
+        })
+      }, 1000);
     }
 
 
   render() {
     const { errors } = this.state;
     const park_detail = this.state.park_detail;
+    const { park: {
+          parkId,
+          parkName,
+          Onecomment,
+          createdDate,
+          likeCount,
+          commentCount,
+          userImage,
+          userName,
+      parkImage,
+      parkAbout,
+          comments,parkPrice,parkLocation,parkTag1,parkTag2,parkTag3,parkTag4
+    } } = this.props.data
 
 
-      const parkLocationLink = {
-        pathname: '/search',search: '?tokyo',state: { parklocation: '東京都' }
-      };
 
-    const parkItem = park_detail.map((park) =>
+    const parkItem =
 
         <>
 
           <ol className="searchpark-pk">
             <li><Link to="/" className="parkinf-pk">ホーム</Link></li><ArrowForwardIosIcon/>
             <li><Link to="/park/search" className="parkinf-pk">公園検索</Link></li><ArrowForwardIosIcon/>
-            <li className="parkinf-pk">{park.parkName}</li>
+            <li className="parkinf-pk">{parkName}</li>
           </ol>
         <div className="home-maincontent-img">
-        <img src={park.parkImage} className="home-maincontent-img__size"/>
+        <img src={parkImage} className="home-maincontent-img__size"/>
       </div>
           <div className="park-maincontents__inner" >
-          <LikeButton parkId={park.parkId} />
-            <h2 className="park-maincontents__parkName" >{park.parkName}</h2>
+          <LikeButton parkId={parkId} />
+            <h2 className="park-maincontents__parkName" >{parkName}</h2>
 
     <div className="parkLocation-items">
         <div className="parkLocation-det">
                 <LocationOnRoundedIcon style={{ fontSize: 18 }} className="Parkinf-iconSize"/>
-                <Link to={{ pathname: '/search', search: `?${park.parkLocation}`, state: { parklocation: park.parkLocation } }} className="ParkInf-icon-pc">{park.parkLocation}</Link>
+                <Link to={{ pathname: '/search', search: `?${parkLocation}`, state: { parklocation: parkLocation } }} className="ParkInf-icon-pc">{parkLocation}</Link>
 
         </div>
         <div className="parkLocation-det">
@@ -115,20 +126,19 @@ export class ParkDetail extends Component {
         </div>
         <div className="parkLocation-det">
               <PaymentRoundedIcon style={{ fontSize: 18 }} className="Parkinf-iconSize"/>
-              <p className="ParkInf-icon-pc" > {park.parkPrice}円</p>
+              <p className="ParkInf-icon-pc" > {parkPrice}円</p>
               </ div>
             </div>
     <div className="parkTag-items-pc">
-              {!park.parkTag1 ? '' : <Link to={{ pathname: '/search', search: `?${park.parkTag1}`, state: { scene: park.parkTag1 } }} className="sidebar-item sidebar-item__detail">{park.parkTag1}</Link>}
-              {!park.parkTag2 ? '' : <Link to={{ pathname: '/search', search: `?${park.parkTag2}`, state: { scene: park.parkTag2 } }}className="sidebar-item sidebar-item__detail">{park.parkTag2}</Link>}
-              {!park.parkTag3 ? '' :<Link to={{ pathname: '/search', search: `?${park.parkTag3}`, state: { scene: park.parkTag3 } }} className="sidebar-item sidebar-item__detail">{park.parkTag3}</Link>}
-              {!park.parkTag4 ? '' :<Link to={{ pathname: '/search', search: `?${park.parkTag4}`, state: { scene: park.parkTag4 } }} className="sidebar-item sidebar-item__detail">{park.parkTag4}</Link>}
-      </div>{console.log(park.parkTag)}
-
+              {!parkTag1 ? '' : <Link to={{ pathname: '/search', search: `?${parkTag1}`, state: { scene: parkTag1} }} className="sidebar-item sidebar-item__detail">{parkTag1}</Link>}
+              {!parkTag2 ? '' : <Link to={{ pathname: '/search', search: `?${parkTag2}`, state: { scene: parkTag2 } }}className="sidebar-item sidebar-item__detail">{parkTag2}</Link>}
+              {!parkTag3 ? '' :<Link to={{ pathname: '/search', search: `?${parkTag3}`, state: { scene: parkTag3 } }} className="sidebar-item sidebar-item__detail">{parkTag3}</Link>}
+              {!parkTag4 ? '' :<Link to={{ pathname: '/search', search: `?${parkTag4}`, state: { scene: parkTag4 } }} className="sidebar-item sidebar-item__detail">{parkTag4}</Link>}
+      </div>
 
       <div className="parkInf-inner">
               <h2 className="parkInf-h2">公園について</h2>
-              <p>{park.parkAbout}</p>
+              <p>{parkAbout}</p>
       </div>
 
       <div className="parkInf-inner">
@@ -153,36 +163,32 @@ export class ParkDetail extends Component {
             </div>
 
             {/* コメント欄 */}
-      <div className="parkInf-inner">
+      {/* <div className="parkInf-inner">
               <h2 className="parkInf-h2">コメント</h2>
 
 
-              <Comments comments={park.comments} parkId={park.parkId}/>
+              <Comments comments={comments} />
 
-              <CommentForm parkId={park.parkId} />
-              {/* //コメントロジッック */}
-              {/* <div className="comment-btn">コメントする</div> */}
-      </div>
+              <CommentForm parkId={parkId} />
+
+      </div> */}
 
       <div className="parkInf-inner">
               <h2 className="parkInf-h2">アクセス</h2>
-              <img class="name" src={Googlemap}/>
+              <img className="name" src={Googlemap}/>
       </div>
-      {/* <div className="parkInf-inner">
-              <h2 className="parkInf-h2" onClick={this.testcase1}>公園で楽しく遊ぶために</h2>
-              <p></p>
-      </div> */}
+
       </div>
 
 
           </>
 
-      )
+
 
 
         let park_Inf =
         park_detail.map((park) =>
-          <ParkInf key={park.parkId} park={park} className="parkInf_pos" />)
+          <ParkInf key={parkId} park={park} className="parkInf_pos" />)
 
 
           const loadingUI = this.props.UI;
@@ -212,15 +218,13 @@ export class ParkDetail extends Component {
               {/* {park_Inf} */}
               {/* スマホ用ボタン */}
 
-              <div className="btnGo-inner">
+              {/* <div className="btnGo-inner">
                 <ParkLikeButton parkId={this.state.park_detail.parkId} >
-                  {/* <div className="btn btnGo" style={{ backGround: '' }} on>この公園に行ってみたい</div> */}
+                  <div className="btn btnGo" style={{ backGround: '' }} on>この公園に行ってみたい</div>
                   </ParkLikeButton>
-              </div>
+              </div> */}
             </div>
-            {
-              //  this.testcase1()
-            }
+
 
             <div className="footer-detail">
               <Footer />

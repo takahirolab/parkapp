@@ -54,27 +54,31 @@ export default function TemporaryDrawer(props) {
 
       <List>
         <ListItem className="nav-rectangle-item">
+        <Link to="/sp/Mypage/">
                   <img src={props.user.credentials.imageUrl} className="Nav-profileImage" />
-                  <Link to="/sp/Mypage/">マイページ</Link>
+                  マイページ</Link>
         </ListItem>
         <ListItem className="nav-rectangle-item">
+        <Link to="/sp/dashbord">
                   <DashboardRoundedIcon style={{ fontSize: '20', color: '#93918f' ,marginRight:'1rem'}} />
-                  <Link to="/sp/dashbord">ダッシュボード</Link>
+                ダッシュボード</Link>
           </ListItem>
         <ListItem className="nav-rectangle-item">
+        <Link to="/sp/like">
                   <FavoriteRoundedIcon style={{ fontSize: '20', color: '#93918f' ,marginRight:'1rem'}} />
-                  <Link to="/sp/like">いいね一覧</Link>
+                いいね一覧</Link>
           </ListItem>
         <ListItem className="nav-rectangle-item">
+        <Link to="/">
                   <CommentRoundedIcon style={{ fontSize: '20', color: '#93918f' ,marginRight:'1rem'}} />
-                  <Link to="/about">あなたのコメント</Link>
+               あなたのコメント</Link>
           </ListItem>
 
           {/* <ListItem className="nav-rectangle-item">
                   <Link to="/joinActivity">参加予定のアクティビティ</Link>
           </ListItem> */}
           <ListItem className="nav-rectangle-item">
-                  <Link to="/ask">問い合わせ</Link>
+                  <Link to="/">問い合わせ</Link>
           </ListItem>
           <ListItem className="nav-rectangle-item">
               <Link to="/sp/mypage/post" className="Mypage-Park-Post" >公園を投稿する</Link>

@@ -76,17 +76,20 @@ export class HomeWeather extends Component {
           parkTag2: '',
           HomeSearchLocation: 'none',
           HomeSearchWhat:'none',
+          HomeSearchOther:'none',
           prefecture: '',
           HomeparkSelectWhatSee: 'true',
           HomeparkSelectWhatLearn: '',
           HomeparkSelectWhatPlay: '',
           HomeparkSelectWhatOther: '',
-          HomeparkSearchSelectWhat: '',
+        HomeparkSearchSelectWhat: '',
+        HomeparkSearchSelectOther:''
 
       }
        this.inputRef = React.createRef();
       this.modalRef = React.createRef();
       this.modalRefwhat = React.createRef();
+      this.modalRefOther = React.createRef();
         this.handleSubmit = this.handleSubmit.bind(this);
         this.focusTextInput = this.focusTextInput.bind(this);
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
@@ -94,14 +97,18 @@ export class HomeWeather extends Component {
         this.handleFilterTextChangeTag2 = this.handleFilterTextChangeTag2.bind(this);
         this.HomeSearchLocation= this.HomeSearchLocation.bind(this);
         this.HomeSearchWhat= this.HomeSearchWhat.bind(this);
+        this.HomeSearchOther= this.HomeSearchOther.bind(this);
         this.HomeSearchWhatReset= this.HomeSearchWhatReset.bind(this);
+        this.HomeSearchOtherReset= this.HomeSearchOtherReset.bind(this);
       this.valueDelete = this.valueDelete.bind(this)
       this.filterList = this.filterList.bind(this)
 
       this.HomeSearchLocationReset= this.HomeSearchLocationReset.bind(this);
       this.HomeparkSelectWhatSee = this.HomeparkSelectWhatSee.bind(this)
+
       this.handleClickEvent = this.handleClickEvent.bind(this)
       this.handleClickEventwhat = this.handleClickEventwhat.bind(this)
+      this.handleClickEventOther = this.handleClickEventOther.bind(this)
     }
 
 
@@ -109,12 +116,14 @@ export class HomeWeather extends Component {
       // EventTargetに全てのClick eventをHandlingできるように登録する
       document.addEventListener('click', this.handleClickEvent)
       document.addEventListener('click', this.handleClickEventwhat)
+      document.addEventListener('click', this.handleClickEventOther)
     }
 
     componentWillUnmount() {
       // click eventがeventListenerに登録されたままになってしまうのでUnmount時にremoveする
       document.removeEventListener('click', this.handleClickEvent)
       document.removeEventListener('click', this.handleClickEventwhat)
+      document.removeEventListener('click', this.handleClickEventOther)
     }
 
     handleClickEvent (event) {
@@ -142,11 +151,24 @@ export class HomeWeather extends Component {
           })
       }
     }
+    handleClickEventOther (event) {
+      if (
+        this.modalRefOther &&
+        this.modalRefOther.current &&
+        !this.modalRefOther.current.contains(event.target)
+      ) {
+        // ref内にクリックされたeventのDOMが含まれているかを確認する
+        this.setState({
+          HomeSearchOther:'none'
+          })
+      }
+    }
 
 
   HomeSearchLocation() {
     this.setState({
-      HomeSearchWhat:'none'
+      HomeSearchWhat: 'none',
+      HomeSearchOther:'none'
     })
     this.state.HomeSearchLocation ==='none'?
     this.setState({
@@ -159,7 +181,8 @@ export class HomeWeather extends Component {
 
   HomeSearchWhat() {
     this.setState({
-      HomeSearchLocation:'none'
+      HomeSearchLocation: 'none',
+      HomeSearchOther:'none'
     })
     this.state.HomeSearchWhat ==='none'?
     this.setState({
@@ -167,6 +190,20 @@ export class HomeWeather extends Component {
       }):
     this.setState({
       HomeSearchWhat:'none'
+      })
+    }
+
+  HomeSearchOther() {
+    this.setState({
+      HomeSearchLocation: 'none',
+      HomeSearchWhat:'none'
+    })
+    this.state.HomeSearchOther ==='none'?
+    this.setState({
+      HomeSearchOther:'inline'
+      }):
+    this.setState({
+      HomeSearchOther:'none'
       })
     }
 
@@ -260,7 +297,8 @@ export class HomeWeather extends Component {
         event.preventDefault();
         const searchData = {
            parklocation:this.state.prefecture,
-           parkTag:this.state.HomeparkSearchSelectWhat
+           parkTag:this.state.HomeparkSearchSelectWhat,
+           parkTag2:this.state.HomeparkSearchSelectOther
        };
         this.props.searchItem(searchData);
         this.props.history.push('/park/search')
@@ -278,6 +316,11 @@ export class HomeWeather extends Component {
   HomeSearchWhatReset() {
     this.setState({
       HomeparkSearchSelectWhat: '',
+        })
+      }
+  HomeSearchOtherReset() {
+    this.setState({
+      HomeparkSearchSelectOther: '',
         })
       }
 
@@ -411,23 +454,23 @@ export class HomeWeather extends Component {
                     <td className="HomeSearchLocation-td">北海道</td><td onClick={this.focusTextInput.bind(this,'北海道')}>北海道</td>
                   </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">東北</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'青森')}>青森</div><div  className="HomeParkprefecture"　onClick={this.focusTextInput.bind(this,'岩手')}>岩手</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'秋田')}>秋田</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'岩手')}>岩手</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'山形')}>山形</div><div  className="HomeParkprefecture"　onClick={this.focusTextInput.bind(this,'福島')}>福島</div></td>
+                    <td className="HomeSearchLocation-td">東北</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'青森県')}>青森県</div><div  className="HomeParkprefecture"　onClick={this.focusTextInput.bind(this,'岩手県')}>岩手県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'秋田県')}>秋田県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'岩手県')}>岩手県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'山形県')}>山形県</div><div  className="HomeParkprefecture"　onClick={this.focusTextInput.bind(this,'福島県')}>福島県</div></td>
                     </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">関東</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'東京都')}>東京</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'神奈川')}>神奈川</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'埼玉')}>埼玉</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'千葉')}>千葉</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'茨城')}　>茨城</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'山形')}onClick={this.focusTextInput.bind(this,'栃木')}>栃木</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'群馬')}>群馬</div></td>
+                    <td className="HomeSearchLocation-td">関東</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'東京都')}>東京都</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'神奈川県')}>神奈川県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'埼玉県')}>埼玉県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'千葉県')}>千葉県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'茨城県')}　>茨城県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'山形県')}onClick={this.focusTextInput.bind(this,'栃木県')}>栃木県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'群馬県')}>群馬県</div></td>
                   </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">中部</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'山梨')}>山梨</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'静岡')}>静岡</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'愛知')}>愛知</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'岐阜')}>岐阜</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'長野')}>長野</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'石川')}>石川</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'福井')}>福井</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'新潟')}>新潟</div></td>
+                    <td className="HomeSearchLocation-td">中部</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'山梨県')}>山梨県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'静岡県')}>静岡県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'愛知県')}>愛知県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'岐阜県')}>岐阜県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'長野県')}>長野県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'石川県')}>石川県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'福井県')}>福井県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'新潟県')}>新潟県</div></td>
                   </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">関西</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'大阪大阪')}>大阪</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'滋賀滋賀')}>滋賀</div><div  className="HomeParkprefecture"　onClick={this.focusTextInput.bind(this,'三重三重')}>三重</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'京都京都')}>京都</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'和歌山和歌山')}>和歌山</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'兵庫兵庫')}>兵庫</div></td>
+                    <td className="HomeSearchLocation-td">関西</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'大阪府')}>大阪県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'滋賀県')}>滋賀県</div><div  className="HomeParkprefecture"　onClick={this.focusTextInput.bind(this,'三重県')}>三重県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'京都府')}>京都県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'和歌山県')}>和歌山県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'兵庫県')}>兵庫県</div></td>
                   </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">中国・四国</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'岡山')}>岡山</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'広島')}>広島</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'山口')}>山口</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'鳥取')}>鳥取</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'島根')}>島根</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'愛媛')}>愛媛</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'香川')}>香川</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'徳島')}>徳島</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'高知')}>高知</div></td>
+                    <td className="HomeSearchLocation-td">中国・四国</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'岡山県')}>岡山県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'広島県')}>広島県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'山口県')}>山口県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'鳥取県')}>鳥取県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'島根県')}>島根県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'愛媛県')}>愛媛県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'香川県')}>香川県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'徳島県')}>徳島県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'高知県')}>高知県</div></td>
                   </tr>
 
                   <tr>
-                    <td className="HomeSearchLocation-td">九州・沖縄</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'福岡')}>福岡</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'大分')}>大分</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'宮崎')}>宮崎</div><div  className="HomeParkprefecture"　onClick={this.focusTextInput.bind(this,'鹿児島')}>鹿児島</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'長崎')}>長崎</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'佐賀')}>佐賀</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'沖縄')}>沖縄</div></td>
+                    <td className="HomeSearchLocation-td">九州・沖縄</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'福岡県')}>福岡県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'大分県')}>大分県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'宮崎県')}>宮崎県</div><div  className="HomeParkprefecture"　onClick={this.focusTextInput.bind(this,'鹿児島県')}>鹿児島県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'長崎県')}>長崎県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'佐賀県')}>佐賀県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'沖縄県')}>沖縄県</div></td>
                   </tr>
 
               </table>
@@ -446,7 +489,9 @@ export class HomeWeather extends Component {
             <CancelIcon style={{ fontSize: 18,color:'#b4b4b4' }} className="HomeParkSearch-Location_reset" onClick={this.HomeSearchWhatReset}/>:''}
 
                 {this.state.HomeparkSearchSelectWhat ==='' ? <p style={{color:'#b4b4b4',marginLeft:'1rem',fontSize:'1.4rem'}}>目的からさがす</p> : <p  style={{color:'#52BF90',marginLeft:'1rem',fontSize:'1.4rem'}}>{this.state.HomeparkSearchSelectWhat}</p>}
-                <div className="ParkSearchWhat-Select" style={{ display: this.state.HomeSearchWhat }}>
+
+
+          <div className="ParkSearchWhat-Select" style={{ display: this.state.HomeSearchWhat }}>
                 <h2>目的からさがす</h2>
 
                 <div className="HomeSearchLocation-Select-items">
@@ -541,23 +586,27 @@ export class HomeWeather extends Component {
                 </div>
 
 
-                <div className="HomeParkSearch-Location">
+                <div className="HomeParkSearch-Other" onClick={this.HomeSearchOther} ref={this.modalRefOther}>
                     <AddRoundedIcon style={{ fontSize: 24, color: '#52bf90' }} />
-                    <select className="p HomeParkSearch-what-select"
-                  value={this.state.parkTag2}
-                  onChange={this.handleFilterTextChangeTag2}
-                        placeholder="ああああ"
-                        name="what"
-                  style={
-                    this.state.parkTag2 ?
-                      { color: '#52BF90'} :  { color: '#b4b4b4' }
-                  }>
-                    <option value="" style={{display:'none'}}>その他詳細条件</option>
-                    <option value="">すべて</option>
-                    <option value="東京都">東京</option>
-                    <option value="大阪">大阪</option>
-                    <option value="神奈川">神奈川</option>
-                </select>
+                    {this.state.HomeparkSearchSelectOther ?
+                  <CancelIcon style={{ fontSize: 18,color:'#b4b4b4' }} className="HomeParkSearch-Location_reset" onClick={this.HomeSearchOtherReset}/>:''}
+
+                     {this.state.HomeparkSearchSelectOther ==='' ? <p style={{color:'#b4b4b4',marginLeft:'1rem',fontSize:'1.4rem'}}>その他・詳細条件</p> : <p  style={{color:'#52BF90',marginLeft:'1rem',fontSize:'1.4rem'}}>{this.state.HomeparkSearchSelectOther}</p>}
+                     <div className="ParkSearchOther-Select" style={{ display: this.state.HomeSearchOther }}>
+                <h2>一緒にいくひと</h2>
+
+                <ul className="sidebar-items HomeSearchInputWhat-modal">
+                  <li onClick={() => this.setState({ HomeparkSearchSelectOther:'ひとり'})} className="sidebar-item">ひとり</li>
+                  <li onClick={() => this.setState({ HomeparkSearchSelectOther:'子供'})} className="sidebar-item">子供</li>
+                  <li onClick={() => this.setState({ HomeparkSearchSelectOther:'カップル'})} className="sidebar-item">カップル</li>
+                  <li onClick={() => this.setState({ HomeparkSearchSelectOther:'車椅子のかた'})} className="sidebar-item">車椅子のかた</li>
+                  <li onClick={() => this.setState({ HomeparkSearchSelectOther:'友人'})}className="sidebar-item">友人</li>
+                  <li onClick={() => this.setState({ HomeparkSearchSelectOther:'家族'})} className="sidebar-item">家族</li>
+                  <li onClick={() => this.setState({ HomeparkSearchSelectOther:'小さいこども'})}className="sidebar-item">小さいこども</li>
+                  <li onClick={() => this.setState({ HomeparkSearchSelectOther:'乳幼児'})}className="sidebar-item">乳幼児</li>
+                </ul>
+              </div>
+
                 </div>
 
 

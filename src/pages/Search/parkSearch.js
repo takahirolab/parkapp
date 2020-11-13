@@ -642,26 +642,26 @@ fixedOpen() {
                   <table className="HomeSearchLocation-Select__margin" >
 
                   <tr>
-                    <td className="HomeSearchLocation-td">北海道</td><td onClick={() => this.setState({ parklocation:'北海道'})}>北海道</td>
+                    <td className="HomeSearchLocation-td">北海道</td><td onClick={() => this.setState({ parklocation:'北海道'})} style={{fontSize:12}}>北海道</td>
                   </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">東北</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'青森'})}>青森</div><div  className="HomeParkprefecture"　onClick={() => this.setState({ parklocation:'岩手'})}>岩手</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'秋田'})}>秋田</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'岩手'})}>岩手</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'山形'})}>山形</div><div  className="HomeParkprefecture"　onClick={() => this.setState({ parklocation:'福島'})}>福島</div></td>
+                    <td className="HomeSearchLocation-td">東北</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'青森県'})}>青森県</div><div  className="HomeParkprefecture"　onClick={() => this.setState({ parklocation:'岩手県'})}>岩手県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'秋田県'})}>秋田県</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'岩手県'})}>岩手県</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'山形県'})}>山形県</div><div  className="HomeParkprefecture"　onClick={() => this.setState({ parklocation:'福島県'})}>福島県</div></td>
                     </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">関東</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'東京都'})}>東京</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'神奈川'})}>神奈川</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'埼玉'})}>埼玉</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'千葉'})}>千葉</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'茨城'})}　>茨城</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'山形'})}onClick={() => this.setState({ parklocation:'栃木'})}>栃木</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'群馬'})}>群馬</div></td>
+                    <td className="HomeSearchLocation-td">関東</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'東京都'})}>東京都</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'神奈川県'})}>神奈川県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'埼玉県'})}>埼玉県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'千葉県'})}>千葉県</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'茨城県'})}　>茨城県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'山形県'})}onClick={() => this.setState({ parklocation:'栃木'})}>栃木県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'群馬県'})}>群馬県</div></td>
                   </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">中部</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'山梨'})}>山梨</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'静岡'})}>静岡</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'愛知'})}>愛知</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'岐阜'})}>岐阜</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'長野'})}>長野</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'石川'})}>石川</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'福井'})}>福井</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'新潟'})}>新潟</div></td>
+                    <td className="HomeSearchLocation-td">中部</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'山梨県'})}>山梨県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'静岡県'})}>静岡県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'愛知県'})}>愛知県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'岐阜県'})}>岐阜県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'長野県'})}>長野県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'石川県'})}>石川県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'福井県'})}>福井県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'新潟県'})}>新潟県</div></td>
                   </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">関西</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'大阪'})}>大阪</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'滋賀'})}>滋賀</div><div  className="HomeParkprefecture"　onClick={() => this.setState({ parklocation:'三重'})}>三重</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'京都'})}>京都</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'和歌山'})}>和歌山</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'兵庫'})}>兵庫</div></td>
+                    <td className="HomeSearchLocation-td">関西</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'大阪県'})}>大阪府</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'滋賀県'})}>滋賀県</div><div  className="HomeParkprefecture"　onClick={() => this.setState({ parklocation:'三重県'})}>三重県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'京都県'})}>京都府</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'和歌山県'})}>和歌山県</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'兵庫県'})}>兵庫県</div></td>
                   </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">中国・四国</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'岡山'})}>岡山</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'広島'})}>広島</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'山口'})}>山口</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'鳥取'})}>鳥取</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'島根'})}>島根</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'愛媛'})}>愛媛</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'香川'})}>香川</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'徳島'})}>徳島</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'高知'})}>高知</div></td>
+                    <td className="HomeSearchLocation-td">中国・四国</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'岡山県'})}>岡山県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'広島県'})}>広島県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'山口県'})}>山口県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'鳥取県'})}>鳥取県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'島根県'})}>島根県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'愛媛県'})}>愛媛県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'香川県'})}>香川県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'徳島県'})}>徳島県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'高知県'})}>高知県</div></td>
                   </tr>
 
                   <tr>
-                    <td className="HomeSearchLocation-td">九州・沖縄</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'福岡'})}>福岡</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'大分'})}>大分</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'宮崎'})}>宮崎</div><div  className="HomeParkprefecture"　onClick={() => this.setState({ parklocation:'鹿児島'})}>鹿児島</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'長崎'})}>長崎</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'佐賀'})}>佐賀</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'沖縄'})}>沖縄</div></td>
+                    <td className="HomeSearchLocation-td">九州・沖縄</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'福岡県'})}>福岡県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'大分県'})}>大分県</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'宮崎県'})}>宮崎県</div><div  className="HomeParkprefecture"　onClick={() => this.setState({ parklocation:'鹿児島県'})}>鹿児島県</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'長崎県'})}>長崎県</div><div  className="HomeParkprefecture"onClick={() => this.setState({ parklocation:'佐賀県'})}>佐賀県</div><div  className="HomeParkprefecture" onClick={() => this.setState({ parklocation:'沖縄県'})}>沖縄県</div></td>
                   </tr>
 
                 </table>
@@ -826,34 +826,31 @@ fixedOpen() {
 
             <div className="parkSuggest-items">
             <p class="parkSuggest parkSug_p">おすすめの検索</p>
-            <div className="parkSuggest"onClick={this.test1}>
+            <div className="parkSuggest"onClick={() => this.setState({ parklocation:'東京都',parkTag2:'家族'})}>
               <SearchRoundedIcon style={{ fontSize: 16, color: '#93918F' }} />
               <p className="parkSuggest-p">東京</p><p className="parkSuggest-p">家族</p>
             </div>
             <div className="parkSuggest">
               <SearchRoundedIcon style={{ fontSize: 16, color: '#93918F' }} />
-              <p className="parkSuggest-p" onClick={this.test1}>東京 朝</p>
+              <p className="parkSuggest-p" onClick={() => this.setState({ parklocation:'東京都',parkTag:'朝'})}>東京 朝</p>
             </div>
             <div className="parkSuggest">
               <SearchRoundedIcon style={{ fontSize: 16, color: '#93918F' }} />
-              <p className="parkSuggest-p" onClick={this.test1}>東京 ジョギング</p>
+              <p className="parkSuggest-p" onClick={() => this.setState({ parklocation:'東京都',parkTag:'ジョギング'})}>東京 ジョギング</p>
             </div>
             <div className="parkSuggest">
               <SearchRoundedIcon style={{ fontSize: 16, color: '#93918F' }} />
-              <p className="parkSuggest-p" onClick={this.test1}>東京 家族</p>
+              <p className="parkSuggest-p" onClick={() => this.setState({ parklocation:'東京都',parkTag:'海が見える'})}>東京 海が見える</p>
             </div>
             <div className="parkSuggest">
               <SearchRoundedIcon style={{ fontSize: 16, color: '#93918F' }} />
-              <p className="parkSuggest-p" onClick={this.test1}>東京 家族</p>
+              <p className="parkSuggest-p"onClick={() => this.setState({ parklocation:'東京都',parkTag:'芝がある'})}>東京 芝がある</p>
             </div>
             <div className="parkSuggest">
               <SearchRoundedIcon style={{ fontSize: 16, color: '#93918F' }} />
-              <p className="parkSuggest-p" onClick={this.test1}>東京 家族</p>
+              <p className="parkSuggest-p" onClick={() => this.setState({ parklocation:'東京都',parkTag:'夜景がきれい'})}>東京 夜景がきれい</p>
             </div>
-            <div className="parkSuggest">
-              <SearchRoundedIcon style={{ fontSize: 16, color: '#93918F' }} />
-              <p className="parkSuggest-p" onClick={this.test1}>東京 家族</p>
-            </div>
+
               </div>
             </div>
             <div className="parkSearchFil_inner">

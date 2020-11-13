@@ -41,9 +41,10 @@ export class MypageLeft extends Component{
                                                 <div className="sidemenu-item-inner">
                                                 <img src={this.props.user.credentials.imageUrl} className="Nav-profileImage"/>
                                                     {/* <AccountCircleIcon style={{ fontSize: '48', color: '#777777' }} /> */}
-                                                    <div className="sidemenu-item-inner-profile">
+                                                    <div className="sidemenu-item-inner-profile"> <Link to="/Mypage" className="sidemenu-item-inner-profile_mypage">
                                                         <p className="sidemenu-item-inner-profile_Name">{this.props.user.credentials.userName}さん</p>
-                                                    <Link to="/Mypage" className="sidemenu-item-inner-profile_mypage">マイページ
+
+                                                    マイページ
                                                     </Link>
                                                     </div>
                                                 </div>

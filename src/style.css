@@ -644,6 +644,17 @@ margin-left:3rem;
     position: relative;
     background: #fff;
   }
+  .HomeParkSearch-Other{
+    width: 23.5rem;
+    position: relative;
+    border-right: #b4b4b438 solid 1px;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0rem;
+    position: relative;
+    background: #fff;
+  }
   .HomeParkSearch-Location-select{
 
     color: #b4b4b4;
@@ -715,7 +726,7 @@ margin-left:3rem;
   display: flex;
 }
 .parkTag-items-pc{
-  margin-bottom:1rem ;
+  margin-top:1rem ;
 }
 .park-maincontents__inner h2 {
   line-height: 2.4rem;
@@ -1163,7 +1174,7 @@ width: 125%;
 .HomeSearchLocation-Select{
   z-index: 1;
   padding:1.6rem;
-  width: 53rem;
+  width: 60rem;
   height: 32rem;
   background: #fff;
   position: absolute;
@@ -1175,7 +1186,7 @@ width: 125%;
 .ParkSearchLocation-Select{
   z-index: 1;
   padding:1.6rem;
-  width: 53rem;
+  width: 60rem;
   height: 32rem;
   background: #fff;
   position: absolute;
@@ -1183,6 +1194,19 @@ width: 125%;
   box-shadow: 0 2px 5px #777;
   border-radius: 8px;
   left:0;
+}
+
+.ParkSearchOther-Select{
+  z-index: 1;
+  padding:1.6rem;
+  width: 60rem;
+  height: 32rem;
+  background: #fff;
+  position: absolute;
+  top: 67px;
+  box-shadow: 0 2px 5px #777;
+  border-radius: 8px;
+  left:-365px;
 }
 .HomeParkSearch-Location_reset{
   position:absolute;
@@ -1196,7 +1220,7 @@ width: 125%;
 .ParkSearchWhat-Select{
   z-index: 1;
   padding: 1.6rem;
-  width: 61rem;
+  width: 60rem;
   height: 32rem;
   background: #fff;
   position: absolute;
@@ -1208,7 +1232,7 @@ width: 125%;
 
 .HomeSearchLocation-Select__margin{
 margin-top: 1.2rem;
-width: 50rem;
+width: 57rem;
 }
 .HomeParkSearch-Location p {
   color: #b4b4b4;
@@ -4081,7 +4105,9 @@ a.Mypage-Park-Post {
     height: 12.4rem; }
   .parksResult-item-img {
     width: 17.1rem; }
-  .nav-rectangle-item a {
+  .nav-rectangle-item a
+   {display: flex;
+    align-items: center;
     color: #404040; }
    .nav-rectangle-item{
 display: flex;

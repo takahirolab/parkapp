@@ -122,12 +122,12 @@ export class SidebarPrefecture extends Component {
 
                     <h2 className="selectItemTH_h2">東北</h2>
                     <ul>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '青森' } }}>青森</Link>
-                      <Link to={{ pathname: '/park/search', state: { parklocation: '秋田' } }} className="">秋田</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '山形' } }} className="">山形</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '岩手' } }} className="">岩手</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '宮城' } }} className="">宮城</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '福島' } }} className="">福島</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '青森県' } }}>青森</Link>
+                      <Link to={{ pathname: '/park/search', state: { parklocation: '秋田県' } }} className="">秋田</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '山形県' } }} className="">山形</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '岩手県' } }} className="">岩手</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '宮城県' } }} className="">宮城</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '福島県' } }} className="">福島</Link>
                       </ul>
                       <div class="balloon"></div>
                     </div>
@@ -144,13 +144,13 @@ export class SidebarPrefecture extends Component {
                     <div className="selectItemTH KT">
                       <h2 className="selectItemTH_h2">関東</h2>
                     <ul>
-                      <Link to={{ pathname: "/park/search",search: "?sort=new",state: { parklocation: '東京' } }} className="">東京</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '埼玉' } }} className="">埼玉</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '千葉' } }} className="">千葉</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '神奈川' } }} className="">神奈川</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '茨城' } }} className="">茨城</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '栃木' } }} className="">栃木</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '群馬' } }} className="">群馬</Link>
+                      <Link to={{ pathname: "/park/search",search: "?sort=new",state: { parklocation: '東京都' } }} className="">東京</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '埼玉県' } }} className="">埼玉</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '千葉県' } }} className="">千葉</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '神奈川県' } }} className="">神奈川</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '茨城県' } }} className="">茨城</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '栃木県' } }} className="">栃木</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '群馬県' } }} className="">群馬</Link>
                       </ul>
                       <div class="balloon"></div>
                     </div>
@@ -165,15 +165,15 @@ export class SidebarPrefecture extends Component {
                     <div className="selectItemTH TB">
                       <h2 className="selectItemTH_h2">中部・北陸</h2>
                       <ul>
-                        <Link to={{ pathname:"/park/search", state: { parklocation: '新潟' } }} className="">新潟</Link>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '長野' } }} className="">長野</Link>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '石川' } }} className="">石川</Link>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '富山' } }} className="">富山</Link>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '福井' } }} className="">福井</Link>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '静岡' } }} className="">静岡</Link>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '山梨' } }} className="">山梨</Link>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '愛知' } }} className="">愛知</Link>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '岐阜' } }} className="">岐阜</Link>
+                        <Link to={{ pathname:"/park/search", state: { parklocation: '新潟県' } }} className="">新潟</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '長野県' } }} className="">長野</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '石川県' } }} className="">石川</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '富山県' } }} className="">富山</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '福井県' } }} className="">福井</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '静岡県' } }} className="">静岡</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '山梨県' } }} className="">山梨</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '愛知県' } }} className="">愛知</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '岐阜県' } }} className="">岐阜</Link>
                         </ul>
                       <div class="balloon"></div>
                     </div>
@@ -191,12 +191,12 @@ export class SidebarPrefecture extends Component {
 
 
                     <ul>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '大阪' } }} className="">大阪</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '京都' } }} className="">京都</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '和歌山' } }} className="">和歌山</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '三重' } }} className="">三重</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '滋賀' } }} className="">滋賀</Link>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '奈良' } }} className="">奈良</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '大阪府' } }} className="">大阪</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '京都府' } }} className="">京都</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '和歌山県' } }} className="">和歌山</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '三重県' } }} className="">三重</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '滋賀県' } }} className="">滋賀</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '奈良県' } }} className="">奈良</Link>
                       </ul>
                       <div class="balloon"></div>
                     </div>
@@ -213,16 +213,16 @@ export class SidebarPrefecture extends Component {
                     <div className="selectItemTH TS">
                       <h2 className="selectItemTH_h2">中国・四国</h2>
                     <ul>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '兵庫' } }} className="">兵庫</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '岡山' } }} className="">岡山</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '広島' } }} className="">広島</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '山口' } }} className="">山口</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '鳥取' } }} className="">鳥取</Link>
-                        <Link to={{ pathname: "/park/search", state: { parklocation: '島根' } }} className="">島根</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '香川' } }} className="">香川</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '愛媛' } }} className="">愛媛</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '高知' } }} className="">高知</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '徳島' } }} className="">徳島</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '兵庫県' } }} className="">兵庫</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '岡山県' } }} className="">岡山</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '広島県' } }} className="">広島</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '山口県' } }} className="">山口</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '鳥取県' } }} className="">鳥取</Link>
+                        <Link to={{ pathname: "/park/search", state: { parklocation: '島根県' } }} className="">島根</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '香川県' } }} className="">香川</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '愛媛県' } }} className="">愛媛</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '高知県' } }} className="">高知</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '徳島県' } }} className="">徳島</Link>
                       </ul>
                       <div class="balloon"></div>
                     </div>
@@ -240,14 +240,14 @@ export class SidebarPrefecture extends Component {
 
 
                     <ul>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '福岡' } }} className="">福岡</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '長崎' } }} className="">長崎</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '佐賀' } }} className="">佐賀</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '大分' } }} className="">大分</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '熊本' } }} className="">熊本</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '宮崎' } }} className="">宮崎</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '鹿児島' } }} className="">鹿児島</Link>
-                      <Link to={{ pathname: "/park/search", state: { parklocation: '沖縄' } }} className="">沖縄</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '福岡県' } }} className="">福岡</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '長崎県' } }} className="">長崎</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '佐賀県' } }} className="">佐賀</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '大分県' } }} className="">大分</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '熊本県' } }} className="">熊本</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '宮崎県' } }} className="">宮崎</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '鹿児島県' } }} className="">鹿児島</Link>
+                      <Link to={{ pathname: "/park/search", state: { parklocation: '沖縄県' } }} className="">沖縄</Link>
                       </ul>
                       <div class="balloon"></div>
                     </div>
