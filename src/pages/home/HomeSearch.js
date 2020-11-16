@@ -90,16 +90,16 @@ export class HomeWeather extends Component {
       this.modalRef = React.createRef();
       this.modalRefwhat = React.createRef();
       this.modalRefOther = React.createRef();
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.focusTextInput = this.focusTextInput.bind(this);
-        this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
-        this.handleFilterTextChangeTag = this.handleFilterTextChangeTag.bind(this);
-        this.handleFilterTextChangeTag2 = this.handleFilterTextChangeTag2.bind(this);
-        this.HomeSearchLocation= this.HomeSearchLocation.bind(this);
-        this.HomeSearchWhat= this.HomeSearchWhat.bind(this);
-        this.HomeSearchOther= this.HomeSearchOther.bind(this);
-        this.HomeSearchWhatReset= this.HomeSearchWhatReset.bind(this);
-        this.HomeSearchOtherReset= this.HomeSearchOtherReset.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.focusTextInput = this.focusTextInput.bind(this);
+      this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+      this.handleFilterTextChangeTag = this.handleFilterTextChangeTag.bind(this);
+      this.handleFilterTextChangeTag2 = this.handleFilterTextChangeTag2.bind(this);
+      this.HomeSearchLocation= this.HomeSearchLocation.bind(this);
+      this.HomeSearchWhat= this.HomeSearchWhat.bind(this);
+      this.HomeSearchOther= this.HomeSearchOther.bind(this);
+      this.HomeSearchWhatReset= this.HomeSearchWhatReset.bind(this);
+      this.HomeSearchOtherReset= this.HomeSearchOtherReset.bind(this);
       this.valueDelete = this.valueDelete.bind(this)
       this.filterList = this.filterList.bind(this)
 

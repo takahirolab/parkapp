@@ -14,13 +14,8 @@ export class Login extends Component {
         const [modalStyle] = React.useState(getModalStyle);
         const [open, setOpen] = React.useState(false);
 
-        const handleOpen = () => {
-            setOpen(true);
-        };
-
-        const handleClose = () => {
-            setOpen(false);
-        };
+        const handleOpen = () => {setOpen(true);};
+        const handleClose = () => {setOpen(false);};
 
 
 
@@ -28,15 +23,15 @@ export class Login extends Component {
             <div>
                 <button type="button" onClick={handleOpen}>
                     Open Modal
-      </button>
-                {/* <Modal
+                </button>
+                <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
         {body}
-      </Modal> */}
+      </Modal>
                 <Modal
                     open={open}
                     onClose={handleClose}

@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import DashboardRoundedIcon from '@material-ui/icons/DashboardRounded';
 import {logoutUser,uploadImage,loginUser} from '../redux/actions/userActions';
 import { connect } from 'react-redux';
+import MypageSignOut  from './Logout'
 
 const useStyles = makeStyles({
   list: {
@@ -40,6 +41,7 @@ export default function TemporaryDrawer(props) {
 
     setState({ ...state, [anchor]: open });
   };
+
 
   const list = (anchor) => (
     <div
@@ -82,9 +84,10 @@ export default function TemporaryDrawer(props) {
           </ListItem>
           <ListItem className="nav-rectangle-item">
               <Link to="/sp/mypage/post" className="Mypage-Park-Post" >公園を投稿する</Link>
-          </ListItem>
-          <MypageSignOut/>
-
+        </ListItem>
+        <div className="nav-rectangle-item">
+          <MypageSignOut />
+          </div>
       </List>
       <Divider />
 
@@ -107,29 +110,3 @@ export default function TemporaryDrawer(props) {
 
   );
 }
-
-
-
-class MypageSignOut extends Component{
-  constructor() {
-    super();
-    this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  handleLogout = () => {
-    this.props.logoutUser();
-  }
-  render() {
-    return (
-      <div className="nav-rectangle-item" onClick={this.handleLogout}>サインアウト</div>
-    )
-}
-}
-
-const mapStateToProps = (state) => ({
-  authenticated: state.user.authenticated,
-  user:state.user,
-  UI:state.UI
-});
-
-connect(mapStateToProps,{logoutUser})(MypageSignOut);

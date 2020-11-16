@@ -32,10 +32,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import AddIcon from '@material-ui/icons/Add';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import LogoTree from '../../images/LogoTree.svg';
-import prefecture from './prefecture.json';
-
-
-
+import prefecture from '../../util/prefecture.json';
 
 const JapanArea = prefecture;
 
