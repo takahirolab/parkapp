@@ -209,7 +209,7 @@ export class Navbar extends Component {
             <>
             <p onClick={this.openModalSignup} className="SingupBtn" >新規登録</p>
 
-                {this.state.currentPosition < 170 ? <p onClick={this.openModalLogin} style={{color:'#FFF'}}className="nav-item_login">ログイン</p>:    <p onClick={this.openModalLogin} className="nav-item_login">ログイン</p>}
+             <p onClick={this.openModalLogin} className="nav-item_login">ログイン</p>
                 <Modal
                  isOpen={this.state.modalIsOpenLogin}
                  onAfterOpen={this.afterOpenModal}

@@ -24,16 +24,16 @@ export class HomeLocatiomSp extends Component{
                 </div>
                 <div className="park-city-items">
                   <ul className="park-city-items--">
-                  <Link to={{ pathname: "/park/search", state: { parkTag: '夜景がキレイ' } }} class="parkKindimg"　style={{ background: `url(${bigPark })`,backgroundSize:'Cover'}} onClick={this.handleGetLatAndLng}><p class="white">夜景がキレイ</p></Link>
-                  <Link to={{ pathname: "/park/search", state: { parkTag: '自然が豊か' } }}  class="parkKindimg" style={{ background: `url(${boatParkr})`,backgroundSize:'Cover'}}><p class="white">自然が豊か</p></Link>
-                  <Link to={{ pathname: "/park/search", state: { parkTag: '撮影スポット' } }}class="parkKindimg" style={{ background: `url(${Grass})`,backgroundSize:'Cover'}}><p class="white">撮影スポット</p></Link>
-                  <Link to={{ pathname: "/park/search", state: { parkTag: 'デートスポット' } }} class="parkKindimg" style={{ background: `url(${nationalPark})`,backgroundSize:'Cover'}}><p class="white">デートスポット</p></Link>
-                  <Link to={{ pathname: "/park/search", state: { parkTag: '一風変わった公園' } }}  class="parkKindimg" style={{ background: `url(${photographer})`,backgroundSize:'Cover'}}><p class="white">一風変わった公園</p></Link>
+                  <Link to={{ pathname: "/park/search",search:`?parkTag=${'夜景がキレイ'}`, state: { parkTag: '夜景がキレイ' } }} class="parkKindimg"　style={{ background: `linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%),url(${bigPark })`,backgroundSize:'Cover'}} onClick={this.handleGetLatAndLng}><p class="white">夜景がキレイ</p></Link>
+                  <Link to={{ pathname: "/park/search",search:`?parkTag=${'自然が豊か'}`, state: { parkTag: '自然が豊か' } }}  class="parkKindimg" style={{ background: `linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%),url(${boatParkr})`,backgroundSize:'Cover'}}><p class="white">自然が豊か</p></Link>
+                  <Link to={{ pathname: "/park/search",search:`?parkTag=${'夜景がキレイ'}`, state: { parkTag: '撮影スポット' } }}class="parkKindimg" style={{ background: `linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%),url(${Grass})`,backgroundSize:'Cover'}}><p class="white">撮影スポット</p></Link>
+                  <Link to={{ pathname: "/park/search",search:`?parkTag=${'デートスポット'}`, state: { parkTag: 'デートスポット' } }} class="parkKindimg" style={{ background: `linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%),url(${nationalPark})`,backgroundSize:'Cover'}}><p class="white">デートスポット</p></Link>
+                  <Link to={{ pathname: "/park/search",search:`?parkTag=${'一風変わった公園'}`, state: { parkTag: '一風変わった公園' } }}  class="parkKindimg" style={{ background: `linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%),url(${photographer})`,backgroundSize:'Cover'}}><p class="white">一風変わった公園</p></Link>
                 </ul>
             </div>
             <ul className="sidebar-items">
-            <Link to={{ pathname: "/park/search", state: { parkTag: '植物園' } }} className="sidebar-item">植物園</Link>
-            <Link to={{ pathname: "/park/search", state: { parkTag: '河川敷グラウンド' } }} className="sidebar-item">河川敷グラウンド</Link>
+            <Link to={{ pathname: "/park/search",search:`?parkTag=${'植物園'}`, state: { parkTag: '植物園' } }} className="sidebar-item">植物園</Link>
+            <Link to={{ pathname: "/park/search",search:`?parkTag=${'河川敷グラウンド'}`, state: { parkTag: '河川敷グラウンド' } }} className="sidebar-item">河川敷グラウンド</Link>
           </ul>
         </div>
         )

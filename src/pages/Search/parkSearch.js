@@ -33,6 +33,7 @@ import AddIcon from '@material-ui/icons/Add';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import LogoTree from '../../images/LogoTree.svg';
 import prefecture from '../../util/prefecture.json';
+import Searchmap from '../Searchmap'
 
 const JapanArea = prefecture;
 
@@ -607,7 +608,7 @@ fixedOpen() {
     const searchForm =
       <>
       <Navbar/>
-    <div className="container container_paddinng homeTop">
+    <div className="container container_paddinng homeTop parkSearchPadding">
           <div className="park-result-pc parkResult__pc park-result">
             {/* ///////////
             検索バー
@@ -628,7 +629,7 @@ fixedOpen() {
                 {!this.state.parklocation ?
                    <LocationOnRoundedIcon style={{ fontSize: 20, color: '#93918F' }} />:
                   <LocationOnRoundedIcon style={{ fontSize: 20, color: '#52BF90' }} />
-            } {!this.state.parklocation ? <p style={{color:'#b4b4b4',marginLeft:'1rem'}}>場所</p> : <p  style={{color:'#52BF90',marginLeft:'1rem'}}>{this.state.parklocation}</p>}
+            } {!this.state.parklocation ? <p style={{color:'#b4b4b4',marginLeft:'1rem'}}>すべての場所</p> : <p  style={{color:'#52BF90',marginLeft:'1rem'}}>{this.state.parklocation}</p>}
 
 
 
@@ -685,7 +686,7 @@ fixedOpen() {
                   <EmojiPeopleRoundedIcon style={{ fontSize: 20, color: '#93918F' }} /> :
                   <EmojiPeopleRoundedIcon style={{ fontSize: 20, color: '#52BF90' }} />
                     }
-                    {!this.state.parkTag? <p style={{color:'#b4b4b4',marginLeft:'1rem',fontSize:'1.4rem'}}>目的からさがす</p> : <p  style={{color:'#52BF90',marginLeft:'1rem',fontSize:'1.4rem'}}>{this.state.parkTag}</p>}
+                    {!this.state.parkTag? <p style={{color:'#b4b4b4',marginLeft:'1rem',fontSize:'1.4rem'}}>すべての目的</p> : <p  style={{color:'#52BF90',marginLeft:'1rem',fontSize:'1.4rem'}}>{this.state.parkTag}</p>}
                     <div className="ParkSearchLocation-Select" style={{ display: this.state.HomeSearchWhat }}>
                 <h2>目的からさがす</h2>
 
@@ -821,7 +822,7 @@ fixedOpen() {
               <SearchbarDrawer_pc />
             </div>
 
-            <div className="parkSuggest-items">
+            {/* <div className="parkSuggest-items">
             <p class="parkSuggest parkSug_p">おすすめの検索</p>
             <div className="parkSuggest"onClick={() => this.setState({ parklocation:'東京都',parkTag2:'家族'})}>
               <SearchRoundedIcon style={{ fontSize: 16, color: '#93918F' }} />
@@ -847,22 +848,24 @@ fixedOpen() {
               <SearchRoundedIcon style={{ fontSize: 16, color: '#93918F' }} />
               <p className="parkSuggest-p" onClick={() => this.setState({ parklocation:'東京都',parkTag:'夜景がきれい'})}>東京 夜景がきれい</p>
             </div>
+              </div> */}
 
-              </div>
             </div>
             <div className="parkSearchFil_inner">
-            <div className="SeRe">
-                <h2 className="SeRe__h2-desc">検索結果</h2>
-                <h2 className="SeRe__h2">{rows.length}</h2>
+
+              <div className="SeRe">
+                {this.state.parklocation ? <h2 className="SeRe_">{this.state.parklocation}の公園</h2> :
+                  <h2 className="SeRe_">すべての公園</h2>}
+                <p className="SeRe__h2-desc">検索結果</p>
+                <p className="SeRe__h2">{rows.length}</p>
               <p>件</p>
 
-              <div className="parkSearchValue__inner">
-              {this.state.parklocation? <p>「{this.state.parklocation}」</p>:''}
+              {/* <div className="parkSearchValue__inner">
               {this.state.parkTag? <p>「{this.state.parkTag}」</p>:''}
               {this.state.parkTa2? <p>「{this.state.parkTag2}」</p>:''}
               {this.state.parkTag3 ? <p>「{this.state.parkTag3}」</p> : ''}
-              {!this.state.parklocation && !this.state.parkTag && !this.state.parkTag2 && !this.state.parkTag2 ?'' :<p>の公園</p>}
-              </div>
+              {!this.state.parkTag && !this.state.parkTag2 && !this.state.parkTag2 ?'' :<p>の公園</p>}
+              </div> */}
             </div>
               <div className="SearchFromMap">
                 <MapIcon style={{ fontSize: 23, color: '#93918F' ,marginRight:'0.5rem'}} />
@@ -1294,7 +1297,7 @@ fixedOpen() {
 
       </>
 
-console.log(this.props.location.state)
+console.log(this.props.location)
     return (
       <>
  {searchForm}
@@ -1354,6 +1357,7 @@ console.log(this.props.location.state)
           ? <button onClick={this.loadList} className="ReadMore">もっとみる</button> : ''
           }
         </div>
+        <Searchmap/>
       <Footer />
       </>
     )

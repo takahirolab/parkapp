@@ -18,17 +18,12 @@ import { logoutUser, getUserData } from './redux/actions/userActions';
 //Component
 import themeObject from './util/theme';
 import AuthRoute from './util/AuthRoute';
-import Navbar_admin from './layout/Navbar_admin'
 
 //pages
 
 import Login from './pages/login_mobile'
 import Signup from './pages/signup'
 import Home from './pages/home/home';
-import Footer from './layout/Footer';
-import ParkSearch from './pages/Search/parkSearch';
-
-import PostScream from './pages/PostScream'
 import Admin from './pages/admin/admin'
 import ParkDetail from './components/park/ParkDetail';
 import About from './pages/home/About';
@@ -51,7 +46,6 @@ import Like from './pages/sidebar/like'
 import PostedPark from './pages/sidebar/postedPark'
 
 import Guid from './pages/sidebar/guid'
-import JoinActivity from './pages/sidebar/joinActivity'
 import Ask from './pages/sidebar/ask'
 
 import Weather from './pages/Weather'
@@ -91,7 +85,7 @@ function App()  {
               <Route exact path="/park/search" component={parkSearch} />
               <Route　name="park" exact path="/park/:parkId" component={ParkDetail} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/post" component={PostScream} />
+              {/* <Route exact path="/post" component={PostScream} /> */}
 
             {/* ////////////////
             サイドバー

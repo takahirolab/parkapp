@@ -1,70 +1,20 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import Cloud from '../../images/cloud.png'
+
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
-import PeopleRoundedIcon from '@material-ui/icons/PeopleRounded';
+
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import EmojiPeopleRoundedIcon from '@material-ui/icons/EmojiPeopleRounded';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import { Link } from 'react-router-dom';
-import Modal from 'react-modal';
 import { searchItem } from '../../redux/actions/SearchActions'
 import { connect } from 'react-redux';
-import history from '../../util/history'
+
 import { withRouter } from 'react-router';
 import CancelIcon from '@material-ui/icons/Cancel';
-import LogoTree from '../../images/LogoTree.svg';
+import prefecture from '../../util/prefecture.json'
 
 
-const JapanArea = [
-  {kangi:'北海道',Hiragana:'ほっかいどう',en:'hokkaido',kata:'ホッカイドウ'},
-  {kangi:'青森県',Hiragana:'あおもり',en:'aomori',kata:'アオモリ'},
-  {kangi:'岩手県',Hiragana:'いわて',en:'iwate',kata:'イワテ'},
-  {kangi:'宮城県',Hiragana:'みやぎ',en:'miyagi',kata:'ミヤギ'},
-  {kangi:'秋田県',Hiragana:'あきた',en:'akita',kata:'アキタ'},
-  {kangi:'山形県',Hiragana:'やまがた',en:'yamagata',kata:'ヤマガタ'},
-  {kangi:'福島県',Hiragana:'ふくしま',en:'fukushima',kata:'フクシマ'},
-  {kangi:'茨城県',Hiragana:'いばらき',en:'ibaraki',kata:'イバラキ'},
-  {kangi:'栃木県',Hiragana:'とちぎ',en:'tochigi',kata:'トチギ'},
-  {kangi:'群馬県',Hiragana:'ぐんま',en:'gunma',kata:'グンマ'},
-  {kangi:'埼玉県',Hiragana:'さいたま',en:'saitama',kata:'サイタマ'},
-  {kangi:'千葉県',Hiragana:'ちば',en:'chiba',kata:'チバ'},
-  {kangi:'東京都',Hiragana:'とうきょう',en:'tokyo',kata:'トウキョウ'},
-  {kangi:'神奈川県',Hiragana:'かながわ',en:'kanagawa',kata:'カナガワ'},
-  {kangi:'新潟県',Hiragana:'にいがた',en:'niigata',kata:'ニイガタ'},
-  {kangi:'富山県',Hiragana:'とやま',en:'toyama',kata:'ヤマナシ'},
-  {kangi:'石川県',Hiragana:'いしかわ',en:'ishikawa',kata:'ナガノ'},
-  {kangi:'福井県',Hiragana:'ふくい',en:'fukui',kata:'トヤマ'},
-  {kangi:'山梨県',Hiragana:'やまなし',en:'yamanashi',kata:'イシカワ'},
-  {kangi:'長野県',Hiragana:'ながの',en:'nagano',kata:'フクイ'},
-  {kangi:'岐阜県',Hiragana:'ぎふ',en:'gifu',kata:'ギフ'},
-  {kangi:'静岡県',Hiragana:'しずおか',en:'shizuoka',kata:'シズオカ'},
-  {kangi:'愛知県',Hiragana:'あいち',en:'aichi',kata:'アイチ'},
-  {kangi:'三重県',Hiragana:'みえ',en:'mie',kata:'ミエ'},
-  {kangi:'滋賀県',Hiragana:'しが',en:'shiga',kata:'シガ'},
-  {kangi:'京都府',Hiragana:'きょうと',en:'kyoto',kata:'キョウト'},
-  {kangi:'大阪府',Hiragana:'おおさか',en:'osaka',kata:'オオサカ'},
-  {kangi:'兵庫県',Hiragana:'ひょうご',en:'hyogo',kata:'ヒョウゴ'},
-  {kangi:'奈良県',Hiragana:'なら',en:'nara',kata:'ナラ'},
-  {kangi:'和歌山県',Hiragana:'わかやま',en:'wakayama',kata:'ワカヤマ'},
-  {kangi:'鳥取県',Hiragana:'とっとり',en:'tottori',kata:'トットリ'},
-  {kangi:'島根県',Hiragana:'しまね',en:'shimane',kata:'シマネ'},
-  {kangi:'岡山県',Hiragana:'おかやま',en:'okayama',kata:'オカヤマ'},
-  {kangi:'広島県',Hiragana:'ひろしま',en:'hiroshima',kata:'ヒロシマ'},
-  {kangi:'山口県',Hiragana:'やまぐち',en:'yamaguchi',kata:'ヤマグチ'},
-  {kangi:'徳島県',Hiragana:'とくしま',en:'tokushima',kata:'トクシマ'},
-  {kangi:'香川県',Hiragana:'かがわ',en:'kagawa',kata:'カガワ'},
-  {kangi:'愛媛県',Hiragana:'えひめ',en:'ehime',kata:'エヒメ'},
-  {kangi:'高知県',Hiragana:'こうち',en:'kochi',kata:'コウチ'},
-  {kangi:'福岡県',Hiragana:'ふくおか',en:'fukuoka',kata:'フクオカ'},
-  {kangi:'佐賀県',Hiragana:'さが',en:'saga',kata:'サガ'},
-  {kangi:'長崎県',Hiragana:'ながさき',en:'nagasaki',kata:'ナガサキ'},
-  {kangi:'熊本県',Hiragana:'くまもと',en:'kumamoto',kata:'クマモト'},
-  {kangi:'大分県',Hiragana:'おおいた',en:'oita',kata:'オオイタ'},
-  {kangi:'宮崎県',Hiragana:'みやざき',en:'miyazaki',kata:'ミヤザキ'},
-  {kangi:'鹿児島県',Hiragana:'かごしま',en:'kagoshima',kata:'カゴシマ'},
-  {kangi:'沖縄',Hiragana:'おきなわ',en:'okinawa',kata:'オキナワ'}
-]
+const JapanArea = prefecture;
 
 export class HomeWeather extends Component {
     constructor(props) {
@@ -454,10 +404,26 @@ export class HomeWeather extends Component {
                     <td className="HomeSearchLocation-td">北海道</td><td onClick={this.focusTextInput.bind(this,'北海道')}>北海道</td>
                   </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">東北</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'青森県')}>青森県</div><div  className="HomeParkprefecture"　onClick={this.focusTextInput.bind(this,'岩手県')}>岩手県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'秋田県')}>秋田県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'岩手県')}>岩手県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'山形県')}>山形県</div><div  className="HomeParkprefecture"　onClick={this.focusTextInput.bind(this,'福島県')}>福島県</div></td>
+                    <td className="HomeSearchLocation-td">東北</td><td className="HomeParkprefectur-flex">
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '青森県')}>青森県</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '岩手県')}>岩手県</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '秋田県')}>秋田県</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '岩手県')}>岩手県</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '山形県')}>山形県</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '福島県')}>福島県</div>
+                    </td>
                     </tr>
                   <tr>
-                    <td className="HomeSearchLocation-td">関東</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'東京都')}>東京都</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'神奈川県')}>神奈川県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'埼玉県')}>埼玉県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'千葉県')}>千葉県</div><div  className="HomeParkprefecture"onClick={this.focusTextInput.bind(this,'茨城県')}　>茨城県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'山形県')}onClick={this.focusTextInput.bind(this,'栃木県')}>栃木県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'群馬県')}>群馬県</div></td>
+                    <td className="HomeSearchLocation-td">関東</td><td className="HomeParkprefectur-flex">
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '東京都')}>東京都</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '神奈川県')}>神奈川県</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '埼玉県')}>埼玉県</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '千葉県')}>千葉県</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '茨城県')}>茨城県</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '栃木県')}>栃木県</div>
+                      <div className="HomeParkprefecture" onClick={this.focusTextInput.bind(this, '群馬県')}>群馬県</div>
+                    </td>
+
                   </tr>
                   <tr>
                     <td className="HomeSearchLocation-td">中部</td><td className="HomeParkprefectur-flex"><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'山梨県')}>山梨県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'静岡県')}>静岡県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'愛知県')}>愛知県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'岐阜県')}>岐阜県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'長野県')}>長野県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'石川県')}>石川県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'福井県')}>福井県</div><div  className="HomeParkprefecture" onClick={this.focusTextInput.bind(this,'新潟県')}>新潟県</div></td>

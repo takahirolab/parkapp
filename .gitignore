@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+/src/pages/Searchmap.js
 # production
 /build
 

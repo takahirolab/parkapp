@@ -4,13 +4,14 @@ import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import ScreamSkeleton from '../../util/ScreamSkeleton';
 import Park from '../../components/park/Park';
+import history from '../../util/history';
 
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import  Pic1 from  '../../images/pic1.png'
 
 import {getPark} from '../../redux/actions/dataActions';
-import ParkInf from './parkInf';
+// import ParkInf from './parkInf';
 import Navbar  from '../../layout/Navbar';
 
 import ParkLikeButton from '../park/LikeButton'
@@ -41,6 +42,7 @@ import {likeScream} from '../../redux/actions/dataActions';
 import LikeButton from '../../components/park/LikeButton'
 import Comments from './Comments';
 import Footer from '../../layout/Footer'
+import { AddAlarmOutlined } from '@material-ui/icons';
 const LazyComponent = lazy(() => import('../../util/ScreamSkeleton'));
 
 
@@ -58,13 +60,14 @@ export class ParkDetail extends Component {
           bkImg: "",
           btnGo:""
       };
+      this.test=this.test.bind(this)
     }
 
 
 
     componentDidMount() {
     const parkId = this.props.match.params.parkId;
-      this.props.getPark(parkId);
+    this.props.getPark(parkId);
 
       setTimeout(() => {
         axios
@@ -78,6 +81,12 @@ export class ParkDetail extends Component {
       }, 1000);
     }
 
+  test() {
+    const aaa = 'vjSp1sr4iKcWChcK1ccG'
+    this.props.getPark(aaa);
+    history.push('/park/vjSp1sr4iKcWChcK1ccG')
+    window.scrollTo(0, 0);
+    }
 
   render() {
     const { errors } = this.state;
@@ -176,19 +185,20 @@ export class ParkDetail extends Component {
       <div className="parkInf-inner">
               <h2 className="parkInf-h2">アクセス</h2>
               <img className="name" src={Googlemap}/>
-      </div>
+          </div>
+          <div>
+
+            {/* <h2  onClick={this.test}>ああああああああああああ</h2> */}
+          </div>
 
       </div>
 
 
           </>
 
-
-
-
-        let park_Inf =
-        park_detail.map((park) =>
-          <ParkInf key={parkId} park={park} className="parkInf_pos" />)
+        // let park_Inf =
+        // park_detail.map((park) =>
+        //   <ParkInf key={parkId} park={park} className="parkInf_pos" />)
 
 
           const loadingUI = this.props.UI;
@@ -199,7 +209,7 @@ export class ParkDetail extends Component {
             <div className="home-maincontents parkDetail-contents">
             <Sidebar/>
               <div className="home-maincontent">
-                {this.state.park_detail ? '' : <ScreamSkeleton_inf />}
+                {loading? '' : <ScreamSkeleton_inf />}
               {parkItem}
               </div>
             </div>
@@ -226,7 +236,7 @@ export class ParkDetail extends Component {
             </div>
 
 
-            <div className="footer-detail">
+              <div className="footer-detail">
               <Footer />
             </div>
           </>

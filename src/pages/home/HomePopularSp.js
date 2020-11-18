@@ -38,11 +38,11 @@ export class HomePopularSp extends Component{
 
           <div className="park-city-items">
               <ul className="park-city-items--">
-              <Link to={{ pathname: "/park/search", state: {parkTag: '夜景がキレイ' } }} class="popularImag"　style={{ background: `url(${NightPic})`,backgroundSize:'Cover'}} onClick={this.handleGetLatAndLng}><p class="white">夜景がキレイ</p></Link>
-                  <Link to={{ pathname: "/park/search", state: {parkTag: '自然が豊か' } }} class="popularImag" style={{ background: `url(${Nature})`,backgroundSize:'Cover'}}><p class="white">自然が豊か</p></Link>
-                  <Link to={{ pathname: "/park/search", state: {parkTag: '撮影スポット' } }}class="popularImag" style={{ background: `url(${photographer})`,backgroundSize:'Cover'}}><p class="white">撮影スポット</p></Link>
-                  <Link to={{ pathname: "/park/search", state: {parkTag: 'デートスポット' } }} class="popularImag" style={{ background: `url(${cupplePic})`,backgroundSize:'Cover'}}><p class="white">デートスポット</p></Link>
-                  <Link to={{ pathname: "/park/search", state: {parkTag: '一風変わった公園' } }}  class="popularImag" style={{ background: `url(${famillyPic})`,backgroundSize:'Cover'}}><p class="white">一風変わった公園</p></Link>
+              <Link to={{ pathname: "/park/search", state: {parkTag: '夜景がキレイ' } }} class="popularImag"　style={{ background: `linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%),url(${NightPic})`,backgroundSize:'Cover'}} onClick={this.handleGetLatAndLng}><p class="white">夜景がキレイ</p></Link>
+                  <Link to={{ pathname: "/park/search", state: {parkTag: '自然が豊か' } }} class="popularImag" style={{ background: `linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%),url(${Nature})`,backgroundSize:'Cover'}}><p class="white">自然が豊か</p></Link>
+                  <Link to={{ pathname: "/park/search", state: {parkTag: '撮影スポット' } }}class="popularImag" style={{ background: `linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%),url(${photographer})`,backgroundSize:'Cover'}}><p class="white">撮影スポット</p></Link>
+                  <Link to={{ pathname: "/park/search", state: {parkTag: 'デートスポット' } }} class="popularImag" style={{ background: `linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%),url(${cupplePic})`,backgroundSize:'Cover'}}><p class="white">デートスポット</p></Link>
+                  <Link to={{ pathname: "/park/search", state: {parkTag: '一風変わった公園' } }}  class="popularImag" style={{ background: `linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%),url(${famillyPic})`,backgroundSize:'Cover'}}><p class="white">一風変わった公園</p></Link>
               </ul>
             </div>
             <ul className="sidebar-items">

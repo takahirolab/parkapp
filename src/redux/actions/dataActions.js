@@ -91,6 +91,7 @@ export const getPark = (parkId) => (dispatch) => {
         payload: res.data
       });
       dispatch({ type: STOP_LOADING_UI });
+      console.log(res)
     })
     .catch((err) => console.log(err));
 };

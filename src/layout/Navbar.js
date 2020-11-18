@@ -8,7 +8,7 @@ import NavbarPC_Center from './Nav/NavbarPC_Center'
 import NavbarPC_CenterHome from './Nav/NavbarPC_CenterHome'
 import NavbarHomeAuth from './Nav/NavbarHomeAuth'
 import NavbarTitle from './Nav/NavbarTitle'
-import LoginSignupModal from './Nav/LoginSignup-modal'
+import LoginSignupModal from './Nav/LoginSignup-modal_'
 import NavbarTitlePC from './Nav/NavbarTitlePC'
 
 export class Navbar extends Component {
