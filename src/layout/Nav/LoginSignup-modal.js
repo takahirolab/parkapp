@@ -353,7 +353,8 @@ export class Navbar extends Component {
                                     id="confirmPassword"
                                     name="confirmPassword"
                                     type="password"
-                                    label="confirm Password"
+                          label="confirm Password"
+                          placeholder="確認用パスワード"
                                     className="Reg-InputForm"
                                     //   helperText={this.state.errors.confirmPassword}
                                     //   error={this.state.errors.confirmPassword ? true : false}
@@ -368,7 +369,8 @@ export class Navbar extends Component {
                                 id="userName"
                                 name="userName"
                                 type="text"
-                                label="userName"
+                          label="userName"
+                          placeholder="ユーザー名"
                                 className="Reg-InputForm"
                                 //   helperText={this.state.errors.handle}
                                 //   error={this.state.errors.handle ? true : false}

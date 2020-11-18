@@ -151,6 +151,21 @@ select {
   padding: 0;
   background: transparent; }
 
+  input#confirmPassword{
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    padding-left: 2rem;
+  }
+  input#userName{
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    padding-left: 2rem;
+  }
+
 label {
   /* width: 100%; */
   height: none;
@@ -304,7 +319,10 @@ background:  #52BF90 !important;
   position: relative;
   margin-top: 7rem;
   margin: 0 auto;
-  width: 1100px;
+  width: 100%;
+  min-width: 124rem;
+  max-width: 154rem;
+  padding: 0rem 7rem;
 }
 .searchpark-pc{
   margin: 0 auto;
@@ -3332,8 +3350,8 @@ button.ReadMore {
   display: flex;
 }
 .footer_Log{
-  width: 75%;
-  margin-bottom: 1rem;
+  width: 100%;
+  margin-left: -1rem;
 }
 
 @media screen and (min-width: 1240px) {
