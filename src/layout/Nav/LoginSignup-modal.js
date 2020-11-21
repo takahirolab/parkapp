@@ -223,7 +223,7 @@ export class Navbar extends Component {
                             {/* <img src={Logoimg} className="gl-logo__"/> */}
                             <h2 className="login-title-size ">ログインする</h2>
                         </div>
-                        <div className="sns-login-items">
+                        {/* <div className="sns-login-items">
                             <div className="sns-login">
                                 <img src={Googleicon} className="gl-logo"/>
                                 <p>Googleではじめる</p>
@@ -232,7 +232,7 @@ export class Navbar extends Component {
                             <img src={TwLogo} className="tw-logo"/>
                                 <p>twitterではじめる</p>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="mail-login mail-login-pc ">
                             <h2>メールアドレスではじめる</h2>
                             <p className="valid">{this.state.errors}</p>
@@ -302,7 +302,7 @@ export class Navbar extends Component {
                             {/* <img src={Logoimg} className="gl-logo__"/> */}
                             <h2 className="login-title-size ">新規登録する</h2>
                         </div>
-                        <div className="sns-login-items">
+                        {/* <div className="sns-login-items">
                             <div className="sns-login">
                                 <img src={Googleicon} className="gl-logo"/>
                                 <p>Googleではじめる</p>
@@ -311,7 +311,7 @@ export class Navbar extends Component {
                             <img src={TwLogo} className="tw-logo"/>
                                 <p>twitterではじめる</p>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="mail-login mail-login-pc ">
                             <h2>メールアドレスではじめる</h2>
                             <p className="valid">{this.state.errors}</p>
