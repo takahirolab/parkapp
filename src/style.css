@@ -3226,34 +3226,85 @@ label {
 
 button.ReadMore {
   height: 4.5rem;
-  width: 100%;
+  width: 30rem;
   /* background: #52BF90; */
   color: #52BF90;
   border: 0.1rem solid #52BF90;
   line-height: 4.5rem;
-  border-radius: 8px; }
+  border-radius: 8px;
+  margin: 0 auto;
+}
 
 .parkInf-icon__size {
   margin-right: 0.5rem; }
 
 /* サービストップ */
 .service-top-inner {
-  height: 100vh;
-  background-color: #52BF90;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 124rem;
+  background-size   : cover;
+  background-position:center ;
+  background-image: linear-gradient(to right, rgb(255, 255, 255) 50% ),url(./images/pic1.png);
+  object-fit: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+  height: calc(95vh - 85px);
+  background-color: #FFF;
   position: relative; }
+
+  .About_btn{
+    color:#fff;
+    font-size: 1.8rem;
+    margin-top:2rem;
+    width: 30rem;
+    height: 5rem;
+    border-radius: 50px;
+    background: #52Bf90;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease-in-out;
+  }
 
 .container_about {
   margin-top: 8.5rem; }
 
 .container_about_pc{
-    overflow: auto;
-    scroll-snap-type: y mandatory;
-    height: 100vh;
+    min-height: 60rem;
   }
 
   .area {
     scroll-snap-align: start;
     height: 100vh;
+  }
+  .areaHome{
+    padding: 0rem 7rem;
+    min-width: 124rem;
+    width: 100%;
+    scroll-snap-align: start;
+  }
+  .About-left-inner h2{
+
+    font-size: 3.8rem;
+    line-height: 5rem;
+    letter-spacing: 0.25rem;
+    color: #52Bf90;
+  }
+  .About-left-inner p{
+    margin-top:2rem;
+    font-size: 1.8rem;
+    color: #52Bf90;
+    letter-spacing: 0.1rem;
+  }
+  .About-left{
+    min-width: 51.2rem;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
 .OurService {
@@ -3353,6 +3404,157 @@ button.ReadMore {
   width: 100%;
   margin-left: -1rem;
 }
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 8rem;
+}
+.About_section{
+padding:4rem 7rem;
+width: 100%;
+height: 50rem;
+}
+.About-right-inner{
+  width: 100%;
+}
+.About_section_clip{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 41.5rem);
+  background: #52Bf90;
+}
+.About_section_clip p,.About_section_clip h2{
+color: #fff;
+}
+.About_section p{
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 5rem;
+  margin-top: 2rem;
+}
+
+.About_section h2{
+  text-align: center;
+  font-size: 3.2rem;
+  line-height: 5rem;
+  letter-spacing: 0.25rem;
+}
+.__app{
+  width: 124rem;
+  min-width: 124rem;
+  max-width: 154rem;
+  margin:0 auto;
+  height: auto;
+}
+
+.About_section_app{
+  display:flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.app_01{
+  display: flex;
+  width: calc((100% - 17rem) / 3);
+  flex-direction: column;
+}
+.service-img{
+margin-left:5rem;
+}
+
+.app_01 img{
+  width: 100%;
+}
+.app_01 h2{
+  text-align: left;
+  font-size: 2rem;
+}
+.app_01 p{
+  margin: 0rem;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  text-align: left
+  ;
+}
+.About_section-sectionParkNum{
+  min-width: 124rem;
+  margin-top: 8rem;
+  min-height: 65rem;
+
+}
+.About_section-sectionParkNum .About_btn{
+  margin-top:4rem
+}
+
+.About_section-sectionParkNum p{
+font-size: 1.8rem;
+text-align: left;
+line-height: 2.6rem;
+letter-spacing: 0.1rem;
+}
+.About-parknum{
+  /* position: absolute; */
+  top:0;
+  left:7rem;
+}
+
+.About_section-sectionParkNum_inner{
+  display: flex;
+  align-items: baseline;
+}
+
+
+.About_section-sectionParkNum_inner h2{
+font-size: 5.5rem;
+text-align: left;
+}
+.About_section-sectionParkNum_inner p{
+margin-left: 1rem;
+font-size:3.8rem;
+font-weight: 600;
+}
+.About-parknum-inner{
+  position: absolute;
+  left: calc(64rem);
+  transform: translate(-50%,0px);
+}
+.About-parknum-position{
+  position: relative;
+}
+
+.pointer{
+  position: absolute;
+  transform: translate(-50%, 0px);
+  transition: 0.15s ease-in-out;
+}
+.About-parknumPointer1{left: 83%;top: 4rem;}
+.About-parknumPointer2{left: 85%;top: 19rem;}
+.About-parknumPointer3{left: 82%;top: 32rem;}
+.About-parknumPointer4{left: 63%;top: 26rem;}
+.About-parknumPointer5{left: 66%;top: 34rem;}
+.About-parknumPointer6{left: 53%;top:33rem;}
+.About-parknumPointer7{left: 43%;top: 38rem;}
+.About-parknumPointer8{left: 39%;top: 32rem;}
+.About-parknumPointer9{left: 23%;top: 31rem;}
+.About-parknumPointer10{left: 16%;top: 37rem;}
+.About-parknumPointer11{left: 3%;top: 48rem;}
+
+.About-parknumPointer1:hover{top: 3rem;}
+.About-parknumPointer2:hover{top: 18rem;}
+.About-parknumPointer3:hover{top: 31rem;}
+.About-parknumPointer4:hover{top: 25rem;}
+.About-parknumPointer5:hover{top: 33rem;}
+.About-parknumPointer6:hover{top:32rem;}
+.About-parknumPointer7:hover{top: 37rem;}
+.About-parknumPointer8:hover{top: 31rem;}
+.About-parknumPointer9:hover{top: 30rem;}
+.About-parknumPointer10:hover{top: 36rem;}
+.About-parknumPointer11:hover{top: 47rem;}
+
+.About_btn:hover{
+  color:#52Bf90;
+  border:#52Bf90 solid 1px;
+  background: #fff;
+}
+
 
 @media screen and (min-width: 1240px) {
   .FindParksResult-item-img-pc{
@@ -3394,6 +3596,10 @@ button.ReadMore {
 
 @media screen and (max-width: 480px) {
 
+  .HomeParkSearch-Location p{
+    font-size: 1.4rem !important;
+  }
+
   .like-btn-modalSP{
     background-color: none !important;
     width:100vw !important;
@@ -3407,6 +3613,7 @@ button.ReadMore {
   }
   .searchResult-sorry p{
     margin: 0 auto;
+    font-size: 1.2rem;
   }
   .searchResult-sorry h2{
     margin: 0 auto;
@@ -3567,9 +3774,7 @@ font-size: 1.4rem;
   height: none;
 }
 
-  p {
-    font-size: 1.2rem; }
-  /* 横幅が320px以下の場合に適用するスタイル */
+
   .nav-inner .nav-items_center,
   .main-visual,
   .park-result-filter,
@@ -3616,7 +3821,8 @@ font-size: 1.4rem;
   .container {
     margin-top: 6.5rem; }
   .container_about {
-    margin-top: 6.5rem; }
+    margin-top: 6.5rem;
+  }
   .nav-mobile,
   .searchresult-posi {
     display: flex;
@@ -3627,7 +3833,7 @@ font-size: 1.4rem;
   .HomeParkprefecture{
     padding-right: 1em;
     padding-bottom: 0.8rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .SPweather-item a {
@@ -3733,8 +3939,9 @@ font-size: 1.4rem;
     justify-content: space-between;
   }
   .footer_inc {
+    min-width: unset;
     text-align: center;
-    min-width: 100VW;
+    margin: 0 auto;
     color: #f2f2f2;
     padding-right: 1rem;
   }
@@ -3832,7 +4039,7 @@ justify-content: space-between;
 }
 
 .sidebar-item{
-  font-size: 1.2rem !important;
+  font-size: 1.4rem !important;
   margin-right: 0.4rem;
     margin-bottom: 0.8rem;
     /* height: 3.2rem; */
@@ -4492,9 +4699,11 @@ padding:0rem;
   .white {
     color: #fff; }
   .footer_container {
+    padding:0rem 0.8rem;
     margin: none;
     margin-top: -2rem;
     width: 100%;
+    min-width: unset;
 
   }
   .searchcity_tag {
@@ -4803,8 +5012,7 @@ input[type="search"] {
     padding: 0.8rem; }
   .SearchInput-items-city {
     padding: 0rem 0.8rem; }
-  .service-img {
-    width: 100%; }
+
   .scrolldown {
     position: absolute;
     bottom: 2rem;
@@ -4840,7 +5048,7 @@ input[type="search"] {
   }
 
 .drawer-city,.drawer-city-height{
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

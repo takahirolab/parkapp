@@ -1357,7 +1357,7 @@ console.log(this.props.location)
           ? <button onClick={this.loadList} className="ReadMore">もっとみる</button> : ''
           }
         </div>
-        <Searchmap/>
+        {/* <Searchmap/> */}
       <Footer />
       </>
     )

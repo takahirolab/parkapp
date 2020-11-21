@@ -23,16 +23,15 @@ export class Footer extends Component {
                             <div className="footer-content">
                             <h2 className="footer_h2">公園を探す</h2>
                             <ul className="footer-items footer-right">
-                                    <li className="footer_item"><Link to="/park/search" className="footer_white">人気の公園一覧</Link></li>
-                                <li className="footer_item"><Link to="/park/search" className="footer_white">東京都の公園一覧</Link></li>
-                                <li className="footer_item"> <Link to="/park/search" className="footer_white">おすすめの公園一覧</Link></li>
-                                <li className="footer_item"> <Link to="/park/search" className="footer_white">おもしろい公園一覧</Link></li>
+                                    <li className="footer_item"><Link to={{ pathname: "/park/search", search: `?parkTag=${'all'}` }}className="footer_white">すべての公園一覧</Link></li>
+                                <li className="footer_item"><Link to={{ pathname: "/park/search",state: { parklocation: '東京都' } , search: `?parklocation=${'東京都'}` }} className="footer_white">東京都の公園一覧</Link></li>
+
                             </ul>
                         </div>
                         <div className="footer-content">
                         <h2 className="footer_h2">本サービスについて</h2>
                             <ul className="footer-items footer-right">
-                                <li　className="footer_item"><Link to="/" className="footer_white">パークルとは？</Link></li>
+                                <li　className="footer_item"><Link to="/about" className="footer_white">パークルについて</Link></li>
                                 <li className="footer_item"><Link to="/" className="footer_white">お問い合わせ</Link></li>
                                 <li className="footer_item"><Link to="/" className="footer_white">利用規約</Link></li>
                             </ul>
