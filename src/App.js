@@ -47,9 +47,7 @@ import PostedPark from './pages/sidebar/postedPark'
 
 import Guid from './pages/sidebar/guid'
 import Ask from './pages/sidebar/ask'
-
 import Weather from './pages/Weather'
-
 import parkSearch from './pages/Search/parkSearch';
 import Users from './pages/Search/parkSearch';
 
@@ -85,7 +83,7 @@ function App()  {
               <Route exact path="/park/search" component={parkSearch} />
               <Route　name="park" exact path="/park/:parkId" component={ParkDetail} />
               <Route exact path="/about" component={About} />
-              {/* <Route exact path="/post" component={PostScream} /> */}
+
 
             {/* ////////////////
             サイドバー

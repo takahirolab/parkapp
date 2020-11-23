@@ -370,7 +370,7 @@ parkSuggestArray.map((parkSuggestArray_item) =>
       <div className="mainVI">
         <div className="mainVI-img" style={{ backgroundImage: `linear-gradient(to right bottom, #4263506b, #52bf901a),url(${Pic1})` ,backgroundPosition:'50% 67%',backgroundSize:'cover'}}></div>
         <form className="HomeSearch-sp" action="/park/search" name="test1" method="get" onSubmit={this.handleSubmit}>
-          {authenticated?'': <Weather />}
+          {/* {authenticated?'': <Weather />} */}
 
 
         <div className="HomeParkSearch-Location HomeParkSearch__width" onClick={this.HomeSearchLocation} >

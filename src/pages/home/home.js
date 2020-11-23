@@ -51,7 +51,7 @@ const home = () => {
 
     </div>
         {/* 公園をポスト */}
-        <PostPark />
+        {/* <PostPark /> */}
       </div>
       <Footer />
     </>

@@ -14,11 +14,11 @@ export class Footer extends Component {
     render() {
         return (
             <footer className="footer">
-                <div className="footer_container">
-                    <div className="footer-contents">
-                    <div className="footerLogo-inner">
-                        <LogoWhite className="footer_Log" />
+                <div className="footer-main">
+                <div className="footerLogo-inner">
+                        <Link to={{ pathname: "/" }}><LogoWhite className="footer_Log" /></Link>
                     </div>
+
                         <div className="footer-itemsRtght">
                             <div className="footer-content">
                             <h2 className="footer_h2">公園を探す</h2>
@@ -36,17 +36,24 @@ export class Footer extends Component {
                                 <li className="footer_item"><Link to="/" className="footer_white">利用規約</Link></li>
                             </ul>
                         </div>
-                     </div>
-                    </div>
-                    <div className="sociallogo-footer sociallogo-footerPC">
-                                    <TwitterWhite style={{ width:50,marginRight:14 }} />
-                                    <IGWhite style={{ width:49 ,marginRight:21}} />
-                                <img src={FacebookLogo} style={{ width: '35px' }} />
+                </div>
+                </div>
+                <hr className="footer-border"></hr>
+
+
+
+
+
+
+
+                <div className="footer-incLog">
+                         <div className="sociallogo-footer sociallogo-footerPC">
+                                    <TwitterWhite style={{ width:37,marginRight:7,height:'auto' }} />
+                                    <IGWhite style={{ width:34 ,marginRight:14,height:'auto'}} />
+                                <img src={FacebookLogo} style={{ width: '25px' }} />
                         </div>
-                    <div className="footer-incLog">
                         <p className="footer_inc">©2020 Parkr, Inc.</p>
                     </div>
-                </div>
             </footer>
     )
 }

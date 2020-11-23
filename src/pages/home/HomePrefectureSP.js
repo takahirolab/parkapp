@@ -348,11 +348,13 @@ this.setState({
               </table>
 
               </div>
-
+                <Link to="/about" className="About-home">本サービスについてはこちら</Link>
             </div>
         )
     }
 }
+
+
 
 HomeLocatiomSp.propTypes ={
     getParks:PropTypes.func.isRequired,
