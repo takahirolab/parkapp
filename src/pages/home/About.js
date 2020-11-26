@@ -14,6 +14,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { getParks } from '../../redux/actions/dataActions'
 import parkSearch from '../Search/parkSearch';
+import About from './About.module.scss'
 
 
 export class ParkAbout extends Component {
