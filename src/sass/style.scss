@@ -6,12 +6,20 @@
   padding: 0;
   box-sizing: border-box; }
 
+
+
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: none;
   scroll-behavior: smooth; }
+
+
+  h2{
+    color: #424242;
+  }
 
 html::-webkit-scrollbar {
   display: none; }

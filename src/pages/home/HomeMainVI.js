@@ -1,7 +1,5 @@
-import React,{Component} from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import Pic1 from '../../images/pic1.png'
-import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import HomeWeather from './HomeWeather'
 import HomeSearch from './HomeSearch'
 

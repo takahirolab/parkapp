@@ -10,6 +10,9 @@
     -ms-touch-action: manipulation;
         touch-action: manipulation;
   }
+
+
+
 html {
   touch-action: manipulation;
   font-size: 62.5%;
@@ -323,6 +326,12 @@ background:  #52BF90 !important;
   background: #52Bf90;
   /* background-image: url(../src/images/footer.svg); */
 
+}
+
+.footer-inner{
+  padding:0rem 7rem;
+  max-width: 154rem;
+  margin:0 auto;
 }
 .footer-main{
   padding-top:5rem;
@@ -999,7 +1008,7 @@ color: #52BF90;;
    padding-bottom: 20rem;
 }
 .searchResult-location-pc img{
-  width: 2.rem;
+  width: 2rem;
 }
 .ParkInf-other-pc {
   display: flex;
@@ -3477,6 +3486,12 @@ height: 50rem;
   border: #52Bf90 solid 1px;
   background: #fff;
 }
+.About_btn__03-nopost{
+  text-align: center !important;
+  margin:0rem !important;
+  color:grey !important;
+  margin:0 auto !important;
+}
 .About_btn__03{
     font-size: 1.8rem;
     margin-top: 2rem;
@@ -3518,7 +3533,7 @@ color: #fff;
 
 .About_section h2{
   text-align: center;
-  font-size: 3.2rem;
+  font-size: 2.6rem;
   line-height: 5rem;
   letter-spacing: 0.25rem;
 }
@@ -3708,6 +3723,8 @@ font-weight: 600;
 
   .HomeParkSearch-Location p{
     font-size: 1.4rem !important;
+  }.footer-inner{
+    padding:unset;
   }
 
   .like-btn-modalSP{
@@ -3768,7 +3785,7 @@ font-weight: 600;
   .FindParksResult-item::after{
     position:absolute;
     content: "";
-    background: linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(0 0 0 / 23%) 100%);
+    // background: linear-gradient(to bottom,rgb(255 255 255 / 0%) 0%,rgb(0 0 0 / 23%) 100%);
     height: calc((100vw - 24px) / 2);
     width: 100%;
     left: 0;
@@ -3905,7 +3922,7 @@ font-size: 1.4rem;
     display: none; }
   .container_paddinng {
     margin-top: 0rem;
-    padding: 0rem 0.8rem; }
+    padding: 0rem 1.8rem; }
     .parkSearchPadding{
       padding:unset;
     }
@@ -3921,7 +3938,7 @@ font-size: 1.4rem;
     width: 100%;
     height: 5rem;
     background:none;
-    padding: 0.6rem 0.6rem 0.6rem;
+    padding: 0.6rem 1.8rem 0.6rem;
   }
   .login-mail-input{
     width: 100%;
@@ -4032,7 +4049,7 @@ font-size: 1.4rem;
   .homeContents {
     position: relative; }
   .footer {
-    padding:0rem 0.8rem;
+    padding:0rem 1.8rem;
     position: relative;
     width: 100vw;
     min-width: 100VW;
@@ -5019,7 +5036,7 @@ input[type="search"] {
 
 .parkSearchSP-rsulut-inner{
   margin-top:5rem;
-  padding: 0rem 0.8rem;
+  padding: 0rem 1.8rem;
 }
 .parkSearchResultSP__h2{
   display: inline-block;
@@ -5207,7 +5224,7 @@ input[type="search"] {
      max-width: unset;
 }
 .About_section{
-  padding: 4rem 0.8rem;
+  padding: 4rem 1.8rem 6rem;
 }
 .About_section-sectionParkNum{
   min-width: unset;
@@ -5215,7 +5232,7 @@ input[type="search"] {
   min-height: 52rem;
 }
 .areaHome{
-  padding: 0rem 0.8rem;
+  padding: 0rem 1.8rem;
 }
 .service-top-inner{
   flex-flow: wrap-reverse;
@@ -5241,7 +5258,7 @@ input[type="search"] {
 
 }
 .About-parknum-inner{
-  padding:0rem 0.8rem;
+  padding:0rem 1.8rem;
   /* top: 29rem; */
   left: 0;
     transform: translate(0%,0px);
@@ -5254,7 +5271,7 @@ input[type="search"] {
   width: 100%;
 }
 .About-left-inner h2{
-  font-size: 2.8rem;
+  font-size: 2.6rem;
 }
 .app_01 img {
   margin: 0 auto;
@@ -5269,14 +5286,14 @@ input[type="search"] {
       height: unset;
 }
 .About_section_clip{
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
 }
 .About_section-sectionParkNum{
   margin-top: 0rem;
 }
 .About_section_clip p{
   font-size: 1.6rem;
-  line-height: 4.8rem;
+  line-height: 4.2rem;
   width: 100%;
   text-align: left;
 }

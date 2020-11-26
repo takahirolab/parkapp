@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {useLocation} from 'react-router-dom';
-import '../../App.css';
 
 import { Link,NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';

@@ -3,14 +3,6 @@ import PropTypes from 'prop-types'
 import { getParks } from '../../redux/actions/dataActions';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-
-import bigPark from '../../images/bigPark.jpg'
-import boatParkr from '../../images/boatParkr.jpg'
-import Grass from '../../images/Grass.jpg'
-import nationalPark from '../../images/nationalPark.jpg'
-import photographer from '../../images/photographer.jpg'
-
 const tokyo = {
     pathname: '/search',search: '?tokyo',state: { parklocation: '東京都' }
   };

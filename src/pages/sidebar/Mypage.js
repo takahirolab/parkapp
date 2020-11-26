@@ -1,24 +1,15 @@
 import React, { Component } from 'react'
-import Navbar from '../../layout/Navbar'
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-
 import { connect } from 'react-redux';
-import { getUserData } from '../../redux/actions/dataActions';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Pic1 from '../../images/pic1.png';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
-import ScheduleRoundedIcon from '@material-ui/icons/ScheduleRounded';
-import PaymentRoundedIcon from '@material-ui/icons/PaymentRounded';
-import TurnedInNotRoundedIcon from '@material-ui/icons/TurnedInNotRounded';
+
 import QueryBuilderRoundedIcon from '@material-ui/icons/QueryBuilderRounded';
 import CreditCardRoundedIcon from '@material-ui/icons/CreditCardRounded';
 import {editUserDetails} from '../../redux/actions/userActions'
 
-
-import Contact from '../Contact';
-import { DriveEtaTwoTone } from '@material-ui/icons';
 import MapageMain from './MypageMain'
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 

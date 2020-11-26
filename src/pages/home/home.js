@@ -1,16 +1,10 @@
 import React from 'react'
-
-import '../../App.css';
 import Sidebar from '../Sidebar'
 import HomeMainVI from './HomeMainVI'
 import HomeMainContents from './HomeMainContents'
-import HomeLp from './HomeLp'
-import HomeSns from './HomeSns'
-import PostPark from './PostPark'
-import HomeHeaderSp from './HomeHeaderSp'
+
 import HomeVISp from './HomeVISp'
-import HomeCategorySp from './HomeCategorySp'
-import HomeSuggestSp from './HomeSuggestSp'
+
 import HomeLocatiomSp from './HomeLocationSp'
 import HomePopularSp from './HomePopularSp'
 import HomePrefectureSP from './HomePrefectureSP'

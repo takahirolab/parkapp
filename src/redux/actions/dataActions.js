@@ -178,6 +178,7 @@ export const submitComment = (parkId, commentData) => (dispatch) => {
     .post(`/park/${parkId}/comment`, commentData)
     .then((res) => {
       console.log(res)
+      console.log('aaaaaaa')
       dispatch({
         type: SUBMIT_COMMENT,
         payload: res.data

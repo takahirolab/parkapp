@@ -1,5 +1,5 @@
 // import { Dashboard } from '@material-ui/icons'
-import React, { Component, Fragment,useState } from 'react';
+import React, { Component } from 'react';
 import MapageMain from './MypageMain'
 import { connect } from 'react-redux';
 import {postScream , clearErrors} from '../../redux/actions/dataActions';

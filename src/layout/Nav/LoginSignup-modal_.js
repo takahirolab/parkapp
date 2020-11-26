@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import {loginUser} from '../../redux/actions/userActions';
 
 import { signupUser } from '../../redux/actions/userActions';
-import Googleicon from '../../images/google.svg';
+
 import Modal from 'react-modal';
-import TwLogo from '../../images/Twitter_Logo.svg'
+
 import { DisappearedLoading } from 'react-loadingg';
 
 

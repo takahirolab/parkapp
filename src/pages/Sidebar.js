@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import SearchbarDrawer_pc from './SearchbarDrawer_pc'
 import SidebarWith from './SidebarWith'
 import SidebarPrefecture from './SidebarPrefecture'
 

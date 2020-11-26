@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../../App.css';
 import Accordion from '../../components/icon/accordion';
 import Navbar_admin from '../../layout/Navbar_admin'
 

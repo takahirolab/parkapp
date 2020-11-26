@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import MyButton from '../../util/MyButton';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -11,11 +10,11 @@ import  {connect} from 'react-redux';
 import {likeScream, unlikeScream} from '../../redux/actions/dataActions';
 
 import CancelIcon from '@material-ui/icons/Cancel';
-import Googleicon from '../../images/google.svg';
+
 import Modal from 'react-modal';
 
 import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
-import TwLogo from '../../images/Twitter_Logo.svg'
+
 
 const customStyles = {
     overlay: {

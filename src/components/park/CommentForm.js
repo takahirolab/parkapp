@@ -2,15 +2,11 @@
  import React, { Component, Fragment } from 'react'
  import PropTypes from 'prop-types';
  import withStyles from '@material-ui/core/styles/withStyles';
- import Button from '@material-ui/core/Button'
- import Grid from '@material-ui/core/Grid'
- import TextField from '@material-ui/core/TextField'
+
 
 
  import {connect} from 'react-redux';
  import {submitComment} from '../../redux/actions/dataActions'
-import { Park } from './Park';
-import { SET_ERRORS } from '../../redux/types';
 
 
 
@@ -37,7 +33,7 @@ import { SET_ERRORS } from '../../redux/types';
        this.setState({[event.target.name]:event.target.value});
    }
 
-   handleSubmit = (event) => {
+     handleSubmit = (event) => {
        event.preventDefault();
        this.props.submitComment(this.props.parkId,{comment:this.state.comment});
    }

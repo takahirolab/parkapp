@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import '../style.css'
 import MovileNav from './Nav/MobileNav'
 import NavbarPC_CenterHome from './Nav/NavbarPC_CenterHome'
 import NavbarHomeAuth from './Nav/NavbarHomeAuth'

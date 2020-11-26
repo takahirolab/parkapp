@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
+
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
@@ -11,8 +11,7 @@ import CommentRoundedIcon from '@material-ui/icons/CommentRounded';
 import { ReactComponent as Humbergar }  from '../images/humbergar.svg'
 import { Link } from 'react-router-dom';
 import DashboardRoundedIcon from '@material-ui/icons/DashboardRounded';
-import {logoutUser,uploadImage,loginUser} from '../redux/actions/userActions';
-import { connect } from 'react-redux';
+
 import MypageSignOut  from './Logout'
 
 const useStyles = makeStyles({

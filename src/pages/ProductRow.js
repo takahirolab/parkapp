@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import { NavLink } from "react-router-dom";
 import { withRouter } from 'react-router';
-import '../App.css';
 import Pic1 from '../images/pic1.png'
 
 import {  Link } from 'react-router-dom';

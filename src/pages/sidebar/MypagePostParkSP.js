@@ -1,6 +1,6 @@
 // import { Dashboard } from '@material-ui/icons'
-import React, { Component, Fragment,useState } from 'react';
-import MapageMain from './MypageMain'
+import React, { Component }from 'react';
+
 import { connect } from 'react-redux';
 import {postScream , clearErrors} from '../../redux/actions/dataActions';
 import PropTypes from 'prop-types';
@@ -88,8 +88,7 @@ export class MypagePost extends Component {
 console.log(this.state.errors)
         const {UI: { loading }
     } = this.props;
-  const { errors } = this.state;
-  const { authenticated } = this.props;
+
         return (
 <>
 <Navbar/>

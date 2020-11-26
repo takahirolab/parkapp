@@ -16,36 +16,6 @@ import Modal from 'react-modal';
 
 import { loginUser } from '../redux/actions/userActions';
 
-const customStyles = {
-  overlay: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      border: 0,
-      animationName: 'login-modal',
-      animationDuration: '0.5s',
-      animationName: 'fadeIn'
-    },
-
-  content : {
-      zIndex:'100',
-      position:'fixed',
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)',
-      background: 'none',
-      border: 'none',
-      animationName: 'login-form',
-      animationDelay : '2s'
- }
-};
-
 
 export class Login_mobile extends Component {
   constructor() {
@@ -65,9 +35,7 @@ export class Login_mobile extends Component {
     this.setState({modalIsOpen: true});
     document.body.setAttribute('style', 'overflow: hidden;')
   }
-  // afterOpenModal() {
-  //   this.subtitle.style.color = '#484848';
-  // }
+
   closeModal() {
     this.setState({modalIsOpen: false});
     document.body.removeAttribute('style', 'overflow: hidden;')
@@ -110,10 +78,6 @@ export class Login_mobile extends Component {
 
 
 render() {
-
-  const {classes,authenticated} = this.props;
-const {errors}=this.state;
-
 
   return (
 

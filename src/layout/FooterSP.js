@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import '../style.css'
 
 import { ReactComponent as LogoWhite } from '../images/LogoWhite.svg';
 import { ReactComponent as TwitterWhite } from '../images/TwitterWH.svg';
 import { ReactComponent as IGWhite } from '../images/IGWhite.svg';
 import FacebookLogo from '../images/FR.png';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
 
 export class FooterSP extends Component {
     render() {

@@ -1,9 +1,6 @@
-import React, {  Suspense, lazy,Component } from 'react';
+import React, {lazy,Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import Grid from '@material-ui/core/Grid';
-import ScreamSkeleton from '../../util/ScreamSkeleton';
-import Park from '../../components/park/Park';
 import history from '../../util/history';
 
 import { withRouter } from 'react-router';
@@ -13,8 +10,6 @@ import  Pic1 from  '../../images/pic1.png'
 import {getPark} from '../../redux/actions/dataActions';
 // import ParkInf from './parkInf';
 import Navbar  from '../../layout/Navbar';
-
-import ParkLikeButton from '../park/LikeButton'
 import Sidebar from '../../pages/Sidebar'
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import ScheduleRoundedIcon from '@material-ui/icons/ScheduleRounded';
@@ -37,12 +32,12 @@ import ScreamSkeleton_inf from '../../util/ScreamSkeleton_inf'
 import ScreamSkeletonSP from '../../util/ScreamSkeletonSP'
 
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import {logoutUser,uploadImage,loginUser} from '../../redux/actions/userActions';
+
 import {likeScream} from '../../redux/actions/dataActions';
 import LikeButton from '../../components/park/LikeButton'
 import Comments from './Comments';
 import Footer from '../../layout/Footer'
-import { AddAlarmOutlined } from '@material-ui/icons';
+
 const LazyComponent = lazy(() => import('../../util/ScreamSkeleton'));
 
 
@@ -89,11 +84,11 @@ export class ParkDetail extends Component {
     }
 
   render() {
-    const { errors } = this.state;
-    const park_detail = this.state.park_detail;
     const { park: {
-          parkId,
+      parkId,
+      parkUrl,
           parkName,
+          parkTime,
           Onecomment,
           createdDate,
           likeCount,
@@ -128,15 +123,20 @@ export class ParkDetail extends Component {
                 <LocationOnRoundedIcon style={{ fontSize: 18 }} className="Parkinf-iconSize"/>
                 <Link to={{ pathname: '/search', search: `?${parkLocation}`, state: { parklocation: parkLocation } }} className="ParkInf-icon-pc">{parkLocation}</Link>
 
-        </div>
-        <div className="parkLocation-det">
-              <ScheduleRoundedIcon style={{ fontSize: 18 }} className="Parkinf-iconSize"/>
-              <p className="ParkInf-icon-pc" >10:00~19:00</p>
-        </div>
-        <div className="parkLocation-det">
-              <PaymentRoundedIcon style={{ fontSize: 18 }} className="Parkinf-iconSize"/>
-              <p className="ParkInf-icon-pc" > {parkPrice}円</p>
-              </ div>
+            </div>
+            {!parkTime ? "" :
+              <div className="parkLocation-det">
+                <ScheduleRoundedIcon style={{ fontSize: 18 }} className="Parkinf-iconSize" />
+                <p className="ParkInf-icon-pc" >{parkTime}</p>
+              </div>}
+
+
+            {!parkPrice ? '' :
+            <div className="parkLocation-det">
+            <PaymentRoundedIcon style={{ fontSize: 18 }} className="Parkinf-iconSize"/>
+            <p className="ParkInf-icon-pc" > {parkPrice}円</p>
+       </ div>}
+
             </div>
     <div className="parkTag-items-pc">
               {!parkTag1 ? '' : <Link to={{ pathname: '/search', search: `?${parkTag1}`, state: { scene: parkTag1} }} className="sidebar-item sidebar-item__detail">{parkTag1}</Link>}
@@ -168,19 +168,17 @@ export class ParkDetail extends Component {
       </div>
       <div className="parkInf-inner">
               <h2 className="parkInf-h2">関連情報</h2>
-             <p>https://www.airbnb.jp/</p>
+            <p>{parkUrl}</p>
             </div>
 
             {/* コメント欄 */}
-      {/* <div className="parkInf-inner">
+      <div className="parkInf-inner">
               <h2 className="parkInf-h2">コメント</h2>
 
-
-              <Comments comments={comments} />
-
+             {!comments?'':  <Comments comments={comments} />}
               <CommentForm parkId={parkId} />
 
-      </div> */}
+      </div>
 
       <div className="parkInf-inner">
               <h2 className="parkInf-h2">アクセス</h2>
@@ -202,7 +200,8 @@ export class ParkDetail extends Component {
 
 
           const loadingUI = this.props.UI;
-          const { parks, loading } = this.props.data;
+    const { parks, loading } = this.props.data;
+    console.log(this.props.data)
         return (
           <>
             <Navbar/>

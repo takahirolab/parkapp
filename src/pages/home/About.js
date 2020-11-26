@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../App.css';
 import { Link } from 'react-router-dom';
 
 import  NavbarHome  from '../../layout/Navbar';
@@ -246,9 +245,14 @@ export class ParkAbout extends Component {
                 </ul></div></> : ''}
 
               </div>
-          <p to="/park/search" className=" About_btn__03 nopost">公園を掲載する</p>
+          <p to="/park/search" className="About_btn__03 nopost">公園を掲載する ※掲載停止中</p>
+
           {/* <Link to="/park/search" className=" About_btn__02 nopost">公園を掲載する</Link> */}
         </section>
+        <section className="About-footer-login">
+
+        </section>
+
 
         <Footer />
 

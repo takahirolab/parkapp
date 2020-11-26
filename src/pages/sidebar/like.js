@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../../layout/Navbar'
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import { getUserData } from '../../redux/actions/dataActions';
@@ -9,12 +8,6 @@ import { Link } from 'react-router-dom';
 
 
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
-import ScheduleRoundedIcon from '@material-ui/icons/ScheduleRounded';
-import PaymentRoundedIcon from '@material-ui/icons/PaymentRounded';
-import TurnedInNotRoundedIcon from '@material-ui/icons/TurnedInNotRounded';
-import QueryBuilderRoundedIcon from '@material-ui/icons/QueryBuilderRounded';
-import CreditCardRoundedIcon from '@material-ui/icons/CreditCardRounded';
-import { LIKE_SCREAM } from '../../redux/types';
 import LikeButton from '../../components/park/LikeButton'
 import ScreamSkeleton from '../../util/ScreamSkeleton';
 

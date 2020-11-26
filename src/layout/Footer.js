@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import '../style.css'
 
 import { ReactComponent as LogoWhite } from '../images/LogoWhite.svg';
 import { ReactComponent as TwitterWhite } from '../images/TwitterWH.svg';
 import { ReactComponent as IGWhite } from '../images/IGWhite.svg';
 import FacebookLogo from '../images/FR.png';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
 
 
 
@@ -14,6 +13,7 @@ export class Footer extends Component {
     render() {
         return (
             <footer className="footer">
+                <div className="footer-inner">
                 <div className="footer-main">
                 <div className="footerLogo-inner">
                         <Link to={{ pathname: "/" }}><LogoWhite className="footer_Log" /></Link>
@@ -53,6 +53,7 @@ export class Footer extends Component {
                                 <img src={FacebookLogo} style={{ width: '25px' }} />
                         </div>
                         <p className="footer_inc">©2020 Parkr, Inc.</p>
+                    </div>
                     </div>
             </footer>
     )
