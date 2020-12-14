@@ -1,0 +1,15 @@
+
+    [
+    {"name":"wifi","en":"wifi"},
+    {"name":"レストラン","en":"restrant"},
+    {"name":"パーキング","en":"parking"},
+    {"name":"サイクリング","en":"cycling"},
+    {"name":"公衆電話","en":"callbox"},
+    {"name":"お店","en":"shop"},
+    {"name":"車椅子","en":"carchair"},
+    {"name":"多目的トイレ","en":"MultipurposeToilet"},
+    {"name":"トレイ","en":"Toilet"},
+    {"name":"ロッカー","en":"Locker"},
+    {"name":"湖","en":"lake"},
+    {"name":"ボート","en":"boat"}
+    ]

@@ -69,16 +69,13 @@ export default function(state = initialState, action) {
       };
 
     case DELETE_SCREAM:
-      index = state.parks.findIndex(
+      let index1 = state.parks.findIndex(
         (park) => park.parkId === action.payload
       );
-      state.parks.splice(index, 1);
+      state.parks.splice(index1, 1);
       return {
         ...state
       };
-
-
-
 
     case POST_SCREAM:
       return {

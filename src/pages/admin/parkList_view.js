@@ -4,20 +4,20 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
 
-// MUI Stuff
-import Deletepark from '../../components/park/DeleteScream';
-
-
 // Icons
 import ChatIcon from '@material-ui/icons/Chat';
 // Redux
 import { connect } from 'react-redux';
-import Pic1 from '../images/pic1.png';
-import EditPark from '../../components/park/EditPark';
+import Deletepark from './DeletePark'
+// import EditPark from '../../components/park/EditPark';
 
 
-class ParkListView extends Component {
+export class ParkListView extends Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
+
     dayjs.extend(relativeTime);
     const {
       classes,
@@ -50,7 +50,6 @@ class ParkListView extends Component {
 
         <tr>
         <td>{parkId}</td>
-        <td><img src={Pic1} alt="ewqe" className="header-item-img"/></td>
         <td>{parkName}</td>
         <td>{parkAbout}</td>
         <td>{parkFeature}</td>
@@ -61,8 +60,7 @@ class ParkListView extends Component {
         <td>{commentCount}</td>
         <td>{likeCount}</td>
          <td>{parkTag1}{parkTag2}{parkTag4}</td>
-        <td><Deletepark parkId={parkId}/></td>
-        <td><EditPark parkId={parkId}/></td>
+        <Deletepark parkId={parkId}/>
         </tr>
 
     )
@@ -77,7 +75,8 @@ ParkListView.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  data:state.data
 });
 
 export default connect(mapStateToProps)(ParkListView);

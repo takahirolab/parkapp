@@ -39,7 +39,7 @@ import history from './util/history'
 
 //
 import axios from 'axios';
-import parkList from './pages/admin/admin'
+import parkList from './pages/admin/parkList'
 
 import likeSP from './pages/sidebar/likeSP'
 import Like from './pages/sidebar/like'
@@ -84,18 +84,15 @@ function App()  {
               <Route　name="park" exact path="/park/:parkId" component={ParkDetail} />
               <Route exact path="/about" component={About} />
 
-
             {/* ////////////////
             サイドバー
             /////////////// */}
 
-              <Route exact path="/search" component={Users} />
+                <Route exact path="/search" component={Users} />
                 <Route exact path="/sp/Mypage" component={MypageSP} />
                 <Route exact path="/sp/dashbord" component={MypageDashbordSP} />
                 <Route exact path="/sp/like" component={likeSP} />
                 <Route exact path="/sp/mypage/post" component={MypagePostSP} />
-
-
 
 
             {/* ////////////////

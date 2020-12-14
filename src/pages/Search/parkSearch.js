@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
 
-
 import {useLocation} from 'react-router-dom';
 
 import { Link,NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getParks} from '../../redux/actions/dataActions';
-
 import  Navbar  from '../../layout/Navbar'
-import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
-import PeopleRoundedIcon from '@material-ui/icons/PeopleRounded';
 
-import LikeButton from '../../components/park/LikeButton'
+import PeopleRoundedIcon from '@material-ui/icons/PeopleRounded';
+import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 
 
 import ScreamSkeleton from '../../util/ScreamSkeleton';
@@ -31,7 +28,10 @@ import AddIcon from '@material-ui/icons/Add';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import LogoTree from '../../images/LogoTree.svg';
 import prefecture from '../../util/prefecture.json';
-import Searchmap from '../Searchmap'
+import Searchmap from '../mapboxAndReact/src/mapbox'
+import ParkSearchItem from './parkSearchItem'
+import L_parkSearch from './l_parkSearch'
+// import L_parkSearchSP from './l'
 
 const JapanArea = prefecture;
 
@@ -76,8 +76,6 @@ export class ParkSearch extends Component {
     this.modalRef = React.createRef()
     this.modalRefwhat = React.createRef()
     this.modalRefwho = React.createRef()
-
-
 
     this.HomeSearchWhatSP= this.HomeSearchWhatSP.bind(this);
     this.HomeSearchWhat= this.HomeSearchWhat.bind(this);
@@ -538,16 +536,10 @@ fixedOpen() {
   document.body.removeAttribute('style', 'position: fixed;')
 }
 
-
-
-
   render() {
     const { parks, loading } = this.props.data;
     const rows = [];
     const SearchInput = this.props.location.pathname.substr(13)
-
-    // console.log(this.props.location.state.parklocation)
-    console.log(this.props)
 
     parks.map((park) => {
       if (park.parkTag2 === this.state.parkTag2) {
@@ -561,16 +553,16 @@ fixedOpen() {
         // タグ×・都市○
         const TagNone_Location = !this.state.parkTag && park.parkLocation === this.state.parklocation
         if (TagTure_locationTrue) {
-          rows.push(<ProductRow park={park} key={park.parkId} />)
+          rows.push(<ParkSearchItem park={park} key={park.parkId} />)
         }
         if (TagLocation_none) {
-          rows.push(<ProductRow park={park} key={park.parkId} />)
+          rows.push(<ParkSearchItem park={park} key={park.parkId} />)
         }
         if (TagNone_Location) {
-          rows.push(<ProductRow park={park} key={park.parkId} />)
+          rows.push(<ParkSearchItem park={park} key={park.parkId} />)
         }
         if (Tag_LocationNone) {
-          rows.push(<ProductRow park={park} key={park.parkId} />)
+          rows.push(<ParkSearchItem park={park} key={park.parkId} />)
         }
       }
 
@@ -585,19 +577,18 @@ fixedOpen() {
         // タグ×・都市○
         const TagNone_Location = !this.state.parkTag && park.parkLocation === this.state.parklocation
         if (TagTure_locationTrue) {
-          rows.push(<ProductRow park={park} key={park.parkId} />)
+          rows.push(<ParkSearchItem park={park} key={park.parkId} />)
         }
         if (TagLocation_none) {
-          rows.push(<ProductRow park={park} key={park.parkId} />)
+          rows.push(<ParkSearchItem park={park} key={park.parkId} />)
         }
         if (TagNone_Location) {
-          rows.push(<ProductRow park={park} key={park.parkId} />)
+          rows.push(<ParkSearchItem park={park} key={park.parkId} />)
         }
         if (Tag_LocationNone) {
-          rows.push(<ProductRow park={park} key={park.parkId} />)
+          rows.push(<ParkSearchItem park={park} key={park.parkId} />)
         }
       }
-
     });
 
 
@@ -605,7 +596,7 @@ fixedOpen() {
 
     const searchForm =
       <>
-      <Navbar/>
+
     <div className="container container_paddinng homeTop parkSearchPadding">
           <div className="park-result-pc parkResult__pc park-result">
             {/* ///////////
@@ -1154,12 +1145,6 @@ fixedOpen() {
 </ul>
 </div>
 
-
-
-
-
-
-
    </ul> : ''}
 </div>
 </div>
@@ -1279,15 +1264,6 @@ fixedOpen() {
              </div>
              </div>
           </div>
-
-
-
-
-
-
-
-
-
               </div>
               </div>
             </div>
@@ -1295,59 +1271,43 @@ fixedOpen() {
 
       </>
 
-console.log(this.props.location)
+
+
+const parkItemsPC = !loading ?rows.length > 0 ?
+  // 検索結果がある場合
+  <>  {rows.slice(0, this.state.marker)}</> :
+   // 検索結果がある場合
+    <div className="searchResult-sorry searchResult-sorry_inner">
+
+      <h2>公園がみつかりません。</h2>
+          <p>別のキーワードを使ったり、入力ミスをチェックしたり、<br />フィルターを調整してみることをおすすめします。</p>
+  </div> : <ScreamSkeleton />
+
+
+  const parkItemsSP =  !loading ?
+      rows.length > 0 ?
+    // 検索結果がある場合
+       <>{rows.slice(0, this.state.marker)}</> :
+     // 検索結果がある場合
+      <div className="searchResult-sorry">
+        <h2>公園がみつかりません。</h2>
+        <p>別のキーワードを使ったり、入力ミスをチェックしたり、<br/>フィルターを調整してみることをおすすめします。</p>
+      </div>: <ScreamSkeletonSP />
+
+
     return (
       <>
- {searchForm}
-        <div className="container_paddinng searchpark-pc">
-          <div className="FindParksResult-items-pc" >
-
-            {
-              !loading ?
-              rows.length > 0 ?
-            // 検索結果がある場合
-            <>  {rows.slice(0, this.state.marker)}</> :
-             // 検索結果がある場合
-              <div className="searchResult-sorry searchResult-sorry_inner">
-
-                <h2>公園がみつかりません。</h2>
-                    <p>別のキーワードを使ったり、入力ミスをチェックしたり、<br />フィルターを調整してみることをおすすめします。</p>
-                </div>:<ScreamSkeleton />
-
-            }
-
-
-
-      </div>
-          {
-
-            rows.length === 0 || rows.length <= 40 ? '' :
-              // 検索結果がある場合
-          parks.length > this.state.marker
-                ? <button onClick={this.loadList} className="ReadMore">もっとみる</button> : ''
-
-          }
-
-
-
-
-        </div>
-
-
+        <Navbar/>
+        {searchForm}
+        <L_parkSearch rows={rows} ReadMore={() => { this.loadList(); }} Maker={this.state.marker} >
+          <Searchmap />
+          {parkItemsPC}
+        </L_parkSearch>
 
         {/* //SP版 */}
         <div className="container_paddinng searchpark-sp">
-          <div className="FindParksResult-items" >
-            {!loading ?
-              rows.length > 0 ?
-            // 検索結果がある場合
-               <>{rows.slice(0, this.state.marker)}</> :
-             // 検索結果がある場合
-              <div className="searchResult-sorry">
-                <h2>公園がみつかりません。</h2>
-                <p>別のキーワードを使ったり、入力ミスをチェックしたり、<br/>フィルターを調整してみることをおすすめします。</p>
-              </div>: <ScreamSkeletonSP />
-            }
+          <div className="FindParksResult-items">
+             {parkItemsSP}
       </div>
           {rows.length === 0 || rows.length <= 40 ? '' :
               // 検索結果がある場合
@@ -1355,7 +1315,6 @@ console.log(this.props.location)
           ? <button onClick={this.loadList} className="ReadMore">もっとみる</button> : ''
           }
         </div>
-        {/* <Searchmap/> */}
       <Footer />
       </>
     )
@@ -1370,71 +1329,39 @@ export default connect(mapStateToProps,{getParks})(ParkSearch);
 
 
 
+// import React, { Component } from 'react'
 
+// export default class parkSearch extends Component {
+//   render() {
+//     return (
+//       <>
+//       <Navbar/>
+//       {searchForm}
+//       <L_parkSearch rows={rows} ReadMore={() => { this.loadList(); }} Maker={this.state.marker} >
+//         <Searchmap />
+//         {parkItemsPC}
+//       </L_parkSearch>
 
-class ProductRow extends React.Component {
-  constructor() {
-    super()
-
-    this.state = {
-      count: 0,
-    }
-
-    this.CountList = this.CountList.bind(this)
-  }
-
-  render() {
-
-    return (
-      //PC版
-      <>
-
-        <div className="FindParksResult-item-pc">
-      <Link to={`/park/${this.props.park.parkId}`} onClick={this.CountList}>
-      <img className="FindParksResult-item-img-pc" src={this.props.park.parkImage}/>
-            <div className="FindParksResult-item-detil">
-              <h2 className="parksResult-item-name-pc">{this.props.park.parkName}</h2>
-              <div className="Park-location-pc">
-              <LocationOnRoundedIcon style={{ fontSize: 15 }}/>
-              <p className="parksResult-locAtime-name-pc">{this.props.park.parkLocation}</p>
-              </div>
-            </div>
-
-          </Link>
-          <LikeButton parkId={this.props.park.parkId} className="park-bookmark"/>
-          {this.props.park.parkTag3?
-            <div className="parkSpecialTag">{this.props.park.parkTag3}</div>:''
-          }
-          </div>
+//       {/* //SP版 */}
+//       <div className="container_paddinng searchpark-sp">
+//         <div className="FindParksResult-items">
+//            {parkItemsSP}
+//     </div>
+//         {rows.length === 0 || rows.length <= 40 ? '' :
+//             // 検索結果がある場合
+//         parks.length > this.state.marker && !loading
+//         ? <button onClick={this.loadList} className="ReadMore">もっとみる</button> : ''
+//         }
+//       </div>
+//     <Footer />
+//     </>
+//     )
+//   }
+// }
 
 
 
-      {/* //スマホ版 */}
-      <Link to={`/park/${this.props.park.parkId}`} className="FindParksResult-item" onClick={this.CountList}>
-        <img className="FindParksResult-item-img" src={this.props.park.parkImage}/>
-        <div className="FindParksResult-item-detil">
-          <h2 className="parksResult-item-name">{this.props.park.parkName}</h2>
-      </div>
-      <div className="Park-location">
-            <LocationOnRoundedIcon className="Park-location--LocationIcon"/>
-            <p className="parksResult-locAtime-name">{this.props.park.parkLocation}</p>
-          </div>
-           {/* <LikeButton parkId={this.props.park.parkId} /> */}
-      </Link>
 
-        </>
-    );
-  }
-
-
-  CountList() {
-    this.setState({
-      count: this.state.count + 1
-
-    })
-    console.log(this.props.count)
-  }
-}
 
 
 

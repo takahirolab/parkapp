@@ -2,24 +2,21 @@ import React, { Component } from 'react'
 
 
 import PropTypes from 'prop-types';
-
-
-
 import {connect} from 'react-redux';
 
 import  Navbar_admin  from '../../layout/Navbar_admin'
 import Accordion from '../../components/icon/accordion'
 
-import PostScream from '../PostScream'
-import {getParks} from '../../redux/actions/dataActions';
-
+// import PostScream from '../PostScream'
+import { getParks } from '../../redux/actions/dataActions';
 import ParkListView from './parkList_view';
-
-
-
+import DeletePark from './DeletePark'
 
 
 export class parkList extends Component {
+  constructor(props) {
+    super(props)
+  }
   componentDidMount(){
     this.props.getParks();
   }
@@ -49,7 +46,7 @@ export class parkList extends Component {
                     </div>
                     <div className ="contets_admin">
                       <div className="admin_flex">
-                        <div class="white"><PostScream/></div>
+                        {/* <div class="white"><PostScream/></div> */}
                         <div className="admin_color admin_font">公園件数：{parksNum}</div>
                       </div>
 
@@ -68,8 +65,10 @@ export class parkList extends Component {
                             <th>コメント</th>
                             <th>like数</th>
                             <th>タグ</th>
-                            <th>削除</th>
+                    <th>削除</th>
+                    <DeletePark parkId='UWQ9qFQ9rmSvv0Hjx01O'/>
                         </tr>
+
                       {parksHome_list}
                         </table>
 

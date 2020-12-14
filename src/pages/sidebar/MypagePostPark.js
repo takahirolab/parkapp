@@ -5,6 +5,25 @@ import { connect } from 'react-redux';
 import {postScream , clearErrors} from '../../redux/actions/dataActions';
 import PropTypes from 'prop-types';
 
+
+import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
+import ScheduleRoundedIcon from '@material-ui/icons/ScheduleRounded';
+import PaymentRoundedIcon from '@material-ui/icons/PaymentRounded';
+import WifiIcon from '@material-ui/icons/Wifi';
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import LocalParkingIcon from '@material-ui/icons/LocalParking';
+import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
+import CallIcon from '@material-ui/icons/Call';
+import StorefrontIcon from '@material-ui/icons/Storefront';
+import RestaurantIcon from '@material-ui/icons/Restaurant';
+import WcIcon from '@material-ui/icons/Wc';
+import AccessibleIcon from '@material-ui/icons/Accessible';
+import SportsBaseballRoundedIcon from '@material-ui/icons/SportsBaseballRounded';
+import WorkRoundedIcon from '@material-ui/icons/WorkRounded';
+import Facilities from '../../util/facility.json'
+
+
+
 export class MypagePost extends Component {
     constructor(props) {
         super();
@@ -21,8 +40,20 @@ export class MypagePost extends Component {
             parkTag3: '',
             parkTag4: '',
             errors: {},
-            parkImage: ''
+            parkImage: '',
+            parkwifi:'',
+            restrant:'',
+            cycling :'',
+            parking: '',
+            callbox:'',
+            shop:'',
+            MultipurposeToilet:'',
+            carchair:'',
+            Locker:'',
+            lake:'',
+            boat:'',
         };
+        this.handleChangeChecked  = this.handleChangeChecked.bind(this)
     }
 
 
@@ -46,6 +77,7 @@ export class MypagePost extends Component {
             parkTag4: '',
             parkImage:'',
             open: false, errors: {},
+
           });
 
         }
@@ -56,8 +88,27 @@ export class MypagePost extends Component {
         this.setState({
           [event.target.name]: event.target.value
         });
-      console.log( event)
-      };
+
+    };
+
+
+    handleChangeChecked(event) {
+        if (event.target.name === 'wifi') {this.state.parkwifi ? this.setState({ parkwifi: '' }) : this.setState({ parkwifi: true })}
+        if (event.target.name === 'restrant') {this.state.restrant ? this.setState({ restrant: '' }) : this.setState({ restrant: true })}
+        if (event.target.name === 'cycling' ){this.state.cycling ? this.setState({ cycling: '' }) : this.setState({ cycling: true })}
+        if (event.target.name === 'arking' ){this.state.parking ? this.setState({ parking: '' }) : this.setState({ parking: true })}
+        if (event.target.name === 'callbox') {this.state.callbox? this.setState({ callbox: '' }) : this.setState({ callbox: true })}
+        if (event.target.name === 'shop') {this.state.shop ? this.setState({ shop: '' }) : this.setState({ shop: true })}
+        if (event.target.name === 'carchair') {this.state.carchair? this.setState({ carchair: '' }) : this.setState({ carchair: true })}
+        if (event.target.name === 'MultipurposeToilet') {this.state.MultipurposeToilet ? this.setState({ MultipurposeToilet: '' }) : this.setState({ MultipurposeToilet: true })}
+        if (event.target.name === 'Toilet') {this.state.Toilet ? this.setState({ Toilet: '' }) : this.setState({ Toilet: true })}
+        if (event.target.name === 'Locker') { this.state.Locker ? this.setState({ Locker: '' }) : this.setState({ Locker: true })}
+        if (event.target.name === 'Toilet') { this.state.Toilet ? this.setState({ Toilet: '' }) : this.setState({ Toilet: true })}
+        if ( event.target.name === 'lake') { this.state.lake ? this.setState({lake: '' }) : this.setState({ lake: true })}
+        if ( event.target.name === 'boat') { this.state.boat ? this.setState({boat: '' }) : this.setState({ boat: true })}
+        console.log(this.state.parkwifi)
+    }
+
 
 
 
@@ -65,24 +116,69 @@ export class MypagePost extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const newPark = {
-          parkName: this.state.parkName,
-          parkAbout: this.state.parkAbout,
-          parkFeature: this.state.parkFeature,
-          parkLocation: this.state.parkLocation,
-          parkUrl: this.state.parkUrl,
-          parkPrice: this.state.parkPrice,
-          parkTag1: this.state.parkTag1,
-          parkTag2: this.state.parkTag2,
-          parkTag3: this.state.parkTag3,
-          parkTag4: this.state.parkTag4,
-          parkImage: this.state.parkImage
+            parkName: this.state.parkName,
+            parkAbout: this.state.parkAbout,
+            parkFeature: this.state.parkFeature,
+            parkLocation: this.state.parkLocation,
+            parkUrl: this.state.parkUrl,
+            parkPrice: this.state.parkPrice,
+            parkTag1: this.state.parkTag1,
+            parkTag2: this.state.parkTag2,
+            parkTag3: this.state.parkTag3,
+            parkTag4: this.state.parkTag4,
+            parkImage: this.state.parkImage,
+            parkwifi: this.state.parkwifi,
+            restrant: this.state.restrant,
+            cycling: this.state.cycling,
+            parking: this.state.parking,
+            callbox: this.state.callbox,
+            shop: this.state.shop,
+            MultipurposeToilet: this.state.MultipurposeToile,
+            carchair: this.state.carchair,
+            Locker: this.state.Locker,
+            lake: this.state.lake,
+            boat: this.state.boat
         }
-        this.props.postScream({parkName: this.state.parkName});
 
+
+
+        this.props.postScream(newPark);
     }
 
+
+
+
+
     render() {
-console.log(this.state.errors)
+        const test  = Facilities.map((facility) =>
+
+            <>
+
+                    <div className="parkPost__facility">
+                        {facility.en === 'wifi' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'restrant' ? <RestaurantIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'parking' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'cycling' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'callbox' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'shop' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'carchair' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'MultipurposeToilet' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'Toilet' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'Locker' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'lake' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+                        {facility.en === 'boat' ? <WifiIcon style={{ fontSize: 19 }} /> : ''}
+
+                                     <p>{facility.name}</p>
+                            <input
+                            name={facility.en}
+                            type="checkbox"
+                            label={facility.en}
+                            className="MypageInput"
+                            onChange={this.handleChangeChecked}/>
+                                </div>
+
+                </>
+)
         const {UI: { loading }
     } = this.props;
   const { errors } = this.state;
@@ -92,6 +188,7 @@ console.log(this.state.errors)
 
                 <div className="Mypage-item-padding">
                     <h2 className="Mypage-item-h2">公園を投稿する</h2>
+
                     <div className="">
                         <form onSubmit={this.handleSubmit} className="MypagePost-form MypagePost-margintop">
 
@@ -251,22 +348,22 @@ console.log(this.state.errors)
                                             <option value="神奈川">神奈川</option>
                                     </select>
                                 </div>
+                                </div>
+
                             </div>
-
-
-
-
-                        </div>
+                            <div className="Mypage-facility">
+                            {test}
+                            </div>
 
 
                             <input
                                 type="file"
-                                name="parkImage"
+                                name="parkwifi"
                                 label="タグ4"
                                 rows="3"
                                 placeholder="image"
                                 onChange={this.handleChange}
-                                fullWidth
+
                             />
                             {0 === Object.keys(this.state.errors).length?
                               '' : <p style={{color:'red',margin:'0 auto'}}>入力内容に不備があります。</p>

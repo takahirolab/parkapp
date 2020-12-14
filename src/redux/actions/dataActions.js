@@ -175,10 +175,8 @@ export const unlikeScream = (parkId) => (dispatch) => {
 // Submit a comment
 export const submitComment = (parkId, commentData) => (dispatch) => {
   axios
-    .post(`/park/${parkId}/comment`, commentData)
+    .post(`/parks/${parkId}/comment`, commentData)
     .then((res) => {
-      console.log(res)
-      console.log('aaaaaaa')
       dispatch({
         type: SUBMIT_COMMENT,
         payload: res.data
@@ -199,10 +197,14 @@ export const deleteScream = (parkId) => (dispatch) => {
   axios
     .delete(`/park/${parkId}`)
     .then(() => {
-      dispatch({ type: DELETE_SCREAM, payload: parkId });
+      dispatch({
+        type: DELETE_SCREAM,
+        payload: parkId
+      });
     })
     .catch((err) => console.log(err));
 };
+
 
 
 export const getUserData = (userName) => (dispatch) => {
