@@ -26,6 +26,7 @@ export class Mypage extends Component {
         this.editProfile = this.editProfile.bind(this);
     }
 
+
     // mapUserDetailsToState () {
     //     this.setState({
     //       bio: this.props.credentials.bio ? this.props.credentials.bio : '',
